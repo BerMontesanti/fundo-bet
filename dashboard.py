@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 from thefuzz import fuzz
 
-st.set_page_config(page_title="Fundo Quant - V8.2 (Full Data)", layout="wide")
+st.set_page_config(page_title="Fundo Quant - V8.7 (Strict AND)", layout="wide")
 st.title("⚡ Master Dashboard: Gestão Quantitativa Total")
 
 HEADERS_BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "Accept": "application/json"}
@@ -16,7 +16,7 @@ API_KEY = 'f926d86f5279262d9eb0afb7f304520f'
 if 'pin_report' not in st.session_state:
     st.session_state['pin_report'] = pd.DataFrame()
 
-# --- CACHE DE LIGAS DINÂMICAS ---
+# --- CACHE 1: LIGAS DINÂMICAS (Filtro AND aplicado) ---
 @st.cache_data(ttl=3600)
 def carregar_ligas_poly_hibrido():
     url_poly = "https://gamma-api.polymarket.com/events"
@@ -29,7 +29,8 @@ def carregar_ligas_poly_hibrido():
                     tags_dict = ev.get('tags', [])
                     if isinstance(tags_dict, list) and len(tags_dict) > 0:
                         tags_str = [str(t.get('label', '')).strip() for t in tags_dict if isinstance(t, dict)]
-                        if 'Games' in tags_str:
+                        # EXIGÊNCIA STRICT: Tem que ter Games E Sports
+                        if 'Games' in tags_str and 'Sports' in tags_str:
                             for tag in tags_str:
                                 if tag not in ['Games', 'Sports', 'Soccer', 'Tennis', 'Basketball', 'Esports', 'Football']:
                                     ligas_encontradas.add(tag)
@@ -37,7 +38,40 @@ def carregar_ligas_poly_hibrido():
     ligas_base = ["Premier League", "Champions League", "Europa League", "Brasileirao", "Brazil Serie A", "Brazil Serie B", "Copa Libertadores", "NBA", "UFC", "ATP", "WTA"]
     return ["Todas as Ligas Ativas"] + sorted(list(set(ligas_base + list(ligas_encontradas))))
 
+# --- CACHE 2: TODAS AS TAGS (HIERARQUIA DE ESPORTES NO TOPO) ---
+@st.cache_data(ttl=3600)
+def carregar_todas_tags_poly():
+    url_poly = "https://gamma-api.polymarket.com/events"
+    todas_tags = set()
+    try:
+        for offset in [0, 500, 1000]:
+            res = requests.get(url_poly, headers=HEADERS_BROWSER, params={"active": "true", "closed": "false", "limit": 500, "offset": offset})
+            if res.status_code == 200:
+                for ev in res.json():
+                    tags_dict = ev.get('tags', [])
+                    if isinstance(tags_dict, list) and len(tags_dict) > 0:
+                        for t in tags_dict:
+                            if isinstance(t, dict) and 'label' in t:
+                                todas_tags.add(str(t['label']).strip())
+    except Exception: pass
+    
+    tags_base = ["Soccer", "Tennis", "Basketball", "Esports", "Football", "Politics", "Crypto", "Pop Culture"]
+    lista_final = sorted(list(set(tags_base + list(todas_tags))))
+    
+    tags_prioridade = [
+        "TUDO (Sem Filtro)", 
+        "Sports", "Games", 
+        "Soccer", "Football", "Basketball", "Tennis", "Esports"
+    ]
+    
+    for t in tags_prioridade:
+        if t in lista_final:
+            lista_final.remove(t)
+            
+    return tags_prioridade + lista_final
+
 ligas_poly_opcoes = carregar_ligas_poly_hibrido()
+tags_poly_opcoes = carregar_todas_tags_poly()
 
 # --- BARRA LATERAL ---
 st.sidebar.header("⚙️ Parâmetros do Fundo")
@@ -82,10 +116,13 @@ esportes_selecionados = lista_ligas_pin[1:] if any(l[1] == "all" for l in esport
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("🌐 Blockchain (Polymarket)")
-tipo_evento_poly = st.sidebar.radio("Filtro Contrato:", ["Apenas Jogos (Tag 'Games')", "Mostrar Tudo"])
+
+# ATUALIZADO: Filtro de Contrato reflete a lógica E (AND)
+tipo_evento_poly = st.sidebar.radio("Filtro Contrato:", ["Apenas Jogos E Esportes (Tags 'Games' E 'Sports')", "Mostrar Tudo"])
+
 ligas_poly_sel = st.sidebar.multiselect("Filtrar por Liga:", options=ligas_poly_opcoes, default=["Todas as Ligas Ativas"])
+cats_poly = st.sidebar.multiselect("Filtrar por Tags:", options=tags_poly_opcoes, default=["TUDO (Sem Filtro)"])
 tag_manual = st.sidebar.text_input("Tag Manual:", "")
-cats_poly = st.sidebar.multiselect("Categorias:", options=["TUDO (Sem Filtro)", "Sports", "Soccer", "Tennis", "Basketball", "Esports"], default=["TUDO (Sem Filtro)"])
 
 # --- FUNÇÕES AUXILIARES ---
 def parse_poly_list(field):
@@ -125,7 +162,14 @@ def passa_filtros_poly(ev, cats, tipo, ligas, manual):
     slug = str(ev.get('slug', '')).lower()
     if "TUDO (Sem Filtro)" not in cats:
         if not any(c.lower() in tags or c.lower() in slug for c in cats): return False
-    if tipo == "Apenas Jogos (Tag 'Games')" and "games" not in tags and "games" not in slug: return False
+    
+    # ATUALIZADO: Lógica rigorosa AND. Ambas precisam estar presentes.
+    if tipo == "Apenas Jogos E Esportes (Tags 'Games' E 'Sports')":
+        has_games = "games" in tags or "games" in slug
+        has_sports = "sports" in tags or "sports" in slug
+        if not (has_games and has_sports):
+            return False
+            
     passou = False
     if "Todas as Ligas Ativas" in ligas: passou = True
     elif any(l.lower() in tags or l.lower() in slug for l in ligas): passou = True
@@ -259,19 +303,80 @@ with tab2:
 # TAB 3: RELATÓRIO POLYMARKET
 with tab3:
     st.markdown("### 🌐 Escavadeira de Contratos Web3")
-    paginas = st.slider("Profundidade (Páginas)", 2, 40, 10)
+    
+    modo_raio_x = st.checkbox("🔮 Modo Raio-X: Mostrar contratos ignorando a lista da Pinnacle", value=True)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        termo_busca = st.text_input("Filtrar por nome exato do jogo:", "", disabled=not modo_raio_x)
+    with col2:
+        paginas = st.slider("Profundidade (Páginas de 500 eventos)", 2, 40, 10)
+        
     if st.button("Buscar no Polymarket", key="btn_poly"):
-        with st.spinner("Lendo Blockchain..."):
+        with st.spinner(f"Lendo {paginas * 500} contratos na blockchain..."):
+            
+            times_alvo = []
+            if not modo_raio_x and not termo_busca and esportes_selecionados:
+                pin_filtro = fetch_pinnacle_data(esportes_selecionados, data_alvo)
+                for g in pin_filtro:
+                    times_alvo.append(g['Home'])
+                    times_alvo.append(g['Away'])
+
             rel_poly = []
+            pb_poly = st.progress(0)
+            
             for offset in range(0, paginas * 500, 500):
-                res = requests.get("https://gamma-api.polymarket.com/events", headers=HEADERS_BROWSER, params={"active":"true","closed":"false","limit":500,"offset":offset})
-                if res.status_code == 200:
+                pb_poly.progress(min((offset + 500) / (paginas * 500), 1.0))
+                try:
+                    res = requests.get("https://gamma-api.polymarket.com/events", headers=HEADERS_BROWSER, params={"active":"true","closed":"false","limit":500,"offset":offset})
+                    if res.status_code != 200: break
+                    
                     for ev in res.json():
-                        if passa_filtros_poly(ev, cats_poly, tipo_evento_poly, ligas_poly_sel, tag_manual):
-                            outs = parse_poly_list(ev.get('markets',[{}])[0].get('outcomes',[]))
-                            asks = parse_poly_list(ev.get('markets',[{}])[0].get('bestAsks',[]))
+                        titulo = ev.get('title', '')
+                        if not titulo: continue
+                        
+                        if not passa_filtros_poly(ev, cats_poly, tipo_evento_poly, ligas_poly_sel, tag_manual):
+                            continue
+                            
+                        manter_evento = False
+                        if modo_raio_x:
+                            manter_evento = True
+                        elif termo_busca:
+                            if termo_busca.lower() in titulo.lower(): manter_evento = True
+                        else:
+                            if times_alvo:
+                                t_lower = titulo.lower()
+                                for t in times_alvo:
+                                    if t.lower() in t_lower or fuzz.partial_ratio(t.lower(), t_lower) >= 85:
+                                        manter_evento = True; break
+                            else: manter_evento = True
+                                
+                        if not manter_evento: continue
+                            
+                        mercados = ev.get('markets', [])
+                        if not mercados: continue
+                        
+                        outs = parse_poly_list(mercados[0].get('outcomes', []))
+                        asks = parse_poly_list(mercados[0].get('bestAsks', []))
+                        if not asks: asks = parse_poly_list(mercados[0].get('outcomePrices', []))
+                        
+                        if len(outs) > 0 and len(outs) == len(asks):
                             for i, o in enumerate(outs):
-                                if i < len(asks): rel_poly.append({"Jogo": ev.get('title'), "Opção": o, "Preço": float(asks[i]), "Tags": extract_clean_tags(ev.get('tags'), ev.get('slug'))})
+                                try:
+                                    preco = float(asks[i])
+                                except:
+                                    preco = 0.0
+                                    
+                                if 0.01 < preco < 0.99:
+                                    rel_poly.append({
+                                        "Jogo / Mercado": titulo, 
+                                        "Opção": o, 
+                                        "Preço": preco, 
+                                        "Tags": extract_clean_tags(ev.get('tags'), ev.get('slug'))
+                                    })
+                except Exception: break
+            
+            pb_poly.empty()
             if rel_poly: 
                 st.dataframe(
                     pd.DataFrame(rel_poly), 
@@ -281,3 +386,5 @@ with tab3:
                         "Preço": st.column_config.NumberColumn(format="$ %.3f")
                     }
                 )
+            else:
+                st.info("Nenhuma correspondência no Polymarket. Tente aumentar a profundidade ou diminuir os filtros.")

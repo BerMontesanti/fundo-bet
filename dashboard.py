@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 from thefuzz import fuzz
 
-st.set_page_config(page_title="Fundo Quant - V8.7 (Strict AND)", layout="wide")
+st.set_page_config(page_title="Fundo Quant - V8.8", layout="wide")
 st.title("⚡ Master Dashboard: Gestão Quantitativa Total")
 
 HEADERS_BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "Accept": "application/json"}
@@ -29,7 +29,6 @@ def carregar_ligas_poly_hibrido():
                     tags_dict = ev.get('tags', [])
                     if isinstance(tags_dict, list) and len(tags_dict) > 0:
                         tags_str = [str(t.get('label', '')).strip() for t in tags_dict if isinstance(t, dict)]
-                        # EXIGÊNCIA STRICT: Tem que ter Games E Sports
                         if 'Games' in tags_str and 'Sports' in tags_str:
                             for tag in tags_str:
                                 if tag not in ['Games', 'Sports', 'Soccer', 'Tennis', 'Basketball', 'Esports', 'Football']:
@@ -111,13 +110,14 @@ lista_ligas_pin = [
     ("E-Sports - LoL", "esports_lol_match_winner"),
     ("Basquete - NBA", "basketball_nba")
 ]
-esportes_raw = st.sidebar.multiselect("Ligas Oráculo:", options=lista_ligas_pin, format_func=lambda x: x[0], default=[lista_ligas_pin[1]])
+
+# ATUALIZADO: Default agora é lista_ligas_pin[0] ("🌟 TODAS AS LIGAS")
+esportes_raw = st.sidebar.multiselect("Ligas Oráculo:", options=lista_ligas_pin, format_func=lambda x: x[0], default=[lista_ligas_pin[0]])
 esportes_selecionados = lista_ligas_pin[1:] if any(l[1] == "all" for l in esportes_raw) else esportes_raw
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("🌐 Blockchain (Polymarket)")
 
-# ATUALIZADO: Filtro de Contrato reflete a lógica E (AND)
 tipo_evento_poly = st.sidebar.radio("Filtro Contrato:", ["Apenas Jogos E Esportes (Tags 'Games' E 'Sports')", "Mostrar Tudo"])
 
 ligas_poly_sel = st.sidebar.multiselect("Filtrar por Liga:", options=ligas_poly_opcoes, default=["Todas as Ligas Ativas"])
@@ -163,7 +163,6 @@ def passa_filtros_poly(ev, cats, tipo, ligas, manual):
     if "TUDO (Sem Filtro)" not in cats:
         if not any(c.lower() in tags or c.lower() in slug for c in cats): return False
     
-    # ATUALIZADO: Lógica rigorosa AND. Ambas precisam estar presentes.
     if tipo == "Apenas Jogos E Esportes (Tags 'Games' E 'Sports')":
         has_games = "games" in tags or "games" in slug
         has_sports = "sports" in tags or "sports" in slug

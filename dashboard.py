@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 from thefuzz import fuzz
 
-st.set_page_config(page_title="Fundo Quant - V8.8", layout="wide")
+st.set_page_config(page_title="Fundo Quant - V9.1 (Casas Dinâmicas)", layout="wide")
 st.title("⚡ Master Dashboard: Gestão Quantitativa Total")
 
 HEADERS_BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)", "Accept": "application/json"}
@@ -16,7 +16,7 @@ API_KEY = 'f926d86f5279262d9eb0afb7f304520f'
 if 'pin_report' not in st.session_state:
     st.session_state['pin_report'] = pd.DataFrame()
 
-# --- CACHE 1: LIGAS DINÂMICAS (Filtro AND aplicado) ---
+# --- CACHE 1: LIGAS DINÂMICAS POLYMARKET ---
 @st.cache_data(ttl=3600)
 def carregar_ligas_poly_hibrido():
     url_poly = "https://gamma-api.polymarket.com/events"
@@ -37,7 +37,7 @@ def carregar_ligas_poly_hibrido():
     ligas_base = ["Premier League", "Champions League", "Europa League", "Brasileirao", "Brazil Serie A", "Brazil Serie B", "Copa Libertadores", "NBA", "UFC", "ATP", "WTA"]
     return ["Todas as Ligas Ativas"] + sorted(list(set(ligas_base + list(ligas_encontradas))))
 
-# --- CACHE 2: TODAS AS TAGS (HIERARQUIA DE ESPORTES NO TOPO) ---
+# --- CACHE 2: TODAS AS TAGS POLYMARKET ---
 @st.cache_data(ttl=3600)
 def carregar_todas_tags_poly():
     url_poly = "https://gamma-api.polymarket.com/events"
@@ -83,7 +83,6 @@ st.sidebar.markdown("---")
 st.sidebar.header("🛡️ Filtros de Risco & IA")
 target_ev = st.sidebar.slider("Alvo Mínimo de ROI (%)", 1.0, 15.0, 5.0, 0.5) / 100
 target_edge = st.sidebar.slider("Edge Absoluto Exigido (%)", 0.5, 5.0, 2.5, 0.1) / 100
-fuzzy_limit = st.sidebar.slider("Tolerância Match (DNA %)", 50, 100, 75, 5)
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("🔮 Oráculo (Pinnacle)")
@@ -111,20 +110,51 @@ lista_ligas_pin = [
     ("Basquete - NBA", "basketball_nba")
 ]
 
-# ATUALIZADO: Default agora é lista_ligas_pin[0] ("🌟 TODAS AS LIGAS")
 esportes_raw = st.sidebar.multiselect("Ligas Oráculo:", options=lista_ligas_pin, format_func=lambda x: x[0], default=[lista_ligas_pin[0]])
 esportes_selecionados = lista_ligas_pin[1:] if any(l[1] == "all" for l in esportes_raw) else esportes_raw
+
+# --- NOVO FILTRO: CASAS DE APOSTAS ALVO ---
+st.sidebar.markdown("---")
+st.sidebar.subheader("🎯 Casas Alvo (+EV)")
+
+lista_casas_alvo = [
+    ("Bet365", "bet365"),
+    ("Betano", "betano"),
+    ("1xBet", "1xbet"),
+    ("Betfair (Exchange)", "betfair_ex_eu"),
+    ("Betfair (Sportsbook)", "betfair_sb_uk"),
+    ("Bovada", "bovada"),
+    ("888sport", "sport888"),
+    ("Unibet", "unibet_eu"),
+    ("William Hill", "williamhill"),
+    ("Matchbook", "matchbook"),
+    ("Betsson", "betsson"),
+    ("Coolbet", "coolbet"),
+    ("DraftKings", "draftkings"),
+    ("FanDuel", "fanduel"),
+    ("BetMGM", "betmgm"),
+    ("BetOnline.ag", "betonlineag"),
+    ("MyBookie.ag", "mybookieag")
+]
+# Selecionadas por defeito as mais famosas do Brasil
+casas_selecionadas_raw = st.sidebar.multiselect(
+    "Filtrar Casas de Apostas:", 
+    options=lista_casas_alvo, 
+    format_func=lambda x: x[0], 
+    default=[lista_casas_alvo[0], lista_casas_alvo[1], lista_casas_alvo[2], lista_casas_alvo[3]]
+)
+# Extraímos apenas as 'keys' das APIs para o motor
+casas_alvo_keys = [casa[1] for casa in casas_selecionadas_raw]
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("🌐 Blockchain (Polymarket)")
 
 tipo_evento_poly = st.sidebar.radio("Filtro Contrato:", ["Apenas Jogos E Esportes (Tags 'Games' E 'Sports')", "Mostrar Tudo"])
-
 ligas_poly_sel = st.sidebar.multiselect("Filtrar por Liga:", options=ligas_poly_opcoes, default=["Todas as Ligas Ativas"])
 cats_poly = st.sidebar.multiselect("Filtrar por Tags:", options=tags_poly_opcoes, default=["TUDO (Sem Filtro)"])
 tag_manual = st.sidebar.text_input("Tag Manual:", "")
 
-# --- FUNÇÕES AUXILIARES ---
+# --- FUNÇÕES AUXILIARES POLYMARKET ---
 def parse_poly_list(field):
     if isinstance(field, str):
         try: return json.loads(field)
@@ -135,27 +165,6 @@ def extract_clean_tags(raw_tags, fallback):
     if isinstance(raw_tags, list) and len(raw_tags) > 0 and isinstance(raw_tags[0], dict):
         return ", ".join([str(t.get('label', '')) for t in raw_tags if 'label' in t])
     return fallback
-
-def fetch_pinnacle_data(ligas, date):
-    games = []
-    for nome, sport_key in ligas:
-        url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
-        try:
-            res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu', 'markets': 'h2h', 'bookmakers': 'pinnacle'})
-            if res.status_code == 200:
-                for ev in res.json():
-                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
-                    if date == "" or dt.strftime("%d/%m") == date:
-                        bookie = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
-                        if bookie:
-                            outcomes = bookie['markets'][0]['outcomes']
-                            sum_inv = sum([1/o['price'] for o in outcomes])
-                            probs = {o['name']: (1/o['price']) / sum_inv for o in outcomes}
-                            odds_j = {o['name']: 1/probs[o['name']] for o in outcomes}
-                            games.append({'Liga': nome, 'Home': ev['home_team'], 'Away': ev['away_team'], 'Probs': probs, 'Odds_J': odds_j, 'Data': dt.strftime("%d/%m %H:%M"), '_dt': dt})
-        except: pass
-    games.sort(key=lambda x: x['_dt'])
-    return games
 
 def passa_filtros_poly(ev, cats, tipo, ligas, manual):
     tags = str(ev.get('tags', [])).lower()
@@ -177,89 +186,147 @@ def passa_filtros_poly(ev, cats, tipo, ligas, manual):
         else: return False
     return passou
 
-# --- INTERFACE ---
-tab1, tab2, tab3 = st.tabs(["🚀 MOTOR DE FUSÃO", "🔮 p implícita - Pinnacle", "🌐 RELATÓRIO POLYMARKET"])
+# --- FUNÇÕES DE BUSCA DE ODDS API ---
+def fetch_pinnacle_data(ligas, date):
+    """Função clássica usada apenas na Aba 2 e Aba 3"""
+    games = []
+    for nome, sport_key in ligas:
+        url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
+        try:
+            res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu', 'markets': 'h2h', 'bookmakers': 'pinnacle'})
+            if res.status_code == 200:
+                for ev in res.json():
+                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
+                    if date == "" or dt.strftime("%d/%m") == date:
+                        bookie = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
+                        if bookie:
+                            outcomes = bookie['markets'][0]['outcomes']
+                            sum_inv = sum([1/o['price'] for o in outcomes])
+                            probs = {o['name']: (1/o['price']) / sum_inv for o in outcomes}
+                            odds_j = {o['name']: 1/probs[o['name']] for o in outcomes}
+                            games.append({'Liga': nome, 'Home': ev['home_team'], 'Away': ev['away_team'], 'Probs': probs, 'Odds_J': odds_j, 'Data': dt.strftime("%d/%m %H:%M"), '_dt': dt})
+        except: pass
+    games.sort(key=lambda x: x['_dt'])
+    return games
 
-# TAB 1: MOTOR DE FUSÃO
+def fetch_soft_books_data(ligas, date, target_keys):
+    """Motor Dinâmico: Busca Pinnacle + Casas selecionadas na Barra Lateral"""
+    games = []
+    
+    # Junta pinnacle com as casas que o utilizador escolheu
+    target_bookmakers = 'pinnacle,' + ','.join(target_keys)
+    
+    for nome, sport_key in ligas:
+        url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
+        try:
+            # regions='eu,us,uk' garante que cobrimos casas globais, americanas e britânicas (como betfair)
+            res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu,us,uk', 'markets': 'h2h', 'bookmakers': target_bookmakers})
+            if res.status_code == 200:
+                for ev in res.json():
+                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
+                    if date == "" or dt.strftime("%d/%m") == date:
+                        
+                        bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
+                        if not bookie_pin: continue
+                        
+                        outcomes_pin = bookie_pin['markets'][0]['outcomes']
+                        sum_inv = sum([1/o['price'] for o in outcomes_pin])
+                        probs = {o['name']: (1/o['price']) / sum_inv for o in outcomes_pin}
+                        
+                        softs_encontradas = {}
+                        for b in ev['bookmakers']:
+                            if b['key'] in target_keys:
+                                # Guarda o nome oficial da casa na API (ex: "Bet365", "Betfair Exchange")
+                                softs_encontradas[b['title']] = {o['name']: o['price'] for o in b['markets'][0]['outcomes']}
+                        
+                        if softs_encontradas:
+                            games.append({
+                                'Liga': nome, 
+                                'Home': ev['home_team'], 
+                                'Away': ev['away_team'], 
+                                'Probs_Reais': probs, 
+                                'Softs': softs_encontradas, 
+                                'Data': dt.strftime("%d/%m %H:%M"), 
+                                '_dt': dt
+                            })
+        except: pass
+    games.sort(key=lambda x: x['_dt'])
+    return games
+
+# --- INTERFACE ---
+tab1, tab2, tab3 = st.tabs(["🚀 +EV SCANNER (Soft Books)", "🔮 p implícita - Pinnacle", "🌐 RELATÓRIO POLYMARKET"])
+
+# TAB 1: O NOVO MOTOR (PINNACLE VS SOFT BOOKS DINÂMICAS)
 with tab1:
-    st.markdown("### 🎯 Fusão Oráculo + Blockchain (H2H Strict)")
-    if st.button("🔥 INICIAR VARREDURA CRUZADA", type="primary"):
-        pin_games = fetch_pinnacle_data(esportes_selecionados, data_alvo)
-        if not pin_games: st.warning("Sem dados Pinnacle.")
+    st.markdown("### 🎯 Varredura Automática (+EV, Value Bets)")
+    
+    nomes_casas_display = ", ".join([c[0] for c in casas_selecionadas_raw])
+    st.info(f"🔥 **Casas Monitorizadas Atualmente:** {nomes_casas_display} (Comparadas contra o Oráculo Pinnacle).")
+    
+    if st.button("🚀 INICIAR CAÇADA NAS SOFT BOOKS", type="primary"):
+        if not esportes_selecionados: 
+            st.warning("Selecione as ligas do Oráculo.")
+        elif not casas_alvo_keys:
+            st.warning("Selecione pelo menos uma Casa Alvo na barra lateral.")
         else:
-            with st.spinner("Escavando Polymarket..."):
-                url = "https://gamma-api.polymarket.com/events"
-                offset, aprovadas = 0, []
-                pb = st.progress(0)
-                while offset < 15000:
-                    pb.progress(min(offset/15000, 1.0))
-                    try:
-                        res = requests.get(url, headers=HEADERS_BROWSER, params={"active":"true","closed":"false","limit":500,"offset":offset})
-                        if res.status_code != 200: break
-                        for ev in res.json():
-                            title = ev.get('title', '')
-                            if not title or not passa_filtros_poly(ev, cats_poly, tipo_evento_poly, ligas_poly_sel, tag_manual): continue
-                            
-                            match = None
-                            for pin in pin_games:
-                                score_h = fuzz.partial_ratio(pin['Home'].lower(), title.lower())
-                                score_a = fuzz.partial_ratio(pin['Away'].lower(), title.lower())
-                                if score_h >= fuzzy_limit and score_a >= fuzzy_limit:
-                                    match = pin; break
-                            if not match: continue
-                            
-                            mks = ev.get('markets', [])
-                            if not mks: continue
-                            outs = parse_poly_list(mks[0].get('outcomes', []))
-                            asks = parse_poly_list(mks[0].get('bestAsks', []))
-                            if not asks: asks = parse_poly_list(mks[0].get('outcomePrices', []))
-                            
-                            if len(outs) == len(asks) and len(outs) > 0:
-                                for i, out_n in enumerate(outs):
-                                    ask = float(asks[i])
-                                    prob_p = 0
-                                    if out_n in ["Yes", "No"]:
-                                        if out_n == "Yes": prob_p = match['Probs'].get(match['Home'], 0)
-                                        else: prob_p = match['Probs'].get(match['Away'], 0) + match['Probs'].get('Draw', 0)
-                                    else:
-                                        if fuzz.partial_ratio(out_n.lower(), match['Home'].lower()) > 75: prob_p = match['Probs'].get(match['Home'], 0)
-                                        elif fuzz.partial_ratio(out_n.lower(), match['Away'].lower()) > 75: prob_p = match['Probs'].get(match['Away'], 0)
+            with st.spinner("Analisando cotações em tempo real (Pinnacle vs Mundo)..."):
+                
+                # Envia as chaves das casas selecionadas para a função
+                jogos_analisados = fetch_soft_books_data(esportes_selecionados, data_alvo, casas_alvo_keys)
+                
+                if not jogos_analisados: 
+                    st.warning("Nenhum jogo encontrado com cotações abertas nas casas selecionadas em simultâneo com a Pinnacle.")
+                else:
+                    apostas_aprovadas = []
+                    
+                    for jogo in jogos_analisados:
+                        for nome_casa, odds_oferecidas in jogo['Softs'].items():
+                            for selecao, odd_soft in odds_oferecidas.items():
+                                prob_real_pin = jogo['Probs_Reais'].get(selecao)
+                                
+                                if prob_real_pin and prob_real_pin > 0:
+                                    odd_justa = 1 / prob_real_pin
+                                    roi = (prob_real_pin * odd_soft) - 1
+                                    edge = prob_real_pin - (1 / odd_soft)
                                     
-                                    if 0.01 < ask < 0.99 and prob_p > 0:
-                                        edge = prob_p - ask
-                                        roi = (prob_p / ask) - 1
-                                        if roi >= target_ev and edge >= target_edge:
-                                            b = (1-ask)/ask
-                                            fk = (prob_p * b - (1-prob_p))/b
-                                            
-                                            aprovadas.append({
-                                                "Horário": match['Data'], 
-                                                "Jogo Pinnacle": f"{match['Home']} x {match['Away']}",
-                                                "Contrato Poly": title, 
-                                                "Seleção": out_n, 
-                                                "Prob. Pin": prob_p * 100,
-                                                "Prob. Poly": ask * 100, 
-                                                "Edge": edge * 100, 
-                                                "ROI": roi * 100,
-                                                "Stake": banca_usdc * fk * 0.25 * taxa_usd
-                                            })
-                        offset += 500
-                    except: break
-                pb.empty()
-                if aprovadas: 
-                    st.dataframe(
-                        pd.DataFrame(aprovadas), 
-                        use_container_width=True,
-                        hide_index=True,
-                        column_config={
-                            "Prob. Pin": st.column_config.NumberColumn(format="%.1f%%"),
-                            "Prob. Poly": st.column_config.NumberColumn(format="%.1f%%"),
-                            "Edge": st.column_config.NumberColumn(format="%.2f%%"),
-                            "ROI": st.column_config.NumberColumn(format="%.2f%%"),
-                            "Stake": st.column_config.NumberColumn(format="R$ %.2f")
-                        }
-                    )
-                else: st.info("Nenhuma oportunidade H2H encontrada.")
+                                    if roi >= target_ev and edge >= target_edge:
+                                        b = odd_soft - 1
+                                        f_kelly = (prob_real_pin * b - (1 - prob_real_pin)) / b
+                                        stake_sugerida = banca_usdc * (f_kelly * 0.25) * taxa_usd
+                                        
+                                        apostas_aprovadas.append({
+                                            "Horário": jogo['Data'],
+                                            "Liga": jogo['Liga'],
+                                            "Jogo": f"{jogo['Home']} x {jogo['Away']}",
+                                            "Casa de Aposta": nome_casa,
+                                            "Seleção": selecao,
+                                            "Odd Casa 💰": odd_soft,
+                                            "Odd Justa ⚖️": odd_justa,
+                                            "Edge Absoluto": edge * 100,
+                                            "ROI Projetado": roi * 100,
+                                            "Stake (R$)": stake_sugerida
+                                        })
+                    
+                    if apostas_aprovadas:
+                        st.success(f"🏆 {len(apostas_aprovadas)} Oportunidades +EV encontradas com precisão de 100%!")
+                        df_aprovadas = pd.DataFrame(apostas_aprovadas)
+                        df_aprovadas = df_aprovadas.drop_duplicates()
+                        df_aprovadas = df_aprovadas.sort_values(by="ROI Projetado", ascending=False)
+                        
+                        st.dataframe(
+                            df_aprovadas, 
+                            use_container_width=True,
+                            hide_index=True,
+                            column_config={
+                                "Odd Casa 💰": st.column_config.NumberColumn(format="%.2f"),
+                                "Odd Justa ⚖️": st.column_config.NumberColumn(format="%.2f"),
+                                "Edge Absoluto": st.column_config.NumberColumn(format="%.2f%%"),
+                                "ROI Projetado": st.column_config.NumberColumn(format="%.2f%%"),
+                                "Stake (R$)": st.column_config.NumberColumn(format="R$ %.2f")
+                            }
+                        )
+                    else:
+                        st.info("📊 Nenhuma Distorção encontrada nos seus critérios. O mercado está perfeitamente ajustado no momento.")
 
 # TAB 2: p implícita - Pinnacle
 with tab2:

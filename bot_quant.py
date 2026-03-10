@@ -18,7 +18,7 @@ BANCA_USDC = BANCA_RS / TAXA_USD
 TARGET_EV = 0.05    # 5.0% ROI Mínimo
 TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
 
-# As 8 Ligas de Elite (+EV)
+# Ligas de Elite (8 Ligas para 16 créditos/dia)
 LIGAS = [
     ("Basquete - NBA", "basketball_nba"),
     ("Tênis - ATP Singles", "tennis_atp_match"),
@@ -56,7 +56,6 @@ def buscar_oportunidades():
             res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu,us,uk', 'markets': 'h2h', 'bookmakers': target_bookmakers})
             if res.status_code == 200:
                 for ev in res.json():
-                    # Ajuste de data/hora
                     dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
                     
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
@@ -106,7 +105,6 @@ def buscar_oportunidades():
 def enviar_email(dados_aprovados):
     data_atual = datetime.now().strftime("%d/%m/%Y")
     hora_atual = datetime.now().strftime("%H:%M")
-    
     msg = MIMEMultipart("alternative")
     msg["From"] = EMAIL_REMETENTE
     msg["To"] = ", ".join(EMAILS_DESTINO)
@@ -115,45 +113,21 @@ def enviar_email(dados_aprovados):
         df = pd.DataFrame(dados_aprovados)
         df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
         tabela_html = df.to_html(index=False, justify='center', border=1, classes='table table-striped')
-        
         msg["Subject"] = f"🔥 Alerta +EV: {len(df)} Oportunidades ({data_atual})"
-        corpo_email = f"""
-        <html>
-          <head>
-            <style>
-              table {{ border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; }}
-              th, td {{ padding: 8px; text-align: center; border-bottom: 1px solid #ddd; }}
-              th {{ background-color: #4CAF50; color: white; }}
-            </style>
-          </head>
-          <body>
-            <h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2>
-            <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas:</p>
-            {tabela_html}
-            <br>
-            <p><i>Finalizada em {data_atual} às {hora_atual}</i></p>
-          </body>
-        </html>
-        """
+        corpo_email = f"<html><body><h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2><br>{tabela_html}<br><p>Finalizada em {data_atual} às {hora_atual}</p></body></html>"
     else:
         msg["Subject"] = f"💤 Alerta Quant: Nenhuma Oportunidade ({data_atual})"
-        corpo_email = f"""
-        <html><body>
-          <h2>🤖 Alerta Quant: Zero Oportunidades</h2>
-          <p>A varredura de {data_atual} às {hora_atual} foi concluída, mas o mercado está bem ajustado no momento.</p>
-        </body></html>
-        """
+        corpo_email = f"<html><body><h2>🤖 Alerta Quant: Zero Oportunidades</h2><p>A varredura de {data_atual} às {hora_atual} foi concluída. Mercado ajustado.</p></body></html>"
 
     msg.attach(MIMEText(corpo_email, "html"))
-
     try:
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.login(EMAIL_REMETENTE, SENHA_APP_GMAIL)
         server.sendmail(EMAIL_REMETENTE, EMAILS_DESTINO, msg.as_string())
         server.quit()
-        print(f"Relatório de {data_atual} enviado!")
+        print(f"Relatório enviado!")
     except Exception as e:
-        print(f"Erro ao enviar email: {e}")
+        print(f"Erro no email: {e}")
 
 if __name__ == "__main__":
     oportunidades = buscar_oportunidades()

@@ -122,13 +122,16 @@ EMAILS_DESTINO = [
 ]
 
 # ==========================================
-# 🚀 MOTOR DE BUSCA (3. Pinnacle como Oráculo)
+# 🚀 MOTOR DE BUSCA
 # ==========================================
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
     apostas_aprovadas = []
     
-    print("Iniciando varredura na API...")
+    # Captura a data exata de HOJE no horário de Brasília
+    hoje_brt = (datetime.utcnow() - timedelta(hours=3)).date()
+    
+    print(f"Iniciando varredura para os jogos do dia {hoje_brt}...")
     for nome_liga, sport_key in LIGAS:
         url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
         try:
@@ -137,7 +140,11 @@ def buscar_oportunidades():
                 for ev in res.json():
                     dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
                     
-                    # Pinnacle como Oráculo
+                    # 🛑 FILTRO DE DATA: Ignora o jogo se não for hoje
+                    if dt.date() != hoje_brt:
+                        continue
+                    
+                    # Oráculo Pinnacle
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
                     if not bookie_pin: continue
                     
@@ -175,7 +182,7 @@ def buscar_oportunidades():
                                             "Stake": f"R$ {stake:.2f}"
                                         })
         except Exception as e:
-            print(f"Erro ao buscar {nome_liga}: {e}")
+            pass
             
     return apostas_aprovadas
 

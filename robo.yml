@@ -1,0 +1,25 @@
+name: Robo Quantitativo
+
+on:
+  schedule:
+    # 4. Bot de varredura 2x ao dia (11h e 17h BRT)
+    - cron: '0 14,20 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar Dependencias
+        run: pip install requests pandas
+
+      - name: Rodar o NOVO Bot
+        run: python robo.py

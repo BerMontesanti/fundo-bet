@@ -18,18 +18,45 @@ BANCA_USDC = BANCA_RS / TAXA_USD
 TARGET_EV = 0.05    # 5.0% ROI Mínimo
 TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
 
-# Ligas a Monitorar
+# Ligas a Monitorar (Radar Expandido)
 LIGAS = [
-    ("Futebol - Premier League", "soccer_epl"),
+    # ⚽ Futebol Europeu
+    ("Futebol - Premier League (ING)", "soccer_epl"),
+    ("Futebol - Championship (ING)", "soccer_england_championship"),
+    ("Futebol - La Liga (ESP)", "soccer_spain_la_liga"),
+    ("Futebol - Serie A (ITA)", "soccer_italy_serie_a"),
+    ("Futebol - Bundesliga (ALE)", "soccer_germany_bundesliga"),
+    ("Futebol - Ligue 1 (FRA)", "soccer_france_ligue_one"),
+    ("Futebol - Primeira Liga (POR)", "soccer_portugal_primeira_liga"),
+    ("Futebol - Champions League", "soccer_uefa_champs_league"),
+    ("Futebol - Europa League", "soccer_uefa_europa_league"),
+    
+    # ⚽ Futebol Sul-Americano
     ("Futebol - Brasil Série A", "soccer_brazil_campeonato"),
     ("Futebol - Brasil Série B", "soccer_brazil_serie_b"),
     ("Futebol - Libertadores", "soccer_conmebol_libertadores"),
+    ("Futebol - Sul-Americana", "soccer_conmebol_sudamericana"),
+    ("Futebol - Argentina Primera", "soccer_argentina_primera_division"),
+    
+    # 🏀 Basquete
+    ("Basquete - NBA", "basketball_nba"),
+    ("Basquete - Euroleague", "basketball_euroleague"),
+    ("Basquete - NCAA", "basketball_ncaa"),
+    
+    # 🎾 Tênis
     ("Tênis - ATP Singles", "tennis_atp_match"),
-    ("Basquete - NBA", "basketball_nba")
+    ("Tênis - WTA Singles", "tennis_wta_match"),
+    
+    # 🏈 Lutas, Esportes Americanos e E-Sports
+    ("Futebol Americano - NFL", "americanfootball_nfl"),
+    ("Hóquei - NHL", "icehockey_nhl"),
+    ("MMA - UFC", "mma_mixed_martial_arts"),
+    ("E-Sports - CS:GO", "esports_csgo_match_winner"),
+    ("E-Sports - League of Legends", "esports_lol_match_winner")
 ]
 
 # Casas de Apostas Alvo
-CASAS_ALVO = ['bet365', 'betano', '1xbet', 'bovada']
+CASAS_ALVO = ['bet365', 'betano']
 
 # Configurações de Email (Remetente e Destinatários)
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com" 

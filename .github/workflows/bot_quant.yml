@@ -2,9 +2,8 @@ name: Bot Quantitativo Diario
 
 on:
   schedule:
-    # Roda de hora em hora das 6h às 22h (BRT)
-    # Equivalente a: 9h às 23h e 0h a 1h em UTC
-    - cron: '0 0-1,9-23 * * *'
+    # Roda 2x ao dia: 11h e 17h (Horário de Brasília)
+    - cron: '0 14,20 * * *'
   workflow_dispatch:
 
 jobs:

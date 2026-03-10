@@ -1,5 +1,4 @@
 import requests
-import json
 from datetime import datetime, timedelta
 import pandas as pd
 import smtplib
@@ -7,43 +6,40 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ==========================================
-# ⚙️ CONFIGURAÇÕES DO FUNDO & API
+# ⚙️ CONFIGURAÇÕES DO FUNDO
 # ==========================================
 API_KEY = 'f926d86f5279262d9eb0afb7f304520f'
 
-# Parâmetros de Gestão
 BANCA_RS = 410.0
 TAXA_USD = 5.00
 BANCA_USDC = BANCA_RS / TAXA_USD
 TARGET_EV = 0.05    # 5.0% ROI Mínimo
 TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
 
-# Ligas de Elite (8 Ligas para 16 créditos/dia)
+# 1. As 8 Ligas Pré-definidas
 LIGAS = [
     ("Basquete - NBA", "basketball_nba"),
     ("Tênis - ATP Singles", "tennis_atp_match"),
     ("E-Sports - CS:GO", "esports_csgo_match_winner"),
     ("MMA - UFC", "mma_mixed_martial_arts"),
-    ("Futebol - Premier League (ING)", "soccer_epl"),
-    ("Futebol - La Liga (ESP)", "soccer_spain_la_liga"),
+    ("Futebol - Premier League", "soccer_epl"),
+    ("Futebol - La Liga", "soccer_spain_la_liga"),
     ("Futebol - Brasil Série A", "soccer_brazil_campeonato"),
     ("Futebol - Brasil Série B", "soccer_brazil_serie_b")
 ]
 
-# Casas de Apostas Alvo
-CASAS_ALVO = ['bet365', 'betano', '1xbet', 'bovada']
+# 2. Apenas Betano e Bet365
+CASAS_ALVO = ['betano', 'bet365']
 
-# Configurações de Email
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com" 
 SENHA_APP_GMAIL = "qvwkdpbyvlgmihfp"
-
 EMAILS_DESTINO = [
     "bernardo.montesanti@gmail.com",
     "eduasy@hotmail.com"
 ]
 
 # ==========================================
-# 🚀 MOTOR DE BUSCA (API)
+# 🚀 MOTOR DE BUSCA (3. Pinnacle como Oráculo)
 # ==========================================
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
@@ -58,6 +54,7 @@ def buscar_oportunidades():
                 for ev in res.json():
                     dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
                     
+                    # Pinnacle como Oráculo
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
                     if not bookie_pin: continue
                     
@@ -100,11 +97,12 @@ def buscar_oportunidades():
     return apostas_aprovadas
 
 # ==========================================
-# 📧 FUNÇÃO DE ENVIO DE EMAIL
+# 📧 FUNÇÃO DE ENVIO (5. Envia mesmo sem apostas)
 # ==========================================
 def enviar_email(dados_aprovados):
     data_atual = datetime.now().strftime("%d/%m/%Y")
     hora_atual = datetime.now().strftime("%H:%M")
+    
     msg = MIMEMultipart("alternative")
     msg["From"] = EMAIL_REMETENTE
     msg["To"] = ", ".join(EMAILS_DESTINO)
@@ -113,21 +111,36 @@ def enviar_email(dados_aprovados):
         df = pd.DataFrame(dados_aprovados)
         df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
         tabela_html = df.to_html(index=False, justify='center', border=1, classes='table table-striped')
+        
         msg["Subject"] = f"🔥 Alerta +EV: {len(df)} Oportunidades ({data_atual})"
-        corpo_email = f"<html><body><h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2><br>{tabela_html}<br><p>Finalizada em {data_atual} às {hora_atual}</p></body></html>"
+        corpo_email = f"""
+        <html><body>
+          <h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2>
+          <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas:</p>
+          {tabela_html}
+          <br><p><i>Finalizada em {data_atual} às {hora_atual}</i></p>
+        </body></html>
+        """
     else:
         msg["Subject"] = f"💤 Alerta Quant: Nenhuma Oportunidade ({data_atual})"
-        corpo_email = f"<html><body><h2>🤖 Alerta Quant: Zero Oportunidades</h2><p>A varredura de {data_atual} às {hora_atual} foi concluída. Mercado ajustado.</p></body></html>"
+        corpo_email = f"""
+        <html><body>
+          <h2>🤖 Alerta Quant: Zero Oportunidades</h2>
+          <p>A varredura de {data_atual} às {hora_atual} foi concluída.</p>
+          <p>Nenhuma aposta atendeu aos nossos critérios matemáticos no momento.</p>
+        </body></html>
+        """
 
     msg.attach(MIMEText(corpo_email, "html"))
+
     try:
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.login(EMAIL_REMETENTE, SENHA_APP_GMAIL)
         server.sendmail(EMAIL_REMETENTE, EMAILS_DESTINO, msg.as_string())
         server.quit()
-        print(f"Relatório enviado!")
+        print(f"Relatório enviado com sucesso!")
     except Exception as e:
-        print(f"Erro no email: {e}")
+        print(f"Erro ao enviar email: {e}")
 
 if __name__ == "__main__":
     oportunidades = buscar_oportunidades()

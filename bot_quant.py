@@ -22,7 +22,7 @@ TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
 # Dica: Coloque um '#' no início da linha para desativar a liga e poupar créditos da API.
 
 LIGAS = [
-    # ⚽ FUTEBOL - EUROPA (Elite)
+    # FUTEBOL - EUROPA (Elite)
     ("Futebol - Premier League (ING)", "soccer_epl"),
     ("Futebol - Championship (ING)", "soccer_england_championship"),
     ("Futebol - FA Cup (ING)", "soccer_fa_cup"),
@@ -33,12 +33,12 @@ LIGAS = [
     ("Futebol - Primeira Liga (POR)", "soccer_portugal_primeira_liga"),
     ("Futebol - Eredivisie (HOL)", "soccer_netherlands_eredivisie"),
     
-    # ⚽ FUTEBOL - EUROPA (Copas Continentais)
+    # FUTEBOL - EUROPA (Copas Continentais)
     ("Futebol - Champions League", "soccer_uefa_champs_league"),
     ("Futebol - Europa League", "soccer_uefa_europa_league"),
     ("Futebol - Conference League", "soccer_uefa_europa_conference_league"),
     
-    # ⚽ FUTEBOL - AMÉRICAS
+    # FUTEBOL - AMÉRICAS
     ("Futebol - Brasil Série A", "soccer_brazil_campeonato"),
     ("Futebol - Brasil Série B", "soccer_brazil_serie_b"),
     ("Futebol - Libertadores", "soccer_conmebol_libertadores"),
@@ -49,56 +49,70 @@ LIGAS = [
     ("Futebol - México Liga MX", "soccer_mexico_ligamx"),
     ("Futebol - MLS (EUA)", "soccer_usa_mls"),
     
-    # ⚽ FUTEBOL - RESTO DO MUNDO
+    # FUTEBOL - RESTO DO MUNDO
     ("Futebol - J-League (Japão)", "soccer_japan_j_league"),
     ("Futebol - Super League (China)", "soccer_china_superleague"),
     ("Futebol - A-League (Austrália)", "soccer_australia_aleague"),
     
-    # 🏀 BASQUETEBOL
+    # BASQUETEBOL
     ("Basquete - NBA", "basketball_nba"),
     ("Basquete - WNBA", "basketball_wnba"),
     ("Basquete - NCAA (Universitário)", "basketball_ncaa"),
     ("Basquete - Euroleague", "basketball_euroleague"),
     ("Basquete - NBL (Austrália)", "basketball_nbl"),
     
-    # 🎾 TÊNIS
+    # TÊNIS
     ("Tênis - ATP Singles", "tennis_atp_match"),
     ("Tênis - WTA Singles", "tennis_wta_match"),
     
-    # 🏈 ESPORTES AMERICANOS
+    # ESPORTES AMERICANOS
     ("Futebol Americano - NFL", "americanfootball_nfl"),
     ("Futebol Americano - NCAA", "americanfootball_ncaaf"),
     ("Futebol Americano - CFL (Canadá)", "americanfootball_cfl"),
     ("Beisebol - MLB", "baseball_mlb"),
     ("Beisebol - NCAA", "baseball_ncaa"),
     
-    # 🏒 HÓQUEI NO GELO
+    # HÓQUEI NO GELO
     ("Hóquei - NHL", "icehockey_nhl"),
     ("Hóquei - SHL (Suécia)", "icehockey_sweden_hockey_league"),
     ("Hóquei - SHL (Finlândia)", "icehockey_finland_liiga"),
     
-    # 🥊 LUTAS (MMA & BOXE)
+    # LUTAS (MMA & BOXE)
     ("MMA - UFC", "mma_mixed_martial_arts"),
     ("Boxe - Combates", "boxing_boxing_match"),
     
-    # 🎮 E-SPORTS
+    # E-SPORTS
     ("E-Sports - CS:GO / CS2", "esports_csgo_match_winner"),
     ("E-Sports - League of Legends", "esports_lol_match_winner"),
     ("E-Sports - Dota 2", "esports_dota2_match_winner"),
     
-    🏏 CRÍQUETE & RUGBY (Opcionais, muito fortes no UK/Austrália)
+    # CRÍQUETE & RUGBY (Opcionais, muito fortes no UK/Austrália)
     ("Críquete - IPL", "cricket_ipl"),
     ("Críquete - Test Matches", "cricket_test_match"),
     ("Rugby - Union", "rugby_union"),
     ("Rugby - League", "rugby_league"),
     
-    # 🏌️ GOLFE (Geralmente focado em Outrights/Vencedor do Torneio)
+    # GOLFE (Geralmente focado em Outrights/Vencedor do Torneio)
     # ("Golfe - PGA Tour", "golf_pga_tournament_winner"),
     # ("Golfe - The Masters", "golf_masters_tournament_winner")
 ]
 
-# 2. Apenas Betano e Bet365
-CASAS_ALVO = ['betano', 'bet365']
+# 2. TODAS as Casas de Apostas (Global, EUA e Reino Unido)
+# Apague ou comente com '#' as casas onde não tem conta ou não pretende operar.
+CASAS_ALVO = [
+    # Europa e Global (Maior liquidez e focadas em Futebol/Ténis)
+    'bet365', 'betano', '1xbet', 'betfair_ex_eu', 'betfair_sb_uk', 
+    'sport888', 'unibet_eu', 'betsson', 'coolbet', 'matchbook', 
+    'marathonbet', 'nordicbet', 'williamhill',
+    
+    # Américas e Offshore (Excelentes para desportos americanos e MMA)
+    'bovada', 'betonlineag', 'mybookieag', 'draftkings', 'fanduel', 
+    'betmgm', 'caesars', 'betrivers', 'superbook', 'pointsbetus',
+    
+    # Reino Unido (Fortes na Premier League e mercados britânicos)
+    'skybet', 'paddypower', 'ladbrokes', 'coral', 'boylesports', 
+    'virginbet', 'casumo'
+]
 
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com" 
 SENHA_APP_GMAIL = "qvwkdpbyvlgmihfp"

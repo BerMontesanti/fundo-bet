@@ -2,8 +2,8 @@ name: Bot Quantitativo Diario
 
 on:
   schedule:
-    # 4. Bot de varredura 2x ao dia (11h e 17h BRT)
-    - cron: '0 14,20 * * *'
+    # 4. Bot de varredura 2x ao dia (11h e 16h BRT)
+    - cron: '0 14,19 * * *'
   workflow_dispatch:
 
 jobs:

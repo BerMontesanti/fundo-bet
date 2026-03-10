@@ -12,8 +12,8 @@ from email.mime.text import MIMEText
 API_KEY = 'f926d86f5279262d9eb0afb7f304520f'
 
 # Parâmetros de Gestão
-BANCA_RS = 300.0
-TAXA_USD = 5.20
+BANCA_RS = 410.0
+TAXA_USD = 5.00
 BANCA_USDC = BANCA_RS / TAXA_USD
 TARGET_EV = 0.05    # 5.0% ROI Mínimo
 TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
@@ -31,9 +31,9 @@ LIGAS = [
 ]
 
 # Casas de Apostas Alvo
-CASAS_ALVO = ['bet365', 'betano']
+CASAS_ALVO = ['bet365', 'betano', '1xbet', 'bovada']
 
-# Configurações de Email (Remetente e Destinatários)
+# Configurações de Email
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com" 
 SENHA_APP_GMAIL = "qvwkdpbyvlgmihfp"
 
@@ -103,7 +103,6 @@ def buscar_oportunidades():
 # 📧 FUNÇÃO DE ENVIO DE EMAIL
 # ==========================================
 def enviar_email(dados_aprovados):
-    # Captura a Data e Hora atuais formatadas
     data_atual = datetime.now().strftime("%d/%m/%Y")
     hora_atual = datetime.now().strftime("%H:%M")
     
@@ -111,7 +110,6 @@ def enviar_email(dados_aprovados):
     msg["From"] = EMAIL_REMETENTE
     msg["To"] = ", ".join(EMAILS_DESTINO)
     
-    # 1. SE ENCONTROU OPORTUNIDADES (Email com Tabela)
     if dados_aprovados:
         df = pd.DataFrame(dados_aprovados)
         df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
@@ -137,8 +135,6 @@ def enviar_email(dados_aprovados):
           </body>
         </html>
         """
-        
-    # 2. SE NÃO ENCONTROU NADA (Email de aviso de mercado ajustado)
     else:
         msg["Subject"] = f"💤 Alerta Quant: Nenhuma Oportunidade ({data_atual})"
         corpo_email = f"""
@@ -171,5 +167,4 @@ if __name__ == "__main__":
     oportunidades = buscar_oportunidades()
     
     print(f"{len(oportunidades)} apostas de valor encontradas. Preparando envio de email...")
-    # Agora a função de enviar email é chamada SEMPRE, com ou sem oportunidades
     enviar_email(oportunidades)

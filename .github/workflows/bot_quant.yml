@@ -2,7 +2,7 @@ name: Bot Quantitativo Diario
 
 on:
   schedule:
-    # Roda 2x ao dia: 11h e 17h (Horário de Brasília)
+    # 4. Bot de varredura 2x ao dia (11h e 17h BRT)
     - cron: '0 14,20 * * *'
   workflow_dispatch:
 
@@ -19,8 +19,7 @@ jobs:
           python-version: '3.9'
 
       - name: Instalar Dependencias
-        run: |
-          pip install requests pandas
+        run: pip install requests pandas
 
       - name: Rodar o Bot
         run: python bot_quant.py

@@ -12,8 +12,8 @@ from email.mime.text import MIMEText
 API_KEY = 'f926d86f5279262d9eb0afb7f304520f'
 
 # Parâmetros de Gestão
-BANCA_RS = 410.0
-TAXA_USD = 5.00
+BANCA_RS = 300.0
+TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
 TARGET_EV = 0.05    # 5.0% ROI Mínimo
 TARGET_EDGE = 0.025 # 2.5% Edge Mínimo

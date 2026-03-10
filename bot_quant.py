@@ -56,7 +56,8 @@ def buscar_oportunidades():
             res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu,us,uk', 'markets': 'h2h', 'bookmakers': target_bookmakers})
             if res.status_code == 200:
                 for ev in res.json():
-                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%M:%SZ") - timedelta(hours=3)
+                    # Ajuste de data/hora
+                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
                     
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
                     if not bookie_pin: continue
@@ -127,25 +128,20 @@ def enviar_email(dados_aprovados):
           </head>
           <body>
             <h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2>
-            <p>Varredura do dia <b>{data_atual}</b>. Abaixo estão as apostas de Valor Esperado Positivo (+EV) identificadas agora:</p>
-            <br>
+            <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas:</p>
             {tabela_html}
-            <br><br>
-            <p><i>Varredura automática finalizada em {data_atual} às {hora_atual}</i></p>
+            <br>
+            <p><i>Finalizada em {data_atual} às {hora_atual}</i></p>
           </body>
         </html>
         """
     else:
         msg["Subject"] = f"💤 Alerta Quant: Nenhuma Oportunidade ({data_atual})"
         corpo_email = f"""
-        <html>
-          <body style="font-family: Arial, sans-serif;">
-            <h2>🤖 Alerta Quant: Zero Oportunidades</h2>
-            <p>A varredura do dia <b>{data_atual}</b> às <b>{hora_atual}</b> foi concluída com sucesso.</p>
-            <p>Nenhuma aposta atendeu aos nossos rigorosos critérios matemáticos de EV e Edge neste momento.</p>
-            <p><i>O mercado está bem ajustado. O robô voltará a procurar na próxima hora programada!</i></p>
-          </body>
-        </html>
+        <html><body>
+          <h2>🤖 Alerta Quant: Zero Oportunidades</h2>
+          <p>A varredura de {data_atual} às {hora_atual} foi concluída, mas o mercado está bem ajustado no momento.</p>
+        </body></html>
         """
 
     msg.attach(MIMEText(corpo_email, "html"))
@@ -155,14 +151,10 @@ def enviar_email(dados_aprovados):
         server.login(EMAIL_REMETENTE, SENHA_APP_GMAIL)
         server.sendmail(EMAIL_REMETENTE, EMAILS_DESTINO, msg.as_string())
         server.quit()
-        print(f"Email referente ao dia {data_atual} enviado com sucesso!")
+        print(f"Relatório de {data_atual} enviado!")
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
 
-# ==========================================
-# 🚀 EXECUÇÃO PRINCIPAL
-# ==========================================
 if __name__ == "__main__":
-    print(f"Iniciando Bot Quant às {datetime.now().strftime('%H:%M:%S')}...")
     oportunidades = buscar_oportunidades()
     enviar_email(oportunidades)

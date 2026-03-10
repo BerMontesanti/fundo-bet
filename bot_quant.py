@@ -16,16 +16,85 @@ BANCA_USDC = BANCA_RS / TAXA_USD
 TARGET_EV = 0.05    # 5.0% ROI Mínimo
 TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
 
-# 1. As 8 Ligas Pré-definidas
+# ==========================================
+# 🏆 LIGAS E ESPORTES A MONITORAR
+# ==========================================
+# Dica: Coloque um '#' no início da linha para desativar a liga e poupar créditos da API.
+
 LIGAS = [
-    ("Basquete - NBA", "basketball_nba"),
-    ("Tênis - ATP Singles", "tennis_atp_match"),
-    ("E-Sports - CS:GO", "esports_csgo_match_winner"),
-    ("MMA - UFC", "mma_mixed_martial_arts"),
-    ("Futebol - Premier League", "soccer_epl"),
-    ("Futebol - La Liga", "soccer_spain_la_liga"),
+    # ⚽ FUTEBOL - EUROPA (Elite)
+    ("Futebol - Premier League (ING)", "soccer_epl"),
+    ("Futebol - Championship (ING)", "soccer_england_championship"),
+    ("Futebol - FA Cup (ING)", "soccer_fa_cup"),
+    ("Futebol - La Liga (ESP)", "soccer_spain_la_liga"),
+    ("Futebol - Serie A (ITA)", "soccer_italy_serie_a"),
+    ("Futebol - Bundesliga (ALE)", "soccer_germany_bundesliga"),
+    ("Futebol - Ligue 1 (FRA)", "soccer_france_ligue_one"),
+    ("Futebol - Primeira Liga (POR)", "soccer_portugal_primeira_liga"),
+    ("Futebol - Eredivisie (HOL)", "soccer_netherlands_eredivisie"),
+    
+    # ⚽ FUTEBOL - EUROPA (Copas Continentais)
+    ("Futebol - Champions League", "soccer_uefa_champs_league"),
+    ("Futebol - Europa League", "soccer_uefa_europa_league"),
+    ("Futebol - Conference League", "soccer_uefa_europa_conference_league"),
+    
+    # ⚽ FUTEBOL - AMÉRICAS
     ("Futebol - Brasil Série A", "soccer_brazil_campeonato"),
-    ("Futebol - Brasil Série B", "soccer_brazil_serie_b")
+    ("Futebol - Brasil Série B", "soccer_brazil_serie_b"),
+    ("Futebol - Libertadores", "soccer_conmebol_libertadores"),
+    ("Futebol - Sul-Americana", "soccer_conmebol_sudamericana"),
+    ("Futebol - Argentina Primera", "soccer_argentina_primera_division"),
+    ("Futebol - Colômbia Primera A", "soccer_colombia_primera_a"),
+    ("Futebol - Chile Primera", "soccer_chile_campeonato"),
+    ("Futebol - México Liga MX", "soccer_mexico_ligamx"),
+    ("Futebol - MLS (EUA)", "soccer_usa_mls"),
+    
+    # ⚽ FUTEBOL - RESTO DO MUNDO
+    ("Futebol - J-League (Japão)", "soccer_japan_j_league"),
+    ("Futebol - Super League (China)", "soccer_china_superleague"),
+    ("Futebol - A-League (Austrália)", "soccer_australia_aleague"),
+    
+    # 🏀 BASQUETEBOL
+    ("Basquete - NBA", "basketball_nba"),
+    ("Basquete - WNBA", "basketball_wnba"),
+    ("Basquete - NCAA (Universitário)", "basketball_ncaa"),
+    ("Basquete - Euroleague", "basketball_euroleague"),
+    ("Basquete - NBL (Austrália)", "basketball_nbl"),
+    
+    # 🎾 TÊNIS
+    ("Tênis - ATP Singles", "tennis_atp_match"),
+    ("Tênis - WTA Singles", "tennis_wta_match"),
+    
+    # 🏈 ESPORTES AMERICANOS
+    ("Futebol Americano - NFL", "americanfootball_nfl"),
+    ("Futebol Americano - NCAA", "americanfootball_ncaaf"),
+    ("Futebol Americano - CFL (Canadá)", "americanfootball_cfl"),
+    ("Beisebol - MLB", "baseball_mlb"),
+    ("Beisebol - NCAA", "baseball_ncaa"),
+    
+    # 🏒 HÓQUEI NO GELO
+    ("Hóquei - NHL", "icehockey_nhl"),
+    ("Hóquei - SHL (Suécia)", "icehockey_sweden_hockey_league"),
+    ("Hóquei - SHL (Finlândia)", "icehockey_finland_liiga"),
+    
+    # 🥊 LUTAS (MMA & BOXE)
+    ("MMA - UFC", "mma_mixed_martial_arts"),
+    ("Boxe - Combates", "boxing_boxing_match"),
+    
+    # 🎮 E-SPORTS
+    ("E-Sports - CS:GO / CS2", "esports_csgo_match_winner"),
+    ("E-Sports - League of Legends", "esports_lol_match_winner"),
+    ("E-Sports - Dota 2", "esports_dota2_match_winner"),
+    
+    🏏 CRÍQUETE & RUGBY (Opcionais, muito fortes no UK/Austrália)
+    ("Críquete - IPL", "cricket_ipl"),
+    ("Críquete - Test Matches", "cricket_test_match"),
+    ("Rugby - Union", "rugby_union"),
+    ("Rugby - League", "rugby_league"),
+    
+    # 🏌️ GOLFE (Geralmente focado em Outrights/Vencedor do Torneio)
+    # ("Golfe - PGA Tour", "golf_pga_tournament_winner"),
+    # ("Golfe - The Masters", "golf_masters_tournament_winner")
 ]
 
 # 2. Apenas Betano e Bet365

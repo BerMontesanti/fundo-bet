@@ -103,35 +103,55 @@ def buscar_oportunidades():
 # 📧 FUNÇÃO DE ENVIO DE EMAIL
 # ==========================================
 def enviar_email(dados_aprovados):
-    df = pd.DataFrame(dados_aprovados)
-    df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
+    # Captura a Data e Hora atuais formatadas
+    data_atual = datetime.now().strftime("%d/%m/%Y")
+    hora_atual = datetime.now().strftime("%H:%M")
     
-    tabela_html = df.to_html(index=False, justify='center', border=1, classes='table table-striped')
-    
-    corpo_email = f"""
-    <html>
-      <head>
-        <style>
-          table {{ border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; }}
-          th, td {{ padding: 8px; text-align: center; border-bottom: 1px solid #ddd; }}
-          th {{ background-color: #4CAF50; color: white; }}
-        </style>
-      </head>
-      <body>
-        <h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2>
-        <p>Abaixo estão as apostas de Valor Esperado Positivo (+EV) identificadas agora:</p>
-        <br>
-        {tabela_html}
-        <br><br>
-        <p><i>Varredura automática finalizada em {datetime.now().strftime("%d/%m/%Y %H:%M")}</i></p>
-      </body>
-    </html>
-    """
-
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"🔥 Alerta +EV: {len(df)} Oportunidades Encontradas"
     msg["From"] = EMAIL_REMETENTE
     msg["To"] = ", ".join(EMAILS_DESTINO)
+    
+    # 1. SE ENCONTROU OPORTUNIDADES (Email com Tabela)
+    if dados_aprovados:
+        df = pd.DataFrame(dados_aprovados)
+        df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
+        tabela_html = df.to_html(index=False, justify='center', border=1, classes='table table-striped')
+        
+        msg["Subject"] = f"🔥 Alerta +EV: {len(df)} Oportunidades ({data_atual})"
+        corpo_email = f"""
+        <html>
+          <head>
+            <style>
+              table {{ border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; }}
+              th, td {{ padding: 8px; text-align: center; border-bottom: 1px solid #ddd; }}
+              th {{ background-color: #4CAF50; color: white; }}
+            </style>
+          </head>
+          <body>
+            <h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2>
+            <p>Varredura do dia <b>{data_atual}</b>. Abaixo estão as apostas de Valor Esperado Positivo (+EV) identificadas agora:</p>
+            <br>
+            {tabela_html}
+            <br><br>
+            <p><i>Varredura automática finalizada em {data_atual} às {hora_atual}</i></p>
+          </body>
+        </html>
+        """
+        
+    # 2. SE NÃO ENCONTROU NADA (Email de aviso de mercado ajustado)
+    else:
+        msg["Subject"] = f"💤 Alerta Quant: Nenhuma Oportunidade ({data_atual})"
+        corpo_email = f"""
+        <html>
+          <body style="font-family: Arial, sans-serif;">
+            <h2>🤖 Alerta Quant: Zero Oportunidades</h2>
+            <p>A varredura do dia <b>{data_atual}</b> às <b>{hora_atual}</b> foi concluída com sucesso.</p>
+            <p>Nenhuma aposta atendeu aos nossos rigorosos critérios matemáticos de EV e Edge neste momento.</p>
+            <p><i>O mercado está bem ajustado. O robô voltará a procurar na próxima hora programada!</i></p>
+          </body>
+        </html>
+        """
+
     msg.attach(MIMEText(corpo_email, "html"))
 
     try:
@@ -139,16 +159,17 @@ def enviar_email(dados_aprovados):
         server.login(EMAIL_REMETENTE, SENHA_APP_GMAIL)
         server.sendmail(EMAIL_REMETENTE, EMAILS_DESTINO, msg.as_string())
         server.quit()
-        print("Emails enviados com sucesso!")
+        print(f"Email referente ao dia {data_atual} enviado com sucesso!")
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
 
+# ==========================================
+# 🚀 EXECUÇÃO PRINCIPAL
+# ==========================================
 if __name__ == "__main__":
     print(f"Iniciando Bot Quant às {datetime.now().strftime('%H:%M:%S')}...")
     oportunidades = buscar_oportunidades()
     
-    if oportunidades:
-        print(f"{len(oportunidades)} apostas de valor encontradas. Preparando emails...")
-        enviar_email(oportunidades)
-    else:
-        print("Nenhuma oportunidade encontrada. Nenhum email será enviado.")
+    print(f"{len(oportunidades)} apostas de valor encontradas. Preparando envio de email...")
+    # Agora a função de enviar email é chamada SEMPRE, com ou sem oportunidades
+    enviar_email(oportunidades)

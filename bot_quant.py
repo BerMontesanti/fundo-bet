@@ -50,9 +50,7 @@ LIGAS = [
     # 🏈 Lutas, Esportes Americanos e E-Sports
     ("Futebol Americano - NFL", "americanfootball_nfl"),
     ("Hóquei - NHL", "icehockey_nhl"),
-    ("MMA - UFC", "mma_mixed_martial_arts"),
-    ("E-Sports - CS:GO", "esports_csgo_match_winner"),
-    ("E-Sports - League of Legends", "esports_lol_match_winner")
+    ("MMA - UFC", "mma_mixed_martial_arts")
 ]
 
 # Casas de Apostas Alvo

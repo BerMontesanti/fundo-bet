@@ -56,7 +56,7 @@ def buscar_oportunidades():
             res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu,us,uk', 'markets': 'h2h', 'bookmakers': target_bookmakers})
             if res.status_code == 200:
                 for ev in res.json():
-                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
+                    dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%M:%SZ") - timedelta(hours=3)
                     
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
                     if not bookie_pin: continue
@@ -165,6 +165,4 @@ def enviar_email(dados_aprovados):
 if __name__ == "__main__":
     print(f"Iniciando Bot Quant às {datetime.now().strftime('%H:%M:%S')}...")
     oportunidades = buscar_oportunidades()
-    
-    print(f"{len(oportunidades)} apostas de valor encontradas. Preparando envio de email...")
     enviar_email(oportunidades)

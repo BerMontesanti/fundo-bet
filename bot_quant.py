@@ -11,8 +11,6 @@ from email.mime.text import MIMEText
 # ==========================================
 API_KEY = os.environ.get('ODDS_API_KEY')
 SENHA_APP_GMAIL = os.environ.get('GMAIL_PASS')
-
-# 📱 Novas Credenciais do Telegram
 TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
@@ -29,25 +27,68 @@ TARGET_EV = 0.07   # 7.0% ROI Mínimo
 TARGET_EDGE = 0.03 # 3% Edge Mínimo
 
 # ==========================================
-# 🏆 LIGAS E ESPORTES A MONITORAR (Resumido para o exemplo)
+# 🏆 LIGAS E ESPORTES A MONITORAR
 # ==========================================
 LIGAS = [
     ("Futebol - Premier League (ING)", "soccer_epl"),
+    ("Futebol - Championship (ING)", "soccer_england_championship"),
+    ("Futebol - FA Cup (ING)", "soccer_fa_cup"),
+    ("Futebol - La Liga (ESP)", "soccer_spain_la_liga"),
+    ("Futebol - Serie A (ITA)", "soccer_italy_serie_a"),
+    ("Futebol - Bundesliga (ALE)", "soccer_germany_bundesliga"),
+    ("Futebol - Ligue 1 (FRA)", "soccer_france_ligue_one"),
+    ("Futebol - Primeira Liga (POR)", "soccer_portugal_primeira_liga"),
+    ("Futebol - Eredivisie (HOL)", "soccer_netherlands_eredivisie"),
     ("Futebol - Champions League", "soccer_uefa_champs_league"),
-    ("Futebol - Brasileirão", "soccer_brazil_campeonato"),
+    ("Futebol - Europa League", "soccer_uefa_europa_league"),
+    ("Futebol - Conference League", "soccer_uefa_europa_conference_league"),
+    ("Futebol - Brasil Série A", "soccer_brazil_campeonato"),
+    ("Futebol - Brasil Série B", "soccer_brazil_serie_b"),
+    ("Futebol - Libertadores", "soccer_conmebol_libertadores"),
+    ("Futebol - Sul-Americana", "soccer_conmebol_sudamericana"),
+    ("Futebol - Argentina Primera", "soccer_argentina_primera_division"),
+    ("Futebol - Colômbia Primera A", "soccer_colombia_primera_a"),
+    ("Futebol - Chile Primera", "soccer_chile_campeonato"),
+    ("Futebol - México Liga MX", "soccer_mexico_ligamx"),
+    ("Futebol - MLS (EUA)", "soccer_usa_mls"),
     ("Basquete - NBA", "basketball_nba"),
+    ("Basquete - WNBA", "basketball_wnba"),
+    ("Basquete - NCAA (Universitário)", "basketball_ncaa"),
+    ("Basquete - Euroleague", "basketball_euroleague"),
+    ("Basquete - NBL (Austrália)", "basketball_nbl"),
     ("Tênis - ATP Singles", "tennis_atp_match"),
-    # Pode manter a sua lista completa de ligas aqui!
-]
-
-CASAS_ALVO = [
-    'bet365', 'betano', '1xbet', 'betfair_ex_eu', 'betfair_sb_uk', 
-    'sport888', 'unibet_eu', 'betsson', 'coolbet', 'matchbook', 
-    'pinnacle'
+    ("Tênis - WTA Singles", "tennis_wta_match"),
+    ("Futebol Americano - NFL", "americanfootball_nfl"),
+    ("Futebol Americano - NCAA", "americanfootball_ncaaf"),
+    ("Futebol Americano - CFL (Canadá)", "americanfootball_cfl"),
+    ("Beisebol - MLB", "baseball_mlb"),
+    ("Beisebol - NCAA", "baseball_ncaa"),
+    ("MMA - UFC", "mma_mixed_martial_arts"),
+    ("Boxe - Combates", "boxing_boxing_match"),
+    ("E-Sports - CS:GO / CS2", "esports_csgo_match_winner"),
+    ("E-Sports - League of Legends", "esports_lol_match_winner"),
+    ("E-Sports - Dota 2", "esports_dota2_match_winner"),
+    ("Críquete - IPL", "cricket_ipl"),
+    ("Críquete - Test Matches", "cricket_test_match"),
+    ("Rugby - Union", "rugby_union"),
+    ("Rugby - League", "rugby_league"),
 ]
 
 # ==========================================
-# 🚀 MOTOR DE BUSCA (A mesma lógica que já tínhamos)
+# 🏠 CASAS DE APOSTAS
+# ==========================================
+CASAS_ALVO = [
+    'bet365', 'betano', '1xbet', 'betfair_ex_eu', 'betfair_sb_uk', 
+    'sport888', 'unibet_eu', 'betsson', 'coolbet', 'matchbook', 
+    'marathonbet', 'nordicbet', 'williamhill',
+    'bovada', 'betonlineag', 'mybookieag', 'draftkings', 'fanduel', 
+    'betmgm', 'caesars', 'betrivers', 'superbook', 'pointsbetus',
+    'skybet', 'paddypower', 'ladbrokes', 'coral', 'boylesports', 
+    'virginbet', 'casumo'
+]
+
+# ==========================================
+# 🚀 MOTOR DE BUSCA
 # ==========================================
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
@@ -102,7 +143,7 @@ def buscar_oportunidades():
                                             "Odd Casa": f"{odd_soft:.2f}",
                                             "Odd Justa": f"{odd_justa:.2f}",
                                             "Odd Limite": f"{odd_limite:.2f}",
-                                            "Edge": round(edge * 100, 2), # Alterado para número para o sort funcionar melhor
+                                            "Edge": round(edge * 100, 2),
                                             "ROI": round(roi * 100, 2),
                                             "Stake": f"R$ {stake:.2f}"
                                         })
@@ -138,13 +179,11 @@ def enviar_telegram(dados_aprovados):
         print("📱 Notificação de zero apostas enviada para o Telegram.")
         return
 
-    # Ordena as apostas da mais lucrativa para a menos lucrativa
     df = pd.DataFrame(dados_aprovados).sort_values(by="ROI", ascending=False)
     
     texto_resumo = f"🔥 *Alerta Quant:* Encontradas {len(df)} oportunidades +EV!\n\nA enviar a lista completa abaixo:"
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
-    # ⬅️ MUDANÇA AQUI: Removido o .head(5), agora ele percorre TODAS as linhas (iterrows)
     for index, row in df.iterrows():
         msg_aposta = (
             f"⚽ *{row['Jogo']}*\n"
@@ -160,9 +199,54 @@ def enviar_telegram(dados_aprovados):
     print(f"📱 {len(df)} mensagens enviadas com sucesso para o Telegram!")
 
 # ==========================================
-# 📧 FUNÇÃO DE ENVIO DE E-MAIL (Opcional: pode manter ou remover depois)
+# 📧 FUNÇÃO DE ENVIO DE E-MAIL
 # ==========================================
-# (Coloque aqui a sua função atual enviar_email() se quiser manter ambas as notificações)
+def enviar_email(dados_aprovados):
+    data_atual = datetime.now().strftime("%d/%m/%Y")
+    hora_atual = datetime.now().strftime("%H:%M")
+    
+    msg = MIMEMultipart("alternative")
+    msg["From"] = EMAIL_REMETENTE
+    msg["To"] = ", ".join(EMAILS_DESTINO)
+    
+    if dados_aprovados:
+        df = pd.DataFrame(dados_aprovados)
+        df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
+        tabela_html = df.to_html(index=False, justify='center', border=1, classes='table table-striped')
+        
+        msg["Subject"] = f"🔥 Alerta +EV: {len(df)} Oportunidades ({data_atual})"
+        corpo_email = f"""
+        <html><body>
+          <h2>🤖 Alerta Quant: {len(df)} Oportunidades Encontradas!</h2>
+          <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas:</p>
+          {tabela_html}
+          <br><p><i>Finalizada em {data_atual} às {hora_atual}</i></p>
+        </body></html>
+        """
+    else:
+        msg["Subject"] = f"💤 Alerta Quant: Nenhuma Oportunidade ({data_atual})"
+        corpo_email = f"""
+        <html><body>
+          <h2>🤖 Alerta Quant: Zero Oportunidades</h2>
+          <p>A varredura de {data_atual} às {hora_atual} foi concluída.</p>
+          <p>Nenhuma aposta atendeu aos nossos critérios matemáticos no momento.</p>
+        </body></html>
+        """
+
+    msg.attach(MIMEText(corpo_email, "html"))
+
+    try:
+        if not SENHA_APP_GMAIL:
+            print("⚠️ ERRO: A senha do Gmail não foi encontrada nas variáveis de ambiente.")
+            return
+
+        server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server.login(EMAIL_REMETENTE, SENHA_APP_GMAIL)
+        server.sendmail(EMAIL_REMETENTE, EMAILS_DESTINO, msg.as_string())
+        server.quit()
+        print("📧 Relatório enviado com sucesso via E-mail!")
+    except Exception as e:
+        print(f"❌ Erro ao enviar email: {e}")
 
 # ==========================================
 # ⚙️ EXECUÇÃO PRINCIPAL
@@ -170,8 +254,5 @@ def enviar_telegram(dados_aprovados):
 if __name__ == "__main__":
     oportunidades = buscar_oportunidades()
     salvar_historico_csv(oportunidades)
-    
-    # Envia para o Telegram!
-    enviar_telegram(oportunidades) 
-    
-    enviar_email(oportunidades) # Descomente se ainda quiser receber o E-mail com a lista completa
+    enviar_telegram(oportunidades)
+    enviar_email(oportunidades)

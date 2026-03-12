@@ -23,3 +23,8 @@ jobs:
 
       - name: Rodar o Bot
         run: python bot_quant.py
+
+      - name: Rodar o Predador Quantitativo
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python bot_quant.py

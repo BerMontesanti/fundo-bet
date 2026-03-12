@@ -6,9 +6,13 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ==========================================
-# ⚙️ CONFIGURAÇÕES DO FUNDO
+# ⚙️ CONFIGURAÇÕES DA CONTA
 # ==========================================
-API_KEY = 'f926d86f5279262d9eb0afb7f304520f'
+# O robô agora vai buscar a chave secreta de forma segura
+import os
+API_KEY = os.environ.get('ODDS_API_KEY')
+
+EMAIL_REMETENTE = "bernardo.montesanti@gmail.com"
 
 BANCA_RS = 410.0
 TAXA_USD = 5.00

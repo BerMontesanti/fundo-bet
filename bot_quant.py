@@ -14,11 +14,11 @@ API_KEY = os.environ.get('ODDS_API_KEY')
 
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com"
 
-BANCA_RS = 410.0
-TAXA_USD = 5.00
+BANCA_RS = 250.0
+TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
-TARGET_EV = 0.05    # 5.0% ROI Mínimo
-TARGET_EDGE = 0.025 # 2.5% Edge Mínimo
+TARGET_EV = 0.07    # 7.0% ROI Mínimo
+TARGET_EDGE = 0.03 # 3% Edge Mínimo
 
 # ==========================================
 # 🏆 LIGAS E ESPORTES A MONITORAR
@@ -54,9 +54,9 @@ LIGAS = [
     ("Futebol - MLS (EUA)", "soccer_usa_mls"),
     
     # FUTEBOL - RESTO DO MUNDO
-    ("Futebol - J-League (Japão)", "soccer_japan_j_league"),
-    ("Futebol - Super League (China)", "soccer_china_superleague"),
-    ("Futebol - A-League (Austrália)", "soccer_australia_aleague"),
+    #("Futebol - J-League (Japão)", "soccer_japan_j_league"),
+    #("Futebol - Super League (China)", "soccer_china_superleague"),
+    #("Futebol - A-League (Austrália)", "soccer_australia_aleague"),
     
     # BASQUETEBOL
     ("Basquete - NBA", "basketball_nba"),
@@ -77,9 +77,9 @@ LIGAS = [
     ("Beisebol - NCAA", "baseball_ncaa"),
     
     # HÓQUEI NO GELO
-    ("Hóquei - NHL", "icehockey_nhl"),
-    ("Hóquei - SHL (Suécia)", "icehockey_sweden_hockey_league"),
-    ("Hóquei - SHL (Finlândia)", "icehockey_finland_liiga"),
+    #("Hóquei - NHL", "icehockey_nhl"),
+    #("Hóquei - SHL (Suécia)", "icehockey_sweden_hockey_league"),
+    #("Hóquei - SHL (Finlândia)", "icehockey_finland_liiga"),
     
     # LUTAS (MMA & BOXE)
     ("MMA - UFC", "mma_mixed_martial_arts"),

@@ -173,4 +173,4 @@ if __name__ == "__main__":
     # Envia para o Telegram!
     enviar_telegram(oportunidades) 
     
-    # enviar_email(oportunidades) # Descomente se ainda quiser receber o E-mail com a lista completa
+    enviar_email(oportunidades) # Descomente se ainda quiser receber o E-mail com a lista completa

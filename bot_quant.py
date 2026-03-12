@@ -138,13 +138,14 @@ def enviar_telegram(dados_aprovados):
         print("📱 Notificação de zero apostas enviada para o Telegram.")
         return
 
+    # Ordena as apostas da mais lucrativa para a menos lucrativa
     df = pd.DataFrame(dados_aprovados).sort_values(by="ROI", ascending=False)
     
-    texto_resumo = f"🔥 *Alerta Quant:* Encontradas {len(df)} oportunidades +EV!\n\nA enviar o Top 5 mais lucrativo:"
+    texto_resumo = f"🔥 *Alerta Quant:* Encontradas {len(df)} oportunidades +EV!\n\nA enviar a lista completa abaixo:"
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
-    # Envia apenas as 5 melhores para não criar spam no chat
-    for index, row in df.head(5).iterrows():
+    # ⬅️ MUDANÇA AQUI: Removido o .head(5), agora ele percorre TODAS as linhas (iterrows)
+    for index, row in df.iterrows():
         msg_aposta = (
             f"⚽ *{row['Jogo']}*\n"
             f"🏆 {row['Liga']} | ⏰ {row['Data/Hora']}\n"
@@ -156,7 +157,7 @@ def enviar_telegram(dados_aprovados):
         )
         requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg_aposta, "parse_mode": "Markdown"})
     
-    print("📱 Mensagens enviadas com sucesso para o Telegram!")
+    print(f"📱 {len(df)} mensagens enviadas com sucesso para o Telegram!")
 
 # ==========================================
 # 📧 FUNÇÃO DE ENVIO DE E-MAIL (Opcional: pode manter ou remover depois)

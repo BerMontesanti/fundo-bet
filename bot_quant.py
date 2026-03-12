@@ -1,30 +1,33 @@
+import os
 import requests
-from datetime import datetime, timedelta
 import pandas as pd
 import smtplib
+from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ==========================================
 # ⚙️ CONFIGURAÇÕES DA CONTA
 # ==========================================
-# O robô agora vai buscar a chave secreta de forma segura
-import os
+# O robô busca as chaves secretas de forma segura
 API_KEY = os.environ.get('ODDS_API_KEY')
+SENHA_APP_GMAIL = os.environ.get('GMAIL_PASS') # 🔒 Senha agora protegida!
 
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com"
+EMAILS_DESTINO = [
+    "bernardo.montesanti@gmail.com",
+    "eduasy@hotmail.com"
+]
 
 BANCA_RS = 250.0
 TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
-TARGET_EV = 0.07    # 7.0% ROI Mínimo
+TARGET_EV = 0.07   # 7.0% ROI Mínimo
 TARGET_EDGE = 0.03 # 3% Edge Mínimo
 
 # ==========================================
 # 🏆 LIGAS E ESPORTES A MONITORAR
 # ==========================================
-# Dica: Coloque um '#' no início da linha para desativar a liga e poupar créditos da API.
-
 LIGAS = [
     # FUTEBOL - EUROPA (Elite)
     ("Futebol - Premier League (ING)", "soccer_epl"),
@@ -53,11 +56,6 @@ LIGAS = [
     ("Futebol - México Liga MX", "soccer_mexico_ligamx"),
     ("Futebol - MLS (EUA)", "soccer_usa_mls"),
     
-    # FUTEBOL - RESTO DO MUNDO
-    #("Futebol - J-League (Japão)", "soccer_japan_j_league"),
-    #("Futebol - Super League (China)", "soccer_china_superleague"),
-    #("Futebol - A-League (Austrália)", "soccer_australia_aleague"),
-    
     # BASQUETEBOL
     ("Basquete - NBA", "basketball_nba"),
     ("Basquete - WNBA", "basketball_wnba"),
@@ -76,11 +74,6 @@ LIGAS = [
     ("Beisebol - MLB", "baseball_mlb"),
     ("Beisebol - NCAA", "baseball_ncaa"),
     
-    # HÓQUEI NO GELO
-    #("Hóquei - NHL", "icehockey_nhl"),
-    #("Hóquei - SHL (Suécia)", "icehockey_sweden_hockey_league"),
-    #("Hóquei - SHL (Finlândia)", "icehockey_finland_liiga"),
-    
     # LUTAS (MMA & BOXE)
     ("MMA - UFC", "mma_mixed_martial_arts"),
     ("Boxe - Combates", "boxing_boxing_match"),
@@ -90,39 +83,24 @@ LIGAS = [
     ("E-Sports - League of Legends", "esports_lol_match_winner"),
     ("E-Sports - Dota 2", "esports_dota2_match_winner"),
     
-    # CRÍQUETE & RUGBY (Opcionais, muito fortes no UK/Austrália)
+    # CRÍQUETE & RUGBY
     ("Críquete - IPL", "cricket_ipl"),
     ("Críquete - Test Matches", "cricket_test_match"),
     ("Rugby - Union", "rugby_union"),
     ("Rugby - League", "rugby_league"),
-    
-    # GOLFE (Geralmente focado em Outrights/Vencedor do Torneio)
-    # ("Golfe - PGA Tour", "golf_pga_tournament_winner"),
-    # ("Golfe - The Masters", "golf_masters_tournament_winner")
 ]
 
-# 2. TODAS as Casas de Apostas (Global, EUA e Reino Unido)
-# Apague ou comente com '#' as casas onde não tem conta ou não pretende operar.
+# ==========================================
+# 🏠 CASAS DE APOSTAS
+# ==========================================
 CASAS_ALVO = [
-    # Europa e Global (Maior liquidez e focadas em Futebol/Ténis)
     'bet365', 'betano', '1xbet', 'betfair_ex_eu', 'betfair_sb_uk', 
     'sport888', 'unibet_eu', 'betsson', 'coolbet', 'matchbook', 
     'marathonbet', 'nordicbet', 'williamhill',
-    
-    # Américas e Offshore (Excelentes para desportos americanos e MMA)
     'bovada', 'betonlineag', 'mybookieag', 'draftkings', 'fanduel', 
     'betmgm', 'caesars', 'betrivers', 'superbook', 'pointsbetus',
-    
-    # Reino Unido (Fortes na Premier League e mercados britânicos)
     'skybet', 'paddypower', 'ladbrokes', 'coral', 'boylesports', 
     'virginbet', 'casumo'
-]
-
-EMAIL_REMETENTE = "bernardo.montesanti@gmail.com" 
-SENHA_APP_GMAIL = "qvwkdpbyvlgmihfp"
-EMAILS_DESTINO = [
-    "bernardo.montesanti@gmail.com",
-    "eduasy@hotmail.com"
 ]
 
 # ==========================================
@@ -191,7 +169,24 @@ def buscar_oportunidades():
     return apostas_aprovadas
 
 # ==========================================
-# 📧 FUNÇÃO DE ENVIO (5. Envia mesmo sem apostas)
+# 💾 SALVAR NO BANCO DE DADOS (CSV)
+# ==========================================
+def salvar_historico_csv(dados_aprovados):
+    if not dados_aprovados:
+        return
+    
+    arquivo_csv = 'historico_apostas.csv'
+    df = pd.DataFrame(dados_aprovados)
+    
+    # Adiciona a data/hora em que o bot rodou
+    df['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
+    
+    existe = os.path.isfile(arquivo_csv)
+    df.to_csv(arquivo_csv, mode='a', index=False, header=not existe)
+    print(f"✅ {len(df)} apostas guardadas no banco de dados (CSV).")
+
+# ==========================================
+# 📧 FUNÇÃO DE ENVIO DE E-MAIL
 # ==========================================
 def enviar_email(dados_aprovados):
     data_atual = datetime.now().strftime("%d/%m/%Y")
@@ -228,14 +223,22 @@ def enviar_email(dados_aprovados):
     msg.attach(MIMEText(corpo_email, "html"))
 
     try:
+        if not SENHA_APP_GMAIL:
+            print("⚠️ ERRO: A senha do Gmail não foi encontrada nas variáveis de ambiente.")
+            return
+
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.login(EMAIL_REMETENTE, SENHA_APP_GMAIL)
         server.sendmail(EMAIL_REMETENTE, EMAILS_DESTINO, msg.as_string())
         server.quit()
-        print(f"Relatório enviado com sucesso!")
+        print(f"📧 Relatório enviado com sucesso!")
     except Exception as e:
-        print(f"Erro ao enviar email: {e}")
+        print(f"❌ Erro ao enviar email: {e}")
 
+# ==========================================
+# ⚙️ EXECUÇÃO PRINCIPAL
+# ==========================================
 if __name__ == "__main__":
     oportunidades = buscar_oportunidades()
+    salvar_historico_csv(oportunidades) # ⬅️ Aqui está a nova função salvando o histórico!
     enviar_email(oportunidades)

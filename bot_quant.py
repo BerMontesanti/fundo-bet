@@ -22,8 +22,8 @@ EMAILS_DESTINO = [
 BANCA_RS = 250.0
 TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
-TARGET_EV = 0.07   # 7.0% ROI Mínimo
-TARGET_EDGE = 0.03 # 3% Edge Mínimo
+TARGET_EV = 0.05   # 5.0% ROI Mínimo
+TARGET_EDGE = 0.025 # 2,5% Edge Mínimo
 
 # ==========================================
 # 🏆 LIGAS E ESPORTES A MONITORAR

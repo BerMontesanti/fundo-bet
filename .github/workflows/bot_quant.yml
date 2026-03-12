@@ -31,6 +31,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         # Chama explicitamente o seu arquivo correto
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }} #
         run: python bot_quant.py
 
       # Salva o histórico de apostas (CSV) de volta no GitHub

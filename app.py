@@ -1,11 +1,29 @@
 import streamlit as st
 import pandas as pd
 import os
+from github import Github
 
 # ==========================================
-# CONFIGURAÇÃO DA PÁGINA
+# CONFIGURAÇÃO DA PÁGINA E LOGIN
 # ==========================================
 st.set_page_config(page_title="Dashboard Quant Bet", page_icon="📈", layout="wide")
+
+# Sistema de Login Simples
+if "autenticado" not in st.session_state:
+    st.session_state.autenticado = False
+
+if not st.session_state.autenticado:
+    st.title("🔒 Acesso Restrito - Quant Bet EV")
+    senha_digitada = st.text_input("Digite a senha para acessar o painel:", type="password")
+    if st.button("Entrar"):
+        if senha_digitada == st.secrets["SENHA_SITE"]:
+            st.session_state.autenticado = True
+            st.rerun()
+        else:
+            st.error("❌ Senha incorreta!")
+    st.stop() # Bloqueia o carregamento do resto do site se não logar
+
+# A partir daqui, o usuário está logado!
 st.title("📈 Dashboard Analítico - Quant Bet EV")
 
 ARQUIVO = 'historico_apostas.csv'
@@ -14,20 +32,18 @@ if not os.path.exists(ARQUIVO):
     st.warning(f"Nenhum histórico encontrado. O arquivo {ARQUIVO} ainda não foi criado pelo robô.")
     st.stop()
 
-# Carrega os dados
 df = pd.read_csv(ARQUIVO)
 
-# Garante que as colunas de controle existem
 if 'Vencedor_Partida' not in df.columns:
     df['Vencedor_Partida'] = "Pendente"
 if 'Status_Aposta' not in df.columns:
     df['Status_Aposta'] = "Pendente"
 
 # ==========================================
-# 1. INSERÇÃO DE RESULTADOS (UMA LINHA POR JOGO)
+# 1. INSERÇÃO DE RESULTADOS
 # ==========================================
 st.subheader("📝 Alimentar Resultados")
-st.info("Digite o nome exato do time vencedor ou 'Draw' para empate. O sistema calculará os Greens/Reds de todas as casas.")
+st.info("Digite o nome exato do time vencedor ou 'Draw' para empate.")
 
 jogos_unicos = df[['Data/Hora', 'Liga', 'Jogo', 'Vencedor_Partida']].drop_duplicates(subset=['Data/Hora', 'Jogo']).copy()
 
@@ -39,48 +55,63 @@ jogos_editados = st.data_editor(
     key="editor_resultados"
 )
 
-if st.button("💾 Salvar Resultados", type="primary"):
-    for index, row in jogos_editados.iterrows():
-        jogo_id = row['Jogo']
-        data_id = row['Data/Hora']
-        vencedor = row['Vencedor_Partida']
-        
-        mask = (df['Jogo'] == jogo_id) & (df['Data/Hora'] == data_id)
-        df.loc[mask, 'Vencedor_Partida'] = vencedor
-        
-        for idx in df[mask].index:
-            selecao_apostada = str(df.at[idx, 'Seleção']).strip()
-            vencedor_limpo = str(vencedor).strip()
+# ==========================================
+# 2. SALVAR NO GITHUB
+# ==========================================
+if st.button("💾 Salvar Resultados na Nuvem", type="primary"):
+    with st.spinner('A calcular e a enviar para o GitHub...'):
+        for index, row in jogos_editados.iterrows():
+            jogo_id = row['Jogo']
+            data_id = row['Data/Hora']
+            vencedor = row['Vencedor_Partida']
             
-            if vencedor_limpo == "Pendente" or vencedor_limpo == "" or vencedor_limpo == "nan":
-                df.at[idx, 'Status_Aposta'] = "Pendente"
-            elif selecao_apostada == vencedor_limpo:
-                df.at[idx, 'Status_Aposta'] = "Green ✅"
-            else:
-                df.at[idx, 'Status_Aposta'] = "Red ❌"
+            mask = (df['Jogo'] == jogo_id) & (df['Data/Hora'] == data_id)
+            df.loc[mask, 'Vencedor_Partida'] = vencedor
+            
+            for idx in df[mask].index:
+                selecao_apostada = str(df.at[idx, 'Seleção']).strip()
+                vencedor_limpo = str(vencedor).strip()
+                
+                if vencedor_limpo == "Pendente" or vencedor_limpo == "" or vencedor_limpo == "nan":
+                    df.at[idx, 'Status_Aposta'] = "Pendente"
+                elif selecao_apostada == vencedor_limpo:
+                    df.at[idx, 'Status_Aposta'] = "Green ✅"
+                else:
+                    df.at[idx, 'Status_Aposta'] = "Red ❌"
 
-    df.to_csv(ARQUIVO, index=False)
-    st.success("Resultados e Payouts atualizados com sucesso!")
-    st.rerun() # Atualiza a página para refletir os novos dados nos gráficos
+        # Salva o arquivo localmente para o app usar agora
+        df.to_csv(ARQUIVO, index=False)
+        
+        # Envia a atualização oficial para o GitHub
+        try:
+            g = Github(st.secrets["GITHUB_TOKEN"])
+            repo = g.get_repo(st.secrets["REPO_NAME"])
+            contents = repo.get_contents(ARQUIVO)
+            novo_csv = df.to_csv(index=False)
+            
+            repo.update_file(
+                contents.path, 
+                "🤖 Atualizando resultados via Painel Web", 
+                novo_csv, 
+                contents.sha
+            )
+            st.success("Resultados salvos com sucesso e sincronizados com o robô!")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Erro ao sincronizar com o GitHub: {e}")
 
 st.divider()
 
 # ==========================================
-# 2. PREPARAÇÃO DOS DADOS (LIMPEZA MATEMÁTICA)
+# 3. PREPARAÇÃO DOS DADOS E DASHBOARD
 # ==========================================
-# Criamos uma cópia para não alterar a exibição visual do dataframe original
 df_calc = df.copy()
-
-# Converte strings para números
 df_calc['Stake_Num'] = df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip().astype(float)
 df_calc['ROI_Num'] = df_calc['ROI'].astype(str).str.replace('%', '', regex=False).str.strip().astype(float) / 100
 df_calc['Edge_Num'] = df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip().astype(float) / 100
 df_calc['Odd_Num'] = df_calc['Odd Casa'].astype(float)
-
-# Calcula o EV Teórico (Stake * ROI)
 df_calc['Lucro_Teorico'] = df_calc['Stake_Num'] * df_calc['ROI_Num']
 
-# Calcula o Payout Real (Lucro/Prejuízo)
 def calcular_payout(row):
     if row['Status_Aposta'] == 'Green ✅':
         return row['Stake_Num'] * (row['Odd_Num'] - 1)
@@ -90,17 +121,11 @@ def calcular_payout(row):
         return 0.0
 
 df_calc['Payout_Real'] = df_calc.apply(calcular_payout, axis=1)
-
-# Filtra apenas apostas já resolvidas para as métricas de Payout
 df_resolvidas = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])]
 
-# ==========================================
-# 3. PAINEL GLOBAL DE PERFORMANCE
-# ==========================================
+# PAINEL GLOBAL
 st.subheader("🌍 Visão Global da Estratégia")
-
 col1, col2, col3, col4 = st.columns(4)
-
 total_apostas = len(df_calc)
 ev_total = df_calc['Lucro_Teorico'].sum()
 payout_total = df_calc['Payout_Real'].sum()
@@ -113,13 +138,8 @@ col4.metric("Taxa de Acerto (Win Rate)", f"{taxa_acerto:.1f}%")
 
 st.divider()
 
-# ==========================================
-# 4. ESTRATIFICAÇÃO POR CASA DE APOSTA
-# ==========================================
+# ESTRATIFICAÇÃO POR CASA
 st.subheader("🏦 Performance Individual por Casa de Aposta")
-st.write("Análise detalhada do valor esperado (EV) e do dinheiro real no bolso (Payout) em cada casa.")
-
-# Agrupamento e cálculos
 analise_casas = df_calc.groupby('Casa').agg(
     Oportunidades=('Casa', 'count'),
     Edge_Medio=('Edge_Num', 'mean'),
@@ -129,10 +149,8 @@ analise_casas = df_calc.groupby('Casa').agg(
     Payout_Real=('Payout_Real', 'sum')
 ).reset_index()
 
-# Ordena pelo maior Payout Real e depois pelo EV
 analise_casas = analise_casas.sort_values(by=['Payout_Real', 'EV_Absoluto'], ascending=[False, False])
 
-# Formatação visual da tabela para exibição
 tabela_exibicao = analise_casas.copy()
 tabela_exibicao['Edge_Medio'] = (tabela_exibicao['Edge_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
 tabela_exibicao['EV_Medio'] = (tabela_exibicao['EV_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
@@ -143,9 +161,5 @@ st.dataframe(tabela_exibicao, hide_index=True, use_container_width=True)
 
 st.divider()
 
-# ==========================================
-# 5. HISTÓRICO COMPLETO DETALHADO
-# ==========================================
 with st.expander("🔍 Ver Histórico de Apostas Completo"):
-    # Organiza para mostrar as resolvidas primeiro, ou as mais recentes
     st.dataframe(df, use_container_width=True)

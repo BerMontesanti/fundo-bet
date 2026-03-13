@@ -8,7 +8,6 @@ from github import Github
 # ==========================================
 st.set_page_config(page_title="Dashboard Quant Bet", page_icon="📈", layout="wide")
 
-# Sistema de Login Simples
 if "autenticado" not in st.session_state:
     st.session_state.autenticado = False
 
@@ -21,9 +20,8 @@ if not st.session_state.autenticado:
             st.rerun()
         else:
             st.error("❌ Senha incorreta!")
-    st.stop() # Bloqueia o carregamento do resto do site se não logar
+    st.stop() 
 
-# A partir daqui, o usuário está logado!
 st.title("📈 Dashboard Analítico - Quant Bet EV")
 
 ARQUIVO = 'historico_apostas.csv'
@@ -40,30 +38,66 @@ if 'Status_Aposta' not in df.columns:
     df['Status_Aposta'] = "Pendente"
 
 # ==========================================
-# 1. INSERÇÃO DE RESULTADOS
+# 1. INSERÇÃO DE RESULTADOS (DROPDOWNS EXCLUSIVOS)
 # ==========================================
 st.subheader("📝 Alimentar Resultados")
-st.info("Digite o nome exato do time vencedor ou 'Draw' para empate.")
+st.info("Selecione o vencedor no menu. As opções estão limitadas apenas aos times que jogaram.")
 
 jogos_unicos = df[['Data/Hora', 'Liga', 'Jogo', 'Vencedor_Partida']].drop_duplicates(subset=['Data/Hora', 'Jogo']).copy()
 
-jogos_editados = st.data_editor(
-    jogos_unicos,
-    disabled=["Data/Hora", "Liga", "Jogo"], 
-    hide_index=True,
-    use_container_width=True,
-    key="editor_resultados"
-)
+# Ordena para colocar os jogos "Pendentes" no topo da lista visual
+jogos_unicos['Ordem'] = jogos_unicos['Vencedor_Partida'].apply(lambda x: 0 if x == 'Pendente' else 1)
+jogos_unicos = jogos_unicos.sort_values(by=['Ordem', 'Data/Hora'], ascending=[True, False])
+
+with st.form("form_resultados"):
+    novos_resultados = []
+    
+    for index, row in jogos_unicos.iterrows():
+        # Lógica para extrair os times do nome do jogo
+        if ' x ' in row['Jogo']:
+            time_casa, time_fora = row['Jogo'].split(' x ')
+            opcoes = ["Pendente", time_casa, time_fora, "Draw"]
+        else:
+            opcoes = ["Pendente", "Draw"]
+            
+        valor_atual = str(row['Vencedor_Partida']).strip()
+        if valor_atual not in opcoes:
+            opcoes.append(valor_atual)
+            
+        idx_padrao = opcoes.index(valor_atual) if valor_atual in opcoes else 0
+        
+        # Desenha a linha da partida com duas colunas
+        col_txt, col_sel = st.columns([3, 2])
+        with col_txt:
+            st.write(f"⚽ **{row['Jogo']}**")
+            st.caption(f"🏆 {row['Liga']} | ⏰ {row['Data/Hora']}")
+        with col_sel:
+            escolha = st.selectbox(
+                "Vencedor",
+                options=opcoes,
+                index=idx_padrao,
+                key=f"sel_{row['Jogo']}_{row['Data/Hora']}",
+                label_visibility="collapsed"
+            )
+            
+        novos_resultados.append({
+            'Jogo': row['Jogo'],
+            'Data/Hora': row['Data/Hora'],
+            'Vencedor_Partida': escolha
+        })
+        st.markdown("---")
+        
+    salvar_btn = st.form_submit_button("💾 Salvar Resultados na Nuvem", type="primary")
 
 # ==========================================
 # 2. SALVAR NO GITHUB
 # ==========================================
-if st.button("💾 Salvar Resultados na Nuvem", type="primary"):
+if salvar_btn:
     with st.spinner('A calcular e a enviar para o GitHub...'):
-        for index, row in jogos_editados.iterrows():
-            jogo_id = row['Jogo']
-            data_id = row['Data/Hora']
-            vencedor = row['Vencedor_Partida']
+        for item in novos_resultados:
+            jogo_id = item['Jogo']
+            data_id = item['Data/Hora']
+            vencedor = item['Vencedor_Partida']
             
             mask = (df['Jogo'] == jogo_id) & (df['Data/Hora'] == data_id)
             df.loc[mask, 'Vencedor_Partida'] = vencedor
@@ -79,10 +113,8 @@ if st.button("💾 Salvar Resultados na Nuvem", type="primary"):
                 else:
                     df.at[idx, 'Status_Aposta'] = "Red ❌"
 
-        # Salva o arquivo localmente para o app usar agora
         df.to_csv(ARQUIVO, index=False)
         
-        # Envia a atualização oficial para o GitHub
         try:
             g = Github(st.secrets["GITHUB_TOKEN"])
             repo = g.get_repo(st.secrets["REPO_NAME"])

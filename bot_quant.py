@@ -16,8 +16,7 @@ TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 EMAIL_REMETENTE = "bernardo.montesanti@gmail.com"
 EMAILS_DESTINO = [
-    "bernardo.montesanti@gmail.com",
-    "eduasy@hotmail.com"
+    "bernardo.montesanti@gmail.com"
 ]
 
 BANCA_RS = 250.0

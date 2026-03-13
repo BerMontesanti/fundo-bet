@@ -158,10 +158,12 @@ def buscar_oportunidades():
                                             "ROI": round(roi * 100, 2),
                                             "Stake": f"R$ {stake:.2f}"
                                         })
-      except Exception as e:
-            print(f"❌ Erro ao buscar a liga {nome_liga}: {e}")
-            if 'res' in locals() and res.status_code != 200:
+            else:
+                print(f"❌ Erro na API para a liga {nome_liga}. Status: {res.status_code}")
                 print(f"Detalhe da API: {res.text}")
+        except Exception as e:
+            print(f"❌ Erro de processamento na liga {nome_liga}: {e}")
+            
     return apostas_aprovadas
 
 # ==========================================

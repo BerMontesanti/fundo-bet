@@ -23,8 +23,9 @@ EMAILS_DESTINO = [
 BANCA_RS = 250.0
 TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
-TARGET_EV = 0.07   # 7.0% ROI Mínimo
-TARGET_EDGE = 0.03 # 3% Edge Mínimo
+
+# ⚠️ TARGET_EV fixo foi removido para dar lugar às Faixas Dinâmicas
+TARGET_EDGE = 0.025 # 2.5% Edge Mínimo de Segurança Inegociável
 
 # ==========================================
 # 🏆 LIGAS E ESPORTES A MONITORAR
@@ -125,8 +126,19 @@ def buscar_oportunidades():
                                     roi = (prob_real_pin * odd_soft) - 1
                                     edge = prob_real_pin - (1 / odd_soft)
                                     
-                                    if roi >= TARGET_EV and edge >= TARGET_EDGE:
-                                        odd_min_ev = (TARGET_EV + 1) / prob_real_pin
+                                    # --- NOVA LÓGICA DE FAIXAS DINÂMICAS ---
+                                    if odd_justa < 2.00:
+                                        alvo_ev_atual = 0.03 # 3% EV para favoritos
+                                    elif odd_justa <= 4.00:
+                                        alvo_ev_atual = 0.05 # 5% EV para odds médias
+                                    else:
+                                        alvo_ev_atual = 0.07 # 7% EV para zebras
+
+                                    # Verifica se bate o EV dinâmico E o Edge inegociável de 2.5%
+                                    if roi >= alvo_ev_atual and edge >= TARGET_EDGE:
+                                        
+                                        # Calcula as odds limites respeitando a faixa atual
+                                        odd_min_ev = (alvo_ev_atual + 1) / prob_real_pin
                                         odd_min_edge = 1 / (prob_real_pin - TARGET_EDGE) if prob_real_pin > TARGET_EDGE else float('inf')
                                         odd_limite = max(odd_min_ev, odd_min_edge)
 

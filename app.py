@@ -66,6 +66,9 @@ def salvar_no_github(dataframe, mensagem):
 # ==========================================
 df_calc = df.copy()
 
+# Elimina linhas duplicadas geradas pelo bot antigo, mantendo apenas a última
+df_calc = df_calc.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Casa', 'Seleção'], keep='last')
+
 # Extração Inteligente do Esporte a partir da Liga
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
 

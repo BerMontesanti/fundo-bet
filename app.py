@@ -323,7 +323,10 @@ with tab_resultados:
             idx_padrao = opcoes.index(valor_atual) if valor_atual in opcoes else 0
             
             col_txt, col_sel = st.columns([3, 2])
-            with col_txt: st.write(f"⚽ **{row['Jogo']}**")
+            with col_txt:
+                # Modificação principal: Inclusão de formatação em markdown para exibir Liga e Horário
+                st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🏆 {row['Liga']} &nbsp;|&nbsp; ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
+            
             with col_sel: escolha = st.selectbox("Vencedor", options=opcoes, index=idx_padrao, key=f"sel_{row['Jogo']}_{row['Data/Hora']}", label_visibility="collapsed")
             novos_resultados.append({'Jogo': row['Jogo'], 'Data/Hora': row['Data/Hora'], 'Vencedor_Partida': escolha})
             st.markdown("---")

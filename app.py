@@ -125,7 +125,7 @@ with tab_dash:
         
         fig = px.line(grafico_dados, x='Data_Curta', y='Lucro_Acumulado', markers=True, text='Lucro_Acumulado')
         fig.add_bar(x=grafico_dados['Data_Curta'], y=grafico_dados['Payout_Real'], name="Lucro Diário", opacity=0.5)
-        fig.update_traces(textposition="bottom right")
+        fig.update_traces(textposition="bottom right", selector=dict(type='scatter'))
         st.plotly_chart(fig, use_container_width=True)
 
     # Performance por Casa

@@ -143,35 +143,34 @@ with tab_dash:
     if liga_selecionada != "Todas as Ligas":
         df_dash = df_dash[df_dash['Liga'] == liga_selecionada]
 
+    # ISOLAMENTO DE APOSTAS RESOLVIDAS (O Foco de toda a Análise Matemática)
     df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
 
     st.divider()
 
-    # --- MÉTRICAS GLOBAIS ---
+    # --- MÉTRICAS GLOBAIS (AGORA SÓ COM JOGOS FECHADOS) ---
     col1, col2, col3, col4 = st.columns(4)
     col5, col6, col7, col8 = st.columns(4)
     
     # Linha 1
-    col1.metric("Oportunidades", f"{len(df_dash)}")
+    col1.metric("Apostas Resolvidas", f"{len(df_resolvidas)}")
     taxa_acerto_global = (len(df_resolvidas[df_resolvidas['Status_Aposta'] == 'Green ✅']) / len(df_resolvidas) * 100) if not df_resolvidas.empty else 0.0
     col2.metric("Taxa de Acerto", f"{taxa_acerto_global:.1f}%")
-    col3.metric("Edge Médio", f"{(df_dash['Edge_Num'].mean() * 100):.2f}%" if not df_dash.empty else "0%")
-    stake_total_global = df_dash['Stake_Final'].sum()
+    col3.metric("Edge Médio", f"{(df_resolvidas['Edge_Num'].mean() * 100):.2f}%" if not df_resolvidas.empty else "0%")
+    stake_total_global = df_resolvidas['Stake_Final'].sum()
     col4.metric("Stake Total", f"R$ {stake_total_global:.2f}")
     
     # Linha 2
-    ev_total_global = df_dash['EV_Esperado_R$'].sum()
+    ev_total_global = df_resolvidas['EV_Esperado_R$'].sum()
     col5.metric("EV Esperado", f"R$ {ev_total_global:.2f}")
     
-    payout_total_global = df_dash['Payout'].sum()
+    payout_total_global = df_resolvidas['Payout'].sum()
     col6.metric("Payout", f"R$ {payout_total_global:.2f}", delta=f"R$ {payout_total_global:.2f}")
     
     payout_ev_ratio = (payout_total_global / ev_total_global * 100) if ev_total_global != 0 else 0.0
     col7.metric("EV Realization Rate", f"{payout_ev_ratio:.1f}%")
     
-    stake_resolvidas = df_resolvidas['Stake_Final'].sum()
-    payout_resolvidas = df_resolvidas['Payout'].sum()
-    yield_global = (payout_resolvidas / stake_resolvidas * 100) if stake_resolvidas > 0 else 0.0
+    yield_global = (payout_total_global / stake_total_global * 100) if stake_total_global > 0 else 0.0
     col8.metric("Yield Global", f"{yield_global:.2f}%")
 
     # --- GRÁFICOS TEMPORAIS ---
@@ -208,15 +207,14 @@ with tab_dash:
 
     st.divider()
 
-    # --- TABELA DE ESTRATIFICAÇÃO DINÂMICA ---
+    # --- TABELA DE ESTRATIFICAÇÃO DINÂMICA (SÓ COM APOSTAS RESOLVIDAS) ---
     st.markdown("### 📊 Performance Detalhada (Agrupamento)")
     
     agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga"], horizontal=True)
     col_grupo = "Casa" if agrupamento == "Casa de Aposta" else agrupamento
 
-    analise_tabela = df_dash.groupby(col_grupo).agg(
+    analise_tabela = df_resolvidas.groupby(col_grupo).agg(
         Oportunidades=(col_grupo, 'count'),
-        Apostas_Resolvidas=('Status_Aposta', lambda x: x.isin(['Green ✅', 'Red ❌']).sum()),
         Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()),
         Edge_Medio=('Edge_Num', 'mean'),
         EV_Medio=('ROI_Num', 'mean'),
@@ -226,7 +224,7 @@ with tab_dash:
     ).reset_index()
     
     analise_tabela['Yield'] = analise_tabela.apply(lambda x: (x['Payout'] / x['Stake_Total'] * 100) if x['Stake_Total'] > 0 else 0.0, axis=1)
-    analise_tabela['Taxa_Acerto'] = analise_tabela.apply(lambda x: (x['Greens'] / x['Apostas_Resolvidas'] * 100) if x['Apostas_Resolvidas'] > 0 else 0.0, axis=1)
+    analise_tabela['Taxa_Acerto'] = analise_tabela.apply(lambda x: (x['Greens'] / x['Oportunidades'] * 100) if x['Oportunidades'] > 0 else 0.0, axis=1)
     analise_tabela['EV Realization Rate'] = analise_tabela.apply(lambda x: (x['Payout'] / x['EV_Esperado'] * 100) if x['EV_Esperado'] != 0 else 0.0, axis=1)
     
     analise_tabela = analise_tabela.sort_values(by=['Yield', 'Oportunidades'], ascending=[False, False])

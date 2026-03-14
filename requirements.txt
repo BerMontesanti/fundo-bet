@@ -4,3 +4,4 @@ pandas
 thefuzz
 python-Levenshtein
 PyGithub
+plotly

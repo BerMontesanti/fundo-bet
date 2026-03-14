@@ -120,21 +120,25 @@ with tab_dash:
 
     df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    # Métricas Globais (Agora com 6 colunas para incluir a Taxa de Acerto)
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
     col1.metric("Oportunidades", f"{len(df_dash)}")
-    col2.metric("Edge Médio", f"{(df_dash['Edge_Num'].mean() * 100):.2f}%" if not df_dash.empty else "0%")
+    
+    taxa_acerto_global = (len(df_resolvidas[df_resolvidas['Status_Aposta'] == 'Green ✅']) / len(df_resolvidas) * 100) if not df_resolvidas.empty else 0.0
+    col2.metric("Taxa de Acerto", f"{taxa_acerto_global:.1f}%")
+    
+    col3.metric("Edge Médio", f"{(df_dash['Edge_Num'].mean() * 100):.2f}%" if not df_dash.empty else "0%")
     
     stake_total_global = df_dash['Stake_Final'].sum()
-    col3.metric("Stake Total", f"R$ {stake_total_global:.2f}")
+    col4.metric("Stake Total", f"R$ {stake_total_global:.2f}")
     
     lucro_total_global = df_dash['Lucro'].sum()
-    col4.metric("Lucro Total", f"R$ {lucro_total_global:.2f}", delta=f"R$ {lucro_total_global:.2f}")
+    col5.metric("Lucro Total", f"R$ {lucro_total_global:.2f}", delta=f"R$ {lucro_total_global:.2f}")
     
-    # Substituição do Win Rate pelo YIELD GLOBAL (%)
     stake_resolvidas = df_resolvidas['Stake_Final'].sum()
     lucro_resolvidas = df_resolvidas['Lucro'].sum()
     yield_global = (lucro_resolvidas / stake_resolvidas * 100) if stake_resolvidas > 0 else 0.0
-    col5.metric("Yield Global (Retorno)", f"{yield_global:.2f}%")
+    col6.metric("Yield Global", f"{yield_global:.2f}%")
 
     if not df_resolvidas.empty:
         df_resolvidas['Data_Curta'] = df_resolvidas['Data/Hora'].str[:5] 
@@ -145,8 +149,6 @@ with tab_dash:
         
         grafico_dados['Lucro Acumulado'] = grafico_dados['Lucro_Diario'].cumsum()
         grafico_dados['Stake Acumulada'] = grafico_dados['Stake_Diaria'].cumsum()
-        
-        # Cria a métrica de Yield Acumulado para o gráfico
         grafico_dados['Yield Acumulado (%)'] = (grafico_dados['Lucro Acumulado'] / grafico_dados['Stake Acumulada']) * 100
         
         col_g1, col_g2 = st.columns(2)
@@ -170,27 +172,33 @@ with tab_dash:
             st.plotly_chart(fig_yield, use_container_width=True)
 
     st.markdown("### 🏦 Performance Individual por Casa")
+    # Agrupamento e cálculo das estatísticas por casa
     analise_casas = df_dash.groupby('Casa').agg(
         Oportunidades=('Casa', 'count'),
+        Apostas_Resolvidas=('Status_Aposta', lambda x: x.isin(['Green ✅', 'Red ❌']).sum()),
+        Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()),
         Edge_Medio=('Edge_Num', 'mean'),
         EV_Medio=('ROI_Num', 'mean'),
         Stake_Total=('Stake_Final', 'sum'),
         Lucro_Total=('Lucro', 'sum')
     ).reset_index()
     
-    # Adiciona o Yield na tabela
+    # Adição do Yield e Taxa de Acerto na tabela
     analise_casas['Yield'] = analise_casas.apply(lambda x: (x['Lucro_Total'] / x['Stake_Total'] * 100) if x['Stake_Total'] > 0 else 0.0, axis=1)
+    analise_casas['Taxa_Acerto'] = analise_casas.apply(lambda x: (x['Greens'] / x['Apostas_Resolvidas'] * 100) if x['Apostas_Resolvidas'] > 0 else 0.0, axis=1)
+    
     analise_casas = analise_casas.sort_values(by=['Yield', 'Oportunidades'], ascending=[False, False])
 
     tabela_exibicao = analise_casas.copy()
+    tabela_exibicao['Taxa_Acerto'] = tabela_exibicao['Taxa_Acerto'].apply(lambda x: f"{x:.1f}%")
     tabela_exibicao['Edge_Medio'] = (tabela_exibicao['Edge_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
     tabela_exibicao['EV_Medio'] = (tabela_exibicao['EV_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
     tabela_exibicao['Yield'] = tabela_exibicao['Yield'].apply(lambda x: f"{x:.2f}%")
     tabela_exibicao['Stake_Total'] = tabela_exibicao['Stake_Total'].apply(lambda x: f"R$ {x:.2f}")
     tabela_exibicao['Lucro_Total'] = tabela_exibicao['Lucro_Total'].apply(lambda x: f"R$ {x:.2f}")
     
-    # Reordena as colunas para o Yield aparecer no final
-    cols_ordem = ['Casa', 'Oportunidades', 'Edge_Medio', 'EV_Medio', 'Stake_Total', 'Lucro_Total', 'Yield']
+    # Reordena as colunas para apresentar a Taxa de Acerto no lugar certo e esconde colunas de apoio
+    cols_ordem = ['Casa', 'Oportunidades', 'Taxa_Acerto', 'Edge_Medio', 'EV_Medio', 'Stake_Total', 'Lucro_Total', 'Yield']
     st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
 # ==========================================
@@ -307,7 +315,6 @@ with tab_estudos:
     if df_estudos.empty:
         st.info("Ainda não há dados suficientes de apostas finalizadas para gerar este gráfico.")
     else:
-        # Gráfico de Dispersão baseado no ROI Realizado (Eixo X) em vez do Lucro absoluto
         fig_scatter = px.scatter(
             df_estudos,
             x='ROI_Realizado',
@@ -327,8 +334,6 @@ with tab_estudos:
         )
         
         fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
-        
-        # Formatação de percentagens nos eixos X e Y
         fig_scatter.layout.yaxis.tickformat = ',.1%'
         fig_scatter.layout.xaxis.tickformat = ',.0%'
         

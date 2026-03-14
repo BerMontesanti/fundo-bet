@@ -87,7 +87,7 @@ CASAS_ALVO = [
 ]
 
 # ==========================================
-# 🚀 MOTOR DE BUSCA (COM MEMÓRIA ANTI-SPAM)
+# 🚀 MOTOR DE BUSCA (COM MEMÓRIA ANTI-SPAM E DEEP LINKS)
 # ==========================================
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
@@ -113,7 +113,15 @@ def buscar_oportunidades():
     for nome_liga, sport_key in LIGAS:
         url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
         try:
-            res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu,us,uk', 'markets': 'h2h', 'bookmakers': target_bookmakers})
+            # O parâmetro includeLinks=true foi adicionado para trazer as URLs diretas
+            res = requests.get(url, params={
+                'apiKey': API_KEY, 
+                'regions': 'eu,us,uk', 
+                'markets': 'h2h', 
+                'bookmakers': target_bookmakers,
+                'includeLinks': 'true'
+            })
+            
             if res.status_code == 200:
                 for ev in res.json():
                     dt = datetime.strptime(ev['commence_time'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
@@ -130,10 +138,22 @@ def buscar_oportunidades():
                     
                     for b in ev['bookmakers']:
                         if b['key'] in CASAS_ALVO:
+                            # Tenta apanhar o link genérico da casa para aquele evento
+                            link_bookmaker = b.get('link', '')
+                            
                             for o in b['markets'][0]['outcomes']:
                                 selecao = o['name']
                                 odd_soft = o['price']
                                 prob_real_pin = probs.get(selecao)
+                                
+                                # Tenta buscar o link mais profundo possível (nível da aposta)
+                                link_mercado = b['markets'][0].get('link', link_bookmaker)
+                                link_final = o.get('link', link_mercado)
+                                
+                                # Fallback inteligente se a casa não fornecer link na API
+                                if not link_final:
+                                    termo_busca = f"{b['title']} {ev['home_team']} {ev['away_team']}".replace(" ", "+")
+                                    link_final = f"https://www.google.com/search?q={termo_busca}"
                                 
                                 if prob_real_pin and prob_real_pin > 0:
                                     odd_justa = 1 / prob_real_pin
@@ -174,7 +194,8 @@ def buscar_oportunidades():
                                             "Odd Limite": f"{odd_limite:.2f}",
                                             "Edge": round(edge * 100, 2),
                                             "ROI": round(roi * 100, 2),
-                                            "Stake": f"R$ {stake:.2f}"
+                                            "Stake": f"R$ {stake:.2f}",
+                                            "Link": link_final # O link entra invisível no CSV para uso do Telegram
                                         })
             else:
                 print(f"❌ Erro na API para a liga {nome_liga}. Status: {res.status_code}")
@@ -189,14 +210,19 @@ def buscar_oportunidades():
 def salvar_historico_csv(dados_aprovados):
     if not dados_aprovados: return
     arquivo_csv = 'historico_apostas.csv'
-    df = pd.DataFrame(dados_aprovados)
-    df['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
+    
+    # Criamos uma cópia para não poluir o CSV com a coluna de Links desnecessariamente no Dashboard
+    df_salvar = pd.DataFrame(dados_aprovados)
+    if 'Link' in df_salvar.columns:
+        df_salvar = df_salvar.drop(columns=['Link'])
+        
+    df_salvar['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
     existe = os.path.isfile(arquivo_csv)
-    df.to_csv(arquivo_csv, mode='a', index=False, header=not existe)
-    print(f"✅ {len(df)} apostas novas guardadas no ficheiro (CSV).")
+    df_salvar.to_csv(arquivo_csv, mode='a', index=False, header=not existe)
+    print(f"✅ {len(df_salvar)} apostas novas guardadas no ficheiro (CSV).")
 
 # ==========================================
-# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM (ATUALIZADA)
+# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM (COM LINKS RÁPIDOS)
 # ==========================================
 def enviar_telegram(dados_aprovados):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
@@ -217,13 +243,13 @@ def enviar_telegram(dados_aprovados):
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
     for index, row in df.iterrows():
-        # --- LÓGICA DE DESTAQUE PARA BETMGM ---
+        # Lógica de destaque da BetMGM
         if "betmgm" in str(row['Casa']).lower():
             alerta_topo = "🦁 🚨 *OPORTUNIDADE EXCLUSIVA BETMGM* 🚨 🦁\n\n"
         else:
             alerta_topo = ""
-        # --------------------------------------
 
+        # O botão/texto de Ação Rápida no final da mensagem
         msg_aposta = (
             f"{alerta_topo}"
             f"⚽ *{row['Jogo']}*\n"
@@ -232,9 +258,10 @@ def enviar_telegram(dados_aprovados):
             f"🎯 *Seleção:* {row['Seleção']}\n"
             f"📊 *Odd Atual:* {row['Odd Casa']} *(Limite: {row['Odd Limite']})*\n"
             f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
-            f"💰 *Stake Recomendada:* {row['Stake']}"
+            f"💰 *Stake Recomendada:* {row['Stake']}\n\n"
+            f"🔗 [IR PARA A CASA DE APOSTAS]({row['Link']})"
         )
-        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg_aposta, "parse_mode": "Markdown"})
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg_aposta, "parse_mode": "Markdown", "disable_web_page_preview": True})
     
     print(f"📱 {len(df)} novas mensagens enviadas com sucesso para o Telegram!")
 
@@ -251,6 +278,9 @@ def enviar_email(dados_aprovados):
     
     if dados_aprovados:
         df = pd.DataFrame(dados_aprovados)
+        if 'Link' in df.columns:
+            df = df.drop(columns=['Link']) # Removemos o link da tabela do email para não quebrar a formatação HTML
+            
         df = df.drop_duplicates().sort_values(by="ROI", ascending=False)
         tabela_html = df.to_html(index=False, justify='center', border=1, classes='table table-striped')
         

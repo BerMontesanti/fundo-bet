@@ -34,7 +34,6 @@ if not os.path.exists(ARQUIVO):
 
 df = pd.read_csv(ARQUIVO)
 
-# Garante que as novas colunas existem sem quebrar o CSV antigo
 colunas_padrao = {
     'Vencedor_Partida': 'Pendente',
     'Status_Aposta': 'Pendente',
@@ -47,13 +46,8 @@ for col, val in colunas_padrao.items():
     if col not in df.columns:
         df[col] = val
 
-# ==========================================
-# AUTO-CURA DA BASE DE DADOS (CORREÇÃO DE NaNs)
-# ==========================================
-# 1. Substitui espaços vazios criados pelo robô por "Pendente"
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
 
-# 2. Recalcula forçosamente o Status para corrigir Reds fantasmas do passado
 def auto_corrigir_status(row):
     venc = str(row['Vencedor_Partida']).strip()
     sel = str(row['Seleção']).strip()
@@ -84,11 +78,7 @@ def salvar_no_github(dataframe, mensagem):
 # PREPARAÇÃO MATEMÁTICA GLOBAL
 # ==========================================
 df_calc = df.copy()
-
-# Elimina linhas duplicadas geradas pelo bot antigo, mantendo apenas a última
 df_calc = df_calc.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Casa', 'Seleção'], keep='last')
-
-# Extração Inteligente do Esporte a partir da Liga
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
 
 df_calc['Stake_Num'] = df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip().astype(float)
@@ -96,14 +86,11 @@ df_calc['ROI_Num'] = df_calc['ROI'].astype(str).str.replace('%', '', regex=False
 df_calc['Edge_Num'] = df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip().astype(float) / 100
 df_calc['Odd_Num'] = df_calc['Odd Casa'].astype(float)
 
-# Definição Global de Stake e Odd Finais
 df_calc['Stake_Final'] = df_calc.apply(lambda x: x['Stake_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Stake_Real']) and float(x['Stake_Real']) > 0) else x['Stake_Num'], axis=1)
 df_calc['Odd_Final'] = df_calc.apply(lambda x: x['Odd_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Odd_Real']) and float(x['Odd_Real']) > 0) else x['Odd_Num'], axis=1)
 
-# Cálculo do EV Esperado Global em R$
 df_calc['EV_Esperado_R$'] = df_calc['Stake_Final'] * df_calc['ROI_Num']
 
-# Cálculo Global do Payout em R$
 def calc_payout_global(row):
     if row['Status_Aposta'] == 'Green ✅':
         return row['Stake_Final'] * (row['Odd_Final'] - 1)
@@ -113,13 +100,14 @@ def calc_payout_global(row):
 
 df_calc['Payout'] = df_calc.apply(calc_payout_global, axis=1)
 
-# Cálculo Global do ROI Individual da Aposta (%)
-def calc_roi_realizado(row):
+# A NORMALIZAÇÃO EM UNIDADES (1 U = O valor da Stake individual da aposta)
+def calc_unidades(row):
     if row['Status_Aposta'] in ['Green ✅', 'Red ❌'] and row['Stake_Final'] > 0:
         return row['Payout'] / row['Stake_Final']
     return 0.0
 
-df_calc['ROI_Realizado'] = df_calc.apply(calc_roi_realizado, axis=1)
+df_calc['Unidades'] = df_calc.apply(calc_unidades, axis=1)
+df_calc['ROI_Realizado'] = df_calc['Unidades'] # ROI Realizado é numericamente igual às unidades
 
 tab_dash, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
     "📊 Dashboard", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
@@ -129,7 +117,6 @@ tab_dash, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
 # ABA 1: DASHBOARD
 # ==========================================
 with tab_dash:
-    # --- FILTROS GLOBAIS ---
     st.markdown("### 🎛️ Filtros de Análise")
     filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
     
@@ -147,7 +134,6 @@ with tab_dash:
             ligas_disp = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
         liga_selecionada = st.selectbox("Liga:", ligas_disp, key="filtro_dash_liga")
 
-    # Aplicação dos Filtros Globais
     df_dash = df_calc.copy()
     
     if filtro_visao == "Apenas Apostadas":
@@ -162,16 +148,13 @@ with tab_dash:
     if liga_selecionada != "Todas as Ligas":
         df_dash = df_dash[df_dash['Liga'] == liga_selecionada]
 
-    # ISOLAMENTO DE APOSTAS RESOLVIDAS (O Foco de toda a Análise Matemática)
     df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
 
     st.divider()
 
-    # --- MÉTRICAS GLOBAIS (SÓ COM JOGOS FECHADOS) ---
     col1, col2, col3, col4 = st.columns(4)
     col5, col6, col7, col8 = st.columns(4)
     
-    # Linha 1
     col1.metric("Apostas Resolvidas", f"{len(df_resolvidas)}")
     taxa_acerto_global = (len(df_resolvidas[df_resolvidas['Status_Aposta'] == 'Green ✅']) / len(df_resolvidas) * 100) if not df_resolvidas.empty else 0.0
     col2.metric("Taxa de Acerto", f"{taxa_acerto_global:.1f}%")
@@ -179,12 +162,13 @@ with tab_dash:
     stake_total_global = df_resolvidas['Stake_Final'].sum()
     col4.metric("Stake Total", f"R$ {stake_total_global:.2f}")
     
-    # Linha 2
     ev_total_global = df_resolvidas['EV_Esperado_R$'].sum()
     col5.metric("EV Esperado", f"R$ {ev_total_global:.2f}")
     
     payout_total_global = df_resolvidas['Payout'].sum()
-    col6.metric("Payout", f"R$ {payout_total_global:.2f}", delta=f"R$ {payout_total_global:.2f}")
+    unidades_total_global = df_resolvidas['Unidades'].sum()
+    # O Delta (numero menor abaixo) agora mostra as UNIDADES (Métrica Normalizada)
+    col6.metric("Payout (R$)", f"R$ {payout_total_global:.2f}", f"{unidades_total_global:+.2f} U (Unidades)")
     
     payout_ev_ratio = (payout_total_global / ev_total_global * 100) if ev_total_global != 0 else 0.0
     col7.metric("EV Realization Rate", f"{payout_ev_ratio:.1f}%")
@@ -192,27 +176,28 @@ with tab_dash:
     yield_global = (payout_total_global / stake_total_global * 100) if stake_total_global > 0 else 0.0
     col8.metric("Yield Global", f"{yield_global:.2f}%")
 
-    # --- GRÁFICOS TEMPORAIS ---
     if not df_resolvidas.empty:
         df_resolvidas['Data_Curta'] = df_resolvidas['Data/Hora'].str[:5] 
         grafico_dados = df_resolvidas.groupby('Data_Curta').agg(
             Payout_Diario=('Payout', 'sum'),
-            Stake_Diaria=('Stake_Final', 'sum')
+            Stake_Diaria=('Stake_Final', 'sum'),
+            Unidades_Diarias=('Unidades', 'sum')
         ).reset_index()
         
         grafico_dados['Payout Acumulado'] = grafico_dados['Payout_Diario'].cumsum()
         grafico_dados['Stake Acumulada'] = grafico_dados['Stake_Diaria'].cumsum()
+        grafico_dados['Unidades Acumuladas'] = grafico_dados['Unidades_Diarias'].cumsum()
         grafico_dados['Yield Acumulado (%)'] = (grafico_dados['Payout Acumulado'] / grafico_dados['Stake Acumulada']) * 100
         
         col_g1, col_g2 = st.columns(2)
         
         with col_g1:
-            st.markdown(f"### 📈 Evolução Financeira (R$)")
+            st.markdown(f"### 📈 Evolução Normalizada (Unidades)")
             fig_fin = px.line(
-                grafico_dados, x='Data_Curta', y=['Stake Acumulada', 'Payout Acumulado'], 
-                markers=True, labels={'value': 'Valor (R$)', 'variable': 'Métrica', 'Data_Curta': 'Data'}
+                grafico_dados, x='Data_Curta', y='Unidades Acumuladas', 
+                markers=True, labels={'Unidades Acumuladas': 'Saldo (U)', 'Data_Curta': 'Data'}
             )
-            fig_fin.for_each_trace(lambda t: t.update(name={'Stake Acumulada': 'Stake Total', 'Payout Acumulado': 'Payout'}.get(t.name, t.name)))
+            fig_fin.update_traces(line_color="#1E90FF")
             st.plotly_chart(fig_fin, use_container_width=True)
 
         with col_g2:
@@ -226,7 +211,6 @@ with tab_dash:
 
     st.divider()
 
-    # --- TABELA DE ESTRATIFICAÇÃO DINÂMICA (SÓ COM APOSTAS RESOLVIDAS) ---
     st.markdown("### 📊 Performance Detalhada (Agrupamento)")
     
     agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga"], horizontal=True)
@@ -239,14 +223,15 @@ with tab_dash:
         EV_Medio=('ROI_Num', 'mean'),
         Stake_Total=('Stake_Final', 'sum'),
         EV_Esperado=('EV_Esperado_R$', 'sum'),
-        Payout=('Payout', 'sum')
+        Payout=('Payout', 'sum'),
+        Unidades=('Unidades', 'sum')
     ).reset_index()
     
     analise_tabela['Yield'] = analise_tabela.apply(lambda x: (x['Payout'] / x['Stake_Total'] * 100) if x['Stake_Total'] > 0 else 0.0, axis=1)
     analise_tabela['Taxa_Acerto'] = analise_tabela.apply(lambda x: (x['Greens'] / x['Oportunidades'] * 100) if x['Oportunidades'] > 0 else 0.0, axis=1)
     analise_tabela['EV Realization Rate'] = analise_tabela.apply(lambda x: (x['Payout'] / x['EV_Esperado'] * 100) if x['EV_Esperado'] != 0 else 0.0, axis=1)
     
-    analise_tabela = analise_tabela.sort_values(by=['Yield', 'Oportunidades'], ascending=[False, False])
+    analise_tabela = analise_tabela.sort_values(by=['Unidades', 'Yield'], ascending=[False, False])
 
     tabela_exibicao = analise_tabela.copy()
     tabela_exibicao['Taxa_Acerto'] = tabela_exibicao['Taxa_Acerto'].apply(lambda x: f"{x:.1f}%")
@@ -257,8 +242,9 @@ with tab_dash:
     tabela_exibicao['Stake_Total'] = tabela_exibicao['Stake_Total'].apply(lambda x: f"R$ {x:.2f}")
     tabela_exibicao['EV_Esperado'] = tabela_exibicao['EV_Esperado'].apply(lambda x: f"R$ {x:.2f}")
     tabela_exibicao['Payout'] = tabela_exibicao['Payout'].apply(lambda x: f"R$ {x:.2f}")
+    tabela_exibicao['Unidades'] = tabela_exibicao['Unidades'].apply(lambda x: f"{x:+.2f} U")
     
-    cols_ordem = [col_grupo, 'Oportunidades', 'Taxa_Acerto', 'Edge_Medio', 'EV_Medio', 'Stake_Total', 'EV_Esperado', 'Payout', 'EV Realization Rate', 'Yield']
+    cols_ordem = [col_grupo, 'Oportunidades', 'Taxa_Acerto', 'Edge_Medio', 'EV_Medio', 'Stake_Total', 'EV_Esperado', 'Payout', 'Unidades', 'EV Realization Rate', 'Yield']
     st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
 # ==========================================
@@ -370,7 +356,8 @@ with tab_hist:
     if filtro_liga_hist != "Todas as Ligas": df_hist = df_hist[df_hist['Liga'] == filtro_liga_hist]
     
     df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
-    cols_display = ['Data/Hora', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Aposta_Realizada', 'Vencedor_Partida']
+    df_hist['Unidades'] = df_hist['Unidades'].apply(lambda x: f"{x:+.2f} U")
+    cols_display = ['Data/Hora', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Unidades', 'Status_Aposta', 'Vencedor_Partida']
     st.dataframe(df_hist[cols_display], use_container_width=True)
 
 # ==========================================
@@ -417,7 +404,7 @@ with tab_estudos:
                 'Edge': True,      
                 'Edge_Num': False, 
                 'ROI_Realizado': False, 
-                'Payout': ':.2f'
+                'Unidades': ':.2f'
             },
             labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'},
         )

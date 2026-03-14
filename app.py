@@ -47,7 +47,6 @@ for col, val in colunas_padrao.items():
     if col not in df.columns:
         df[col] = val
 
-# Função Global para Salvar no GitHub
 def salvar_no_github(dataframe, mensagem):
     dataframe.to_csv(ARQUIVO, index=False)
     try:
@@ -71,9 +70,6 @@ df_calc['ROI_Num'] = df_calc['ROI'].astype(str).str.replace('%', '', regex=False
 df_calc['Edge_Num'] = df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip().astype(float) / 100
 df_calc['Odd_Num'] = df_calc['Odd Casa'].astype(float)
 
-# ==========================================
-# ESTRUTURA DE ABAS
-# ==========================================
 tab_dash, tab_apostas, tab_resultados, tab_hist = st.tabs([
     "📊 Dashboard", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico (Arquivo)"
 ])
@@ -82,74 +78,99 @@ tab_dash, tab_apostas, tab_resultados, tab_hist = st.tabs([
 # ABA 1: DASHBOARD
 # ==========================================
 with tab_dash:
-    filtro_visao = st.radio("Filtro de Análise:", ["Geral (Todas as Oportunidades)", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
-    
-    # Aplica o filtro selecionado
-    if filtro_visao == "Apenas Apostadas":
-        df_dash = df_calc[df_calc['Aposta_Realizada'] == True].copy()
-    elif filtro_visao == "Não Apostadas":
-        df_dash = df_calc[df_calc['Aposta_Realizada'] == False].copy()
-    else:
-        df_dash = df_calc.copy()
+    # Filtros Globais
+    col_f1, col_f2 = st.columns(2)
+    with col_f1:
+        filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
+    with col_f2:
+        casas_disponiveis = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
+        casa_selecionada = st.selectbox("Filtrar por Casa de Aposta:", casas_disponiveis)
 
-    # Define Stake e Odd Finais (Se apostou, usa o Real; senão, usa o Teórico do robô)
+    # Aplica os Filtros no DataFrame
+    df_dash = df_calc.copy()
+    
+    if filtro_visao == "Apenas Apostadas":
+        df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
+    elif filtro_visao == "Não Apostadas":
+        df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
+        
+    if casa_selecionada != "Todas as Casas":
+        df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
+
+    # Stake e Odd Finais
     df_dash['Stake_Final'] = df_dash.apply(lambda x: x['Stake_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Stake_Real']) and float(x['Stake_Real']) > 0) else x['Stake_Num'], axis=1)
     df_dash['Odd_Final'] = df_dash.apply(lambda x: x['Odd_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Odd_Real']) and float(x['Odd_Real']) > 0) else x['Odd_Num'], axis=1)
 
-    # Cálculo dinâmico do Payout
-    def calc_payout(row):
+    # Cálculo de Lucro
+    def calc_lucro(row):
         if row['Status_Aposta'] == 'Green ✅':
             return row['Stake_Final'] * (row['Odd_Final'] - 1)
         elif row['Status_Aposta'] == 'Red ❌':
             return -row['Stake_Final']
         return 0.0
 
-    df_dash['Payout_Real'] = df_dash.apply(calc_payout, axis=1)
-    df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])]
+    df_dash['Lucro'] = df_dash.apply(calc_lucro, axis=1)
+    df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
 
-    # Métricas Globais
-    col1, col2, col3, col4 = st.columns(4)
+    # Métricas Globais (Visuais)
+    col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Oportunidades", f"{len(df_dash)}")
-    col2.metric("Edge Médio Global", f"{(df_dash['Edge_Num'].mean() * 100):.2f}%" if not df_dash.empty else "0%")
-    col3.metric("Payout Total", f"R$ {df_dash['Payout_Real'].sum():.2f}")
+    col2.metric("Edge Médio", f"{(df_dash['Edge_Num'].mean() * 100):.2f}%" if not df_dash.empty else "0%")
+    col3.metric("Stake Total", f"R$ {df_dash['Stake_Final'].sum():.2f}")
+    
+    lucro_total_formatado = f"R$ {df_dash['Lucro'].sum():.2f}"
+    col4.metric("Lucro Total", lucro_total_formatado, delta=lucro_total_formatado)
+    
     taxa_acerto = (len(df_resolvidas[df_resolvidas['Status_Aposta'] == 'Green ✅']) / len(df_resolvidas) * 100) if not df_resolvidas.empty else 0.0
-    col4.metric("Win Rate", f"{taxa_acerto:.1f}%")
+    col5.metric("Win Rate", f"{taxa_acerto:.1f}%")
 
     # Gráfico Temporal
     if not df_resolvidas.empty:
-        st.markdown("### 📈 Evolução do Payout")
-        # Extrai o dia/mês para o gráfico
+        st.markdown(f"### 📈 Evolução: Stake Total e Lucro ({casa_selecionada})")
         df_resolvidas['Data_Curta'] = df_resolvidas['Data/Hora'].str[:5] 
-        grafico_dados = df_resolvidas.groupby('Data_Curta')['Payout_Real'].sum().reset_index()
-        grafico_dados['Lucro_Acumulado'] = grafico_dados['Payout_Real'].cumsum()
+        grafico_dados = df_resolvidas.groupby('Data_Curta').agg(
+            Lucro_Diario=('Lucro', 'sum'),
+            Stake_Diaria=('Stake_Final', 'sum')
+        ).reset_index()
         
-        fig = px.line(grafico_dados, x='Data_Curta', y='Lucro_Acumulado', markers=True, text='Lucro_Acumulado')
-        fig.add_bar(x=grafico_dados['Data_Curta'], y=grafico_dados['Payout_Real'], name="Lucro Diário", opacity=0.5)
-        fig.update_traces(textposition="bottom right", selector=dict(type='scatter'))
+        grafico_dados['Lucro Acumulado'] = grafico_dados['Lucro_Diario'].cumsum()
+        grafico_dados['Stake Acumulada'] = grafico_dados['Stake_Diaria'].cumsum()
+        
+        fig = px.line(
+            grafico_dados, 
+            x='Data_Curta', 
+            y=['Stake Acumulada', 'Lucro Acumulado'], 
+            markers=True, 
+            labels={'value': 'Valor (R$)', 'variable': 'Métrica', 'Data_Curta': 'Data'}
+        )
+        
+        novos_nomes = {'Stake Acumulada': 'Stake Total', 'Lucro Acumulado': 'Lucro'}
+        fig.for_each_trace(lambda t: t.update(name = novos_nomes.get(t.name, t.name)))
+        
         st.plotly_chart(fig, use_container_width=True)
 
     # Performance por Casa
     st.markdown("### 🏦 Performance Individual por Casa")
     analise_casas = df_dash.groupby('Casa').agg(
         Oportunidades=('Casa', 'count'),
-        Edge_Medio=('Edge_Num', 'mean'), # Média Real solicitada
-        EV_Medio=('ROI_Num', 'mean'),    # Média Real solicitada
+        Edge_Medio=('Edge_Num', 'mean'),
+        EV_Medio=('ROI_Num', 'mean'),
         Stake_Total=('Stake_Final', 'sum'),
-        Payout_Total=('Payout_Real', 'sum')
-    ).reset_index().sort_values(by=['Payout_Total', 'Oportunidades'], ascending=[False, False])
+        Lucro_Total=('Lucro', 'sum')
+    ).reset_index().sort_values(by=['Lucro_Total', 'Oportunidades'], ascending=[False, False])
 
     tabela_exibicao = analise_casas.copy()
     tabela_exibicao['Edge_Medio'] = (tabela_exibicao['Edge_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
     tabela_exibicao['EV_Medio'] = (tabela_exibicao['EV_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
     tabela_exibicao['Stake_Total'] = tabela_exibicao['Stake_Total'].apply(lambda x: f"R$ {x:.2f}")
-    tabela_exibicao['Payout_Total'] = tabela_exibicao['Payout_Total'].apply(lambda x: f"R$ {x:.2f}")
+    tabela_exibicao['Lucro_Total'] = tabela_exibicao['Lucro_Total'].apply(lambda x: f"R$ {x:.2f}")
     st.dataframe(tabela_exibicao, hide_index=True, use_container_width=True)
 
 # ==========================================
-# ABA 2: MINHAS APOSTAS (CHECK DE APOSTAS FEITAS)
+# ABA 2: MINHAS APOSTAS
 # ==========================================
 with tab_apostas:
-    st.info("💡 **Dica:** Marque as oportunidades que você realmente apostou. Insira a Odd e Stake finais para maior precisão analítica.")
+    st.info("💡 **Dica:** Marque as oportunidades que apostou. Insira a Odd e Stake finais para maior precisão.")
     
     df_pendentes_aposta = df[df['Status_Aposta'] == 'Pendente'].copy()
     
@@ -178,7 +199,7 @@ with tab_apostas:
                     st.rerun()
 
 # ==========================================
-# ABA 3: ALIMENTAR RESULTADOS (COM FILTRO >24H)
+# ABA 3: RESULTADOS
 # ==========================================
 with tab_resultados:
     st.info("Apenas jogos pendentes ou finalizados nas últimas 24h são exibidos aqui.")
@@ -187,11 +208,11 @@ with tab_resultados:
         if pd.isna(d_str) or d_str == "": return False
         try:
             dt = datetime.strptime(str(d_str), "%Y-%m-%d %H:%M:%S")
-            return (datetime.now() - dt).total_seconds() < 86400 # 24 horas
+            return (datetime.now() - dt).total_seconds() < 86400 
         except: return False
 
     df['Recente'] = df['Data_Resolucao'].apply(eh_recente)
-    mostrar_antigos = st.checkbox("Forçar exibição de jogos antigos (Caso precise corrigir algum)")
+    mostrar_antigos = st.checkbox("Forçar exibição de jogos antigos")
     
     mask_exibicao = (df['Vencedor_Partida'] == 'Pendente') | (df['Recente'] == True)
     if mostrar_antigos:
@@ -226,10 +247,8 @@ with tab_resultados:
             with st.spinner('A processar Greens e Reds...'):
                 for item in novos_resultados:
                     mask = (df['Jogo'] == item['Jogo']) & (df['Data/Hora'] == item['Data/Hora'])
-                    
                     if item['Vencedor_Partida'] != "Pendente" and df.loc[mask, 'Vencedor_Partida'].iloc[0] == "Pendente":
                         df.loc[mask, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                        
                     df.loc[mask, 'Vencedor_Partida'] = item['Vencedor_Partida']
                     
                     for idx in df[mask].index:
@@ -239,7 +258,6 @@ with tab_resultados:
                         elif sel == venc: df.at[idx, 'Status_Aposta'] = "Green ✅"
                         else: df.at[idx, 'Status_Aposta'] = "Red ❌"
 
-                # Drop colunas temporárias
                 df = df.drop(columns=['Recente'], errors='ignore')
                 if salvar_no_github(df, "🤖 Resultados das partidas alimentados"):
                     st.rerun()
@@ -248,18 +266,27 @@ with tab_resultados:
 # ABA 4: ARQUIVO / HISTÓRICO COMPLETO
 # ==========================================
 with tab_hist:
-    st.subheader("🗄️ Repositório Completo (Incluindo Payout Real)")
-    # Aplica o cálculo de Payout no histórico visual também
+    st.subheader("🗄️ Histórico Completo de Apostas")
     df_hist = df.copy()
     
-    # Repete a logica basica para ter o Payout visual no historico
+    # Novo Filtro de Casas de Apostas para o Histórico
+    casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique().tolist())
+    filtro_casa_hist = st.selectbox("Filtrar Histórico por Casa de Aposta:", casas_hist, key="filtro_hist_casa")
+    
+    if filtro_casa_hist != "Todas as Casas":
+        df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
+    
     df_hist['Stake_Temp'] = df_hist.apply(lambda x: x['Stake_Real'] if (x['Aposta_Realizada'] and float(x['Stake_Real']) > 0) else float(str(x['Stake']).replace('R$', '').strip()), axis=1)
     df_hist['Odd_Temp'] = df_hist.apply(lambda x: x['Odd_Real'] if (x['Aposta_Realizada'] and float(x['Odd_Real']) > 0) else float(x['Odd Casa']), axis=1)
-    df_hist['Payout'] = df_hist.apply(lambda x: x['Stake_Temp'] * (x['Odd_Temp'] - 1) if x['Status_Aposta'] == 'Green ✅' else (-x['Stake_Temp'] if x['Status_Aposta'] == 'Red ❌' else 0.0), axis=1)
+    df_hist['Lucro'] = df_hist.apply(lambda x: x['Stake_Temp'] * (x['Odd_Temp'] - 1) if x['Status_Aposta'] == 'Green ✅' else (-x['Stake_Temp'] if x['Status_Aposta'] == 'Red ❌' else 0.0), axis=1)
     
-    # Formata a coluna Payout
-    df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
+    df_hist['Lucro'] = df_hist['Lucro'].apply(lambda x: f"R$ {x:.2f}")
     
-    # Reordena colunas para colocar Stake, Payout e Status juntos
-    cols_display = ['Data/Hora', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Casa', 'Stake', 'Payout', 'Status_Aposta', 'Aposta_Realizada', 'Vencedor_Partida']
+    # Inclusão de Odd Justa, Edge e ROI (EV) na lista de exibição
+    cols_display = [
+        'Data/Hora', 'Liga', 'Jogo', 'Casa', 'Seleção', 
+        'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 
+        'Stake', 'Lucro', 'Status_Aposta', 'Aposta_Realizada', 'Vencedor_Partida'
+    ]
+    
     st.dataframe(df_hist[cols_display], use_container_width=True)

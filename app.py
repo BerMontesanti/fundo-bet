@@ -47,6 +47,25 @@ for col, val in colunas_padrao.items():
     if col not in df.columns:
         df[col] = val
 
+# ==========================================
+# AUTO-CURA DA BASE DE DADOS (CORREÇÃO DE NaNs)
+# ==========================================
+# 1. Substitui espaços vazios criados pelo robô por "Pendente"
+df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
+
+# 2. Recalcula forçosamente o Status para corrigir Reds fantasmas do passado
+def auto_corrigir_status(row):
+    venc = str(row['Vencedor_Partida']).strip()
+    sel = str(row['Seleção']).strip()
+    if venc == "Pendente":
+        return "Pendente"
+    elif sel == venc:
+        return "Green ✅"
+    else:
+        return "Red ❌"
+
+df['Status_Aposta'] = df.apply(auto_corrigir_status, axis=1)
+
 def salvar_no_github(dataframe, mensagem):
     dataframe.to_csv(ARQUIVO, index=False)
     try:
@@ -148,7 +167,7 @@ with tab_dash:
 
     st.divider()
 
-    # --- MÉTRICAS GLOBAIS (AGORA SÓ COM JOGOS FECHADOS) ---
+    # --- MÉTRICAS GLOBAIS (SÓ COM JOGOS FECHADOS) ---
     col1, col2, col3, col4 = st.columns(4)
     col5, col6, col7, col8 = st.columns(4)
     
@@ -319,7 +338,7 @@ with tab_resultados:
                     for idx in df[mask].index:
                         sel = str(df.at[idx, 'Seleção']).strip()
                         venc = str(item['Vencedor_Partida']).strip()
-                        if venc == "Pendente" or venc == "": df.at[idx, 'Status_Aposta'] = "Pendente"
+                        if venc == "Pendente" or venc == "" or venc == "nan": df.at[idx, 'Status_Aposta'] = "Pendente"
                         elif sel == venc: df.at[idx, 'Status_Aposta'] = "Green ✅"
                         else: df.at[idx, 'Status_Aposta'] = "Red ❌"
                 df = df.drop(columns=['Recente'], errors='ignore')

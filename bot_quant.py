@@ -152,7 +152,6 @@ def buscar_oportunidades():
                                         # --- FILTRO DE MEMÓRIA (ANTI-SPAM) ---
                                         id_aposta = f"{jogo_nome} | {selecao}"
                                         if id_aposta in apostas_ja_registadas:
-                                            # O robô lembra-se que já enviou isto, por isso ignora silenciosamente
                                             continue 
                                         # --------------------------------------
 
@@ -197,7 +196,7 @@ def salvar_historico_csv(dados_aprovados):
     print(f"✅ {len(df)} apostas novas guardadas no ficheiro (CSV).")
 
 # ==========================================
-# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM
+# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM (ATUALIZADA)
 # ==========================================
 def enviar_telegram(dados_aprovados):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
@@ -218,7 +217,15 @@ def enviar_telegram(dados_aprovados):
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
     for index, row in df.iterrows():
+        # --- LÓGICA DE DESTAQUE PARA BETMGM ---
+        if "betmgm" in str(row['Casa']).lower():
+            alerta_topo = "🦁 🚨 *OPORTUNIDADE EXCLUSIVA BETMGM* 🚨 🦁\n\n"
+        else:
+            alerta_topo = ""
+        # --------------------------------------
+
         msg_aposta = (
+            f"{alerta_topo}"
             f"⚽ *{row['Jogo']}*\n"
             f"🏆 {row['Liga']} | ⏰ {row['Data/Hora']}\n"
             f"🏠 *Casa:* {row['Casa']}\n"

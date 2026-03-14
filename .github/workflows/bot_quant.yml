@@ -2,9 +2,18 @@ name: Executar Bot Quant
 
 on:
   schedule:
-    # Roda no minuto 11 de cada hora, entre 10h e 22h (Horário de Brasília)
-    # Como o GitHub usa UTC (+3h), o cron fica: 13h até as 23h, e depois 00h e 01h.
-    - cron: '11 13-23,0-1 * * *'
+    # 1. MANHÃ/INÍCIO TARDE (10h às 13h BRT): De hora em hora (Minuto 11)
+    # UTC correspondente: 13h às 16h
+    - cron: '11 13-16 * * *'
+
+    # 2. HORÁRIO DE PICO (14h às 19h BRT): A cada 30 minutos (Minutos 11 e 41)
+    # UTC correspondente: 17h às 22h
+    - cron: '11,41 17-22 * * *'
+
+    # 3. NOITE (20h às 22h BRT): De hora em hora (Minuto 11)
+    # UTC correspondente: 23h, 00h e 01h (o 0 e 1 são do dia seguinte no UTC)
+    - cron: '11 23,0-1 * * *'
+
   workflow_dispatch: # Permite rodar manualmente no botão
 
 jobs:

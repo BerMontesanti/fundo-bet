@@ -41,7 +41,8 @@ colunas_padrao = {
     'Aposta_Realizada': False,
     'Odd_Real': 0.0,
     'Stake_Real': 0.0,
-    'Data_Resolucao': ""
+    'Data_Resolucao': "",
+    'Achado_em': "" # Garante que existe para apostas antigas
 }
 for col, val in colunas_padrao.items():
     if col not in df.columns:
@@ -50,10 +51,8 @@ for col, val in colunas_padrao.items():
 # ==========================================
 # AUTO-CURA DA BASE DE DADOS (CORREÇÃO DE NaNs)
 # ==========================================
-# 1. Substitui espaços vazios criados pelo robô por "Pendente"
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
 
-# 2. Recalcula forçosamente o Status para corrigir Reds fantasmas do passado
 def auto_corrigir_status(row):
     venc = str(row['Vencedor_Partida']).strip()
     sel = str(row['Seleção']).strip()
@@ -81,12 +80,34 @@ def salvar_no_github(dataframe, mensagem):
         return False
 
 # ==========================================
-# PREPARAÇÃO MATEMÁTICA GLOBAL
+# PREPARAÇÃO MATEMÁTICA GLOBAL E CLASSIFICAÇÃO DE TEMPO
 # ==========================================
 df_calc = df.copy()
 
 # Elimina linhas duplicadas geradas pelo bot antigo, mantendo apenas a última
 df_calc = df_calc.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Casa', 'Seleção'], keep='last')
+
+# Motor de Classificação (Pré-live vs Ao Vivo)
+def classificar_momento(row):
+    try:
+        str_achado = str(row.get('Achado_em', ''))
+        str_jogo = str(row.get('Data/Hora', ''))
+        
+        if str_achado.lower() in ['nan', 'nat', '', 'none']:
+            return "Pré-live" # Aposta antiga sem registro de hora, assume-se pré-live
+            
+        dt_achado = datetime.strptime(str_achado, "%d/%m/%Y %H:%M:%S")
+        ano = dt_achado.year
+        dt_jogo = datetime.strptime(f"{str_jogo}/{ano}", "%d/%m %H:%M/%Y")
+        
+        if dt_achado < dt_jogo:
+            return "Pré-live"
+        else:
+            return "Ao Vivo"
+    except:
+        return "Pré-live" # Fallback em caso de erro de formatação
+
+df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
 
 # Extração Inteligente do Esporte a partir da Liga
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
@@ -96,14 +117,11 @@ df_calc['ROI_Num'] = df_calc['ROI'].astype(str).str.replace('%', '', regex=False
 df_calc['Edge_Num'] = df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip().astype(float) / 100
 df_calc['Odd_Num'] = df_calc['Odd Casa'].astype(float)
 
-# Definição Global de Stake e Odd Finais
 df_calc['Stake_Final'] = df_calc.apply(lambda x: x['Stake_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Stake_Real']) and float(x['Stake_Real']) > 0) else x['Stake_Num'], axis=1)
 df_calc['Odd_Final'] = df_calc.apply(lambda x: x['Odd_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Odd_Real']) and float(x['Odd_Real']) > 0) else x['Odd_Num'], axis=1)
 
-# Cálculo do EV Esperado Global em R$
 df_calc['EV_Esperado_R$'] = df_calc['Stake_Final'] * df_calc['ROI_Num']
 
-# Cálculo Global do Payout em R$
 def calc_payout_global(row):
     if row['Status_Aposta'] == 'Green ✅':
         return row['Stake_Final'] * (row['Odd_Final'] - 1)
@@ -113,7 +131,6 @@ def calc_payout_global(row):
 
 df_calc['Payout'] = df_calc.apply(calc_payout_global, axis=1)
 
-# Cálculo Global do ROI Individual da Aposta (%)
 def calc_roi_realizado(row):
     if row['Status_Aposta'] in ['Green ✅', 'Red ❌'] and row['Stake_Final'] > 0:
         return row['Payout'] / row['Stake_Final']
@@ -129,11 +146,11 @@ tab_dash, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
 # ABA 1: DASHBOARD
 # ==========================================
 with tab_dash:
-    # --- FILTROS GLOBAIS ---
     st.markdown("### 🎛️ Filtros de Análise")
     filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
     
-    col_f1, col_f2, col_f3 = st.columns(3)
+    # Agora com 4 colunas de filtro para incluir o Momento do Alerta
+    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
     with col_f1:
         casas_disponiveis = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
         casa_selecionada = st.selectbox("Casa de Aposta:", casas_disponiveis, key="filtro_dash_casa")
@@ -146,6 +163,9 @@ with tab_dash:
         else:
             ligas_disp = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
         liga_selecionada = st.selectbox("Liga:", ligas_disp, key="filtro_dash_liga")
+    with col_f4:
+        tipos_disp = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
+        tipo_selecionado = st.selectbox("Momento do Alerta:", tipos_disp, key="filtro_dash_tipo")
 
     # Aplicação dos Filtros Globais
     df_dash = df_calc.copy()
@@ -155,23 +175,19 @@ with tab_dash:
     elif filtro_visao == "Não Apostadas":
         df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
         
-    if casa_selecionada != "Todas as Casas":
-        df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
-    if esporte_selecionado != "Todos os Esportes":
-        df_dash = df_dash[df_dash['Esporte'] == esporte_selecionado]
-    if liga_selecionada != "Todas as Ligas":
-        df_dash = df_dash[df_dash['Liga'] == liga_selecionada]
+    if casa_selecionada != "Todas as Casas": df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
+    if esporte_selecionado != "Todos os Esportes": df_dash = df_dash[df_dash['Esporte'] == esporte_selecionado]
+    if liga_selecionada != "Todas as Ligas": df_dash = df_dash[df_dash['Liga'] == liga_selecionada]
+    if tipo_selecionado != "Todos os Momentos": df_dash = df_dash[df_dash['Momento_Alerta'] == tipo_selecionado]
 
-    # ISOLAMENTO DE APOSTAS RESOLVIDAS (O Foco de toda a Análise Matemática)
     df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
 
     st.divider()
 
-    # --- MÉTRICAS GLOBAIS (SÓ COM JOGOS FECHADOS) ---
+    # --- MÉTRICAS GLOBAIS ---
     col1, col2, col3, col4 = st.columns(4)
     col5, col6, col7, col8 = st.columns(4)
     
-    # Linha 1
     col1.metric("Apostas Resolvidas", f"{len(df_resolvidas)}")
     taxa_acerto_global = (len(df_resolvidas[df_resolvidas['Status_Aposta'] == 'Green ✅']) / len(df_resolvidas) * 100) if not df_resolvidas.empty else 0.0
     col2.metric("Taxa de Acerto", f"{taxa_acerto_global:.1f}%")
@@ -179,7 +195,6 @@ with tab_dash:
     stake_total_global = df_resolvidas['Stake_Final'].sum()
     col4.metric("Stake Total", f"R$ {stake_total_global:.2f}")
     
-    # Linha 2
     ev_total_global = df_resolvidas['EV_Esperado_R$'].sum()
     col5.metric("EV Esperado", f"R$ {ev_total_global:.2f}")
     
@@ -226,10 +241,9 @@ with tab_dash:
 
     st.divider()
 
-    # --- TABELA DE ESTRATIFICAÇÃO DINÂMICA (SÓ COM APOSTAS RESOLVIDAS) ---
     st.markdown("### 📊 Performance Detalhada (Agrupamento)")
     
-    agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga"], horizontal=True)
+    agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga", "Momento_Alerta"], horizontal=True)
     col_grupo = "Casa" if agrupamento == "Casa de Aposta" else agrupamento
 
     analise_tabela = df_resolvidas.groupby(col_grupo).agg(
@@ -324,7 +338,6 @@ with tab_resultados:
             
             col_txt, col_sel = st.columns([3, 2])
             with col_txt:
-                # Modificação principal: Inclusão de formatação em markdown para exibir Liga e Horário
                 st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🏆 {row['Liga']} &nbsp;|&nbsp; ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
             
             with col_sel: escolha = st.selectbox("Vencedor", options=opcoes, index=idx_padrao, key=f"sel_{row['Jogo']}_{row['Data/Hora']}", label_visibility="collapsed")
@@ -354,7 +367,7 @@ with tab_hist:
     st.subheader("🗄️ Histórico Completo de Apostas")
     df_hist = df_calc.copy()
     
-    col_h1, col_h2, col_h3 = st.columns(3)
+    col_h1, col_h2, col_h3, col_h4 = st.columns(4)
     with col_h1:
         casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique().tolist())
         filtro_casa_hist = st.selectbox("Casa de Aposta:", casas_hist, key="filtro_hist_casa")
@@ -367,13 +380,21 @@ with tab_hist:
         else:
             ligas_hist = ["Todas as Ligas"] + sorted(df_hist['Liga'].dropna().unique().tolist())
         filtro_liga_hist = st.selectbox("Liga:", ligas_hist, key="filtro_hist_liga")
+    with col_h4:
+        tipos_hist = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
+        filtro_tipo_hist = st.selectbox("Momento do Alerta:", tipos_hist, key="filtro_hist_tipo")
     
     if filtro_casa_hist != "Todas as Casas": df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
     if filtro_esp_hist != "Todos os Esportes": df_hist = df_hist[df_hist['Esporte'] == filtro_esp_hist]
     if filtro_liga_hist != "Todas as Ligas": df_hist = df_hist[df_hist['Liga'] == filtro_liga_hist]
+    if filtro_tipo_hist != "Todos os Momentos": df_hist = df_hist[df_hist['Momento_Alerta'] == filtro_tipo_hist]
     
     df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
-    cols_display = ['Data/Hora', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Aposta_Realizada', 'Vencedor_Partida']
+    
+    # Renomear colunas apenas para exibição
+    df_hist.rename(columns={'Achado_em': 'Horário Alerta', 'Momento_Alerta': 'Tipo'}, inplace=True)
+    
+    cols_display = ['Data/Hora', 'Horário Alerta', 'Tipo', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Vencedor_Partida']
     st.dataframe(df_hist[cols_display], use_container_width=True)
 
 # ==========================================
@@ -383,7 +404,7 @@ with tab_estudos:
     st.subheader("🔬 Estudos Estatísticos: Edge vs Rentabilidade Relativa (ROI)")
     st.write("Análise da eficiência das odds.")
     
-    col_e1, col_e2, col_e3 = st.columns(3)
+    col_e1, col_e2, col_e3, col_e4 = st.columns(4)
     with col_e1:
         casas_estudos = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
         filtro_casa_estudos = st.selectbox("Casa de Aposta:", casas_estudos, key="filtro_estudos_casa")
@@ -396,12 +417,16 @@ with tab_estudos:
         else:
             ligas_estudos = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
         filtro_liga_estudos = st.selectbox("Liga:", ligas_estudos, key="filtro_estudos_liga")
+    with col_e4:
+        tipos_estudos = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
+        filtro_tipo_estudos = st.selectbox("Momento do Alerta:", tipos_estudos, key="filtro_estudos_tipo")
     
     df_estudos = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
     
     if filtro_casa_estudos != "Todas as Casas": df_estudos = df_estudos[df_estudos['Casa'] == filtro_casa_estudos]
     if filtro_esp_estudos != "Todos os Esportes": df_estudos = df_estudos[df_estudos['Esporte'] == filtro_esp_estudos]
     if filtro_liga_estudos != "Todas as Ligas": df_estudos = df_estudos[df_estudos['Liga'] == filtro_liga_estudos]
+    if filtro_tipo_estudos != "Todos os Momentos": df_estudos = df_estudos[df_estudos['Momento_Alerta'] == filtro_tipo_estudos]
         
     if df_estudos.empty:
         st.info("Ainda não há dados suficientes de apostas finalizadas para gerar este gráfico com estes filtros.")

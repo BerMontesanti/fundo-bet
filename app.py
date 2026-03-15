@@ -422,4 +422,88 @@ with tab_hist:
     
     col_h1, col_h2, col_h3, col_h4 = st.columns(4)
     with col_h1:
-        casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique
+        casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique().tolist())
+        filtro_casa_hist = st.selectbox("Casa de Aposta:", casas_hist, key="filtro_hist_casa")
+    with col_h2:
+        esportes_hist = ["Todos os Esportes"] + sorted(df_hist['Esporte'].dropna().unique().tolist())
+        filtro_esp_hist = st.selectbox("Esporte:", esportes_hist, key="filtro_hist_esporte")
+    with col_h3:
+        if filtro_esp_hist != "Todos os Esportes":
+            ligas_hist = ["Todas as Ligas"] + sorted(df_hist[df_hist['Esporte'] == filtro_esp_hist]['Liga'].dropna().unique().tolist())
+        else:
+            ligas_hist = ["Todas as Ligas"] + sorted(df_hist['Liga'].dropna().unique().tolist())
+        filtro_liga_hist = st.selectbox("Liga:", ligas_hist, key="filtro_hist_liga")
+    with col_h4:
+        tipos_hist = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
+        filtro_tipo_hist = st.selectbox("Momento do Alerta:", tipos_hist, key="filtro_hist_tipo")
+    
+    if filtro_casa_hist != "Todas as Casas": df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
+    if filtro_esp_hist != "Todos os Esportes": df_hist = df_hist[df_hist['Esporte'] == filtro_esp_hist]
+    if filtro_liga_hist != "Todas as Ligas": df_hist = df_hist[df_hist['Liga'] == filtro_liga_hist]
+    if filtro_tipo_hist != "Todos os Momentos": df_hist = df_hist[df_hist['Momento_Alerta'] == filtro_tipo_hist]
+    
+    df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
+    
+    df_hist.rename(columns={'Achado_em': 'Horário Alerta', 'Momento_Alerta': 'Tipo'}, inplace=True)
+    
+    cols_display = ['Data/Hora', 'Horário Alerta', 'Tipo', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Vencedor_Partida']
+    st.dataframe(df_hist[cols_display], use_container_width=True)
+
+# ==========================================
+# ABA 6: ESTUDOS ESTATÍSTICOS
+# ==========================================
+with tab_estudos:
+    st.subheader("🔬 Estudos Estatísticos: Edge vs Rentabilidade Relativa (ROI)")
+    st.write("Análise da eficiência das odds.")
+    
+    col_e1, col_e2, col_e3, col_e4 = st.columns(4)
+    with col_e1:
+        casas_estudos = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
+        filtro_casa_estudos = st.selectbox("Casa de Aposta:", casas_estudos, key="filtro_estudos_casa")
+    with col_e2:
+        esportes_estudos = ["Todos os Esportes"] + sorted(df_calc['Esporte'].dropna().unique().tolist())
+        filtro_esp_estudos = st.selectbox("Esporte:", esportes_estudos, key="filtro_estudos_esporte")
+    with col_e3:
+        if filtro_esp_estudos != "Todos os Esportes":
+            ligas_estudos = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == filtro_esp_estudos]['Liga'].dropna().unique().tolist())
+        else:
+            ligas_estudos = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
+        filtro_liga_estudos = st.selectbox("Liga:", ligas_estudos, key="filtro_estudos_liga")
+    with col_e4:
+        tipos_estudos = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
+        filtro_tipo_estudos = st.selectbox("Momento do Alerta:", tipos_estudos, key="filtro_estudos_tipo")
+    
+    df_estudos = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
+    
+    if filtro_casa_estudos != "Todas as Casas": df_estudos = df_estudos[df_estudos['Casa'] == filtro_casa_estudos]
+    if filtro_esp_estudos != "Todos os Esportes": df_estudos = df_estudos[df_estudos['Esporte'] == filtro_esp_estudos]
+    if filtro_liga_estudos != "Todas as Ligas": df_estudos = df_estudos[df_estudos['Liga'] == filtro_liga_estudos]
+    if filtro_tipo_estudos != "Todos os Momentos": df_estudos = df_estudos[df_estudos['Momento_Alerta'] == filtro_tipo_estudos]
+        
+    if df_estudos.empty:
+        st.info("Ainda não há dados suficientes de apostas finalizadas para gerar este gráfico com estes filtros.")
+    else:
+        fig_scatter = px.scatter(
+            df_estudos,
+            x='ROI_Realizado',
+            y='Edge_Num',
+            color='Status_Aposta',
+            color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'},
+            hover_data={
+                'Jogo': True,
+                'Esporte': True,
+                'Casa': True,
+                'Odd_Final': ':.2f',
+                'Edge': True,      
+                'Edge_Num': False, 
+                'ROI_Realizado': False, 
+                'Payout': ':.2f'
+            },
+            labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'},
+        )
+        
+        fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
+        fig_scatter.layout.yaxis.tickformat = ',.1%'
+        fig_scatter.layout.xaxis.tickformat = ',.0%'
+        
+        st.plotly_chart(fig_scatter, use_container_width=True)

@@ -4,6 +4,7 @@ import os
 from github import Github
 from datetime import datetime
 import plotly.express as px
+import requests # <- NOVA BIBLIOTECA PARA FALAR COM A API DO GITHUB
 
 # ==========================================
 # CONFIGURAÇÃO E LOGIN
@@ -25,6 +26,41 @@ if not st.session_state.autenticado:
     st.stop() 
 
 st.title("📈 Dashboard Analítico - Quant Bet EV")
+
+# ==========================================
+# 🎛️ CENTRO DE COMANDO (SIDEBAR)
+# ==========================================
+def disparar_workflow_github(nome_ficheiro_yml, nome_amigavel):
+    # Endpoint da API REST do GitHub para disparar Actions manualmente
+    url = f"https://api.github.com/repos/{st.secrets['REPO_NAME']}/actions/workflows/{nome_ficheiro_yml}/dispatches"
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {st.secrets['GITHUB_TOKEN']}",
+        "X-GitHub-Api-Version": "2022-11-28"
+    }
+    # ATENÇÃO: Se o seu repositório usar 'master' em vez de 'main', altere abaixo:
+    data = {"ref": "main"} 
+    
+    with st.spinner(f'A ligar o motor do {nome_amigavel}...'):
+        response = requests.post(url, headers=headers, json=data)
+        if response.status_code == 204:
+            st.sidebar.success(f"✅ Ordem enviada! O {nome_amigavel} começou a trabalhar na nuvem.")
+        else:
+            st.sidebar.error(f"❌ Erro ao ligar robô: {response.text}")
+
+st.sidebar.markdown("### 🤖 Centro de Comando")
+st.sidebar.write("Controle os robôs da nuvem diretamente por aqui:")
+
+if st.sidebar.button("🔍 Varrer Odds Agora", use_container_width=True):
+    # Troque 'bot_quant.yml' pelo nome exato do seu ficheiro yaml de varredura
+    disparar_workflow_github("bot_quant.yml", "Robô de Varredura")
+
+if st.sidebar.button("🏁 Auto-Resolver Apostas", use_container_width=True):
+    disparar_workflow_github("auto_resolucao.yml", "Contabilista de Resultados")
+
+st.sidebar.divider()
+st.sidebar.caption("⏳ *Nota: O GitHub pode demorar de 1 a 3 minutos para concluir a tarefa após o clique. Relaxe e aguarde as mensagens no Telegram.*")
+
 
 ARQUIVO = 'historico_apostas.csv'
 
@@ -72,10 +108,10 @@ def salvar_no_github(dataframe, mensagem):
         contents = repo.get_contents(ARQUIVO)
         novo_csv = dataframe.to_csv(index=False)
         repo.update_file(contents.path, mensagem, novo_csv, contents.sha)
-        st.success(f"✅ {mensagem} com sucesso na Nuvem!")
+        st.sidebar.success(f"✅ {mensagem} com sucesso na Nuvem!")
         return True
     except Exception as e:
-        st.error(f"❌ Erro ao sincronizar: {e}")
+        st.sidebar.error(f"❌ Erro ao sincronizar: {e}")
         return False
 
 # ==========================================
@@ -265,13 +301,12 @@ with tab_dash:
     st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
 # ==========================================
-# ABA 2: CALCULADORA EV (CORRIGIDA)
+# ABA 2: CALCULADORA EV
 # ==========================================
 with tab_calc:
     st.markdown("### 🧮 Calculadora Rápida de EV (Expected Value)")
     st.write("Introduza as odds para descobrir se há valor matemático na aposta e qual a stake ideal.")
 
-    # Criação de um formulário que aguarda o clique no botão para recalcular
     with st.form("form_calculadora_ev"):
         col_calc_1, col_calc_2 = st.columns(2)
         
@@ -286,10 +321,8 @@ with tab_calc:
             odd_pin_opp = st.number_input("Odd Pinnacle para o oponente (Lay/Dupla Chance):", min_value=1.01, value=1.85, step=0.05, format="%.2f")
             st.caption("*(Dica: Num mercado 1X2, some a probabilidade do Empate e do Visitante e converta para Odd, ou use um mercado Asiático 2-way)*")
 
-        # Botão de Execução
         btn_calcular = st.form_submit_button("🎯 Calcular EV", type="primary", use_container_width=True)
 
-    # A matemática só corre e exibe se o botão for pressionado
     if btn_calcular:
         if odd_pin_sel > 1.0 and odd_pin_opp > 1.0 and odd_casa_input > 1.0:
             imp_sel = 1 / odd_pin_sel

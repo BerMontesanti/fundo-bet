@@ -2,7 +2,7 @@ import os
 import requests
 import pandas as pd
 import smtplib
-import urllib.parse # Nova biblioteca para injetar a busca corretamente no link
+import urllib.parse
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -55,23 +55,9 @@ LIGAS = [
     ("Basquete - WNBA", "basketball_wnba"),
     ("Basquete - NCAA", "basketball_ncaa"),
     ("Basquete - Euroleague", "basketball_euroleague"),
-    ("Basquete - NBL (Austrália)", "basketball_nbl"),
     ("Tênis - ATP Singles", "tennis_atp_match"),
     ("Tênis - WTA Singles", "tennis_wta_match"),
     ("Futebol Americano - NFL", "americanfootball_nfl"),
-    ("Futebol Americano - NCAA", "americanfootball_ncaaf"),
-    ("Futebol Americano - CFL", "americanfootball_cfl"),
-    ("Beisebol - MLB", "baseball_mlb"),
-    ("Beisebol - NCAA", "baseball_ncaa"),
-    ("MMA - UFC", "mma_mixed_martial_arts"),
-    ("Boxe - Combates", "boxing_boxing_match"),
-    ("E-Sports - CS:GO / CS2", "esports_csgo_match_winner"),
-    ("E-Sports - League of Legends", "esports_lol_match_winner"),
-    ("E-Sports - Dota 2", "esports_dota2_match_winner"),
-    ("Críquete - IPL", "cricket_ipl"),
-    ("Críquete - Test Matches", "cricket_test_match"),
-    ("Rugby - Union", "rugby_union"),
-    ("Rugby - League", "rugby_league"),
 ]
 
 # ==========================================
@@ -80,19 +66,19 @@ LIGAS = [
 CASAS_ALVO = [
     'bet365', 'betano', '1xbet', 'betfair_ex_eu', 'betfair_sb_uk', 
     'sport888', 'unibet_eu', 'betsson', 'coolbet', 'matchbook', 
-    'marathonbet', 'nordicbet', 'williamhill',
-    'bovada', 'betonlineag', 'mybookieag', 'draftkings', 'fanduel', 
-    'betmgm', 'caesars', 'betrivers', 'superbook', 'pointsbetus',
-    'skybet', 'paddypower', 'ladbrokes', 'coral', 'boylesports', 
-    'virginbet', 'casumo'
+    'marathonbet', 'nordicbet', 'williamhill', 'bovada', 'betonlineag', 
+    'draftkings', 'fanduel', 'betmgm', 'caesars', 'betrivers', 'skybet'
 ]
 
 # ==========================================
-# 🚀 MOTOR DE BUSCA
+# 🚀 MOTOR DE BUSCA (COM EXTRAÇÃO DE PLACAR AO VIVO)
 # ==========================================
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
     apostas_aprovadas = []
+    
+    # Dicionário para guardar placares e poupar chamadas à API
+    PLACAR_CACHE = {}
     
     apostas_ja_registadas = set()
     arquivo_csv = 'historico_apostas.csv'
@@ -104,9 +90,10 @@ def buscar_oportunidades():
                     identificador = f"{str(row['Jogo']).strip()} | {str(row['Seleção']).strip()}"
                     apostas_ja_registadas.add(identificador)
         except Exception as e:
-            print(f"Aviso: Não foi possível carregar o histórico para memória ({e})")
+            print(f"Aviso: Não foi possível carregar o histórico ({e})")
     
-    hoje_brt = (datetime.utcnow() - timedelta(hours=3)).date()
+    agora_brt = datetime.utcnow() - timedelta(hours=3)
+    hoje_brt = agora_brt.date()
     print(f"A iniciar varredura para os jogos do dia {hoje_brt}...")
     
     for nome_liga, sport_key in LIGAS:
@@ -146,7 +133,6 @@ def buscar_oportunidades():
                                 link_mercado = b['markets'][0].get('link', link_bookmaker)
                                 link_final = o.get('link', link_mercado)
                                 
-                                # OVERRIDE DO LINK DA BETMGM E FALLBACKS
                                 if 'betmgm' in b['key'].lower():
                                     time_busca = urllib.parse.quote(ev['home_team'])
                                     link_final = f"https://sports.betmgm.com/en/sports/search?q={time_busca}"
@@ -159,18 +145,46 @@ def buscar_oportunidades():
                                     roi = (prob_real_pin * odd_soft) - 1
                                     edge = prob_real_pin - (1 / odd_soft)
                                     
-                                    if odd_justa < 2.00:
-                                        alvo_ev_atual = 0.03
-                                    elif odd_justa <= 4.00:
-                                        alvo_ev_atual = 0.05
-                                    else:
-                                        alvo_ev_atual = 0.07
+                                    if odd_justa < 2.00: alvo_ev_atual = 0.03
+                                    elif odd_justa <= 4.00: alvo_ev_atual = 0.05
+                                    else: alvo_ev_atual = 0.07
 
                                     if roi >= alvo_ev_atual and edge >= TARGET_EDGE:
                                         
                                         id_aposta = f"{jogo_nome} | {selecao}"
                                         if id_aposta in apostas_ja_registadas:
                                             continue 
+
+                                        # ==========================================
+                                        # EXTRAÇÃO DE PLACAR AO VIVO DA ODDS API
+                                        # ==========================================
+                                        placar_texto = "Pré-live"
+                                        hora_odd = agora_brt.strftime("%H:%M:%S")
+                                        
+                                        if dt < agora_brt: # O jogo está ao vivo
+                                            if sport_key not in PLACAR_CACHE:
+                                                # Só chama a API de scores se for realmente necessário
+                                                url_scores = f'https://api.the-odds-api.com/v4/sports/{sport_key}/scores/'
+                                                res_scores = requests.get(url_scores, params={'apiKey': API_KEY, 'daysFrom': 1})
+                                                if res_scores.status_code == 200:
+                                                    PLACAR_CACHE[sport_key] = res_scores.json()
+                                                else:
+                                                    PLACAR_CACHE[sport_key] = []
+                                            
+                                            # Procura o placar do jogo específico no Cache
+                                            for match_score in PLACAR_CACHE[sport_key]:
+                                                if match_score['home_team'] == ev['home_team'] and match_score['away_team'] == ev['away_team']:
+                                                    if match_score.get('scores'):
+                                                        gols_casa = next((s['score'] for s in match_score['scores'] if s['name'] == ev['home_team']), '0')
+                                                        gols_fora = next((s['score'] for s in match_score['scores'] if s['name'] == ev['away_team']), '0')
+                                                        placar_texto = f"Ao Vivo ({gols_casa}x{gols_fora})"
+                                                        
+                                                        # Puxa o momento exato em que a odd/placar mudou
+                                                        if match_score.get('last_update'):
+                                                            dt_update = datetime.strptime(match_score['last_update'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
+                                                            hora_odd = dt_update.strftime("%H:%M:%S")
+                                                    break
+                                        # ==========================================
 
                                         odd_min_ev = (alvo_ev_atual + 1) / prob_real_pin
                                         odd_min_edge = 1 / (prob_real_pin - TARGET_EDGE) if prob_real_pin > TARGET_EDGE else float('inf')
@@ -192,6 +206,8 @@ def buscar_oportunidades():
                                             "Edge": round(edge * 100, 2),
                                             "ROI": round(roi * 100, 2),
                                             "Stake": f"R$ {stake:.2f}",
+                                            "Status_Partida": placar_texto,
+                                            "Hora_Atualizacao": hora_odd,
                                             "Link": link_final
                                         })
             else:
@@ -218,12 +234,10 @@ def salvar_historico_csv(dados_aprovados):
     print(f"✅ {len(df_salvar)} apostas novas guardadas no ficheiro (CSV).")
 
 # ==========================================
-# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM (ATUALIZADA)
+# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM
 # ==========================================
 def enviar_telegram(dados_aprovados):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ Credenciais do Telegram não encontradas nas variáveis de ambiente.")
-        return
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID: return
 
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
 
@@ -238,14 +252,15 @@ def enviar_telegram(dados_aprovados):
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
     for index, row in df.iterrows():
-        # LÓGICA DE DESTAQUE EXTREMO PARA BETMGM
+        # Destaque extremo para a BetMGM
         if "betmgm" in str(row['Casa']).lower():
             msg_aposta = (
                 f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n"
                 f"🦁 🚨 *OPORTUNIDADE BETMGM* 🚨 🦁\n"
                 f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n\n"
                 f"⚽ *{row['Jogo']}*\n"
-                f"🏆 {row['Liga']} | ⏰ {row['Data/Hora']}\n"
+                f"🏆 {row['Liga']} | ⏰ Jogo às {row['Data/Hora']}\n"
+                f"⏱️ **Status:** {row['Status_Partida']} _(Atualizado às {row['Hora_Atualizacao']})_\n\n"
                 f"🎯 *Seleção:* {row['Seleção']}\n"
                 f"📊 *Odd Atual:* {row['Odd Casa']} *(Limite: {row['Odd Limite']})*\n"
                 f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
@@ -256,7 +271,8 @@ def enviar_telegram(dados_aprovados):
         else:
             msg_aposta = (
                 f"⚽ *{row['Jogo']}*\n"
-                f"🏆 {row['Liga']} | ⏰ {row['Data/Hora']}\n"
+                f"🏆 {row['Liga']} | ⏰ Jogo às {row['Data/Hora']}\n"
+                f"⏱️ **Status:** {row['Status_Partida']} _(Atualizado às {row['Hora_Atualizacao']})_\n\n"
                 f"🏠 *Casa:* {row['Casa']}\n"
                 f"🎯 *Seleção:* {row['Seleção']}\n"
                 f"📊 *Odd Atual:* {row['Odd Casa']} *(Limite: {row['Odd Limite']})*\n"
@@ -266,8 +282,6 @@ def enviar_telegram(dados_aprovados):
             )
         
         requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg_aposta, "parse_mode": "Markdown", "disable_web_page_preview": True})
-    
-    print(f"📱 {len(df)} novas mensagens enviadas com sucesso para o Telegram!")
 
 # ==========================================
 # 📧 FUNÇÃO DE ENVIO DE E-MAIL
@@ -292,20 +306,14 @@ def enviar_email(dados_aprovados):
         corpo_email = f"""
         <html><body>
           <h2>🤖 Alerta Quant: {len(df)} Novas Oportunidades Encontradas!</h2>
-          <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas (sem repetições):</p>
+          <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas:</p>
           {tabela_html}
           <br><p><i>Finalizada em {data_atual} às {hora_atual}</i></p>
         </body></html>
         """
     else:
         msg["Subject"] = f"💤 Alerta Quant: Nenhuma Nova Oportunidade ({data_atual})"
-        corpo_email = f"""
-        <html><body>
-          <h2>🤖 Alerta Quant: Zero Novas Oportunidades</h2>
-          <p>A varredura de {data_atual} às {hora_atual} foi concluída.</p>
-          <p>Nenhuma aposta inédita atendeu aos nossos critérios matemáticos no momento.</p>
-        </body></html>
-        """
+        corpo_email = f"<html><body><h2>🤖 Alerta Quant: Zero Novas Oportunidades</h2></body></html>"
 
     msg.attach(MIMEText(corpo_email, "html"))
 

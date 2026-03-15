@@ -352,7 +352,7 @@ with tab_calc:
 # ==========================================
 with tab_apostas:
     st.markdown("### 🎯 Detalhamento das Suas Apostas")
-    st.info("Insira a Odd e a Stake exatas que operou para uma gestão financeira rigorosa.")
+    st.info("Insira a Odd e a Stake exatas que operou na sua carteira.")
     
     mostrar_antigas_apostas = st.checkbox("Forçar exibição de apostas antigas já finalizadas", key="chk_antigas_ap")
     
@@ -363,21 +363,22 @@ with tab_apostas:
         
     df_minhas_pendentes = df[mask_minhas].copy()
     
-    # ⏱️ ORDENAÇÃO CRONOLÓGICA (Mais recentes no topo)
+    # Ordenação Cronológica e Remoção da Casa de Aposta da Visão
     df_minhas_pendentes['Sort_Date'] = pd.to_datetime(df_minhas_pendentes['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
     df_minhas_pendentes = df_minhas_pendentes.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
     
     if df_minhas_pendentes.empty:
         st.success("Nenhuma aposta pendente ou recente. Vá à aba 'Alimentar Resultados' para marcar novas oportunidades operadas!")
     else:
-        colunas_edicao = ['Data/Hora', 'Jogo', 'Casa', 'Seleção', 'Odd_Real', 'Stake_Real']
+        # Removido 'Casa' da lista de edição para limpar a visão da carteira
+        colunas_edicao = ['Data/Hora', 'Jogo', 'Seleção', 'Odd_Real', 'Stake_Real']
         editado_minhas = st.data_editor(
             df_minhas_pendentes[colunas_edicao],
             column_config={
                 "Odd_Real": st.column_config.NumberColumn("Odd Real Pega", format="%.2f"),
                 "Stake_Real": st.column_config.NumberColumn("Stake Colocada (R$)", format="%.2f"),
             },
-            disabled=["Data/Hora", "Jogo", "Casa", "Seleção"],
+            disabled=["Data/Hora", "Jogo", "Seleção"],
             hide_index=True, use_container_width=True, key="editor_apostas_reais"
         )
         if st.button("💾 Salvar Valores Executados", type="primary", key="btn_salvar_valores"):
@@ -388,7 +389,7 @@ with tab_apostas:
                     st.rerun()
 
 # ==========================================
-# ABA 4: ALIMENTAR RESULTADOS (TUDO NUM SÓ LUGAR)
+# ABA 4: ALIMENTAR RESULTADOS (DESDUPLICADA)
 # ==========================================
 with tab_resultados:
     st.markdown("### 📝 Gestão de Entradas e Placares")
@@ -400,18 +401,20 @@ with tab_resultados:
     if mostrar_antigos: df_mostrar = df.copy()
     else: df_mostrar = df[mask_exibicao].copy()
 
-    # ⏱️ ORDENAÇÃO CRONOLÓGICA INTELIGENTE (Pendentes em cima, e mais recentes primeiro)
+    # ⏱️ ORDENAÇÃO E DEDUPLICAÇÃO INTELIGENTE
+    # Agrupa pelo Jogo e Seleção (Escondendo as múltiplas casas de aposta)
     df_mostrar['Ordem_Status'] = df_mostrar['Status_Aposta'].apply(lambda x: 0 if x == 'Pendente' else 1)
     df_mostrar['Sort_Date'] = pd.to_datetime(df_mostrar['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
-    df_mostrar = df_mostrar.sort_values(by=['Ordem_Status', 'Sort_Date'], ascending=[True, False])
+    
+    df_unicos = df_mostrar.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Seleção']).sort_values(by=['Ordem_Status', 'Sort_Date'], ascending=[True, False])
 
-    if df_mostrar.empty:
+    if df_unicos.empty:
         st.success("Nenhuma oportunidade pendente ou recente.")
     else:
         with st.form("form_resultados_unificado"):
             novos_resultados = []
             
-            for index, row in df_mostrar.iterrows():
+            for index, row in df_unicos.iterrows():
                 opcoes = ["Pendente", "Draw"]
                 if ' x ' in str(row['Jogo']):
                     try:
@@ -427,7 +430,8 @@ with tab_resultados:
                 
                 col_txt, col_chk, col_sel = st.columns([4, 1, 2])
                 with col_txt:
-                    st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🎯 Seleção: **{row['Seleção']}** | 🏠 {row['Casa']} | ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
+                    # 'Casa' foi removida da exibição aqui! Foco só no Jogo e Seleção.
+                    st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🎯 Seleção: **{row['Seleção']}** | ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
                 with col_chk:
                     escolha_aposta = st.checkbox("Apostei?", value=apostado_atual, key=f"chk_{index}")
                 with col_sel:
@@ -435,6 +439,8 @@ with tab_resultados:
                 
                 novos_resultados.append({
                     'index': index, 
+                    'Jogo': row['Jogo'],
+                    'Data/Hora': row['Data/Hora'],
                     'Aposta_Realizada': escolha_aposta, 
                     'Vencedor_Partida': escolha_venc
                 })
@@ -443,24 +449,31 @@ with tab_resultados:
             if st.form_submit_button("💾 Salvar Alterações", type="primary"):
                 with st.spinner('A atualizar base de dados...'):
                     for item in novos_resultados:
-                        idx = item['index']
+                        idx_unico = item['index']
                         novo_venc = item['Vencedor_Partida']
                         nova_aposta = item['Aposta_Realizada']
                         
-                        if novo_venc != "Pendente" and df.at[idx, 'Vencedor_Partida'] == "Pendente":
-                            df.at[idx, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        # Atualiza Vencedor para TODAS as casas de aposta que detetaram este jogo
+                        mask_jogo = (df['Jogo'] == item['Jogo']) & (df['Data/Hora'] == item['Data/Hora'])
                         
-                        df.at[idx, 'Vencedor_Partida'] = novo_venc
-                        df.at[idx, 'Aposta_Realizada'] = nova_aposta
+                        if novo_venc != "Pendente" and df.loc[mask_jogo, 'Vencedor_Partida'].iloc[0] == "Pendente":
+                            df.loc[mask_jogo, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                         
-                        sel = str(df.at[idx, 'Seleção']).strip()
-                        venc_str = str(novo_venc).strip()
-                        if venc_str == "Pendente" or venc_str == "" or venc_str == "nan": 
-                            df.at[idx, 'Status_Aposta'] = "Pendente"
-                        elif sel == venc_str: 
-                            df.at[idx, 'Status_Aposta'] = "Green ✅"
-                        else: 
-                            df.at[idx, 'Status_Aposta'] = "Red ❌"
+                        df.loc[mask_jogo, 'Vencedor_Partida'] = novo_venc
+                        
+                        # Atualiza 'Apostei?' APENAS na linha mestre escolhida (para não duplicar a aposta pessoal na Aba 3)
+                        df.at[idx_unico, 'Aposta_Realizada'] = nova_aposta
+                        
+                        # Recalcula o Status (Green/Red) para todos os registros desse jogo
+                        for idx_calc in df[mask_jogo].index:
+                            sel = str(df.at[idx_calc, 'Seleção']).strip()
+                            venc_str = str(novo_venc).strip()
+                            if venc_str == "Pendente" or venc_str == "" or venc_str == "nan": 
+                                df.at[idx_calc, 'Status_Aposta'] = "Pendente"
+                            elif sel == venc_str: 
+                                df.at[idx_calc, 'Status_Aposta'] = "Green ✅"
+                            else: 
+                                df.at[idx_calc, 'Status_Aposta'] = "Red ❌"
                             
                     df = df.drop(columns=['Recente', 'Ordem_Status', 'Sort_Date'], errors='ignore')
                     if salvar_no_github(df, "🤖 Resultados e entradas atualizados"): 
@@ -473,7 +486,6 @@ with tab_hist:
     st.subheader("🗄️ Histórico Completo de Apostas")
     df_hist = df_calc.copy()
     
-    # ⏱️ ORDENAÇÃO CRONOLÓGICA NO HISTÓRICO
     df_hist['Sort_Date'] = pd.to_datetime(df_hist['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
     df_hist = df_hist.sort_values(by='Sort_Date', ascending=False)
     

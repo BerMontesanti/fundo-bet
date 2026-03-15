@@ -82,7 +82,7 @@ for col, val in colunas_padrao.items():
 # ==========================================
 # AUTO-CURA DA BASE DE DADOS E FORÇA DE TIPOS
 # ==========================================
-# Força a coluna Aposta_Realizada a ser estritamente Booleana (True/False)
+# Força a coluna Aposta_Realizada a ser estritamente Booleana à prova de erros do pandas
 df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
 
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
@@ -90,12 +90,9 @@ df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if st
 def auto_corrigir_status(row):
     venc = str(row['Vencedor_Partida']).strip()
     sel = str(row['Seleção']).strip()
-    if venc == "Pendente":
-        return "Pendente"
-    elif sel == venc:
-        return "Green ✅"
-    else:
-        return "Red ❌"
+    if venc == "Pendente": return "Pendente"
+    elif sel == venc: return "Green ✅"
+    else: return "Red ❌"
 
 df['Status_Aposta'] = df.apply(auto_corrigir_status, axis=1)
 
@@ -114,8 +111,16 @@ def salvar_no_github(dataframe, mensagem):
         return False
 
 # ==========================================
-# PREPARAÇÃO MATEMÁTICA GLOBAL
+# PREPARAÇÃO MATEMÁTICA GLOBAL & FUNÇÕES AUXILIARES
 # ==========================================
+# Identifica jogos finalizados nas últimas 24h
+def eh_recente(d_str):
+    if pd.isna(d_str) or d_str == "": return False
+    try: return (datetime.now() - datetime.strptime(str(d_str), "%Y-%m-%d %H:%M:%S")).total_seconds() < 86400 
+    except: return False
+
+df['Recente'] = df['Data_Resolucao'].apply(eh_recente)
+
 df_calc = df.copy()
 df_calc = df_calc.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Casa', 'Seleção'], keep='last')
 
@@ -129,8 +134,7 @@ def classificar_momento(row):
         dt_jogo = datetime.strptime(f"{str_jogo}/{ano}", "%d/%m %H:%M/%Y")
         if dt_achado < dt_jogo: return "Pré-live"
         else: return "Ao Vivo"
-    except:
-        return "Pré-live"
+    except: return "Pré-live"
 
 df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
@@ -172,7 +176,6 @@ with tab_dash:
     
     col_f1, col_f2, col_f3, col_f4 = st.columns(4)
     with col_f1:
-        # A Mágica de "Minhas Apostas" ser tratada como uma Casa de Aposta!
         casas_disponiveis = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_calc['Casa'].dropna().unique().tolist())
         casa_selecionada = st.selectbox("Casa de Aposta:", casas_disponiveis, key="filtro_dash_casa")
     with col_f2:
@@ -188,7 +191,6 @@ with tab_dash:
 
     df_dash = df_calc.copy()
     
-    # Aplicação de Filtros
     if filtro_visao == "Apenas Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
     elif filtro_visao == "Não Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
         
@@ -261,7 +263,6 @@ with tab_dash:
         Payout=('Payout', 'sum')
     ).reset_index()
     
-    # Adicionar a linha de "⭐ MINHAS APOSTAS" à tabela para comparação direta com as casas!
     if col_grupo == "Casa" and casa_selecionada == "Todas as Casas":
         df_minhas = df_resolvidas[df_resolvidas['Aposta_Realizada'] == True]
         if not df_minhas.empty:
@@ -349,17 +350,24 @@ with tab_calc:
                 st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco.")
 
 # ==========================================
-# ABA 3: MINHAS APOSTAS (NOVO FLUXO)
+# ABA 3: MINHAS APOSTAS (CONTROLO FINANCEIRO)
 # ==========================================
 with tab_apostas:
     st.markdown("### 🎯 Detalhamento das Suas Apostas")
-    st.info("💡 **Apenas os jogos marcados na aba 'Alimentar Resultados' aparecem aqui.** Insira a Odd e a Stake exatas que operou para uma gestão financeira rigorosa.")
+    st.info("Insira a Odd e a Stake exatas que operou para uma gestão financeira rigorosa.")
     
-    # Filtra APENAS jogos que já foram marcados como Aposta_Realizada == True
-    df_minhas_pendentes = df[(df['Status_Aposta'] == 'Pendente') & (df['Aposta_Realizada'] == True)].copy()
+    mostrar_antigas_apostas = st.checkbox("Forçar exibição de apostas antigas já finalizadas", key="chk_antigas_ap")
+    
+    if mostrar_antigas_apostas:
+        mask_minhas = (df['Aposta_Realizada'] == True)
+    else:
+        # Mostra as que você marcou, e que ainda estão Pendentes OU que terminaram há menos de 24h
+        mask_minhas = (df['Aposta_Realizada'] == True) & ((df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True))
+        
+    df_minhas_pendentes = df[mask_minhas].copy()
     
     if df_minhas_pendentes.empty:
-        st.success("Nenhuma aposta pendente na sua carteira. Vá à aba 'Alimentar Resultados' para marcar as oportunidades que operou!")
+        st.success("Nenhuma aposta pendente ou recente. Vá à aba 'Alimentar Resultados' para marcar novas oportunidades operadas!")
     else:
         colunas_edicao = ['Data/Hora', 'Jogo', 'Casa', 'Seleção', 'Odd_Real', 'Stake_Real']
         editado_minhas = st.data_editor(
@@ -374,91 +382,85 @@ with tab_apostas:
         if st.button("💾 Salvar Valores Executados", type="primary", key="btn_salvar_valores"):
             with st.spinner('A salvar na nuvem...'):
                 df.update(editado_minhas[['Odd_Real', 'Stake_Real']])
+                df = df.drop(columns=['Recente'], errors='ignore')
                 if salvar_no_github(df, "🤖 Atualizando stake e odd real"):
                     st.rerun()
 
 # ==========================================
-# ABA 4: ALIMENTAR RESULTADOS E MARCAR ENTRADAS
+# ABA 4: ALIMENTAR RESULTADOS (TUDO NUM SÓ LUGAR)
 # ==========================================
 with tab_resultados:
-    # --- SECÇÃO 1: TRIAGEM DE APOSTAS ---
-    st.markdown("### 1️⃣ Marcar Oportunidades Apostadas")
-    st.write("Selecione a caixa na coluna **'Apostei?'** para mover o jogo para a aba 'Minhas Apostas'.")
+    st.markdown("### 📝 Gestão de Entradas e Placares")
+    st.info("Aqui você diz ao sistema: **1.** Se você apostou na oportunidade, e **2.** Quem ganhou o jogo.")
     
-    df_pendentes_marcacao = df[df['Status_Aposta'] == 'Pendente'].copy()
-    if not df_pendentes_marcacao.empty:
-        colunas_marcacao = ['Data/Hora', 'Jogo', 'Casa', 'Seleção', 'Aposta_Realizada']
-        editado_marcacao = st.data_editor(
-            df_pendentes_marcacao[colunas_marcacao],
-            column_config={
-                "Aposta_Realizada": st.column_config.CheckboxColumn("Apostei?", default=False),
-            },
-            disabled=["Data/Hora", "Jogo", "Casa", "Seleção"],
-            hide_index=True, use_container_width=True, key="editor_marcacao"
-        )
-        if st.button("💾 Enviar para Minhas Apostas", type="primary", key="btn_marcacao"):
-            with st.spinner('A processar triagem...'):
-                df.update(editado_marcacao[['Aposta_Realizada']])
-                if salvar_no_github(df, "🤖 Atualizando marcação de apostas"):
-                    st.rerun()
-    else:
-        st.success("Não existem oportunidades pendentes.")
-
-    st.divider()
-
-    # --- SECÇÃO 2: ALIMENTAR PLACAR MANUAL ---
-    st.markdown("### 2️⃣ Alimentar Placar (Resolução Manual)")
-    st.info("O Robô contabilista já tenta resolver jogos automaticamente 2x ao dia. Utilize esta secção apenas para corrigir erros ou para jogos fora do futebol.")
+    mostrar_antigos = st.checkbox("Forçar exibição de jogos antigos", key="chk_antigos_res")
     
-    def eh_recente(d_str):
-        if pd.isna(d_str) or d_str == "": return False
-        try: return (datetime.now() - datetime.strptime(str(d_str), "%Y-%m-%d %H:%M:%S")).total_seconds() < 86400 
-        except: return False
-
-    df['Recente'] = df['Data_Resolucao'].apply(eh_recente)
-    mostrar_antigos = st.checkbox("Forçar exibição de jogos antigos")
-    
-    mask_exibicao = (df['Vencedor_Partida'] == 'Pendente') | (df['Recente'] == True)
+    # Filtro: Mostra o que está Pendente OU o que o robô resolveu nas últimas 24h OU tudo (se forçado)
+    mask_exibicao = (df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True)
     if mostrar_antigos: df_mostrar = df.copy()
     else: df_mostrar = df[mask_exibicao].copy()
 
-    jogos_unicos = df_mostrar[['Data/Hora', 'Liga', 'Jogo', 'Vencedor_Partida']].drop_duplicates(subset=['Data/Hora', 'Jogo']).copy()
-    jogos_unicos['Ordem'] = jogos_unicos['Vencedor_Partida'].apply(lambda x: 0 if x == 'Pendente' else 1)
-    jogos_unicos = jogos_unicos.sort_values(by=['Ordem', 'Data/Hora'], ascending=[True, False])
-
-    with st.form("form_resultados"):
-        novos_resultados = []
-        for index, row in jogos_unicos.iterrows():
-            opcoes = ["Pendente", "Draw"]
-            if ' x ' in row['Jogo']:
-                c, f = row['Jogo'].split(' x ')
-                opcoes = ["Pendente", c, f, "Draw"]
+    if df_mostrar.empty:
+        st.success("Nenhuma oportunidade pendente ou recente.")
+    else:
+        with st.form("form_resultados_unificado"):
+            novos_resultados = []
+            
+            # Loop individual por APOSTA (e não por jogo), para permitir marcar Apostei? por seleção!
+            for index, row in df_mostrar.iterrows():
+                opcoes = ["Pendente", "Draw"]
+                if ' x ' in str(row['Jogo']):
+                    try:
+                        c, f = str(row['Jogo']).split(' x ')
+                        opcoes = ["Pendente", c, f, "Draw"]
+                    except: pass
+                    
+                valor_atual = str(row['Vencedor_Partida']).strip()
+                if valor_atual not in opcoes: opcoes.append(valor_atual)
+                idx_padrao = opcoes.index(valor_atual) if valor_atual in opcoes else 0
                 
-            valor_atual = str(row['Vencedor_Partida']).strip()
-            if valor_atual not in opcoes: opcoes.append(valor_atual)
-            idx_padrao = opcoes.index(valor_atual) if valor_atual in opcoes else 0
-            
-            col_txt, col_sel = st.columns([3, 2])
-            with col_txt: st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🏆 {row['Liga']} &nbsp;|&nbsp; ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
-            with col_sel: escolha = st.selectbox("Vencedor", options=opcoes, index=idx_padrao, key=f"sel_{row['Jogo']}_{row['Data/Hora']}", label_visibility="collapsed")
-            novos_resultados.append({'Jogo': row['Jogo'], 'Data/Hora': row['Data/Hora'], 'Vencedor_Partida': escolha})
-            st.markdown("---")
-            
-        if st.form_submit_button("💾 Salvar Resultados", type="primary"):
-            with st.spinner('A processar Greens e Reds...'):
-                for item in novos_resultados:
-                    mask = (df['Jogo'] == item['Jogo']) & (df['Data/Hora'] == item['Data/Hora'])
-                    if item['Vencedor_Partida'] != "Pendente" and df.loc[mask, 'Vencedor_Partida'].iloc[0] == "Pendente":
-                        df.loc[mask, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    df.loc[mask, 'Vencedor_Partida'] = item['Vencedor_Partida']
-                    for idx in df[mask].index:
+                apostado_atual = bool(row.get('Aposta_Realizada', False))
+                
+                col_txt, col_chk, col_sel = st.columns([4, 1, 2])
+                with col_txt:
+                    st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🎯 Seleção: **{row['Seleção']}** | 🏠 {row['Casa']} | ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
+                with col_chk:
+                    escolha_aposta = st.checkbox("Apostei?", value=apostado_atual, key=f"chk_{index}")
+                with col_sel:
+                    escolha_venc = st.selectbox("Vencedor", options=opcoes, index=idx_padrao, key=f"sel_{index}", label_visibility="collapsed")
+                
+                novos_resultados.append({
+                    'index': index, 
+                    'Aposta_Realizada': escolha_aposta, 
+                    'Vencedor_Partida': escolha_venc
+                })
+                st.markdown("---")
+                
+            if st.form_submit_button("💾 Salvar Alterações", type="primary"):
+                with st.spinner('A atualizar base de dados...'):
+                    for item in novos_resultados:
+                        idx = item['index']
+                        novo_venc = item['Vencedor_Partida']
+                        nova_aposta = item['Aposta_Realizada']
+                        
+                        if novo_venc != "Pendente" and df.at[idx, 'Vencedor_Partida'] == "Pendente":
+                            df.at[idx, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        
+                        df.at[idx, 'Vencedor_Partida'] = novo_venc
+                        df.at[idx, 'Aposta_Realizada'] = nova_aposta
+                        
                         sel = str(df.at[idx, 'Seleção']).strip()
-                        venc = str(item['Vencedor_Partida']).strip()
-                        if venc == "Pendente" or venc == "" or venc == "nan": df.at[idx, 'Status_Aposta'] = "Pendente"
-                        elif sel == venc: df.at[idx, 'Status_Aposta'] = "Green ✅"
-                        else: df.at[idx, 'Status_Aposta'] = "Red ❌"
-                df = df.drop(columns=['Recente'], errors='ignore')
-                if salvar_no_github(df, "🤖 Resultados alimentados"): st.rerun()
+                        venc_str = str(novo_venc).strip()
+                        if venc_str == "Pendente" or venc_str == "" or venc_str == "nan": 
+                            df.at[idx, 'Status_Aposta'] = "Pendente"
+                        elif sel == venc_str: 
+                            df.at[idx, 'Status_Aposta'] = "Green ✅"
+                        else: 
+                            df.at[idx, 'Status_Aposta'] = "Red ❌"
+                            
+                    df = df.drop(columns=['Recente'], errors='ignore')
+                    if salvar_no_github(df, "🤖 Resultados e entradas atualizados"): 
+                        st.rerun()
 
 # ==========================================
 # ABA 5: ARQUIVO / HISTÓRICO COMPLETO
@@ -500,7 +502,6 @@ with tab_hist:
 # ==========================================
 with tab_estudos:
     st.subheader("🔬 Estudos Estatísticos: Edge vs Rentabilidade Relativa (ROI)")
-    st.write("Análise da eficiência das odds.")
     
     col_e1, col_e2, col_e3, col_e4 = st.columns(4)
     with col_e1:

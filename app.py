@@ -34,7 +34,6 @@ if not os.path.exists(ARQUIVO):
 
 df = pd.read_csv(ARQUIVO)
 
-# Garante que as novas colunas existem sem quebrar o CSV antigo
 colunas_padrao = {
     'Vencedor_Partida': 'Pendente',
     'Status_Aposta': 'Pendente',
@@ -42,7 +41,7 @@ colunas_padrao = {
     'Odd_Real': 0.0,
     'Stake_Real': 0.0,
     'Data_Resolucao': "",
-    'Achado_em': "" # Garante que existe para apostas antigas
+    'Achado_em': ""
 }
 for col, val in colunas_padrao.items():
     if col not in df.columns:
@@ -80,21 +79,18 @@ def salvar_no_github(dataframe, mensagem):
         return False
 
 # ==========================================
-# PREPARAÇÃO MATEMÁTICA GLOBAL E CLASSIFICAÇÃO DE TEMPO
+# PREPARAÇÃO MATEMÁTICA GLOBAL
 # ==========================================
 df_calc = df.copy()
-
-# Elimina linhas duplicadas geradas pelo bot antigo, mantendo apenas a última
 df_calc = df_calc.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Casa', 'Seleção'], keep='last')
 
-# Motor de Classificação (Pré-live vs Ao Vivo)
 def classificar_momento(row):
     try:
         str_achado = str(row.get('Achado_em', ''))
         str_jogo = str(row.get('Data/Hora', ''))
         
         if str_achado.lower() in ['nan', 'nat', '', 'none']:
-            return "Pré-live" # Aposta antiga sem registro de hora, assume-se pré-live
+            return "Pré-live"
             
         dt_achado = datetime.strptime(str_achado, "%d/%m/%Y %H:%M:%S")
         ano = dt_achado.year
@@ -105,11 +101,9 @@ def classificar_momento(row):
         else:
             return "Ao Vivo"
     except:
-        return "Pré-live" # Fallback em caso de erro de formatação
+        return "Pré-live"
 
 df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
-
-# Extração Inteligente do Esporte a partir da Liga
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
 
 df_calc['Stake_Num'] = df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip().astype(float)
@@ -138,8 +132,9 @@ def calc_roi_realizado(row):
 
 df_calc['ROI_Realizado'] = df_calc.apply(calc_roi_realizado, axis=1)
 
-tab_dash, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
-    "📊 Dashboard", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
+# Criação das Abas (Agora com a Calculadora EV!)
+tab_dash, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
+    "📊 Dashboard", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
 ])
 
 # ==========================================
@@ -149,7 +144,6 @@ with tab_dash:
     st.markdown("### 🎛️ Filtros de Análise")
     filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
     
-    # Agora com 4 colunas de filtro para incluir o Momento do Alerta
     col_f1, col_f2, col_f3, col_f4 = st.columns(4)
     with col_f1:
         casas_disponiveis = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
@@ -167,13 +161,10 @@ with tab_dash:
         tipos_disp = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
         tipo_selecionado = st.selectbox("Momento do Alerta:", tipos_disp, key="filtro_dash_tipo")
 
-    # Aplicação dos Filtros Globais
     df_dash = df_calc.copy()
     
-    if filtro_visao == "Apenas Apostadas":
-        df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
-    elif filtro_visao == "Não Apostadas":
-        df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
+    if filtro_visao == "Apenas Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
+    elif filtro_visao == "Não Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
         
     if casa_selecionada != "Todas as Casas": df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
     if esporte_selecionado != "Todos os Esportes": df_dash = df_dash[df_dash['Esporte'] == esporte_selecionado]
@@ -184,7 +175,6 @@ with tab_dash:
 
     st.divider()
 
-    # --- MÉTRICAS GLOBAIS ---
     col1, col2, col3, col4 = st.columns(4)
     col5, col6, col7, col8 = st.columns(4)
     
@@ -207,7 +197,6 @@ with tab_dash:
     yield_global = (payout_total_global / stake_total_global * 100) if stake_total_global > 0 else 0.0
     col8.metric("Yield Global", f"{yield_global:.2f}%")
 
-    # --- GRÁFICOS TEMPORAIS ---
     if not df_resolvidas.empty:
         df_resolvidas['Data_Curta'] = df_resolvidas['Data/Hora'].str[:5] 
         grafico_dados = df_resolvidas.groupby('Data_Curta').agg(
@@ -275,8 +264,72 @@ with tab_dash:
     cols_ordem = [col_grupo, 'Oportunidades', 'Taxa_Acerto', 'Edge_Medio', 'EV_Medio', 'Stake_Total', 'EV_Esperado', 'Payout', 'EV Realization Rate', 'Yield']
     st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
+
 # ==========================================
-# ABA 2: MINHAS APOSTAS
+# ABA 2: CALCULADORA EV (NOVA!)
+# ==========================================
+with tab_calc:
+    st.markdown("### 🧮 Calculadora Rápida de EV (Expected Value)")
+    st.write("Introduza as odds para descobrir se há valor matemático na aposta e qual a stake ideal.")
+
+    col_calc_1, col_calc_2 = st.columns(2)
+    
+    with col_calc_1:
+        st.markdown("#### 1. Odd da Casa de Apostas (Soft)")
+        odd_casa_input = st.number_input("Odd que você quer apostar (ex: BetMGM):", min_value=1.01, value=2.10, step=0.05, format="%.2f")
+        banca_input = st.number_input("Banca Total (R$):", min_value=10.0, value=250.0, step=10.0)
+
+    with col_calc_2:
+        st.markdown("#### 2. Odds da Pinnacle (Sharp)")
+        odd_pin_sel = st.number_input("Odd Pinnacle para a sua seleção:", min_value=1.01, value=1.95, step=0.05, format="%.2f")
+        odd_pin_opp = st.number_input("Odd Pinnacle para o oponente (Lay/Dupla Chance):", min_value=1.01, value=1.85, step=0.05, format="%.2f")
+        st.caption("*(Dica: Num mercado 1X2, some a probabilidade do Empate e do Visitante e converta para Odd, ou use um mercado Asiático 2-way)*")
+
+    st.divider()
+
+    # Matemática de Remoção de Margem (De-vigging) e Cálculo EV
+    if odd_pin_sel > 1.0 and odd_pin_opp > 1.0 and odd_casa_input > 1.0:
+        # Probabilidades Implícitas (com juice)
+        imp_sel = 1 / odd_pin_sel
+        imp_opp = 1 / odd_pin_opp
+        margem_total = imp_sel + imp_opp
+        
+        # Probabilidade Real (sem juice)
+        prob_real = imp_sel / margem_total
+        odd_justa = 1 / prob_real
+        
+        # Cálculo de EV e Edge
+        roi_calc = (prob_real * odd_casa_input) - 1
+        edge_calc = prob_real - (1 / odd_casa_input)
+        
+        # Critério de Kelly Fracionado (25%)
+        b_kelly = odd_casa_input - 1
+        f_kelly = (prob_real * b_kelly - (1 - prob_real)) / b_kelly
+        
+        # Stake (Não permite stake negativa)
+        if f_kelly > 0:
+            stake_calc = banca_input * (f_kelly * 0.25)
+        else:
+            stake_calc = 0.0
+
+        st.markdown("### 🎯 Resultados da Análise")
+        
+        res_c1, res_c2, res_c3, res_c4 = st.columns(4)
+        res_c1.metric("Probabilidade Real", f"{(prob_real * 100):.1f}%")
+        res_c2.metric("Odd Justa (Fair Odd)", f"{odd_justa:.2f}")
+        
+        if edge_calc > 0:
+            res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "Aposta de Valor +EV")
+            res_c4.metric("Stake Recomendada", f"R$ {stake_calc:.2f}", f"ROI Esperado: {(roi_calc * 100):.1f}%")
+            st.success("✅ **SINAL VERDE!** A casa está a oferecer um prémio superior ao risco real. O modelo recomenda apostar.")
+        else:
+            res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "-EV (Não Apostar)")
+            res_c4.metric("Stake Recomendada", "R$ 0.00", "Aposta com Prejuízo Matemático")
+            st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco. A longo prazo, esta aposta vai drenar a sua banca.")
+
+
+# ==========================================
+# ABA 3: MINHAS APOSTAS
 # ==========================================
 with tab_apostas:
     st.info("💡 **Dica:** Marque as oportunidades que apostou. Insira a Odd e Stake finais para maior precisão.")
@@ -302,7 +355,7 @@ with tab_apostas:
                     st.rerun()
 
 # ==========================================
-# ABA 3: RESULTADOS
+# ABA 4: RESULTADOS
 # ==========================================
 with tab_resultados:
     st.info("Apenas jogos pendentes ou finalizados nas últimas 24h são exibidos aqui.")
@@ -361,7 +414,7 @@ with tab_resultados:
                 if salvar_no_github(df, "🤖 Resultados alimentados"): st.rerun()
 
 # ==========================================
-# ABA 4: ARQUIVO / HISTÓRICO COMPLETO
+# ABA 5: ARQUIVO / HISTÓRICO COMPLETO
 # ==========================================
 with tab_hist:
     st.subheader("🗄️ Histórico Completo de Apostas")
@@ -369,89 +422,4 @@ with tab_hist:
     
     col_h1, col_h2, col_h3, col_h4 = st.columns(4)
     with col_h1:
-        casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique().tolist())
-        filtro_casa_hist = st.selectbox("Casa de Aposta:", casas_hist, key="filtro_hist_casa")
-    with col_h2:
-        esportes_hist = ["Todos os Esportes"] + sorted(df_hist['Esporte'].dropna().unique().tolist())
-        filtro_esp_hist = st.selectbox("Esporte:", esportes_hist, key="filtro_hist_esporte")
-    with col_h3:
-        if filtro_esp_hist != "Todos os Esportes":
-            ligas_hist = ["Todas as Ligas"] + sorted(df_hist[df_hist['Esporte'] == filtro_esp_hist]['Liga'].dropna().unique().tolist())
-        else:
-            ligas_hist = ["Todas as Ligas"] + sorted(df_hist['Liga'].dropna().unique().tolist())
-        filtro_liga_hist = st.selectbox("Liga:", ligas_hist, key="filtro_hist_liga")
-    with col_h4:
-        tipos_hist = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
-        filtro_tipo_hist = st.selectbox("Momento do Alerta:", tipos_hist, key="filtro_hist_tipo")
-    
-    if filtro_casa_hist != "Todas as Casas": df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
-    if filtro_esp_hist != "Todos os Esportes": df_hist = df_hist[df_hist['Esporte'] == filtro_esp_hist]
-    if filtro_liga_hist != "Todas as Ligas": df_hist = df_hist[df_hist['Liga'] == filtro_liga_hist]
-    if filtro_tipo_hist != "Todos os Momentos": df_hist = df_hist[df_hist['Momento_Alerta'] == filtro_tipo_hist]
-    
-    df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
-    
-    # Renomear colunas apenas para exibição
-    df_hist.rename(columns={'Achado_em': 'Horário Alerta', 'Momento_Alerta': 'Tipo'}, inplace=True)
-    
-    cols_display = ['Data/Hora', 'Horário Alerta', 'Tipo', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Vencedor_Partida']
-    st.dataframe(df_hist[cols_display], use_container_width=True)
-
-# ==========================================
-# ABA 5: ESTUDOS ESTATÍSTICOS
-# ==========================================
-with tab_estudos:
-    st.subheader("🔬 Estudos Estatísticos: Edge vs Rentabilidade Relativa (ROI)")
-    st.write("Análise da eficiência das odds.")
-    
-    col_e1, col_e2, col_e3, col_e4 = st.columns(4)
-    with col_e1:
-        casas_estudos = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
-        filtro_casa_estudos = st.selectbox("Casa de Aposta:", casas_estudos, key="filtro_estudos_casa")
-    with col_e2:
-        esportes_estudos = ["Todos os Esportes"] + sorted(df_calc['Esporte'].dropna().unique().tolist())
-        filtro_esp_estudos = st.selectbox("Esporte:", esportes_estudos, key="filtro_estudos_esporte")
-    with col_e3:
-        if filtro_esp_estudos != "Todos os Esportes":
-            ligas_estudos = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == filtro_esp_estudos]['Liga'].dropna().unique().tolist())
-        else:
-            ligas_estudos = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
-        filtro_liga_estudos = st.selectbox("Liga:", ligas_estudos, key="filtro_estudos_liga")
-    with col_e4:
-        tipos_estudos = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
-        filtro_tipo_estudos = st.selectbox("Momento do Alerta:", tipos_estudos, key="filtro_estudos_tipo")
-    
-    df_estudos = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
-    
-    if filtro_casa_estudos != "Todas as Casas": df_estudos = df_estudos[df_estudos['Casa'] == filtro_casa_estudos]
-    if filtro_esp_estudos != "Todos os Esportes": df_estudos = df_estudos[df_estudos['Esporte'] == filtro_esp_estudos]
-    if filtro_liga_estudos != "Todas as Ligas": df_estudos = df_estudos[df_estudos['Liga'] == filtro_liga_estudos]
-    if filtro_tipo_estudos != "Todos os Momentos": df_estudos = df_estudos[df_estudos['Momento_Alerta'] == filtro_tipo_estudos]
-        
-    if df_estudos.empty:
-        st.info("Ainda não há dados suficientes de apostas finalizadas para gerar este gráfico com estes filtros.")
-    else:
-        fig_scatter = px.scatter(
-            df_estudos,
-            x='ROI_Realizado',
-            y='Edge_Num',
-            color='Status_Aposta',
-            color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'},
-            hover_data={
-                'Jogo': True,
-                'Esporte': True,
-                'Casa': True,
-                'Odd_Final': ':.2f',
-                'Edge': True,      
-                'Edge_Num': False, 
-                'ROI_Realizado': False, 
-                'Payout': ':.2f'
-            },
-            labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'},
-        )
-        
-        fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
-        fig_scatter.layout.yaxis.tickformat = ',.1%'
-        fig_scatter.layout.xaxis.tickformat = ',.0%'
-        
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique

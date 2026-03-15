@@ -415,8 +415,8 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 14/03 14:10,Futebol - MLS (EUA),Toronto FC x New York Red Bulls,Casumo,Draw,7.0,4.95,5.65,5.91,41.34,R$ 4.31,14/03/2026 15:56:51,Draw,Green ✅,,,,
 14/03 14:10,Futebol - MLS (EUA),Toronto FC x New York Red Bulls,Matchbook,New York Red Bulls,80.0,25.72,72.06,2.64,211.02,R$ 1.67,14/03/2026 15:56:51,Draw,Red ❌,,,,
 14/03 14:10,Futebol - MLS (EUA),Toronto FC x New York Red Bulls,Matchbook,Draw,5.7,4.95,5.65,2.65,15.09,R$ 2.01,14/03/2026 15:56:51,Draw,Green ✅,,,,
-14/03 17:00,MMA - UFC,Brad Tavares x Eryk Anders,Betsson,Eryk Anders,1.92,1.83,1.92,2.51,4.82,R$ 3.27,14/03/2026 15:56:51,Pendente,Pendente,,,,
-14/03 17:00,MMA - UFC,Brad Tavares x Eryk Anders,Nordic Bet,Eryk Anders,1.92,1.83,1.92,2.51,4.82,R$ 3.27,14/03/2026 15:56:51,Pendente,Pendente,,,,
+14/03 17:00,MMA - UFC,Brad Tavares x Eryk Anders,Betsson,Eryk Anders,1.92,1.83,1.92,2.51,4.82,R$ 3.27,14/03/2026 15:56:51,Eryk Anders,Green ✅,,,,2026-03-15 12:50:13
+14/03 17:00,MMA - UFC,Brad Tavares x Eryk Anders,Nordic Bet,Eryk Anders,1.92,1.83,1.92,2.51,4.82,R$ 3.27,14/03/2026 15:56:51,Eryk Anders,Green ✅,,,,2026-03-15 12:50:13
 14/03 16:15,Futebol - MLS (EUA),Atlanta United FC x Philadelphia Union,Betsson,Philadelphia Union,5.8,2.96,3.19,16.59,96.22,R$ 12.53,14/03/2026 16:57:33,Atlanta United FC,Red ❌,,,,2026-03-14 21:22:44
 14/03 16:15,Futebol - MLS (EUA),Atlanta United FC x Philadelphia Union,Betsson,Draw,3.9,3.23,3.52,5.31,20.7,R$ 4.46,14/03/2026 16:57:33,Atlanta United FC,Red ❌,,,,2026-03-14 21:22:44
 14/03 16:15,Futebol - MLS (EUA),Atlanta United FC x Philadelphia Union,Coral,Philadelphia Union,6.0,2.96,3.19,17.17,102.99,R$ 12.87,14/03/2026 16:57:33,Atlanta United FC,Red ❌,,,,2026-03-14 21:22:44
@@ -447,121 +447,121 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 14/03 16:15,Futebol - MLS (EUA),Atlanta United FC x Philadelphia Union,DraftKings,Draw,3.95,3.23,3.52,5.63,22.24,R$ 4.71,14/03/2026 16:57:33,Atlanta United FC,Red ❌,,,,2026-03-14 21:22:44
 14/03 16:15,Futebol - MLS (EUA),Atlanta United FC x Philadelphia Union,Matchbook,Philadelphia Union,6.6,2.96,3.19,18.68,123.29,R$ 13.76,14/03/2026 16:57:33,Atlanta United FC,Red ❌,,,,2026-03-14 21:22:44
 14/03 16:15,Futebol - MLS (EUA),Atlanta United FC x Philadelphia Union,Matchbook,Draw,4.1,3.23,3.52,6.56,26.89,R$ 5.42,14/03/2026 16:57:33,Atlanta United FC,Red ❌,,,,2026-03-14 21:22:44
-14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,BoyleSports,Charlotte Hornets,4.4,3.95,4.38,2.62,11.51,R$ 2.12,14/03/2026 16:57:33,Pendente,Pendente,,,,
-14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,William Hill,San Antonio Spurs,1.4,1.34,1.39,3.23,4.52,R$ 7.06,14/03/2026 16:57:33,Pendente,Pendente,,,,
-14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,Betfair,Charlotte Hornets,4.4,3.95,4.38,2.62,11.51,R$ 2.12,14/03/2026 16:57:33,Pendente,Pendente,,,,
-14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,BetMGM,Charlotte Hornets,4.4,3.95,4.38,2.62,11.51,R$ 2.12,14/03/2026 16:57:33,Pendente,Pendente,,,,
-14/03 18:35,MMA - UFC,Luan Lacerda x Enrique Hecher Sosa,Betsson,Luan Lacerda,3.0,2.73,2.93,3.27,9.81,R$ 3.07,14/03/2026 16:57:33,Pendente,Pendente,,,,
-14/03 18:35,MMA - UFC,Luan Lacerda x Enrique Hecher Sosa,Nordic Bet,Luan Lacerda,3.0,2.73,2.93,3.27,9.81,R$ 3.07,14/03/2026 16:57:33,Pendente,Pendente,,,,
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Paddy Power,Manchester City,3.00,2.64,2.83,4.49,13.47,R$ 4.21,14/03/2026 18:39:24
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,FanDuel,Manchester City,2.85,2.64,2.83,2.74,7.8,R$ 2.63,14/03/2026 18:39:24
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Sky Bet,Manchester City,2.88,2.64,2.83,3.1,8.93,R$ 2.97,14/03/2026 18:39:24
-14/03 18:00,Futebol - Chile Primera,Coquimbo Unido x Universidad de Chile,Betfair,Coquimbo Unido,2.50,2.33,2.47,3.01,7.52,R$ 3.13,14/03/2026 18:39:24
-14/03 18:00,Futebol - Chile Primera,Coquimbo Unido x Universidad de Chile,Coolbet,Coquimbo Unido,2.50,2.33,2.47,3.01,7.52,R$ 3.13,14/03/2026 18:39:24
-14/03 20:30,Futebol - MLS (EUA),Charlotte FC x Inter Miami CF,Betfair,Inter Miami CF,2.46,2.30,2.44,2.75,6.77,R$ 2.90,14/03/2026 18:39:24
-14/03 18:30,MMA - UFC,Luan Lacerda x Enrique Hecher Sosa,Betfair,Enrique Hecher Sosa,1.69,1.57,1.63,4.64,7.84,R$ 7.10,14/03/2026 18:39:24
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Paddy Power,West Ham United,51.00,9.52,12.49,8.55,435.83,R$ 5.45,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,FanDuel,West Ham United,56.00,9.52,12.49,8.72,488.36,R$ 5.55,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Sky Bet,West Ham United,41.00,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Nordic Bet,West Ham United,41.00,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Betsson,West Ham United,41.00,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,888sport,West Ham United,46.00,9.52,12.49,8.33,383.29,R$ 5.32,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,BetMGM,West Ham United,18.50,9.52,12.49,5.1,94.37,R$ 3.37,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Coral,West Ham United,17.00,9.52,12.49,4.62,78.61,R$ 3.07,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Bovada,West Ham United,41.00,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Virgin Bet,West Ham United,23.00,9.52,12.49,6.16,141.65,R$ 4.02,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Casumo,West Ham United,67.00,9.52,12.49,9.01,603.93,R$ 5.72,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,DraftKings,West Ham United,31.00,9.52,12.49,7.28,225.7,R$ 4.70,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Coolbet,West Ham United,66.00,9.52,12.49,8.99,593.42,R$ 5.71,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,BoyleSports,West Ham United,26.00,9.52,12.49,6.66,173.17,R$ 4.33,14/03/2026 18:58:19
-14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Matchbook,West Ham United,55.00,9.52,12.49,8.69,477.85,R$ 5.53,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Paddy Power,Atletico Mineiro,7.00,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Paddy Power,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,FanDuel,Atletico Mineiro,6.20,3.37,3.68,13.57,84.13,R$ 10.11,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,FanDuel,Draw,3.65,3.07,3.33,5.16,18.83,R$ 4.44,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Sky Bet,Atletico Mineiro,6.00,3.37,3.68,13.03,78.19,R$ 9.77,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Sky Bet,Draw,3.50,3.07,3.33,3.99,13.95,R$ 3.49,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,888sport,Atletico Mineiro,5.50,3.37,3.68,11.52,63.34,R$ 8.80,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,888sport,Draw,3.50,3.07,3.33,3.99,13.95,R$ 3.49,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coral,Atletico Mineiro,6.50,3.37,3.68,14.31,93.04,R$ 10.57,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coral,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BetMGM,Atletico Mineiro,6.75,3.37,3.68,14.88,100.47,R$ 10.92,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BetMGM,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Nordic Bet,Atletico Mineiro,6.80,3.37,3.68,14.99,101.95,R$ 10.99,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Nordic Bet,Draw,3.65,3.07,3.33,5.16,18.83,R$ 4.44,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betsson,Atletico Mineiro,6.80,3.37,3.68,14.99,101.95,R$ 10.99,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betsson,Draw,3.65,3.07,3.33,5.16,18.83,R$ 4.44,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BoyleSports,Atletico Mineiro,7.00,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BoyleSports,Draw,3.50,3.07,3.33,3.99,13.95,R$ 3.49,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Casumo,Atletico Mineiro,6.75,3.37,3.68,14.88,100.47,R$ 10.92,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Casumo,Draw,3.80,3.07,3.33,6.24,23.71,R$ 5.29,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Virgin Bet,Atletico Mineiro,6.40,3.37,3.68,14.07,90.07,R$ 10.43,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Virgin Bet,Draw,3.60,3.07,3.33,4.78,17.2,R$ 4.14,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coolbet,Atletico Mineiro,7.00,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coolbet,Draw,3.80,3.07,3.33,6.24,23.71,R$ 5.29,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betfair,Atletico Mineiro,7.60,3.37,3.68,16.54,125.71,R$ 11.90,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betfair,Draw,3.95,3.07,3.33,7.24,28.6,R$ 6.06,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Matchbook,Atletico Mineiro,7.20,3.37,3.68,15.81,113.83,R$ 11.47,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Matchbook,Draw,3.85,3.07,3.33,6.58,25.34,R$ 5.56,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,DraftKings,Atletico Mineiro,7.00,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,DraftKings,Draw,3.95,3.07,3.33,7.24,28.6,R$ 6.06,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Bovada,Atletico Mineiro,6.50,3.37,3.68,14.31,93.04,R$ 10.57,14/03/2026 18:58:19
-14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Bovada,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19
-14/03 18:00,Futebol - Chile Primera,Coquimbo Unido x Universidad de Chile,BetMGM,Universidad de Chile,5.50,1.31,1.35,58.42,321.33,R$ 44.63,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,888sport,Nashville SC,11.00,4.95,5.65,11.11,122.25,R$ 7.64,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,888sport,Draw,5.00,3.88,4.30,5.76,28.82,R$ 4.50,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Bovada,Nashville SC,11.00,4.95,5.65,11.11,122.25,R$ 7.64,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Bovada,Draw,6.00,3.88,4.30,9.1,54.59,R$ 6.82,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Casumo,Nashville SC,10.50,4.95,5.65,10.68,112.14,R$ 7.38,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Casumo,Draw,6.00,3.88,4.30,9.1,54.59,R$ 6.82,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Virgin Bet,Nashville SC,9.50,4.95,5.65,9.68,91.94,R$ 6.76,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Virgin Bet,Draw,5.60,3.88,4.30,7.91,44.28,R$ 6.02,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,DraftKings,Nashville SC,11.00,4.95,5.65,11.11,122.25,R$ 7.64,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,DraftKings,Draw,5.75,3.88,4.30,8.37,48.15,R$ 6.33,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Matchbook,Nashville SC,12.50,4.95,5.65,12.2,152.55,R$ 8.29,14/03/2026 19:45:02
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Matchbook,Draw,6.00,3.88,4.30,9.1,54.59,R$ 6.82,14/03/2026 19:45:02
-14/03 19:50,MMA - UFC,Bolaji Oki x Manoel Sousa,FanDuel,Bolaji Oki,9.40,3.63,4.00,16.88,158.64,R$ 11.80,14/03/2026 19:45:02
-14/03 19:50,MMA - UFC,Bolaji Oki x Manoel Sousa,Betfair Sportsbook,Bolaji Oki,8.50,3.63,4.00,15.75,133.88,R$ 11.16,14/03/2026 19:45:02
-14/03 19:50,MMA - UFC,Bolaji Oki x Manoel Sousa,Betfair,Bolaji Oki,5.70,3.63,4.00,9.97,56.84,R$ 7.56,14/03/2026 19:45:02
-14/03 20:30,Futebol - Brasil Série A,Botafogo x Flamengo,Matchbook,Botafogo,5.30,4.62,5.23,2.76,14.63,R$ 2.13,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Nordic Bet,Universidad Católica (CHI),4.40,1.60,1.67,39.75,174.9,R$ 32.15,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Betsson,Universidad Católica (CHI),4.40,1.60,1.67,39.75,174.9,R$ 32.15,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,FanDuel,Universidad Católica (CHI),4.60,1.60,1.67,40.74,187.4,R$ 32.53,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Paddy Power,Universidad Católica (CHI),4.50,1.60,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Sky Bet,Universidad Católica (CHI),4.50,1.60,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Coolbet,Universidad Católica (CHI),4.50,1.60,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Betfair,Universidad Católica (CHI),5.20,1.60,1.67,43.25,224.89,R$ 33.47,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,888sport,Universidad Católica (CHI),4.60,1.60,1.67,40.74,187.4,R$ 32.53,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Bovada,Universidad Católica (CHI),4.70,1.60,1.67,41.2,193.65,R$ 32.71,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,DraftKings,Universidad Católica (CHI),4.90,1.60,1.67,42.07,206.14,R$ 33.04,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,BoyleSports,Universidad Católica (CHI),4.50,1.60,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Virgin Bet,Universidad Católica (CHI),4.20,1.60,1.67,38.67,162.41,R$ 31.72,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Coral,Universidad Católica (CHI),4.80,1.60,1.67,41.64,199.89,R$ 32.88,14/03/2026 20:40:56
-14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,BetMGM,Universidad Católica (CHI),4.50,1.60,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Casumo,Draw,18.00,9.37,12.23,5.12,92.18,R$ 3.39,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Coolbet,Draw,18.00,9.37,12.23,5.12,92.18,R$ 3.39,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,FanDuel,Draw,19.00,9.37,12.23,5.41,102.86,R$ 3.57,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Paddy Power,Draw,17.00,9.37,12.23,4.79,81.51,R$ 3.18,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Sky Bet,Draw,17.00,9.37,12.23,4.79,81.51,R$ 3.18,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Betsson,Draw,15.00,9.37,12.23,4.01,60.15,R$ 2.69,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Nordic Bet,Draw,15.00,9.37,12.23,4.01,60.15,R$ 2.69,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,BoyleSports,Draw,21.00,9.37,12.23,5.91,124.21,R$ 3.88,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,888sport,Draw,17.00,9.37,12.23,4.79,81.51,R$ 3.18,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,DraftKings,Draw,16.00,9.37,12.23,4.43,70.83,R$ 2.95,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Coral,Draw,15.00,9.37,12.23,4.01,60.15,R$ 2.69,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,BetMGM,Draw,17.50,9.37,12.23,4.96,86.84,R$ 3.29,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Betfair,Draw,21.00,9.37,12.23,5.91,124.21,R$ 3.88,14/03/2026 20:40:56
-14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Matchbook,Draw,25.00,9.37,12.23,6.68,166.92,R$ 4.35,14/03/2026 20:40:56
-14/03 22:00,Futebol - México Liga MX,León x Tijuana,Bovada,León,2.02,1.90,1.99,3.2,6.46,R$ 3.96,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Nordic Bet,Columbus Crew SC,2.50,2.35,2.50,2.5,6.26,R$ 2.61,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Betsson,Columbus Crew SC,2.55,2.35,2.50,3.29,8.39,R$ 3.38,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,FanDuel,Columbus Crew SC,2.55,2.35,2.50,3.29,8.39,R$ 3.38,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Paddy Power,Columbus Crew SC,2.50,2.35,2.50,2.5,6.26,R$ 2.61,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Betfair,Columbus Crew SC,2.58,2.35,2.50,3.74,9.66,R$ 3.82,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Coolbet,Columbus Crew SC,2.60,2.35,2.50,4.04,10.51,R$ 4.11,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Bovada,Columbus Crew SC,2.50,2.35,2.50,2.5,6.26,R$ 2.61,14/03/2026 20:40:56
-14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Matchbook,Columbus Crew SC,2.62,2.35,2.50,4.34,11.36,R$ 4.38,14/03/2026 20:40:56
-14/03 21:30,Futebol - MLS (EUA),FC Dallas x San Diego FC,Matchbook,San Diego FC,2.98,2.76,2.96,2.73,8.14,R$ 2.57,14/03/2026 20:40:56
-14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Betfair Sportsbook,Vitor Petrino,1.62,1.51,1.57,4.32,7.0,R$ 7.06,14/03/2026 20:40:56
-14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Betfair,Vitor Petrino,1.70,1.51,1.57,7.23,12.29,R$ 10.97,14/03/2026 20:40:56
-14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Nordic Bet,Vitor Petrino,1.58,1.51,1.57,2.76,4.36,R$ 4.70,14/03/2026 20:40:56
+14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,BoyleSports,Charlotte Hornets,4.4,3.95,4.38,2.62,11.51,R$ 2.12,14/03/2026 16:57:33,San Antonio Spurs,Red ❌,,,,2026-03-15 12:50:13
+14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,William Hill,San Antonio Spurs,1.4,1.34,1.39,3.23,4.52,R$ 7.06,14/03/2026 16:57:33,San Antonio Spurs,Green ✅,,,,2026-03-15 12:50:13
+14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,Betfair,Charlotte Hornets,4.4,3.95,4.38,2.62,11.51,R$ 2.12,14/03/2026 16:57:33,San Antonio Spurs,Red ❌,,,,2026-03-15 12:50:13
+14/03 16:42,Basquete - NBA,San Antonio Spurs x Charlotte Hornets,BetMGM,Charlotte Hornets,4.4,3.95,4.38,2.62,11.51,R$ 2.12,14/03/2026 16:57:33,San Antonio Spurs,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:35,MMA - UFC,Luan Lacerda x Enrique Hecher Sosa,Betsson,Luan Lacerda,3.0,2.73,2.93,3.27,9.81,R$ 3.07,14/03/2026 16:57:33,Enrique Hecher Sosa,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:35,MMA - UFC,Luan Lacerda x Enrique Hecher Sosa,Nordic Bet,Luan Lacerda,3.0,2.73,2.93,3.27,9.81,R$ 3.07,14/03/2026 16:57:33,Enrique Hecher Sosa,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Paddy Power,Manchester City,3.0,2.64,2.83,4.49,13.47,R$ 4.21,14/03/2026 18:39:24,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,FanDuel,Manchester City,2.85,2.64,2.83,2.74,7.8,R$ 2.63,14/03/2026 18:39:24,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Sky Bet,Manchester City,2.88,2.64,2.83,3.1,8.93,R$ 2.97,14/03/2026 18:39:24,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:00,Futebol - Chile Primera,Coquimbo Unido x Universidad de Chile,Betfair,Coquimbo Unido,2.5,2.33,2.47,3.01,7.52,R$ 3.13,14/03/2026 18:39:24,Universidad de Chile,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:00,Futebol - Chile Primera,Coquimbo Unido x Universidad de Chile,Coolbet,Coquimbo Unido,2.5,2.33,2.47,3.01,7.52,R$ 3.13,14/03/2026 18:39:24,Universidad de Chile,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - MLS (EUA),Charlotte FC x Inter Miami CF,Betfair,Inter Miami CF,2.46,2.3,2.44,2.75,6.77,R$ 2.90,14/03/2026 18:39:24,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:30,MMA - UFC,Luan Lacerda x Enrique Hecher Sosa,Betfair,Enrique Hecher Sosa,1.69,1.57,1.63,4.64,7.84,R$ 7.10,14/03/2026 18:39:24,Enrique Hecher Sosa,Green ✅,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Paddy Power,West Ham United,51.0,9.52,12.49,8.55,435.83,R$ 5.45,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,FanDuel,West Ham United,56.0,9.52,12.49,8.72,488.36,R$ 5.55,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Sky Bet,West Ham United,41.0,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Nordic Bet,West Ham United,41.0,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Betsson,West Ham United,41.0,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,888sport,West Ham United,46.0,9.52,12.49,8.33,383.29,R$ 5.32,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,BetMGM,West Ham United,18.5,9.52,12.49,5.1,94.37,R$ 3.37,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Coral,West Ham United,17.0,9.52,12.49,4.62,78.61,R$ 3.07,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Bovada,West Ham United,41.0,9.52,12.49,8.07,330.76,R$ 5.17,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Virgin Bet,West Ham United,23.0,9.52,12.49,6.16,141.65,R$ 4.02,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Casumo,West Ham United,67.0,9.52,12.49,9.01,603.93,R$ 5.72,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,DraftKings,West Ham United,31.0,9.52,12.49,7.28,225.7,R$ 4.70,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Coolbet,West Ham United,66.0,9.52,12.49,8.99,593.42,R$ 5.71,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,BoyleSports,West Ham United,26.0,9.52,12.49,6.66,173.17,R$ 4.33,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 17:00,Futebol - Premier League (ING),West Ham United x Manchester City,Matchbook,West Ham United,55.0,9.52,12.49,8.69,477.85,R$ 5.53,14/03/2026 18:58:19,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Paddy Power,Atletico Mineiro,7.0,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Paddy Power,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,FanDuel,Atletico Mineiro,6.2,3.37,3.68,13.57,84.13,R$ 10.11,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,FanDuel,Draw,3.65,3.07,3.33,5.16,18.83,R$ 4.44,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Sky Bet,Atletico Mineiro,6.0,3.37,3.68,13.03,78.19,R$ 9.77,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Sky Bet,Draw,3.5,3.07,3.33,3.99,13.95,R$ 3.49,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,888sport,Atletico Mineiro,5.5,3.37,3.68,11.52,63.34,R$ 8.80,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,888sport,Draw,3.5,3.07,3.33,3.99,13.95,R$ 3.49,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coral,Atletico Mineiro,6.5,3.37,3.68,14.31,93.04,R$ 10.57,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coral,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BetMGM,Atletico Mineiro,6.75,3.37,3.68,14.88,100.47,R$ 10.92,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BetMGM,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Nordic Bet,Atletico Mineiro,6.8,3.37,3.68,14.99,101.95,R$ 10.99,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Nordic Bet,Draw,3.65,3.07,3.33,5.16,18.83,R$ 4.44,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betsson,Atletico Mineiro,6.8,3.37,3.68,14.99,101.95,R$ 10.99,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betsson,Draw,3.65,3.07,3.33,5.16,18.83,R$ 4.44,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BoyleSports,Atletico Mineiro,7.0,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,BoyleSports,Draw,3.5,3.07,3.33,3.99,13.95,R$ 3.49,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Casumo,Atletico Mineiro,6.75,3.37,3.68,14.88,100.47,R$ 10.92,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Casumo,Draw,3.8,3.07,3.33,6.24,23.71,R$ 5.29,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Virgin Bet,Atletico Mineiro,6.4,3.37,3.68,14.07,90.07,R$ 10.43,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Virgin Bet,Draw,3.6,3.07,3.33,4.78,17.2,R$ 4.14,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coolbet,Atletico Mineiro,7.0,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Coolbet,Draw,3.8,3.07,3.33,6.24,23.71,R$ 5.29,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betfair,Atletico Mineiro,7.6,3.37,3.68,16.54,125.71,R$ 11.90,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Betfair,Draw,3.95,3.07,3.33,7.24,28.6,R$ 6.06,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Matchbook,Atletico Mineiro,7.2,3.37,3.68,15.81,113.83,R$ 11.47,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Matchbook,Draw,3.85,3.07,3.33,6.58,25.34,R$ 5.56,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,DraftKings,Atletico Mineiro,7.0,3.37,3.68,15.41,107.89,R$ 11.24,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,DraftKings,Draw,3.95,3.07,3.33,7.24,28.6,R$ 6.06,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Bovada,Atletico Mineiro,6.5,3.37,3.68,14.31,93.04,R$ 10.57,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:31,Futebol - Brasil Série A,Vitoria x Atletico Mineiro,Bovada,Draw,3.75,3.07,3.33,5.89,22.09,R$ 5.02,14/03/2026 18:58:19,Vitoria,Red ❌,,,,2026-03-15 12:50:13
+14/03 18:00,Futebol - Chile Primera,Coquimbo Unido x Universidad de Chile,BetMGM,Universidad de Chile,5.5,1.31,1.35,58.42,321.33,R$ 44.63,14/03/2026 19:45:02,Universidad de Chile,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,888sport,Nashville SC,11.0,4.95,5.65,11.11,122.25,R$ 7.64,14/03/2026 19:45:02,Nashville SC,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,888sport,Draw,5.0,3.88,4.3,5.76,28.82,R$ 4.50,14/03/2026 19:45:02,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Bovada,Nashville SC,11.0,4.95,5.65,11.11,122.25,R$ 7.64,14/03/2026 19:45:02,Nashville SC,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Bovada,Draw,6.0,3.88,4.3,9.1,54.59,R$ 6.82,14/03/2026 19:45:02,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Casumo,Nashville SC,10.5,4.95,5.65,10.68,112.14,R$ 7.38,14/03/2026 19:45:02,Nashville SC,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Casumo,Draw,6.0,3.88,4.3,9.1,54.59,R$ 6.82,14/03/2026 19:45:02,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Virgin Bet,Nashville SC,9.5,4.95,5.65,9.68,91.94,R$ 6.76,14/03/2026 19:45:02,Nashville SC,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Virgin Bet,Draw,5.6,3.88,4.3,7.91,44.28,R$ 6.02,14/03/2026 19:45:02,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,DraftKings,Nashville SC,11.0,4.95,5.65,11.11,122.25,R$ 7.64,14/03/2026 19:45:02,Nashville SC,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,DraftKings,Draw,5.75,3.88,4.3,8.37,48.15,R$ 6.33,14/03/2026 19:45:02,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Matchbook,Nashville SC,12.5,4.95,5.65,12.2,152.55,R$ 8.29,14/03/2026 19:45:02,Nashville SC,Green ✅,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Matchbook,Draw,6.0,3.88,4.3,9.1,54.59,R$ 6.82,14/03/2026 19:45:02,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:50,MMA - UFC,Bolaji Oki x Manoel Sousa,FanDuel,Bolaji Oki,9.4,3.63,4.0,16.88,158.64,R$ 11.80,14/03/2026 19:45:02,Manoel Sousa,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:50,MMA - UFC,Bolaji Oki x Manoel Sousa,Betfair Sportsbook,Bolaji Oki,8.5,3.63,4.0,15.75,133.88,R$ 11.16,14/03/2026 19:45:02,Manoel Sousa,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:50,MMA - UFC,Bolaji Oki x Manoel Sousa,Betfair,Bolaji Oki,5.7,3.63,4.0,9.97,56.84,R$ 7.56,14/03/2026 19:45:02,Manoel Sousa,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Brasil Série A,Botafogo x Flamengo,Matchbook,Botafogo,5.3,4.62,5.23,2.76,14.63,R$ 2.13,14/03/2026 20:40:56,Flamengo,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Nordic Bet,Universidad Católica (CHI),4.4,1.6,1.67,39.75,174.9,R$ 32.15,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Betsson,Universidad Católica (CHI),4.4,1.6,1.67,39.75,174.9,R$ 32.15,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,FanDuel,Universidad Católica (CHI),4.6,1.6,1.67,40.74,187.4,R$ 32.53,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Paddy Power,Universidad Católica (CHI),4.5,1.6,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Sky Bet,Universidad Católica (CHI),4.5,1.6,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Coolbet,Universidad Católica (CHI),4.5,1.6,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Betfair,Universidad Católica (CHI),5.2,1.6,1.67,43.25,224.89,R$ 33.47,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,888sport,Universidad Católica (CHI),4.6,1.6,1.67,40.74,187.4,R$ 32.53,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Bovada,Universidad Católica (CHI),4.7,1.6,1.67,41.2,193.65,R$ 32.71,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,DraftKings,Universidad Católica (CHI),4.9,1.6,1.67,42.07,206.14,R$ 33.04,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,BoyleSports,Universidad Católica (CHI),4.5,1.6,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Virgin Bet,Universidad Católica (CHI),4.2,1.6,1.67,38.67,162.41,R$ 31.72,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,Coral,Universidad Católica (CHI),4.8,1.6,1.67,41.64,199.89,R$ 32.88,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:30,Futebol - Chile Primera,Universidad Católica (CHI) x Everton de Viña del Mar,BetMGM,Universidad Católica (CHI),4.5,1.6,1.67,40.26,181.15,R$ 32.35,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Casumo,Draw,18.0,9.37,12.23,5.12,92.18,R$ 3.39,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Coolbet,Draw,18.0,9.37,12.23,5.12,92.18,R$ 3.39,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,FanDuel,Draw,19.0,9.37,12.23,5.41,102.86,R$ 3.57,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Paddy Power,Draw,17.0,9.37,12.23,4.79,81.51,R$ 3.18,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Sky Bet,Draw,17.0,9.37,12.23,4.79,81.51,R$ 3.18,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Betsson,Draw,15.0,9.37,12.23,4.01,60.15,R$ 2.69,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Nordic Bet,Draw,15.0,9.37,12.23,4.01,60.15,R$ 2.69,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,BoyleSports,Draw,21.0,9.37,12.23,5.91,124.21,R$ 3.88,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,888sport,Draw,17.0,9.37,12.23,4.79,81.51,R$ 3.18,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,DraftKings,Draw,16.0,9.37,12.23,4.43,70.83,R$ 2.95,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Coral,Draw,15.0,9.37,12.23,4.01,60.15,R$ 2.69,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,BetMGM,Draw,17.5,9.37,12.23,4.96,86.84,R$ 3.29,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Betfair,Draw,21.0,9.37,12.23,5.91,124.21,R$ 3.88,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:08,Futebol - México Liga MX,Guadalajara x Santos Laguna,Matchbook,Draw,25.0,9.37,12.23,6.68,166.92,R$ 4.35,14/03/2026 20:40:56,Guadalajara,Red ❌,,,,2026-03-15 12:50:13
+14/03 22:00,Futebol - México Liga MX,León x Tijuana,Bovada,León,2.02,1.9,1.99,3.2,6.46,R$ 3.96,14/03/2026 20:40:56,Tijuana,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Nordic Bet,Columbus Crew SC,2.5,2.35,2.5,2.5,6.26,R$ 2.61,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Betsson,Columbus Crew SC,2.55,2.35,2.5,3.29,8.39,R$ 3.38,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,FanDuel,Columbus Crew SC,2.55,2.35,2.5,3.29,8.39,R$ 3.38,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Paddy Power,Columbus Crew SC,2.5,2.35,2.5,2.5,6.26,R$ 2.61,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Betfair,Columbus Crew SC,2.58,2.35,2.5,3.74,9.66,R$ 3.82,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Coolbet,Columbus Crew SC,2.6,2.35,2.5,4.04,10.51,R$ 4.11,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Bovada,Columbus Crew SC,2.5,2.35,2.5,2.5,6.26,R$ 2.61,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 19:25,Futebol - MLS (EUA),Columbus Crew SC x Nashville SC,Matchbook,Columbus Crew SC,2.62,2.35,2.5,4.34,11.36,R$ 4.38,14/03/2026 20:40:56,Nashville SC,Red ❌,,,,2026-03-15 12:50:13
+14/03 21:30,Futebol - MLS (EUA),FC Dallas x San Diego FC,Matchbook,San Diego FC,2.98,2.76,2.96,2.73,8.14,R$ 2.57,14/03/2026 20:40:56,Draw,Red ❌,,,,2026-03-15 12:50:13
+14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Betfair Sportsbook,Vitor Petrino,1.62,1.51,1.57,4.32,7.0,R$ 7.06,14/03/2026 20:40:56,Vitor Petrino,Green ✅,,,,2026-03-15 12:50:13
+14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Betfair,Vitor Petrino,1.7,1.51,1.57,7.23,12.29,R$ 10.97,14/03/2026 20:40:56,Vitor Petrino,Green ✅,,,,2026-03-15 12:50:13
+14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Nordic Bet,Vitor Petrino,1.58,1.51,1.57,2.76,4.36,R$ 4.70,14/03/2026 20:40:56,Vitor Petrino,Green ✅,,,,2026-03-15 12:50:13

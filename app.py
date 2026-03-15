@@ -80,8 +80,11 @@ for col, val in colunas_padrao.items():
         df[col] = val
 
 # ==========================================
-# AUTO-CURA DA BASE DE DADOS
+# AUTO-CURA DA BASE DE DADOS E FORÇA DE TIPOS
 # ==========================================
+# Força a coluna Aposta_Realizada a ser estritamente Booleana (True/False)
+df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
+
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
 
 def auto_corrigir_status(row):

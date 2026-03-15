@@ -82,7 +82,6 @@ for col, val in colunas_padrao.items():
 # ==========================================
 # AUTO-CURA DA BASE DE DADOS E FORÇA DE TIPOS
 # ==========================================
-# Força a coluna Aposta_Realizada a ser estritamente Booleana à prova de erros do pandas
 df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
 
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
@@ -113,7 +112,6 @@ def salvar_no_github(dataframe, mensagem):
 # ==========================================
 # PREPARAÇÃO MATEMÁTICA GLOBAL & FUNÇÕES AUXILIARES
 # ==========================================
-# Identifica jogos finalizados nas últimas 24h
 def eh_recente(d_str):
     if pd.isna(d_str) or d_str == "": return False
     try: return (datetime.now() - datetime.strptime(str(d_str), "%Y-%m-%d %H:%M:%S")).total_seconds() < 86400 
@@ -361,10 +359,13 @@ with tab_apostas:
     if mostrar_antigas_apostas:
         mask_minhas = (df['Aposta_Realizada'] == True)
     else:
-        # Mostra as que você marcou, e que ainda estão Pendentes OU que terminaram há menos de 24h
         mask_minhas = (df['Aposta_Realizada'] == True) & ((df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True))
         
     df_minhas_pendentes = df[mask_minhas].copy()
+    
+    # ⏱️ ORDENAÇÃO CRONOLÓGICA (Mais recentes no topo)
+    df_minhas_pendentes['Sort_Date'] = pd.to_datetime(df_minhas_pendentes['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
+    df_minhas_pendentes = df_minhas_pendentes.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
     
     if df_minhas_pendentes.empty:
         st.success("Nenhuma aposta pendente ou recente. Vá à aba 'Alimentar Resultados' para marcar novas oportunidades operadas!")
@@ -395,10 +396,14 @@ with tab_resultados:
     
     mostrar_antigos = st.checkbox("Forçar exibição de jogos antigos", key="chk_antigos_res")
     
-    # Filtro: Mostra o que está Pendente OU o que o robô resolveu nas últimas 24h OU tudo (se forçado)
     mask_exibicao = (df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True)
     if mostrar_antigos: df_mostrar = df.copy()
     else: df_mostrar = df[mask_exibicao].copy()
+
+    # ⏱️ ORDENAÇÃO CRONOLÓGICA INTELIGENTE (Pendentes em cima, e mais recentes primeiro)
+    df_mostrar['Ordem_Status'] = df_mostrar['Status_Aposta'].apply(lambda x: 0 if x == 'Pendente' else 1)
+    df_mostrar['Sort_Date'] = pd.to_datetime(df_mostrar['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
+    df_mostrar = df_mostrar.sort_values(by=['Ordem_Status', 'Sort_Date'], ascending=[True, False])
 
     if df_mostrar.empty:
         st.success("Nenhuma oportunidade pendente ou recente.")
@@ -406,7 +411,6 @@ with tab_resultados:
         with st.form("form_resultados_unificado"):
             novos_resultados = []
             
-            # Loop individual por APOSTA (e não por jogo), para permitir marcar Apostei? por seleção!
             for index, row in df_mostrar.iterrows():
                 opcoes = ["Pendente", "Draw"]
                 if ' x ' in str(row['Jogo']):
@@ -458,7 +462,7 @@ with tab_resultados:
                         else: 
                             df.at[idx, 'Status_Aposta'] = "Red ❌"
                             
-                    df = df.drop(columns=['Recente'], errors='ignore')
+                    df = df.drop(columns=['Recente', 'Ordem_Status', 'Sort_Date'], errors='ignore')
                     if salvar_no_github(df, "🤖 Resultados e entradas atualizados"): 
                         st.rerun()
 
@@ -468,6 +472,10 @@ with tab_resultados:
 with tab_hist:
     st.subheader("🗄️ Histórico Completo de Apostas")
     df_hist = df_calc.copy()
+    
+    # ⏱️ ORDENAÇÃO CRONOLÓGICA NO HISTÓRICO
+    df_hist['Sort_Date'] = pd.to_datetime(df_hist['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
+    df_hist = df_hist.sort_values(by='Sort_Date', ascending=False)
     
     col_h1, col_h2, col_h3, col_h4 = st.columns(4)
     with col_h1:

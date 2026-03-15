@@ -27,7 +27,7 @@ def resolver_apostas_pendentes():
     df = pd.read_csv(ARQUIVO_CSV)
 
     # Filtra apenas os jogos de Futebol que estão "Pendentes" e que foram "Apostados"
-    mask_pendentes = (df['Vencedor_Partida'] == 'Pendente') & (df['Liga'].str.contains('Futebol', na=False)) & (df['Aposta_Realizada'] == True)
+    mask_pendentes = (df['Vencedor_Partida'] == 'Pendente') & (df['Liga'].str.contains('Futebol', na=False))
     df_pendentes = df[mask_pendentes]
 
     if df_pendentes.empty:

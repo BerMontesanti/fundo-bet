@@ -132,7 +132,7 @@ def calc_roi_realizado(row):
 
 df_calc['ROI_Realizado'] = df_calc.apply(calc_roi_realizado, axis=1)
 
-# Criação das Abas (Agora com a Calculadora EV!)
+# Criação das Abas
 tab_dash, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
     "📊 Dashboard", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
 ])
@@ -264,69 +264,66 @@ with tab_dash:
     cols_ordem = [col_grupo, 'Oportunidades', 'Taxa_Acerto', 'Edge_Medio', 'EV_Medio', 'Stake_Total', 'EV_Esperado', 'Payout', 'EV Realization Rate', 'Yield']
     st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
-
 # ==========================================
-# ABA 2: CALCULADORA EV (NOVA!)
+# ABA 2: CALCULADORA EV (CORRIGIDA)
 # ==========================================
 with tab_calc:
     st.markdown("### 🧮 Calculadora Rápida de EV (Expected Value)")
     st.write("Introduza as odds para descobrir se há valor matemático na aposta e qual a stake ideal.")
 
-    col_calc_1, col_calc_2 = st.columns(2)
-    
-    with col_calc_1:
-        st.markdown("#### 1. Odd da Casa de Apostas (Soft)")
-        odd_casa_input = st.number_input("Odd que você quer apostar (ex: BetMGM):", min_value=1.01, value=2.10, step=0.05, format="%.2f")
-        banca_input = st.number_input("Banca Total (R$):", min_value=10.0, value=250.0, step=10.0)
+    # Criação de um formulário que aguarda o clique no botão para recalcular
+    with st.form("form_calculadora_ev"):
+        col_calc_1, col_calc_2 = st.columns(2)
+        
+        with col_calc_1:
+            st.markdown("#### 1. Odd da Casa de Apostas (Soft)")
+            odd_casa_input = st.number_input("Odd que você quer apostar (ex: BetMGM):", min_value=1.01, value=2.10, step=0.05, format="%.2f")
+            banca_input = st.number_input("Banca Total (R$):", min_value=10.0, value=250.0, step=10.0)
 
-    with col_calc_2:
-        st.markdown("#### 2. Odds da Pinnacle (Sharp)")
-        odd_pin_sel = st.number_input("Odd Pinnacle para a sua seleção:", min_value=1.01, value=1.95, step=0.05, format="%.2f")
-        odd_pin_opp = st.number_input("Odd Pinnacle para o oponente (Lay/Dupla Chance):", min_value=1.01, value=1.85, step=0.05, format="%.2f")
-        st.caption("*(Dica: Num mercado 1X2, some a probabilidade do Empate e do Visitante e converta para Odd, ou use um mercado Asiático 2-way)*")
+        with col_calc_2:
+            st.markdown("#### 2. Odds da Pinnacle (Sharp)")
+            odd_pin_sel = st.number_input("Odd Pinnacle para a sua seleção:", min_value=1.01, value=1.95, step=0.05, format="%.2f")
+            odd_pin_opp = st.number_input("Odd Pinnacle para o oponente (Lay/Dupla Chance):", min_value=1.01, value=1.85, step=0.05, format="%.2f")
+            st.caption("*(Dica: Num mercado 1X2, some a probabilidade do Empate e do Visitante e converta para Odd, ou use um mercado Asiático 2-way)*")
 
-    st.divider()
+        # Botão de Execução
+        btn_calcular = st.form_submit_button("🎯 Calcular EV", type="primary", use_container_width=True)
 
-    # Matemática de Remoção de Margem (De-vigging) e Cálculo EV
-    if odd_pin_sel > 1.0 and odd_pin_opp > 1.0 and odd_casa_input > 1.0:
-        # Probabilidades Implícitas (com juice)
-        imp_sel = 1 / odd_pin_sel
-        imp_opp = 1 / odd_pin_opp
-        margem_total = imp_sel + imp_opp
-        
-        # Probabilidade Real (sem juice)
-        prob_real = imp_sel / margem_total
-        odd_justa = 1 / prob_real
-        
-        # Cálculo de EV e Edge
-        roi_calc = (prob_real * odd_casa_input) - 1
-        edge_calc = prob_real - (1 / odd_casa_input)
-        
-        # Critério de Kelly Fracionado (25%)
-        b_kelly = odd_casa_input - 1
-        f_kelly = (prob_real * b_kelly - (1 - prob_real)) / b_kelly
-        
-        # Stake (Não permite stake negativa)
-        if f_kelly > 0:
-            stake_calc = banca_input * (f_kelly * 0.25)
-        else:
-            stake_calc = 0.0
+    # A matemática só corre e exibe se o botão for pressionado
+    if btn_calcular:
+        if odd_pin_sel > 1.0 and odd_pin_opp > 1.0 and odd_casa_input > 1.0:
+            imp_sel = 1 / odd_pin_sel
+            imp_opp = 1 / odd_pin_opp
+            margem_total = imp_sel + imp_opp
+            
+            prob_real = imp_sel / margem_total
+            odd_justa = 1 / prob_real
+            
+            roi_calc = (prob_real * odd_casa_input) - 1
+            edge_calc = prob_real - (1 / odd_casa_input)
+            
+            b_kelly = odd_casa_input - 1
+            f_kelly = (prob_real * b_kelly - (1 - prob_real)) / b_kelly
+            
+            if f_kelly > 0:
+                stake_calc = banca_input * (f_kelly * 0.25)
+            else:
+                stake_calc = 0.0
 
-        st.markdown("### 🎯 Resultados da Análise")
-        
-        res_c1, res_c2, res_c3, res_c4 = st.columns(4)
-        res_c1.metric("Probabilidade Real", f"{(prob_real * 100):.1f}%")
-        res_c2.metric("Odd Justa (Fair Odd)", f"{odd_justa:.2f}")
-        
-        if edge_calc > 0:
-            res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "Aposta de Valor +EV")
-            res_c4.metric("Stake Recomendada", f"R$ {stake_calc:.2f}", f"ROI Esperado: {(roi_calc * 100):.1f}%")
-            st.success("✅ **SINAL VERDE!** A casa está a oferecer um prémio superior ao risco real. O modelo recomenda apostar.")
-        else:
-            res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "-EV (Não Apostar)")
-            res_c4.metric("Stake Recomendada", "R$ 0.00", "Aposta com Prejuízo Matemático")
-            st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco. A longo prazo, esta aposta vai drenar a sua banca.")
-
+            st.markdown("### 🎯 Resultados da Análise")
+            
+            res_c1, res_c2, res_c3, res_c4 = st.columns(4)
+            res_c1.metric("Probabilidade Real", f"{(prob_real * 100):.1f}%")
+            res_c2.metric("Odd Justa (Fair Odd)", f"{odd_justa:.2f}")
+            
+            if edge_calc > 0:
+                res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "Aposta de Valor +EV")
+                res_c4.metric("Stake Recomendada", f"R$ {stake_calc:.2f}", f"ROI Esperado: {(roi_calc * 100):.1f}%")
+                st.success("✅ **SINAL VERDE!** A casa está a oferecer um prémio superior ao risco real. O modelo recomenda apostar.")
+            else:
+                res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "-EV (Não Apostar)")
+                res_c4.metric("Stake Recomendada", "R$ 0.00", "Aposta com Prejuízo Matemático")
+                st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco. A longo prazo, esta aposta vai drenar a sua banca.")
 
 # ==========================================
 # ABA 3: MINHAS APOSTAS

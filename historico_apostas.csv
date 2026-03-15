@@ -1029,3 +1029,39 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 15/03 20:00,Futebol - México Liga MX,Tigres x Querétaro,Matchbook,Tigres,1.64,1.53,1.59,4.55,7.46,R$ 7.29,Ao Vivo (0x0),20:14:58,15/03/2026 20:15:18
 15/03 20:00,Futebol - México Liga MX,Tigres x Querétaro,Betfair,Tigres,1.61,1.53,1.59,3.41,5.5,R$ 5.63,Ao Vivo (0x0),20:14:58,15/03/2026 20:15:18
 15/03 20:00,Futebol - México Liga MX,Tigres x Querétaro,DraftKings,Tigres,1.59,1.53,1.59,2.63,4.18,R$ 4.43,Ao Vivo (0x0),20:14:58,15/03/2026 20:15:18
+15/03 20:30,Futebol - Brasil Série A,Bragantino-SP x Sao Paulo,Matchbook,Bragantino-SP,2.80,2.55,2.73,3.48,9.74,R$ 3.38,Ao Vivo (0x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Sky Bet,Vasco da Gama,8.00,4.46,5.02,9.93,79.44,R$ 7.09,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Sky Bet,Draw,4.50,3.37,3.68,7.43,33.43,R$ 5.97,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,FanDuel,Vasco da Gama,8.50,4.46,5.02,10.67,90.66,R$ 7.55,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,FanDuel,Draw,4.60,3.37,3.68,7.91,36.39,R$ 6.32,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,888sport,Vasco da Gama,8.50,4.46,5.02,10.67,90.66,R$ 7.55,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,888sport,Draw,4.50,3.37,3.68,7.43,33.43,R$ 5.97,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,BetMGM,Vasco da Gama,9.50,4.46,5.02,11.9,113.09,R$ 8.32,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,BetMGM,Draw,5.00,3.37,3.68,9.65,48.25,R$ 7.54,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Nordic Bet,Vasco da Gama,7.70,4.46,5.02,9.44,72.71,R$ 6.78,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Nordic Bet,Draw,4.60,3.37,3.68,7.91,36.39,R$ 6.32,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Betsson,Vasco da Gama,7.70,4.46,5.02,9.44,72.71,R$ 6.78,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Betsson,Draw,4.85,3.37,3.68,9.03,43.8,R$ 7.11,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Coolbet,Vasco da Gama,8.00,4.46,5.02,9.93,79.44,R$ 7.09,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Coolbet,Draw,5.00,3.37,3.68,9.65,48.25,R$ 7.54,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,DraftKings,Vasco da Gama,8.50,4.46,5.02,10.67,90.66,R$ 7.55,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,DraftKings,Draw,5.00,3.37,3.68,9.65,48.25,R$ 7.54,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Betfair,Vasco da Gama,14.50,4.46,5.02,15.53,225.24,R$ 10.43,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Betfair,Draw,5.40,3.37,3.68,11.13,60.11,R$ 8.54,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Matchbook,Vasco da Gama,14.50,4.46,5.02,15.53,225.24,R$ 10.43,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Matchbook,Draw,5.40,3.37,3.68,11.13,60.11,R$ 8.54,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Bovada,Vasco da Gama,9.50,4.46,5.02,11.9,113.09,R$ 8.32,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:30,Futebol - Brasil Série A,Cruzeiro x Vasco da Gama,Bovada,Draw,4.75,3.37,3.68,8.6,40.84,R$ 6.81,Ao Vivo (1x0),20:42:51,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Betsson,San Jose Earthquakes,3.65,2.10,2.22,20.13,73.46,R$ 17.33,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Nordic Bet,San Jose Earthquakes,3.65,2.10,2.22,20.13,73.46,R$ 17.33,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,FanDuel,San Jose Earthquakes,3.80,2.10,2.22,21.21,80.59,R$ 17.99,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Sky Bet,San Jose Earthquakes,3.70,2.10,2.22,20.5,75.84,R$ 17.56,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,888sport,San Jose Earthquakes,3.60,2.10,2.22,19.75,71.09,R$ 17.09,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Bovada,San Jose Earthquakes,3.75,2.10,2.22,20.86,78.22,R$ 17.78,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Coolbet,San Jose Earthquakes,3.80,2.10,2.22,21.21,80.59,R$ 17.99,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,DraftKings,San Jose Earthquakes,3.75,2.10,2.22,20.86,78.22,R$ 17.78,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Betfair,San Jose Earthquakes,3.90,2.10,2.22,21.88,85.34,R$ 18.39,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 20:12,Futebol - MLS (EUA),San Jose Earthquakes x Seattle Sounders FC,Matchbook,San Jose Earthquakes,3.95,2.10,2.22,22.21,87.72,R$ 18.58,Ao Vivo (0x1),20:42:59,15/03/2026 20:43:03
+15/03 19:11,Basquete - NBA,Philadelphia 76ers x Portland Trail Blazers,FanDuel,Portland Trail Blazers,2.76,2.18,2.30,9.7,26.77,R$ 9.51,Ao Vivo (80x74),20:42:53,15/03/2026 20:43:03
+15/03 19:11,Basquete - NBA,Philadelphia 76ers x Portland Trail Blazers,Bovada,Portland Trail Blazers,2.70,2.18,2.30,8.89,24.02,R$ 8.83,Ao Vivo (80x74),20:42:53,15/03/2026 20:43:03
+15/03 19:11,Basquete - NBA,Philadelphia 76ers x Portland Trail Blazers,Betfair,Portland Trail Blazers,2.32,2.18,2.30,2.83,6.56,R$ 3.11,Ao Vivo (80x74),20:42:53,15/03/2026 20:43:03

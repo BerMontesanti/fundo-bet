@@ -4,7 +4,7 @@ import os
 from github import Github
 from datetime import datetime
 import plotly.express as px
-import requests # <- NOVA BIBLIOTECA PARA FALAR COM A API DO GITHUB
+import requests
 
 # ==========================================
 # CONFIGURAÇÃO E LOGIN
@@ -31,14 +31,12 @@ st.title("📈 Dashboard Analítico - Quant Bet EV")
 # 🎛️ CENTRO DE COMANDO (SIDEBAR)
 # ==========================================
 def disparar_workflow_github(nome_ficheiro_yml, nome_amigavel):
-    # Endpoint da API REST do GitHub para disparar Actions manualmente
     url = f"https://api.github.com/repos/{st.secrets['REPO_NAME']}/actions/workflows/{nome_ficheiro_yml}/dispatches"
     headers = {
         "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {st.secrets['GITHUB_TOKEN']}",
         "X-GitHub-Api-Version": "2022-11-28"
     }
-    # ATENÇÃO: Se o seu repositório usar 'master' em vez de 'main', altere abaixo:
     data = {"ref": "main"} 
     
     with st.spinner(f'A ligar o motor do {nome_amigavel}...'):
@@ -52,15 +50,13 @@ st.sidebar.markdown("### 🤖 Centro de Comando")
 st.sidebar.write("Controle os robôs da nuvem diretamente por aqui:")
 
 if st.sidebar.button("🔍 Varrer Odds Agora", use_container_width=True):
-    # Troque 'bot_quant.yml' pelo nome exato do seu ficheiro yaml de varredura
     disparar_workflow_github("bot_quant.yml", "Robô de Varredura")
 
 if st.sidebar.button("🏁 Auto-Resolver Apostas", use_container_width=True):
     disparar_workflow_github("auto_resolucao.yml", "Contabilista de Resultados")
 
 st.sidebar.divider()
-st.sidebar.caption("⏳ *Nota: O GitHub pode demorar de 1 a 3 minutos para concluir a tarefa após o clique. Relaxe e aguarde as mensagens no Telegram.*")
-
+st.sidebar.caption("⏳ *Nota: O GitHub pode demorar de 1 a 3 minutos para concluir a tarefa após o clique.*")
 
 ARQUIVO = 'historico_apostas.csv'
 
@@ -84,7 +80,7 @@ for col, val in colunas_padrao.items():
         df[col] = val
 
 # ==========================================
-# AUTO-CURA DA BASE DE DADOS (CORREÇÃO DE NaNs)
+# AUTO-CURA DA BASE DE DADOS
 # ==========================================
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
 
@@ -124,18 +120,12 @@ def classificar_momento(row):
     try:
         str_achado = str(row.get('Achado_em', ''))
         str_jogo = str(row.get('Data/Hora', ''))
-        
-        if str_achado.lower() in ['nan', 'nat', '', 'none']:
-            return "Pré-live"
-            
+        if str_achado.lower() in ['nan', 'nat', '', 'none']: return "Pré-live"
         dt_achado = datetime.strptime(str_achado, "%d/%m/%Y %H:%M:%S")
         ano = dt_achado.year
         dt_jogo = datetime.strptime(f"{str_jogo}/{ano}", "%d/%m %H:%M/%Y")
-        
-        if dt_achado < dt_jogo:
-            return "Pré-live"
-        else:
-            return "Ao Vivo"
+        if dt_achado < dt_jogo: return "Pré-live"
+        else: return "Ao Vivo"
     except:
         return "Pré-live"
 
@@ -153,10 +143,8 @@ df_calc['Odd_Final'] = df_calc.apply(lambda x: x['Odd_Real'] if (x['Aposta_Reali
 df_calc['EV_Esperado_R$'] = df_calc['Stake_Final'] * df_calc['ROI_Num']
 
 def calc_payout_global(row):
-    if row['Status_Aposta'] == 'Green ✅':
-        return row['Stake_Final'] * (row['Odd_Final'] - 1)
-    elif row['Status_Aposta'] == 'Red ❌':
-        return -row['Stake_Final']
+    if row['Status_Aposta'] == 'Green ✅': return row['Stake_Final'] * (row['Odd_Final'] - 1)
+    elif row['Status_Aposta'] == 'Red ❌': return -row['Stake_Final']
     return 0.0
 
 df_calc['Payout'] = df_calc.apply(calc_payout_global, axis=1)
@@ -168,7 +156,6 @@ def calc_roi_realizado(row):
 
 df_calc['ROI_Realizado'] = df_calc.apply(calc_roi_realizado, axis=1)
 
-# Criação das Abas
 tab_dash, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
     "📊 Dashboard", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
 ])
@@ -182,16 +169,15 @@ with tab_dash:
     
     col_f1, col_f2, col_f3, col_f4 = st.columns(4)
     with col_f1:
-        casas_disponiveis = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
+        # A Mágica de "Minhas Apostas" ser tratada como uma Casa de Aposta!
+        casas_disponiveis = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_calc['Casa'].dropna().unique().tolist())
         casa_selecionada = st.selectbox("Casa de Aposta:", casas_disponiveis, key="filtro_dash_casa")
     with col_f2:
         esportes_disp = ["Todos os Esportes"] + sorted(df_calc['Esporte'].dropna().unique().tolist())
         esporte_selecionado = st.selectbox("Esporte:", esportes_disp, key="filtro_dash_esporte")
     with col_f3:
-        if esporte_selecionado != "Todos os Esportes":
-            ligas_disp = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == esporte_selecionado]['Liga'].dropna().unique().tolist())
-        else:
-            ligas_disp = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
+        if esporte_selecionado != "Todos os Esportes": ligas_disp = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == esporte_selecionado]['Liga'].dropna().unique().tolist())
+        else: ligas_disp = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
         liga_selecionada = st.selectbox("Liga:", ligas_disp, key="filtro_dash_liga")
     with col_f4:
         tipos_disp = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
@@ -199,10 +185,13 @@ with tab_dash:
 
     df_dash = df_calc.copy()
     
+    # Aplicação de Filtros
     if filtro_visao == "Apenas Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
     elif filtro_visao == "Não Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
         
-    if casa_selecionada != "Todas as Casas": df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
+    if casa_selecionada == "⭐ MINHAS APOSTAS": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
+    elif casa_selecionada != "Todas as Casas": df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
+    
     if esporte_selecionado != "Todos os Esportes": df_dash = df_dash[df_dash['Esporte'] == esporte_selecionado]
     if liga_selecionada != "Todas as Ligas": df_dash = df_dash[df_dash['Liga'] == liga_selecionada]
     if tipo_selecionado != "Todos os Momentos": df_dash = df_dash[df_dash['Momento_Alerta'] == tipo_selecionado]
@@ -235,32 +224,20 @@ with tab_dash:
 
     if not df_resolvidas.empty:
         df_resolvidas['Data_Curta'] = df_resolvidas['Data/Hora'].str[:5] 
-        grafico_dados = df_resolvidas.groupby('Data_Curta').agg(
-            Payout_Diario=('Payout', 'sum'),
-            Stake_Diaria=('Stake_Final', 'sum')
-        ).reset_index()
-        
+        grafico_dados = df_resolvidas.groupby('Data_Curta').agg(Payout_Diario=('Payout', 'sum'), Stake_Diaria=('Stake_Final', 'sum')).reset_index()
         grafico_dados['Payout Acumulado'] = grafico_dados['Payout_Diario'].cumsum()
         grafico_dados['Stake Acumulada'] = grafico_dados['Stake_Diaria'].cumsum()
         grafico_dados['Yield Acumulado (%)'] = (grafico_dados['Payout Acumulado'] / grafico_dados['Stake Acumulada']) * 100
         
         col_g1, col_g2 = st.columns(2)
-        
         with col_g1:
             st.markdown(f"### 📈 Evolução Financeira (R$)")
-            fig_fin = px.line(
-                grafico_dados, x='Data_Curta', y=['Stake Acumulada', 'Payout Acumulado'], 
-                markers=True, labels={'value': 'Valor (R$)', 'variable': 'Métrica', 'Data_Curta': 'Data'}
-            )
+            fig_fin = px.line(grafico_dados, x='Data_Curta', y=['Stake Acumulada', 'Payout Acumulado'], markers=True, labels={'value': 'Valor (R$)', 'variable': 'Métrica', 'Data_Curta': 'Data'})
             fig_fin.for_each_trace(lambda t: t.update(name={'Stake Acumulada': 'Stake Total', 'Payout Acumulado': 'Payout'}.get(t.name, t.name)))
             st.plotly_chart(fig_fin, use_container_width=True)
-
         with col_g2:
             st.markdown(f"### 🚀 Evolução do Yield (%)")
-            fig_yield = px.line(
-                grafico_dados, x='Data_Curta', y='Yield Acumulado (%)', 
-                markers=True, labels={'Yield Acumulado (%)': 'Yield (%)', 'Data_Curta': 'Data'}
-            )
+            fig_yield = px.line(grafico_dados, x='Data_Curta', y='Yield Acumulado (%)', markers=True, labels={'Yield Acumulado (%)': 'Yield (%)', 'Data_Curta': 'Data'})
             fig_yield.update_traces(line_color="#00CC96" if yield_global >= 0 else "#EF553B")
             st.plotly_chart(fig_yield, use_container_width=True)
 
@@ -281,6 +258,22 @@ with tab_dash:
         Payout=('Payout', 'sum')
     ).reset_index()
     
+    # Adicionar a linha de "⭐ MINHAS APOSTAS" à tabela para comparação direta com as casas!
+    if col_grupo == "Casa" and casa_selecionada == "Todas as Casas":
+        df_minhas = df_resolvidas[df_resolvidas['Aposta_Realizada'] == True]
+        if not df_minhas.empty:
+            linha_minhas = {
+                'Casa': '⭐ MINHAS APOSTAS (Sua Carteira)',
+                'Oportunidades': len(df_minhas),
+                'Greens': (df_minhas['Status_Aposta'] == 'Green ✅').sum(),
+                'Edge_Medio': df_minhas['Edge_Num'].mean(),
+                'EV_Medio': df_minhas['ROI_Num'].mean(),
+                'Stake_Total': df_minhas['Stake_Final'].sum(),
+                'EV_Esperado': df_minhas['EV_Esperado_R$'].sum(),
+                'Payout': df_minhas['Payout'].sum()
+            }
+            analise_tabela = pd.concat([analise_tabela, pd.DataFrame([linha_minhas])], ignore_index=True)
+
     analise_tabela['Yield'] = analise_tabela.apply(lambda x: (x['Payout'] / x['Stake_Total'] * 100) if x['Stake_Total'] > 0 else 0.0, axis=1)
     analise_tabela['Taxa_Acerto'] = analise_tabela.apply(lambda x: (x['Greens'] / x['Oportunidades'] * 100) if x['Oportunidades'] > 0 else 0.0, axis=1)
     analise_tabela['EV Realization Rate'] = analise_tabela.apply(lambda x: (x['Payout'] / x['EV_Esperado'] * 100) if x['EV_Esperado'] != 0 else 0.0, axis=1)
@@ -304,17 +297,15 @@ with tab_dash:
 # ABA 2: CALCULADORA EV
 # ==========================================
 with tab_calc:
-    st.markdown("### 🧮 Calculadora Rápida de EV (Expected Value)")
+    st.markdown("### 🧮 Calculadora Rápida de EV")
     st.write("Introduza as odds para descobrir se há valor matemático na aposta e qual a stake ideal.")
 
     with st.form("form_calculadora_ev"):
         col_calc_1, col_calc_2 = st.columns(2)
-        
         with col_calc_1:
             st.markdown("#### 1. Odd da Casa de Apostas (Soft)")
             odd_casa_input = st.number_input("Odd que você quer apostar (ex: BetMGM):", min_value=1.01, value=2.10, step=0.05, format="%.2f")
             banca_input = st.number_input("Banca Total (R$):", min_value=10.0, value=250.0, step=10.0)
-
         with col_calc_2:
             st.markdown("#### 2. Odds da Pinnacle (Sharp)")
             odd_pin_sel = st.number_input("Odd Pinnacle para a sua seleção:", min_value=1.01, value=1.95, step=0.05, format="%.2f")
@@ -338,13 +329,9 @@ with tab_calc:
             b_kelly = odd_casa_input - 1
             f_kelly = (prob_real * b_kelly - (1 - prob_real)) / b_kelly
             
-            if f_kelly > 0:
-                stake_calc = banca_input * (f_kelly * 0.25)
-            else:
-                stake_calc = 0.0
+            stake_calc = banca_input * (f_kelly * 0.25) if f_kelly > 0 else 0.0
 
             st.markdown("### 🎯 Resultados da Análise")
-            
             res_c1, res_c2, res_c3, res_c4 = st.columns(4)
             res_c1.metric("Probabilidade Real", f"{(prob_real * 100):.1f}%")
             res_c2.metric("Odd Justa (Fair Odd)", f"{odd_justa:.2f}")
@@ -352,48 +339,77 @@ with tab_calc:
             if edge_calc > 0:
                 res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "Aposta de Valor +EV")
                 res_c4.metric("Stake Recomendada", f"R$ {stake_calc:.2f}", f"ROI Esperado: {(roi_calc * 100):.1f}%")
-                st.success("✅ **SINAL VERDE!** A casa está a oferecer um prémio superior ao risco real. O modelo recomenda apostar.")
+                st.success("✅ **SINAL VERDE!** A casa está a oferecer um prémio superior ao risco real.")
             else:
                 res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "-EV (Não Apostar)")
-                res_c4.metric("Stake Recomendada", "R$ 0.00", "Aposta com Prejuízo Matemático")
-                st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco. A longo prazo, esta aposta vai drenar a sua banca.")
+                res_c4.metric("Stake Recomendada", "R$ 0.00", "Aposta com Prejuízo")
+                st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco.")
 
 # ==========================================
-# ABA 3: MINHAS APOSTAS
+# ABA 3: MINHAS APOSTAS (NOVO FLUXO)
 # ==========================================
 with tab_apostas:
-    st.info("💡 **Dica:** Marque as oportunidades que apostou. Insira a Odd e Stake finais para maior precisão.")
-    df_pendentes_aposta = df[df['Status_Aposta'] == 'Pendente'].copy()
-    if df_pendentes_aposta.empty:
-        st.success("Nenhuma aposta pendente!")
+    st.markdown("### 🎯 Detalhamento das Suas Apostas")
+    st.info("💡 **Apenas os jogos marcados na aba 'Alimentar Resultados' aparecem aqui.** Insira a Odd e a Stake exatas que operou para uma gestão financeira rigorosa.")
+    
+    # Filtra APENAS jogos que já foram marcados como Aposta_Realizada == True
+    df_minhas_pendentes = df[(df['Status_Aposta'] == 'Pendente') & (df['Aposta_Realizada'] == True)].copy()
+    
+    if df_minhas_pendentes.empty:
+        st.success("Nenhuma aposta pendente na sua carteira. Vá à aba 'Alimentar Resultados' para marcar as oportunidades que operou!")
     else:
-        colunas_edicao = ['Data/Hora', 'Jogo', 'Casa', 'Seleção', 'Aposta_Realizada', 'Odd_Real', 'Stake_Real']
-        editado = st.data_editor(
-            df_pendentes_aposta[colunas_edicao],
+        colunas_edicao = ['Data/Hora', 'Jogo', 'Casa', 'Seleção', 'Odd_Real', 'Stake_Real']
+        editado_minhas = st.data_editor(
+            df_minhas_pendentes[colunas_edicao],
             column_config={
-                "Aposta_Realizada": st.column_config.CheckboxColumn("Foi Apostada?", default=False),
                 "Odd_Real": st.column_config.NumberColumn("Odd Real Pega", format="%.2f"),
                 "Stake_Real": st.column_config.NumberColumn("Stake Colocada (R$)", format="%.2f"),
             },
             disabled=["Data/Hora", "Jogo", "Casa", "Seleção"],
-            hide_index=True, use_container_width=True, key="editor_apostas"
+            hide_index=True, use_container_width=True, key="editor_apostas_reais"
         )
-        if st.button("💾 Salvar Registros de Apostas", type="primary"):
-            with st.spinner('A enviar...'):
-                df.update(editado[['Aposta_Realizada', 'Odd_Real', 'Stake_Real']])
-                if salvar_no_github(df, "🤖 Atualizando apostas realizadas"):
+        if st.button("💾 Salvar Valores Executados", type="primary", key="btn_salvar_valores"):
+            with st.spinner('A salvar na nuvem...'):
+                df.update(editado_minhas[['Odd_Real', 'Stake_Real']])
+                if salvar_no_github(df, "🤖 Atualizando stake e odd real"):
                     st.rerun()
 
 # ==========================================
-# ABA 4: RESULTADOS
+# ABA 4: ALIMENTAR RESULTADOS E MARCAR ENTRADAS
 # ==========================================
 with tab_resultados:
-    st.info("Apenas jogos pendentes ou finalizados nas últimas 24h são exibidos aqui.")
+    # --- SECÇÃO 1: TRIAGEM DE APOSTAS ---
+    st.markdown("### 1️⃣ Marcar Oportunidades Apostadas")
+    st.write("Selecione a caixa na coluna **'Apostei?'** para mover o jogo para a aba 'Minhas Apostas'.")
+    
+    df_pendentes_marcacao = df[df['Status_Aposta'] == 'Pendente'].copy()
+    if not df_pendentes_marcacao.empty:
+        colunas_marcacao = ['Data/Hora', 'Jogo', 'Casa', 'Seleção', 'Aposta_Realizada']
+        editado_marcacao = st.data_editor(
+            df_pendentes_marcacao[colunas_marcacao],
+            column_config={
+                "Aposta_Realizada": st.column_config.CheckboxColumn("Apostei?", default=False),
+            },
+            disabled=["Data/Hora", "Jogo", "Casa", "Seleção"],
+            hide_index=True, use_container_width=True, key="editor_marcacao"
+        )
+        if st.button("💾 Enviar para Minhas Apostas", type="primary", key="btn_marcacao"):
+            with st.spinner('A processar triagem...'):
+                df.update(editado_marcacao[['Aposta_Realizada']])
+                if salvar_no_github(df, "🤖 Atualizando marcação de apostas"):
+                    st.rerun()
+    else:
+        st.success("Não existem oportunidades pendentes.")
+
+    st.divider()
+
+    # --- SECÇÃO 2: ALIMENTAR PLACAR MANUAL ---
+    st.markdown("### 2️⃣ Alimentar Placar (Resolução Manual)")
+    st.info("O Robô contabilista já tenta resolver jogos automaticamente 2x ao dia. Utilize esta secção apenas para corrigir erros ou para jogos fora do futebol.")
+    
     def eh_recente(d_str):
         if pd.isna(d_str) or d_str == "": return False
-        try:
-            dt = datetime.strptime(str(d_str), "%Y-%m-%d %H:%M:%S")
-            return (datetime.now() - dt).total_seconds() < 86400 
+        try: return (datetime.now() - datetime.strptime(str(d_str), "%Y-%m-%d %H:%M:%S")).total_seconds() < 86400 
         except: return False
 
     df['Recente'] = df['Data_Resolucao'].apply(eh_recente)
@@ -420,9 +436,7 @@ with tab_resultados:
             idx_padrao = opcoes.index(valor_atual) if valor_atual in opcoes else 0
             
             col_txt, col_sel = st.columns([3, 2])
-            with col_txt:
-                st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🏆 {row['Liga']} &nbsp;|&nbsp; ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
-            
+            with col_txt: st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🏆 {row['Liga']} &nbsp;|&nbsp; ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
             with col_sel: escolha = st.selectbox("Vencedor", options=opcoes, index=idx_padrao, key=f"sel_{row['Jogo']}_{row['Data/Hora']}", label_visibility="collapsed")
             novos_resultados.append({'Jogo': row['Jogo'], 'Data/Hora': row['Data/Hora'], 'Vencedor_Partida': escolha})
             st.markdown("---")
@@ -452,28 +466,27 @@ with tab_hist:
     
     col_h1, col_h2, col_h3, col_h4 = st.columns(4)
     with col_h1:
-        casas_hist = ["Todas as Casas"] + sorted(df_hist['Casa'].dropna().unique().tolist())
+        casas_hist = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_hist['Casa'].dropna().unique().tolist())
         filtro_casa_hist = st.selectbox("Casa de Aposta:", casas_hist, key="filtro_hist_casa")
     with col_h2:
         esportes_hist = ["Todos os Esportes"] + sorted(df_hist['Esporte'].dropna().unique().tolist())
         filtro_esp_hist = st.selectbox("Esporte:", esportes_hist, key="filtro_hist_esporte")
     with col_h3:
-        if filtro_esp_hist != "Todos os Esportes":
-            ligas_hist = ["Todas as Ligas"] + sorted(df_hist[df_hist['Esporte'] == filtro_esp_hist]['Liga'].dropna().unique().tolist())
-        else:
-            ligas_hist = ["Todas as Ligas"] + sorted(df_hist['Liga'].dropna().unique().tolist())
+        if filtro_esp_hist != "Todos os Esportes": ligas_hist = ["Todas as Ligas"] + sorted(df_hist[df_hist['Esporte'] == filtro_esp_hist]['Liga'].dropna().unique().tolist())
+        else: ligas_hist = ["Todas as Ligas"] + sorted(df_hist['Liga'].dropna().unique().tolist())
         filtro_liga_hist = st.selectbox("Liga:", ligas_hist, key="filtro_hist_liga")
     with col_h4:
         tipos_hist = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
         filtro_tipo_hist = st.selectbox("Momento do Alerta:", tipos_hist, key="filtro_hist_tipo")
     
-    if filtro_casa_hist != "Todas as Casas": df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
+    if filtro_casa_hist == "⭐ MINHAS APOSTAS": df_hist = df_hist[df_hist['Aposta_Realizada'] == True]
+    elif filtro_casa_hist != "Todas as Casas": df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
+    
     if filtro_esp_hist != "Todos os Esportes": df_hist = df_hist[df_hist['Esporte'] == filtro_esp_hist]
     if filtro_liga_hist != "Todas as Ligas": df_hist = df_hist[df_hist['Liga'] == filtro_liga_hist]
     if filtro_tipo_hist != "Todos os Momentos": df_hist = df_hist[df_hist['Momento_Alerta'] == filtro_tipo_hist]
     
     df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
-    
     df_hist.rename(columns={'Achado_em': 'Horário Alerta', 'Momento_Alerta': 'Tipo'}, inplace=True)
     
     cols_display = ['Data/Hora', 'Horário Alerta', 'Tipo', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Vencedor_Partida']
@@ -488,16 +501,14 @@ with tab_estudos:
     
     col_e1, col_e2, col_e3, col_e4 = st.columns(4)
     with col_e1:
-        casas_estudos = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
+        casas_estudos = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_calc['Casa'].dropna().unique().tolist())
         filtro_casa_estudos = st.selectbox("Casa de Aposta:", casas_estudos, key="filtro_estudos_casa")
     with col_e2:
         esportes_estudos = ["Todos os Esportes"] + sorted(df_calc['Esporte'].dropna().unique().tolist())
         filtro_esp_estudos = st.selectbox("Esporte:", esportes_estudos, key="filtro_estudos_esporte")
     with col_e3:
-        if filtro_esp_estudos != "Todos os Esportes":
-            ligas_estudos = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == filtro_esp_estudos]['Liga'].dropna().unique().tolist())
-        else:
-            ligas_estudos = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
+        if filtro_esp_estudos != "Todos os Esportes": ligas_estudos = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == filtro_esp_estudos]['Liga'].dropna().unique().tolist())
+        else: ligas_estudos = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
         filtro_liga_estudos = st.selectbox("Liga:", ligas_estudos, key="filtro_estudos_liga")
     with col_e4:
         tipos_estudos = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
@@ -505,7 +516,9 @@ with tab_estudos:
     
     df_estudos = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
     
-    if filtro_casa_estudos != "Todas as Casas": df_estudos = df_estudos[df_estudos['Casa'] == filtro_casa_estudos]
+    if filtro_casa_estudos == "⭐ MINHAS APOSTAS": df_estudos = df_estudos[df_estudos['Aposta_Realizada'] == True]
+    elif filtro_casa_estudos != "Todas as Casas": df_estudos = df_estudos[df_estudos['Casa'] == filtro_casa_estudos]
+    
     if filtro_esp_estudos != "Todos os Esportes": df_estudos = df_estudos[df_estudos['Esporte'] == filtro_esp_estudos]
     if filtro_liga_estudos != "Todas as Ligas": df_estudos = df_estudos[df_estudos['Liga'] == filtro_liga_estudos]
     if filtro_tipo_estudos != "Todos os Momentos": df_estudos = df_estudos[df_estudos['Momento_Alerta'] == filtro_tipo_estudos]
@@ -513,27 +526,8 @@ with tab_estudos:
     if df_estudos.empty:
         st.info("Ainda não há dados suficientes de apostas finalizadas para gerar este gráfico com estes filtros.")
     else:
-        fig_scatter = px.scatter(
-            df_estudos,
-            x='ROI_Realizado',
-            y='Edge_Num',
-            color='Status_Aposta',
-            color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'},
-            hover_data={
-                'Jogo': True,
-                'Esporte': True,
-                'Casa': True,
-                'Odd_Final': ':.2f',
-                'Edge': True,      
-                'Edge_Num': False, 
-                'ROI_Realizado': False, 
-                'Payout': ':.2f'
-            },
-            labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'},
-        )
-        
+        fig_scatter = px.scatter(df_estudos, x='ROI_Realizado', y='Edge_Num', color='Status_Aposta', color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'}, hover_data={'Jogo': True, 'Esporte': True, 'Casa': True, 'Odd_Final': ':.2f', 'Edge': True, 'Edge_Num': False, 'ROI_Realizado': False, 'Payout': ':.2f'}, labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'})
         fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
         fig_scatter.layout.yaxis.tickformat = ',.1%'
         fig_scatter.layout.xaxis.tickformat = ',.0%'
-        
         st.plotly_chart(fig_scatter, use_container_width=True)

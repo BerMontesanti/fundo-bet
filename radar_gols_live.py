@@ -1,7 +1,8 @@
 import requests
 import json
 import time
-from datetime import datetime
+import urllib.parse
+from datetime import datetime, timedelta
 
 # ==========================================
 # ⚙️ CONFIGURAÇÕES (COLE AS SUAS CHAVES AQUI)
@@ -35,12 +36,12 @@ def rastrear_todos_os_gols():
     print(f"[{agora}] A varrer os relvados...")
     
     headers = {'X-Auth-Token': FOOTBALL_DATA_TOKEN}
-    url_api = "https://api.football-data.org/v4/matches?status=IN_PLAY,PAUSED"
+    url_api = "https://api.football-data.org/v4/matches?status=LIVE"
     
     try:
         resposta = requests.get(url_api, headers=headers)
         if resposta.status_code != 200:
-            print(f"❌ Erro na API: {resposta.status_code}")
+            print(f"❌ Erro na API: {resposta.status_code} - {resposta.text}")
             return
             
         jogos_ao_vivo = resposta.json().get('matches', [])
@@ -55,6 +56,16 @@ def rastrear_todos_os_gols():
         id_jogo = str(jogo['id'])
         competicao = jogo['competition']['name']
         minuto = jogo.get('minute', 'Ao Vivo')
+        
+        # Puxa a hora exata em que o evento foi atualizado na API (Golo)
+        last_updated_str = jogo.get('lastUpdated', '')
+        try:
+            # Converte de UTC para BRT (Horário de Brasília)
+            dt_utc = datetime.strptime(last_updated_str, "%Y-%m-%dT%H:%M:%SZ")
+            dt_brt = dt_utc - timedelta(hours=3)
+            hora_exata_gol = dt_brt.strftime('%H:%M:%S')
+        except:
+            hora_exata_gol = "N/A"
         
         casa = jogo['homeTeam']['name']
         fora = jogo['awayTeam']['name']
@@ -72,15 +83,16 @@ def rastrear_todos_os_gols():
             if gols_casa > 0 or gols_fora > 0:
                 houve_golo = True
                 hora_exata_detecao = datetime.now().strftime('%H:%M:%S')
-                enviar_alerta_golo(competicao, minuto, casa, fora, gols_casa, gols_fora, hora_exata_detecao)
+                enviar_alerta_golo(competicao, minuto, casa, fora, gols_casa, gols_fora, hora_exata_detecao, hora_exata_gol)
         else:
             placar_antigo = estado_atual[id_jogo]
             if placar_str != placar_antigo:
                 estado_atual[id_jogo] = placar_str
                 houve_golo = True
                 hora_exata_detecao = datetime.now().strftime('%H:%M:%S')
-                enviar_alerta_golo(competicao, minuto, casa, fora, gols_casa, gols_fora, hora_exata_detecao)
+                enviar_alerta_golo(competicao, minuto, casa, fora, gols_casa, gols_fora, hora_exata_detecao, hora_exata_gol)
 
+    # Limpeza de memória dos jogos que já acabaram
     ids_ao_vivo = [str(j['id']) for j in jogos_ao_vivo]
     chaves_para_remover = [k for k in estado_atual.keys() if k not in ids_ao_vivo]
     for k in chaves_para_remover:
@@ -91,23 +103,27 @@ def rastrear_todos_os_gols():
 # ==========================================
 # 🚨 FORMATADOR DE MENSAGENS E DEEP LINKS
 # ==========================================
-def enviar_alerta_golo(competicao, minuto, casa, fora, gols_casa, gols_fora, hora_exata):
-    termo_busca = f"{casa} {fora}".replace(" ", "%20")
-    link_pinnacle = f"https://www.pinnacle.com/pt/search?q={termo_busca}"
-    link_betmgm = f"https://www.google.com/search?q=site:sports.betmgm.com+%22{casa}%22+%22{fora}%22"
+def enviar_alerta_golo(competicao, minuto, casa, fora, gols_casa, gols_fora, hora_detecao, hora_gol):
+    # Formatação Segura dos Links
+    termo_busca_pin = f"{casa} {fora}".replace(" ", "%20")
+    link_pinnacle = f"https://www.pinnacle.com/pt/search?q={termo_busca_pin}"
+    
+    termo_busca_mgm = urllib.parse.quote(casa)
+    link_betmgm = f"https://sports.betmgm.com/en/sports/search?q={termo_busca_mgm}"
 
     msg = (
         f"🚨 **GOOOOOOOOOL!** 🚨\n\n"
         f"🏆 {competicao} | ⏱️ {minuto}'\n"
-        f"⏰ **Detetado às:** {hora_exata}\n"
         f"⚽ **{casa} {gols_casa} x {gols_fora} {fora}**\n\n"
+        f"🎯 **Gol Registrado às:** {hora_gol}\n"
+        f"⏳ **Radar Detectou às:** {hora_detecao}\n\n"
         f"⚡ _O mercado vai recalcular as odds!_\n\n"
-        f"🦁 [Verificar na BetMGM]({link_betmgm})\n"
-        f"🟠 [Verificar na Pinnacle]({link_pinnacle})"
+        f"🦁 [Buscar na BetMGM]({link_betmgm})\n"
+        f"🟠 [Buscar na Pinnacle]({link_pinnacle})"
     )
     
     enviar_telegram(msg)
-    print(f"⚽ ALERTA ENVIADO [{hora_exata}]: {casa} {gols_casa}x{gols_fora} {fora}")
+    print(f"⚽ ALERTA ENVIADO: {casa} {gols_casa}x{gols_fora} {fora} (Gol: {hora_gol} | Detecção: {hora_detecao})")
 
 # ==========================================
 # ⚙️ EXECUÇÃO EM LOOP INFINITO (LOCAL)
@@ -119,5 +135,5 @@ if __name__ == "__main__":
     
     while True:
         rastrear_todos_os_gols()
-        # Pausa de 30 segundos entre cada varredura (2 requests por minuto = totalmente seguro para a API)
+        # Pausa de 30 segundos
         time.sleep(30)

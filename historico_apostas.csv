@@ -566,3 +566,38 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Betfair,Vitor Petrino,1.7,1.51,1.57,7.23,12.29,R$ 10.97,14/03/2026 20:40:56,Vitor Petrino,Green ✅,,,,2026-03-15 12:50:13
 14/03 20:26,MMA - UFC,Vitor Petrino x Steven Asplund,Nordic Bet,Vitor Petrino,1.58,1.51,1.57,2.76,4.36,R$ 4.70,14/03/2026 20:40:56,Vitor Petrino,Green ✅,,,,2026-03-15 12:50:13
 15/03 10:32,Futebol - Eredivisie (HOL),AZ Alkmaar x Heracles Almelo,Betfair,AZ Alkmaar,1.46,1.18,1.21,16.49,24.08,R$ 32.72,15/03/2026 10:54:32
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Betsson,Mallorca,3.65,2.88,3.10,7.34,26.8,R$ 6.32,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Nordic Bet,Mallorca,3.50,2.88,3.10,6.17,21.59,R$ 5.40,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Coral,Mallorca,3.60,2.88,3.10,6.96,25.07,R$ 6.03,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Paddy Power,Mallorca,4.50,2.88,3.10,12.52,56.33,R$ 10.06,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,FanDuel,Mallorca,4.60,2.88,3.10,13.0,59.81,R$ 10.38,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Sky Bet,Mallorca,4.50,2.88,3.10,12.52,56.33,R$ 10.06,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Bovada,Mallorca,3.75,2.88,3.10,8.07,30.28,R$ 6.88,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,BoyleSports,Espanyol,19.00,12.19,17.54,2.94,55.82,R$ 1.94,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,BoyleSports,Mallorca,4.00,2.88,3.10,9.74,38.96,R$ 8.12,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Virgin Bet,Mallorca,3.60,2.88,3.10,6.96,25.07,R$ 6.03,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Casumo,Mallorca,3.75,2.88,3.10,8.07,30.28,R$ 6.88,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,DraftKings,Mallorca,3.45,2.88,3.10,5.75,19.85,R$ 5.06,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Betfair,Mallorca,3.50,2.88,3.10,6.17,21.59,R$ 5.40,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Coolbet,Espanyol,18.00,12.19,17.54,2.65,47.62,R$ 1.75,15/03/2026 11:47:40
+15/03 10:00,Futebol - La Liga (ESP),Mallorca x Espanyol,Coolbet,Mallorca,3.80,2.88,3.10,8.42,32.01,R$ 7.15,15/03/2026 11:47:40
+15/03 11:00,Futebol - Serie A (ITA),Sassuolo x Bologna,Virgin Bet,Sassuolo,8.00,6.41,7.64,3.1,24.77,R$ 2.21,15/03/2026 11:47:40
+15/03 11:00,Futebol - Serie A (ITA),Sassuolo x Bologna,BoyleSports,Sassuolo,8.00,6.41,7.64,3.1,24.77,R$ 2.21,15/03/2026 11:47:40
+15/03 11:00,Futebol - Serie A (ITA),Sassuolo x Bologna,Betfair,Sassuolo,7.80,6.41,7.64,2.78,21.65,R$ 1.99,15/03/2026 11:47:40
+15/03 11:00,Futebol - Serie A (ITA),Sassuolo x Bologna,Matchbook,Sassuolo,8.00,6.41,7.64,3.1,24.77,R$ 2.21,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Betsson,Pisa,2.15,1.66,1.73,13.67,29.39,R$ 15.97,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Nordic Bet,Pisa,2.25,1.66,1.73,15.74,35.41,R$ 17.71,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,FanDuel,Pisa,2.45,1.66,1.73,19.37,47.45,R$ 20.45,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Paddy Power,Pisa,2.38,1.66,1.73,18.17,43.24,R$ 19.58,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Sky Bet,Pisa,2.45,1.66,1.73,19.37,47.45,R$ 20.45,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,888sport,Pisa,2.40,1.66,1.73,18.52,44.44,R$ 19.84,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Coral,Pisa,2.37,1.66,1.73,17.99,42.63,R$ 19.45,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,BetMGM,Pisa,2.30,1.66,1.73,16.7,38.42,R$ 18.47,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Casumo,Pisa,2.45,1.66,1.73,19.37,47.45,R$ 20.45,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Virgin Bet,Pisa,2.43,1.66,1.73,19.03,46.24,R$ 20.21,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Bovada,Pisa,2.40,1.66,1.73,18.52,44.44,R$ 19.84,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,BoyleSports,Pisa,2.25,1.66,1.73,15.74,35.41,R$ 17.71,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,DraftKings,Pisa,2.25,1.66,1.73,15.74,35.41,R$ 17.71,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Betfair,Pisa,2.56,1.66,1.73,21.12,54.07,R$ 21.66,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Matchbook,Pisa,2.54,1.66,1.73,20.81,52.86,R$ 21.45,15/03/2026 11:47:40
+15/03 11:01,Futebol - Serie A (ITA),Pisa x Cagliari,Coolbet,Pisa,2.25,1.66,1.73,15.74,35.41,R$ 17.71,15/03/2026 11:47:40

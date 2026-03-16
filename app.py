@@ -416,28 +416,35 @@ with tab_ligas:
         api_key_input = st.text_input("Cole a sua chave The Odds API para fazer a triagem agora:", type="password")
         
     if st.button("📡 Puxar Ligas Abertas Agora", use_container_width=True):
-        if not api_key_input:
-            st.error("Por favor, insira a chave da API acima ou configure-a nos Secrets do Streamlit.")
+        api_key_str = st.secrets.get("ODDS_API_KEY", "")
+        if not api_key_str:
+            st.error("Por favor, configure a sua ODDS_API_KEY nos Secrets do Streamlit.")
         else:
-            with st.spinner("A bater na porta da The Odds API (Custo: 0 créditos)..."):
+            with st.spinner("A limpar ligas antigas e a puxar o catálogo atual (Custo: 0 créditos)..."):
                 try:
-                    res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_input})
+                    res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_str})
                     if res.status_code == 200:
-                        novos_encontrados = 0
-                        for sport in res.json():
-                            k = sport['key']
-                            t = sport['title']
-                            if sport.get('active', True) and k not in opcoes_disponiveis:
-                                opcoes_disponiveis[k] = t
-                                novos_encontrados += 1
+                        novas_disponiveis = {}
+                        novas_encontradas = 0
                         
-                        if novos_encontrados > 0:
-                            config_ligas["disponiveis"] = opcoes_disponiveis
-                            salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Triagem manual: novas ligas")
-                            st.success(f"🎉 Magia! Encontrámos {novos_encontrados} ligas novas. A página vai recarregar para atualizar a lista.")
-                            st.rerun()
-                        else:
-                            st.info("O catálogo já está 100% atualizado. Nenhuma liga nova abriu mercado neste momento.")
+                        # 1. Reconstrói o catálogo SÓ com o que está ativo agora
+                        for sport in res.json():
+                            if sport.get('active', True):
+                                k = sport['key']
+                                t = sport['title']
+                                novas_disponiveis[k] = t
+                                if k not in opcoes_disponiveis:
+                                    novas_encontradas += 1
+                        
+                        # 2. Limpa as selecionadas (remove as que fecharam)
+                        selecionadas_limpas = [k for k in ligas_selecionadas_atuais if k in novas_disponiveis]
+                        
+                        config_ligas["disponiveis"] = novas_disponiveis
+                        config_ligas["selecionadas"] = selecionadas_limpas
+                        
+                        salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Limpeza e Triagem do Catálogo")
+                        st.success(f"🧹 Catálogo limpo e atualizado! {len(novas_disponiveis)} ligas ativas no momento. ({novas_encontradas} ligas novas descobertas).")
+                        st.rerun()
                     else:
                         st.error(f"Erro na API: {res.status_code}")
                 except Exception as e:

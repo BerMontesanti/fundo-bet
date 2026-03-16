@@ -6,6 +6,7 @@ import urllib.parse
 from datetime import datetime, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import json
 
 # ==========================================
 # ⚙️ CONFIGURAÇÕES DA CONTA
@@ -19,8 +20,6 @@ EMAIL_REMETENTE = "bernardo.montesanti@gmail.com"
 EMAILS_DESTINO = [
     "bernardo.montesanti@gmail.com"
 ]
-
-import json
 
 try:
     with open('config_banca.json', 'r') as f:
@@ -77,6 +76,27 @@ CASAS_ALVO = [
 ]
 
 # ==========================================
+# 🧠 TRIAGEM GRATUITA (CÉREBRO DO ROBÔ)
+# ==========================================
+def obter_ligas_ativas(api_key):
+    """
+    Bate no endpoint gratuito da The Odds API para descobrir 
+    quais esportes têm odds abertas neste exato momento.
+    Custo: 0 créditos.
+    """
+    url = 'https://api.the-odds-api.com/v4/sports/'
+    try:
+        res = requests.get(url, params={'apiKey': api_key})
+        if res.status_code == 200:
+            return {sport['key'] for sport in res.json()}
+        else:
+            print(f"⚠️ Erro ao buscar ligas ativas: {res.status_code}")
+            return set()
+    except Exception as e:
+        print(f"⚠️ Erro de conexão na triagem: {e}")
+        return set()
+
+# ==========================================
 # 🚀 MOTOR DE BUSCA (LABORATÓRIO DE GHOST ODDS)
 # ==========================================
 def buscar_oportunidades():
@@ -98,9 +118,23 @@ def buscar_oportunidades():
     
     agora_brt = datetime.utcnow() - timedelta(hours=3)
     hoje_brt = agora_brt.date()
-    print(f"A iniciar varredura para os jogos do dia {hoje_brt}...")
     
-    for nome_liga, sport_key in LIGAS:
+    print("🔍 Iniciando triagem de ligas ativas (Custo: 0 créditos)...")
+    ligas_ativas_api = obter_ligas_ativas(API_KEY)
+    
+    ligas_para_varrer = []
+    if ligas_ativas_api:
+        for nome, chave in LIGAS:
+            if chave in ligas_ativas_api:
+                ligas_para_varrer.append((nome, chave))
+        print(f"🎯 Triagem concluída: Das {len(LIGAS)} ligas monitoradas, apenas {len(ligas_para_varrer)} estão com mercado aberto agora.")
+    else:
+        print("⚠️ Falha na triagem ou nenhuma liga ativa. Varrendo todas por segurança.")
+        ligas_para_varrer = LIGAS
+
+    print(f"A iniciar varredura para os jogos do dia {hoje_brt} nas ligas ativas...")
+    
+    for nome_liga, sport_key in ligas_para_varrer:
         url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
         try:
             res = requests.get(url, params={
@@ -145,7 +179,7 @@ def buscar_oportunidades():
                             if dt_pin_update_utc and dt_casa_update_utc:
                                 diff_segundos = abs((dt_pin_update_utc - dt_casa_update_utc).total_seconds())
                             else:
-                                diff_segundos = 999 # Código de segurança para identificar falha da API na hora do painel
+                                diff_segundos = 999 
 
                             link_bookmaker = b.get('link', '')
                             
@@ -241,14 +275,25 @@ def salvar_historico_csv(dados_aprovados):
     if not dados_aprovados: return
     arquivo_csv = 'historico_apostas.csv'
     
-    df_salvar = pd.DataFrame(dados_aprovados)
-    if 'Link' in df_salvar.columns:
-        df_salvar = df_salvar.drop(columns=['Link'])
+    df_novo = pd.DataFrame(dados_aprovados)
+    if 'Link' in df_novo.columns:
+        df_novo = df_novo.drop(columns=['Link'])
         
-    df_salvar['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
-    existe = os.path.isfile(arquivo_csv)
-    df_salvar.to_csv(arquivo_csv, mode='a', index=False, header=not existe)
-    print(f"✅ {len(df_salvar)} apostas novas guardadas no ficheiro (CSV).")
+    df_novo['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
+    
+    # VACINA: Prevenção de Data-Shift usando pd.concat
+    if os.path.isfile(arquivo_csv):
+        try:
+            df_existente = pd.read_csv(arquivo_csv)
+            df_final = pd.concat([df_existente, df_novo], ignore_index=True)
+        except Exception as e:
+            print(f"Erro ao cruzar com o CSV antigo: {e}. A criar ficheiro novo.")
+            df_final = df_novo
+    else:
+        df_final = df_novo
+        
+    df_final.to_csv(arquivo_csv, index=False)
+    print(f"✅ {len(df_novo)} apostas novas guardadas de forma segura (sem Data Shift).")
 
 # ==========================================
 # 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM

@@ -73,7 +73,8 @@ colunas_padrao = {
     'Odd_Real': 0.0,
     'Stake_Real': 0.0,
     'Data_Resolucao': "",
-    'Achado_em': ""
+    'Achado_em': "",
+    'Gap_Segundos': pd.NA # Nova coluna inicializada como vazia se não existir
 }
 for col, val in colunas_padrao.items():
     if col not in df.columns:
@@ -136,17 +137,16 @@ def classificar_momento(row):
 df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
 
-# Conversões Seguras (Sem .astype(float) direto para evitar ValueErrors)
+# Conversões Seguras
 df_calc['Stake_Num'] = pd.to_numeric(df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip(), errors='coerce').fillna(0.0)
 df_calc['ROI_Num'] = pd.to_numeric(df_calc['ROI'].astype(str).str.replace('%', '', regex=False).str.strip(), errors='coerce').fillna(0.0) / 100
 df_calc['Edge_Num'] = pd.to_numeric(df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip(), errors='coerce').fillna(0.0) / 100
 df_calc['Odd_Num'] = pd.to_numeric(df_calc['Odd Casa'], errors='coerce').fillna(0.0)
+df_calc['Gap_Segundos'] = pd.to_numeric(df_calc['Gap_Segundos'], errors='coerce') # Blindagem para a nova coluna
 
-# Blindagem extra para valores inseridos manualmente pelo usuário
 df_calc['Stake_Real_Num'] = pd.to_numeric(df_calc['Stake_Real'], errors='coerce').fillna(0.0)
 df_calc['Odd_Real_Num'] = pd.to_numeric(df_calc['Odd_Real'], errors='coerce').fillna(0.0)
 
-# Cálculo seguro garantindo que tudo é float (evita TypeErrors)
 df_calc['Stake_Final'] = df_calc.apply(lambda x: float(x['Stake_Real_Num']) if (x['Aposta_Realizada'] and float(x['Stake_Real_Num']) > 0) else float(x['Stake_Num']), axis=1)
 df_calc['Odd_Final'] = df_calc.apply(lambda x: float(x['Odd_Real_Num']) if (x['Aposta_Realizada'] and float(x['Odd_Real_Num']) > 0) else float(x['Odd_Num']), axis=1)
 
@@ -369,7 +369,6 @@ with tab_apostas:
         
     df_minhas_pendentes = df[mask_minhas].copy()
     
-    # Ordenação Cronológica e Remoção da Casa de Aposta da Visão
     df_minhas_pendentes['Sort_Date'] = pd.to_datetime(df_minhas_pendentes['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
     df_minhas_pendentes = df_minhas_pendentes.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
     
@@ -378,7 +377,6 @@ with tab_apostas:
     else:
         colunas_edicao = ['Data/Hora', 'Jogo', 'Seleção', 'Odd_Real', 'Stake_Real']
         
-        # Converte as colunas para numérico puro para o editor de dados não se confundir
         df_minhas_pendentes['Odd_Real'] = pd.to_numeric(df_minhas_pendentes['Odd_Real'], errors='coerce').fillna(0.0)
         df_minhas_pendentes['Stake_Real'] = pd.to_numeric(df_minhas_pendentes['Stake_Real'], errors='coerce').fillna(0.0)
 
@@ -399,7 +397,7 @@ with tab_apostas:
                     st.rerun()
 
 # ==========================================
-# ABA 4: ALIMENTAR RESULTADOS (DESDUPLICADA + BUSCA)
+# ABA 4: ALIMENTAR RESULTADOS
 # ==========================================
 with tab_resultados:
     st.markdown("### 📝 Gestão de Entradas e Placares")
@@ -533,14 +531,18 @@ with tab_hist:
     df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
     df_hist.rename(columns={'Achado_em': 'Horário Alerta', 'Momento_Alerta': 'Tipo'}, inplace=True)
     
-    cols_display = ['Data/Hora', 'Horário Alerta', 'Tipo', 'Esporte', 'Liga', 'Jogo', 'Casa', 'Seleção', 'Odd Justa', 'Odd Casa', 'Edge', 'ROI', 'Stake', 'Payout', 'Status_Aposta', 'Vencedor_Partida']
+    # Exibe a coluna do Gap no histórico para o quant visualizar se quiser
+    cols_display = ['Data/Hora', 'Tipo', 'Esporte', 'Jogo', 'Casa', 'Seleção', 'Odd Casa', 'Edge', 'Stake', 'Payout', 'Status_Aposta', 'Gap_Segundos']
+    # Mostra apenas as colunas que efetivamente existem no df para evitar erros em bases antigas
+    cols_display = [c for c in cols_display if c in df_hist.columns]
+    
     st.dataframe(df_hist[cols_display], use_container_width=True)
 
 # ==========================================
-# ABA 6: ESTUDOS ESTATÍSTICOS
+# ABA 6: ESTUDOS ESTATÍSTICOS & LABORATÓRIO GHOST ODDS
 # ==========================================
 with tab_estudos:
-    st.subheader("🔬 Estudos Estatísticos: Edge vs Rentabilidade Relativa (ROI)")
+    st.subheader("🔬 Estudos Estatísticos: Eficiência do Modelo")
     
     col_e1, col_e2, col_e3, col_e4 = st.columns(4)
     with col_e1:
@@ -567,10 +569,72 @@ with tab_estudos:
     if filtro_tipo_estudos != "Todos os Momentos": df_estudos = df_estudos[df_estudos['Momento_Alerta'] == filtro_tipo_estudos]
         
     if df_estudos.empty:
-        st.info("Ainda não há dados suficientes de apostas finalizadas para gerar este gráfico com estes filtros.")
+        st.info("Ainda não há dados suficientes de apostas finalizadas para gerar análises com estes filtros.")
     else:
+        st.markdown("#### 1. Edge vs Rentabilidade Relativa (ROI)")
         fig_scatter = px.scatter(df_estudos, x='ROI_Realizado', y='Edge_Num', color='Status_Aposta', color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'}, hover_data={'Jogo': True, 'Esporte': True, 'Casa': True, 'Odd_Final': ':.2f', 'Edge': True, 'Edge_Num': False, 'ROI_Realizado': False, 'Payout': ':.2f'}, labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'})
         fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
         fig_scatter.layout.yaxis.tickformat = ',.1%'
         fig_scatter.layout.xaxis.tickformat = ',.0%'
         st.plotly_chart(fig_scatter, use_container_width=True)
+
+        # ----------------------------------------------------
+        # 👻 LABORATÓRIO DE SINCROMISMO (GHOST ODDS)
+        # ----------------------------------------------------
+        st.divider()
+        st.markdown("#### 👻 2. Laboratório de Sincronismo: Odds Reais vs. Ghost Odds")
+        st.write("Analise se o atraso na atualização das casas de apostas afeta a sua taxa de acerto e rentabilidade. *Nota: Esta análise só contabiliza apostas capturadas a partir da introdução do tracker de segundos.*")
+        
+        # O famoso Slider Dinâmico
+        limite_ghost = st.slider("Definir limite aceitável para considerar a Odd como 'Real' (Segundos):", min_value=1, max_value=120, value=10, step=1)
+        
+        # Filtra apenas linhas que tenham dado válido de Gap_Segundos (exclui apostas velhas e erros de API = 999)
+        df_ghost = df_estudos.dropna(subset=['Gap_Segundos']).copy()
+        df_ghost = df_ghost[df_ghost['Gap_Segundos'] != 999] 
+        
+        if df_ghost.empty:
+            st.info("Aguardando acumulação de dados... As suas apostas antigas não possuem registo de sincronismo em segundos.")
+        else:
+            def classificar_ghost(gap):
+                if gap <= limite_ghost: return "⚡ Odd Real"
+                else: return "👻 Ghost Odd"
+                
+            df_ghost['Categoria_Odd'] = df_ghost['Gap_Segundos'].apply(classificar_ghost)
+            
+            analise_ghost = df_ghost.groupby('Categoria_Odd').agg(
+                Volume_Resolvido=('Categoria_Odd', 'count'),
+                Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()),
+                Edge_Medio=('Edge_Num', 'mean'),
+                Stake_Total=('Stake_Final', 'sum'),
+                Payout=('Payout', 'sum')
+            ).reset_index()
+            
+            analise_ghost['Taxa_Acerto'] = (analise_ghost['Greens'] / analise_ghost['Volume_Resolvido'] * 100).fillna(0)
+            analise_ghost['Yield'] = (analise_ghost['Payout'] / analise_ghost['Stake_Total'] * 100).fillna(0)
+            
+            exibicao_ghost = analise_ghost.copy()
+            exibicao_ghost['Taxa_Acerto'] = exibicao_ghost['Taxa_Acerto'].apply(lambda x: f"{x:.1f}%")
+            exibicao_ghost['Edge_Medio'] = (exibicao_ghost['Edge_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
+            exibicao_ghost['Stake_Total'] = exibicao_ghost['Stake_Total'].apply(lambda x: f"R$ {x:.2f}")
+            exibicao_ghost['Payout'] = exibicao_ghost['Payout'].apply(lambda x: f"R$ {x:.2f}")
+            exibicao_ghost['Yield'] = exibicao_ghost['Yield'].apply(lambda x: f"{x:.2f}%")
+            
+            # Tabela de Comparação
+            st.dataframe(exibicao_ghost, hide_index=True, use_container_width=True)
+            
+            # Gráficos Visuais Comparativos
+            col_chart1, col_chart2 = st.columns(2)
+            with col_chart1:
+                fig_bar_yield = px.bar(
+                    analise_ghost, x='Categoria_Odd', y='Yield', color='Categoria_Odd', 
+                    text_auto='.2f', title=f"Yield Médio: Reais vs Fantasmas (<{limite_ghost}s)",
+                    color_discrete_map={"⚡ Odd Real": "#00CC96", "👻 Ghost Odd": "#EF553B"}
+                )
+                st.plotly_chart(fig_bar_yield, use_container_width=True)
+            with col_chart2:
+                fig_bar_vol = px.bar(
+                    analise_ghost, x='Categoria_Odd', y='Volume_Resolvido', color='Categoria_Odd', 
+                    text_auto=True, title="Volume de Apostas Resolvidas por Categoria",
+                    color_discrete_map={"⚡ Odd Real": "#1f77b4", "👻 Ghost Odd": "#7f7f7f"}
+                )
+                st.plotly_chart(fig_bar_vol, use_container_width=True)

@@ -109,14 +109,16 @@ if st.sidebar.button("📅 Gerar Agenda Agora", use_container_width=True):
 
 st.sidebar.divider()
 
-st.sidebar.markdown("### ⏱️ Agendamento do Robô")
-st.sidebar.caption("Formato Cron (Horário UTC). Ex: `0 */2 * * *`")
+st.sidebar.markdown("### ⏱️ Agendamentos (Cron UTC)")
+st.sidebar.caption("Lembrete: Horário UTC é +3h que Brasília.")
 
-cron_varredura = st.sidebar.text_input("Frequência da Varredura:", value="0 */2 * * *")
+cron_varredura = st.sidebar.text_input("🔍 Varredura de Odds:", value="0 */2 * * *")
+cron_agenda = st.sidebar.text_input("📅 Relatório Diário (Agenda):", value="0 11 * * *")
 
-if st.sidebar.button("💾 Salvar Novo Horário", use_container_width=True):
-    with st.spinner("A alterar o workflow no GitHub..."):
+if st.sidebar.button("💾 Salvar Novos Horários", use_container_width=True):
+    with st.spinner("A alterar os workflows no GitHub..."):
         atualizar_cron_workflow("bot_quant.yml", cron_varredura)
+        atualizar_cron_workflow("agenda_diaria.yml", cron_agenda)
 
 # ==========================================
 # LEITURA DA BASE DE DADOS PRINCIPAL

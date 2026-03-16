@@ -20,7 +20,7 @@ EMAILS_DESTINO = [
     "bernardo.montesanti@gmail.com"
 ]
 
-BANCA_RS = 250.0
+BANCA_RS = 218.0
 TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
 

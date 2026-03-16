@@ -111,16 +111,14 @@ if st.sidebar.button("🏁 Auto-Resolver Apostas", use_container_width=True):
 
 st.sidebar.divider()
 
-st.sidebar.markdown("### ⏱️ Agendamento dos Robôs")
-st.sidebar.caption("Formato Cron. (Ex: `0 */2 * * *` = a cada 2h | `0 7,19 * * *` = às 07h e 19h UTC)")
+st.sidebar.markdown("### ⏱️ Agendamento do Robô")
+st.sidebar.caption("Formato Cron (Horário UTC). Ex: `0 */2 * * *`")
 
-cron_varredura = st.sidebar.text_input("Varredura de Odds:", value="0 */2 * * *")
-cron_resolucao = st.sidebar.text_input("Resolução de Placares:", value="0 7,19 * * *")
+cron_varredura = st.sidebar.text_input("Frequência da Varredura:", value="0 */2 * * *")
 
-if st.sidebar.button("💾 Salvar Novos Horários", use_container_width=True):
-    with st.spinner("A alterar os workflows no GitHub..."):
+if st.sidebar.button("💾 Salvar Novo Horário", use_container_width=True):
+    with st.spinner("A alterar o workflow no GitHub..."):
         atualizar_cron_workflow("bot_quant.yml", cron_varredura)
-        atualizar_cron_workflow("auto_resolucao.yml", cron_resolucao)
 
 # ==========================================
 # LEITURA DA BASE DE DADOS

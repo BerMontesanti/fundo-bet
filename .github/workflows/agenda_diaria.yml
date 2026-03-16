@@ -6,6 +6,12 @@ on:
     - cron: '0 11 * * *'
   workflow_dispatch:
 
+# ==========================================
+# 🔑 A MÁGICA ESTÁ AQUI: Permissão de Escrita!
+# ==========================================
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest

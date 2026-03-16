@@ -4,15 +4,15 @@ on:
   schedule:
     # 1. MANHÃ/INÍCIO TARDE (10h às 13h BRT): De hora em hora (Minuto 11)
     # UTC correspondente: 13h às 16h
-    - cron: '11 13-16 * * *'
+    - cron: '09,30 0-2,18-23 * * *'
 
     # 2. HORÁRIO DE PICO (14h às 19h BRT): A cada 30 minutos (Minutos 11 e 41)
     # UTC correspondente: 17h às 22h
-    - cron: '11,41 17-22 * * *'
+    - cron: '09,30 0-2,18-23 * * *'
 
     # 3. NOITE (20h às 22h BRT): De hora em hora (Minuto 11)
     # UTC correspondente: 23h, 00h e 01h (o 0 e 1 são do dia seguinte no UTC)
-    - cron: '11 23,0-1 * * *'
+    - cron: '09,30 0-2,18-23 * * *'
 
   workflow_dispatch: # Permite rodar manualmente no botão
 

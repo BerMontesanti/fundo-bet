@@ -81,10 +81,32 @@ for col, val in colunas_padrao.items():
         df[col] = val
 
 # ==========================================
-# AUTO-CURA DA BASE DE DADOS E FORÇA DE TIPOS
+# AUTO-CURA DA BASE DE DADOS (ANTI DATA-SHIFT)
 # ==========================================
 df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
-df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
+
+def curar_vencedor_corrompido(row):
+    venc = str(row.get('Vencedor_Partida', 'Pendente')).strip()
+    
+    # Se for vazio ou NaN
+    if venc.lower() in ["nan", "", "none", "<na>", "nat"]: return "Pendente"
+    
+    # Se for perfeitamente válido
+    if venc in ["Pendente", "Draw"]: return venc
+    
+    # Se o nome do vencedor bater com o nome da equipa da Casa ou de Fora
+    jogo = str(row.get('Jogo', ''))
+    if ' x ' in jogo:
+        try:
+            casa, fora = jogo.split(' x ')
+            if venc == casa.strip() or venc == fora.strip():
+                return venc
+        except: pass
+        
+    # ⚠️ SE CHEGOU AQUI: O CSV deslizou e colocou um dado errado nesta coluna! Forçamos o reset para Pendente.
+    return "Pendente"
+
+df['Vencedor_Partida'] = df.apply(curar_vencedor_corrompido, axis=1)
 
 def auto_corrigir_status(row):
     venc = str(row['Vencedor_Partida']).strip()
@@ -574,28 +596,22 @@ with tab_estudos:
         fig_scatter.layout.xaxis.tickformat = ',.0%'
         st.plotly_chart(fig_scatter, use_container_width=True)
 
-        # ----------------------------------------------------
-        # 👻 LABORATÓRIO DE SINCROMISMO (COMPLETAMENTE INDEPENDENTE)
-        # ----------------------------------------------------
         st.divider()
         st.markdown("#### 👻 2. Laboratório de Sincronismo: Performance Teórica Absoluta")
         st.write("Esta secção avalia **TODAS as oportunidades** encontradas pelo robô (quer você tenha apostado nelas ou não), provando estatisticamente o impacto das *Ghost Odds* na rentabilidade geral do algoritmo.")
         
         col_lab1, col_lab2 = st.columns([1, 2])
         with col_lab1:
-            # Filtro exclusivo de Casas de Aposta APENAS para o Laboratório
             casas_lab_disp = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
             casa_lab = st.selectbox("Filtro de Casa (Laboratório):", casas_lab_disp, key="lab_casa")
         with col_lab2:
             limite_ghost = st.slider("Definir limite aceitável para considerar a Odd como 'Real' (Segundos):", min_value=1, max_value=120, value=10, step=1)
         
-        # O LAB IGNORA SE A APOSTA FOI REALIZADA OU NÃO. Puxa TODAS as concluídas!
         df_lab = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
         
         if casa_lab != "Todas as Casas":
             df_lab = df_lab[df_lab['Casa'] == casa_lab]
         
-        # Mantém apenas as linhas que já têm o novo tracking de segundos validado
         df_lab = df_lab.dropna(subset=['Gap_Segundos'])
         df_lab = df_lab[df_lab['Gap_Segundos'] != 999] 
         

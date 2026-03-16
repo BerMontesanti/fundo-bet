@@ -83,7 +83,6 @@ for col, val in colunas_padrao.items():
 # AUTO-CURA DA BASE DE DADOS E FORÇA DE TIPOS
 # ==========================================
 df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
-
 df['Vencedor_Partida'] = df['Vencedor_Partida'].apply(lambda x: "Pendente" if str(x).strip().lower() in ["nan", "", "none"] else x)
 
 def auto_corrigir_status(row):
@@ -110,7 +109,7 @@ def salvar_no_github(dataframe, mensagem):
         return False
 
 # ==========================================
-# PREPARAÇÃO MATEMÁTICA GLOBAL & FUNÇÕES AUXILIARES
+# PREPARAÇÃO MATEMÁTICA GLOBAL (BLINDADA)
 # ==========================================
 def eh_recente(d_str):
     if pd.isna(d_str) or d_str == "": return False
@@ -137,19 +136,25 @@ def classificar_momento(row):
 df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
 df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
 
+# Conversões Seguras (Sem .astype(float) direto para evitar ValueErrors)
 df_calc['Stake_Num'] = pd.to_numeric(df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip(), errors='coerce').fillna(0.0)
 df_calc['ROI_Num'] = pd.to_numeric(df_calc['ROI'].astype(str).str.replace('%', '', regex=False).str.strip(), errors='coerce').fillna(0.0) / 100
 df_calc['Edge_Num'] = pd.to_numeric(df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip(), errors='coerce').fillna(0.0) / 100
 df_calc['Odd_Num'] = pd.to_numeric(df_calc['Odd Casa'], errors='coerce').fillna(0.0)
 
-df_calc['Stake_Final'] = df_calc.apply(lambda x: x['Stake_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Stake_Real']) and float(x['Stake_Real']) > 0) else x['Stake_Num'], axis=1)
-df_calc['Odd_Final'] = df_calc.apply(lambda x: x['Odd_Real'] if (x['Aposta_Realizada'] and pd.notnull(x['Odd_Real']) and float(x['Odd_Real']) > 0) else x['Odd_Num'], axis=1)
+# Blindagem extra para valores inseridos manualmente pelo usuário
+df_calc['Stake_Real_Num'] = pd.to_numeric(df_calc['Stake_Real'], errors='coerce').fillna(0.0)
+df_calc['Odd_Real_Num'] = pd.to_numeric(df_calc['Odd_Real'], errors='coerce').fillna(0.0)
+
+# Cálculo seguro garantindo que tudo é float (evita TypeErrors)
+df_calc['Stake_Final'] = df_calc.apply(lambda x: float(x['Stake_Real_Num']) if (x['Aposta_Realizada'] and float(x['Stake_Real_Num']) > 0) else float(x['Stake_Num']), axis=1)
+df_calc['Odd_Final'] = df_calc.apply(lambda x: float(x['Odd_Real_Num']) if (x['Aposta_Realizada'] and float(x['Odd_Real_Num']) > 0) else float(x['Odd_Num']), axis=1)
 
 df_calc['EV_Esperado_R$'] = df_calc['Stake_Final'] * df_calc['ROI_Num']
 
 def calc_payout_global(row):
-    if row['Status_Aposta'] == 'Green ✅': return row['Stake_Final'] * (row['Odd_Final'] - 1)
-    elif row['Status_Aposta'] == 'Red ❌': return -row['Stake_Final']
+    if row['Status_Aposta'] == 'Green ✅': return float(row['Stake_Final']) * (float(row['Odd_Final']) - 1.0)
+    elif row['Status_Aposta'] == 'Red ❌': return -float(row['Stake_Final'])
     return 0.0
 
 df_calc['Payout'] = df_calc.apply(calc_payout_global, axis=1)
@@ -161,6 +166,7 @@ def calc_roi_realizado(row):
 
 df_calc['ROI_Realizado'] = df_calc.apply(calc_roi_realizado, axis=1)
 
+# Criação das Abas
 tab_dash, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
     "📊 Dashboard", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
 ])
@@ -363,6 +369,7 @@ with tab_apostas:
         
     df_minhas_pendentes = df[mask_minhas].copy()
     
+    # Ordenação Cronológica e Remoção da Casa de Aposta da Visão
     df_minhas_pendentes['Sort_Date'] = pd.to_datetime(df_minhas_pendentes['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
     df_minhas_pendentes = df_minhas_pendentes.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
     
@@ -370,11 +377,16 @@ with tab_apostas:
         st.success("Nenhuma aposta pendente ou recente. Vá à aba 'Alimentar Resultados' para marcar novas oportunidades operadas!")
     else:
         colunas_edicao = ['Data/Hora', 'Jogo', 'Seleção', 'Odd_Real', 'Stake_Real']
+        
+        # Converte as colunas para numérico puro para o editor de dados não se confundir
+        df_minhas_pendentes['Odd_Real'] = pd.to_numeric(df_minhas_pendentes['Odd_Real'], errors='coerce').fillna(0.0)
+        df_minhas_pendentes['Stake_Real'] = pd.to_numeric(df_minhas_pendentes['Stake_Real'], errors='coerce').fillna(0.0)
+
         editado_minhas = st.data_editor(
             df_minhas_pendentes[colunas_edicao],
             column_config={
-                "Odd_Real": st.column_config.NumberColumn("Odd Real Pega", format="%.2f"),
-                "Stake_Real": st.column_config.NumberColumn("Stake Colocada (R$)", format="%.2f"),
+                "Odd_Real": st.column_config.NumberColumn("Odd Real Pega", format="%.2f", min_value=0.0),
+                "Stake_Real": st.column_config.NumberColumn("Stake Colocada (R$)", format="%.2f", min_value=0.0),
             },
             disabled=["Data/Hora", "Jogo", "Seleção"],
             hide_index=True, use_container_width=True, key="editor_apostas_reais"
@@ -387,7 +399,7 @@ with tab_apostas:
                     st.rerun()
 
 # ==========================================
-# ABA 4: ALIMENTAR RESULTADOS (COM CAMPO DE BUSCA)
+# ABA 4: ALIMENTAR RESULTADOS (DESDUPLICADA + BUSCA)
 # ==========================================
 with tab_resultados:
     st.markdown("### 📝 Gestão de Entradas e Placares")
@@ -395,10 +407,9 @@ with tab_resultados:
     
     col_busca, col_check = st.columns([3, 1])
     with col_busca:
-        # NOVO: CAMPO DE PESQUISA INTELIGENTE
         termo_busca = st.text_input("🔍 Buscar por Equipa, Liga ou Seleção:", "", placeholder="Ex: Arsenal, Premier League...")
     with col_check:
-        st.write("") # Espaçamento para alinhar com o campo de texto
+        st.write("") 
         st.write("")
         mostrar_antigos = st.checkbox("Forçar jogos antigos", key="chk_antigos_res")
     
@@ -406,7 +417,6 @@ with tab_resultados:
     if mostrar_antigos: df_mostrar = df.copy()
     else: df_mostrar = df[mask_exibicao].copy()
 
-    # APLICAÇÃO DO FILTRO DE BUSCA (Se o utilizador tiver digitado algo)
     if termo_busca:
         termo_lower = termo_busca.lower()
         mask_busca = (
@@ -416,17 +426,14 @@ with tab_resultados:
         )
         df_mostrar = df_mostrar[mask_busca]
 
-    # Agrupa pelo Jogo e Seleção (Escondendo as múltiplas casas de aposta)
     df_mostrar['Ordem_Status'] = df_mostrar['Status_Aposta'].apply(lambda x: 0 if x == 'Pendente' else 1)
     df_mostrar['Sort_Date'] = pd.to_datetime(df_mostrar['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
     
     df_unicos = df_mostrar.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Seleção']).sort_values(by=['Ordem_Status', 'Sort_Date'], ascending=[True, False])
 
     if df_unicos.empty:
-        if termo_busca:
-            st.warning(f"Nenhum jogo encontrado para '{termo_busca}'.")
-        else:
-            st.success("Nenhuma oportunidade pendente ou recente.")
+        if termo_busca: st.warning(f"Nenhum jogo encontrado para '{termo_busca}'.")
+        else: st.success("Nenhuma oportunidade pendente ou recente.")
     else:
         with st.form("form_resultados_unificado"):
             novos_resultados = []

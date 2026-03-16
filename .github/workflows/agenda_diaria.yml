@@ -1,0 +1,34 @@
+name: 📅 Gerador de Agenda Diaria
+
+on:
+  schedule:
+    # Corre todos os dias às 11:00 UTC (08:00 Horário de Brasília)
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar bibliotecas
+        run: pip install pandas requests
+
+      - name: Rodar Extração de Agenda
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python agenda_jogos.py
+
+      - name: Commit e Push da Agenda
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add agenda_hoje.csv
+          git commit -m "📅 [Agenda] Relatório de Jogos do Dia Atualizado" || exit 0
+          git push

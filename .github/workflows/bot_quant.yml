@@ -2,27 +2,20 @@ name: Executar Bot Quant
 
 on:
   schedule:
-    # 1. MANHÃ/INÍCIO TARDE (10h às 13h BRT): De hora em hora (Minuto 11)
-    # UTC correspondente: 13h às 16h
+    # Horário definido via Dashboard Streamlit
     - cron: '09,30 0-2,18-23 * * *'
-
-    # 2. HORÁRIO DE PICO (14h às 19h BRT): A cada 30 minutos (Minutos 11 e 41)
-    # UTC correspondente: 17h às 22h
-    - cron: '09,30 0-2,18-23 * * *'
-
-    # 3. NOITE (20h às 22h BRT): De hora em hora (Minuto 11)
-    # UTC correspondente: 23h, 00h e 01h (o 0 e 1 são do dia seguinte no UTC)
-    - cron: '09,30 0-2,18-23 * * *'
-
   workflow_dispatch: # Permite rodar manualmente no botão
+
+# ==========================================
+# 🔑 PERMISSÃO GLOBAL DE ESCRITA
+# ==========================================
+permissions:
+  contents: write 
 
 jobs:
   rodar-bot:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write 
-
     steps:
       - name: 📥 Baixar o código do repositório
         uses: actions/checkout@v4
@@ -47,7 +40,8 @@ jobs:
 
       - name: 💾 Salvar o histórico CSV no repositório
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add historico_apostas.csv || true
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Atualizando histórico de apostas (CSV)" && git push)
+          git commit -m "🤖 [Bot Quant] Atualizando histórico de apostas" || exit 0
+          git push

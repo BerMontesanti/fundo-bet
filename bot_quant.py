@@ -76,8 +76,6 @@ CASAS_ALVO = [
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
     apostas_aprovadas = []
-    
-    # Dicionário para guardar placares e poupar chamadas à API
     PLACAR_CACHE = {}
     
     apostas_ja_registadas = set()
@@ -115,6 +113,13 @@ def buscar_oportunidades():
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
                     if not bookie_pin: continue
                     
+                    # 🕒 Captura o Horário Exato da Pinnacle
+                    try:
+                        dt_pin_update = datetime.strptime(bookie_pin.get('last_update', ''), "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
+                        hora_pin = dt_pin_update.strftime("%H:%M:%S")
+                    except:
+                        hora_pin = "N/A"
+
                     outcomes_pin = bookie_pin['markets'][0]['outcomes']
                     sum_inv = sum([1/o['price'] for o in outcomes_pin])
                     probs = {o['name']: (1/o['price']) / sum_inv for o in outcomes_pin}
@@ -125,10 +130,20 @@ def buscar_oportunidades():
                         if b['key'] in CASAS_ALVO:
                             link_bookmaker = b.get('link', '')
                             
+                            # 🕒 Captura o Horário Exato da Casa de Aposta Atrasada
+                            try:
+                                dt_casa_update = datetime.strptime(b.get('last_update', ''), "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
+                                hora_casa = dt_casa_update.strftime("%H:%M:%S")
+                            except:
+                                hora_casa = "N/A"
+                            
                             for o in b['markets'][0]['outcomes']:
                                 selecao = o['name']
                                 odd_soft = o['price']
                                 prob_real_pin = probs.get(selecao)
+                                
+                                # Puxa a odd exata que a Pinnacle estava a oferecer para esta seleção específica
+                                odd_pin_bruta = next((op['price'] for op in outcomes_pin if op['name'] == selecao), 0.0)
                                 
                                 link_mercado = b['markets'][0].get('link', link_bookmaker)
                                 link_final = o.get('link', link_mercado)
@@ -155,15 +170,11 @@ def buscar_oportunidades():
                                         if id_aposta in apostas_ja_registadas:
                                             continue 
 
-                                        # ==========================================
-                                        # EXTRAÇÃO DE PLACAR AO VIVO DA ODDS API
-                                        # ==========================================
                                         placar_texto = "Pré-live"
-                                        hora_odd = agora_brt.strftime("%H:%M:%S")
+                                        hora_odd_live = agora_brt.strftime("%H:%M:%S")
                                         
                                         if dt < agora_brt: # O jogo está ao vivo
                                             if sport_key not in PLACAR_CACHE:
-                                                # Só chama a API de scores se for realmente necessário
                                                 url_scores = f'https://api.the-odds-api.com/v4/sports/{sport_key}/scores/'
                                                 res_scores = requests.get(url_scores, params={'apiKey': API_KEY, 'daysFrom': 1})
                                                 if res_scores.status_code == 200:
@@ -171,20 +182,13 @@ def buscar_oportunidades():
                                                 else:
                                                     PLACAR_CACHE[sport_key] = []
                                             
-                                            # Procura o placar do jogo específico no Cache
                                             for match_score in PLACAR_CACHE[sport_key]:
                                                 if match_score['home_team'] == ev['home_team'] and match_score['away_team'] == ev['away_team']:
                                                     if match_score.get('scores'):
                                                         gols_casa = next((s['score'] for s in match_score['scores'] if s['name'] == ev['home_team']), '0')
                                                         gols_fora = next((s['score'] for s in match_score['scores'] if s['name'] == ev['away_team']), '0')
                                                         placar_texto = f"Ao Vivo ({gols_casa}x{gols_fora})"
-                                                        
-                                                        # Puxa o momento exato em que a odd/placar mudou
-                                                        if match_score.get('last_update'):
-                                                            dt_update = datetime.strptime(match_score['last_update'], "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
-                                                            hora_odd = dt_update.strftime("%H:%M:%S")
                                                     break
-                                        # ==========================================
 
                                         odd_min_ev = (alvo_ev_atual + 1) / prob_real_pin
                                         odd_min_edge = 1 / (prob_real_pin - TARGET_EDGE) if prob_real_pin > TARGET_EDGE else float('inf')
@@ -201,13 +205,15 @@ def buscar_oportunidades():
                                             "Casa": b['title'],
                                             "Seleção": selecao,
                                             "Odd Casa": f"{odd_soft:.2f}",
+                                            "Hora Casa": hora_casa,
+                                            "Odd Pinnacle": f"{odd_pin_bruta:.2f}",
+                                            "Hora Pinnacle": hora_pin,
                                             "Odd Justa": f"{odd_justa:.2f}",
                                             "Odd Limite": f"{odd_limite:.2f}",
                                             "Edge": round(edge * 100, 2),
                                             "ROI": round(roi * 100, 2),
                                             "Stake": f"R$ {stake:.2f}",
                                             "Status_Partida": placar_texto,
-                                            "Hora_Atualizacao": hora_odd,
                                             "Link": link_final
                                         })
             else:
@@ -252,7 +258,6 @@ def enviar_telegram(dados_aprovados):
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
     for index, row in df.iterrows():
-        # Destaque extremo para a BetMGM
         if "betmgm" in str(row['Casa']).lower():
             msg_aposta = (
                 f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n"
@@ -260,9 +265,11 @@ def enviar_telegram(dados_aprovados):
                 f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n\n"
                 f"⚽ *{row['Jogo']}*\n"
                 f"🏆 {row['Liga']} | ⏰ Jogo às {row['Data/Hora']}\n"
-                f"⏱️ **Status:** {row['Status_Partida']} _(Atualizado às {row['Hora_Atualizacao']})_\n\n"
+                f"⏱️ **Status:** {row['Status_Partida']}\n\n"
                 f"🎯 *Seleção:* {row['Seleção']}\n"
-                f"📊 *Odd Atual:* {row['Odd Casa']} *(Limite: {row['Odd Limite']})*\n"
+                f"🔮 *Oráculo (Pinnacle):* {row['Odd Pinnacle']} _(às {row['Hora Pinnacle']})_\n"
+                f"📊 *Odd Casa:* {row['Odd Casa']} _(às {row['Hora Casa']})_\n"
+                f"📉 *(Odd Limite Aceitável: {row['Odd Limite']})*\n\n"
                 f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
                 f"💰 *Stake Recomendada:* {row['Stake']}\n\n"
                 f"🔗 [👉 ABRIR DIRETO NA BETMGM 👈]({row['Link']})\n\n"
@@ -272,10 +279,12 @@ def enviar_telegram(dados_aprovados):
             msg_aposta = (
                 f"⚽ *{row['Jogo']}*\n"
                 f"🏆 {row['Liga']} | ⏰ Jogo às {row['Data/Hora']}\n"
-                f"⏱️ **Status:** {row['Status_Partida']} _(Atualizado às {row['Hora_Atualizacao']})_\n\n"
+                f"⏱️ **Status:** {row['Status_Partida']}\n\n"
                 f"🏠 *Casa:* {row['Casa']}\n"
                 f"🎯 *Seleção:* {row['Seleção']}\n"
-                f"📊 *Odd Atual:* {row['Odd Casa']} *(Limite: {row['Odd Limite']})*\n"
+                f"🔮 *Oráculo (Pinnacle):* {row['Odd Pinnacle']} _(às {row['Hora Pinnacle']})_\n"
+                f"📊 *Odd Atual:* {row['Odd Casa']} _(às {row['Hora Casa']})_\n"
+                f"📉 *(Odd Limite Aceitável: {row['Odd Limite']})*\n\n"
                 f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
                 f"💰 *Stake Recomendada:* {row['Stake']}\n\n"
                 f"🔗 [IR PARA A CASA DE APOSTAS]({row['Link']})"

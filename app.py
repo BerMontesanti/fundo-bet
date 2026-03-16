@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import os
+import json
+import re
 from github import Github
 from datetime import datetime
 import plotly.express as px
@@ -28,6 +30,39 @@ if not st.session_state.autenticado:
 st.title("📈 Dashboard Analítico - Quant Bet EV")
 
 # ==========================================
+# GESTÃO DO POTE (BANCA)
+# ==========================================
+ARQUIVO_BANCA = 'config_banca.json'
+
+def carregar_banca():
+    if os.path.exists(ARQUIVO_BANCA):
+        try:
+            with open(ARQUIVO_BANCA, 'r') as f:
+                return float(json.load(f).get('banca', 250.0))
+        except:
+            return 250.0
+    return 250.0
+
+def salvar_banca_github(valor):
+    data = {"banca": float(valor)}
+    json_str = json.dumps(data, indent=4)
+    with open(ARQUIVO_BANCA, 'w') as f:
+        f.write(json_str)
+        
+    try:
+        g = Github(st.secrets["GITHUB_TOKEN"])
+        repo = g.get_repo(st.secrets["REPO_NAME"])
+        try:
+            contents = repo.get_contents(ARQUIVO_BANCA)
+            repo.update_file(contents.path, "🤖 Atualizando valor do pote", json_str, contents.sha)
+        except:
+            repo.create_file(ARQUIVO_BANCA, "🤖 Criando arquivo de banca", json_str)
+        return True
+    except Exception as e:
+        st.error(f"❌ Erro ao guardar o Pote no GitHub: {e}")
+        return False
+
+# ==========================================
 # 🎛️ CENTRO DE COMANDO (SIDEBAR)
 # ==========================================
 def disparar_workflow_github(nome_ficheiro_yml, nome_amigavel):
@@ -42,9 +77,28 @@ def disparar_workflow_github(nome_ficheiro_yml, nome_amigavel):
     with st.spinner(f'A ligar o motor do {nome_amigavel}...'):
         response = requests.post(url, headers=headers, json=data)
         if response.status_code == 204:
-            st.sidebar.success(f"✅ Ordem enviada! O {nome_amigavel} começou a trabalhar na nuvem.")
+            st.sidebar.success(f"✅ Ordem enviada! O {nome_amigavel} começou a trabalhar.")
         else:
             st.sidebar.error(f"❌ Erro ao ligar robô: {response.text}")
+
+def atualizar_cron_workflow(nome_ficheiro_yml, novo_cron):
+    try:
+        g = Github(st.secrets["GITHUB_TOKEN"])
+        repo = g.get_repo(st.secrets["REPO_NAME"])
+        path = f".github/workflows/{nome_ficheiro_yml}"
+        contents = repo.get_contents(path)
+        conteudo_atual = contents.decoded_content.decode("utf-8")
+        
+        # Regex para encontrar e substituir a linha do cron
+        conteudo_novo = re.sub(r"cron:\s*'.*'", f"cron: '{novo_cron}'", conteudo_atual)
+        
+        if conteudo_novo != conteudo_atual:
+            repo.update_file(contents.path, f"🤖 Atualizando horários de {nome_ficheiro_yml}", conteudo_novo, contents.sha)
+            st.sidebar.success(f"✅ Horário de {nome_ficheiro_yml} alterado com sucesso!")
+        else:
+            st.sidebar.info(f"O horário de {nome_ficheiro_yml} já está configurado assim.")
+    except Exception as e:
+        st.sidebar.error(f"❌ Erro (Verifique se o token tem permissão 'workflow'): {e}")
 
 st.sidebar.markdown("### 🤖 Centro de Comando")
 st.sidebar.write("Controle os robôs da nuvem diretamente por aqui:")
@@ -56,8 +110,21 @@ if st.sidebar.button("🏁 Auto-Resolver Apostas", use_container_width=True):
     disparar_workflow_github("auto_resolucao.yml", "Contabilista de Resultados")
 
 st.sidebar.divider()
-st.sidebar.caption("⏳ *Nota: O GitHub pode demorar de 1 a 3 minutos para concluir a tarefa após o clique.*")
 
+st.sidebar.markdown("### ⏱️ Agendamento dos Robôs")
+st.sidebar.caption("Formato Cron. (Ex: `0 */2 * * *` = a cada 2h | `0 7,19 * * *` = às 07h e 19h UTC)")
+
+cron_varredura = st.sidebar.text_input("Varredura de Odds:", value="0 */2 * * *")
+cron_resolucao = st.sidebar.text_input("Resolução de Placares:", value="0 7,19 * * *")
+
+if st.sidebar.button("💾 Salvar Novos Horários", use_container_width=True):
+    with st.spinner("A alterar os workflows no GitHub..."):
+        atualizar_cron_workflow("bot_quant.yml", cron_varredura)
+        atualizar_cron_workflow("auto_resolucao.yml", cron_resolucao)
+
+# ==========================================
+# LEITURA DA BASE DE DADOS
+# ==========================================
 ARQUIVO = 'historico_apostas.csv'
 
 if not os.path.exists(ARQUIVO):
@@ -81,20 +148,14 @@ for col, val in colunas_padrao.items():
         df[col] = val
 
 # ==========================================
-# AUTO-CURA DA BASE DE DADOS (ANTI DATA-SHIFT)
+# AUTO-CURA DA BASE DE DADOS E FORÇA DE TIPOS
 # ==========================================
 df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
 
 def curar_vencedor_corrompido(row):
     venc = str(row.get('Vencedor_Partida', 'Pendente')).strip()
-    
-    # Se for vazio ou NaN
     if venc.lower() in ["nan", "", "none", "<na>", "nat"]: return "Pendente"
-    
-    # Se for perfeitamente válido
     if venc in ["Pendente", "Draw"]: return venc
-    
-    # Se o nome do vencedor bater com o nome da equipa da Casa ou de Fora
     jogo = str(row.get('Jogo', ''))
     if ' x ' in jogo:
         try:
@@ -102,8 +163,6 @@ def curar_vencedor_corrompido(row):
             if venc == casa.strip() or venc == fora.strip():
                 return venc
         except: pass
-        
-    # ⚠️ SE CHEGOU AQUI: O CSV deslizou e colocou um dado errado nesta coluna! Forçamos o reset para Pendente.
     return "Pendente"
 
 df['Vencedor_Partida'] = df.apply(curar_vencedor_corrompido, axis=1)
@@ -187,6 +246,7 @@ def calc_roi_realizado(row):
 
 df_calc['ROI_Realizado'] = df_calc.apply(calc_roi_realizado, axis=1)
 
+# Criação das Abas
 tab_dash, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
     "📊 Dashboard", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
 ])
@@ -195,6 +255,20 @@ tab_dash, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs
 # ABA 1: DASHBOARD
 # ==========================================
 with tab_dash:
+    # --- Gestor do Valor do Pote ---
+    banca_atual = carregar_banca()
+    
+    col_pote1, col_pote2, col_pote3 = st.columns([1, 2, 2])
+    with col_pote1:
+        novo_valor_pote = st.number_input("💰 Valor do Pote (Banca):", min_value=0.0, value=banca_atual, step=10.0, format="%.2f")
+        if novo_valor_pote != banca_atual:
+            if st.button("💾 Guardar Novo Pote", type="primary"):
+                with st.spinner("Atualizando configurações..."):
+                    if salvar_banca_github(novo_valor_pote):
+                        st.rerun()
+    st.divider()
+    # -------------------------------
+
     st.markdown("### 🎛️ Filtros de Análise")
     filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
     
@@ -333,7 +407,8 @@ with tab_calc:
         with col_calc_1:
             st.markdown("#### 1. Odd da Casa de Apostas (Soft)")
             odd_casa_input = st.number_input("Odd que você quer apostar (ex: BetMGM):", min_value=1.01, value=2.10, step=0.05, format="%.2f")
-            banca_input = st.number_input("Banca Total (R$):", min_value=10.0, value=250.0, step=10.0)
+            # A calculadora agora puxa o pote dinâmico que você salvou no dashboard!
+            banca_input = st.number_input("Banca Total (R$):", min_value=10.0, value=banca_atual, step=10.0)
         with col_calc_2:
             st.markdown("#### 2. Odds da Pinnacle (Sharp)")
             odd_pin_sel = st.number_input("Odd Pinnacle para a sua seleção:", min_value=1.01, value=1.95, step=0.05, format="%.2f")
@@ -598,7 +673,6 @@ with tab_estudos:
 
         st.divider()
         st.markdown("#### 👻 2. Laboratório de Sincronismo: Performance Teórica Absoluta")
-        st.write("Esta secção avalia **TODAS as oportunidades** encontradas pelo robô (quer você tenha apostado nelas ou não), provando estatisticamente o impacto das *Ghost Odds* na rentabilidade geral do algoritmo.")
         
         col_lab1, col_lab2 = st.columns([1, 2])
         with col_lab1:

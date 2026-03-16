@@ -71,7 +71,7 @@ CASAS_ALVO = [
 ]
 
 # ==========================================
-# 🚀 MOTOR DE BUSCA (COM EXTRAÇÃO DE PLACAR AO VIVO)
+# 🚀 MOTOR DE BUSCA (LABORATÓRIO DE GHOST ODDS)
 # ==========================================
 def buscar_oportunidades():
     target_bookmakers = 'pinnacle,' + ','.join(CASAS_ALVO)
@@ -113,11 +113,11 @@ def buscar_oportunidades():
                     bookie_pin = next((b for b in ev['bookmakers'] if b['key'] == 'pinnacle'), None)
                     if not bookie_pin: continue
                     
-                    # 🕒 Captura o Horário Exato da Pinnacle
                     try:
-                        dt_pin_update = datetime.strptime(bookie_pin.get('last_update', ''), "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
-                        hora_pin = dt_pin_update.strftime("%H:%M:%S")
+                        dt_pin_update_utc = datetime.strptime(bookie_pin.get('last_update', ''), "%Y-%m-%dT%H:%M:%SZ")
+                        hora_pin = (dt_pin_update_utc - timedelta(hours=3)).strftime("%H:%M:%S")
                     except:
+                        dt_pin_update_utc = None
                         hora_pin = "N/A"
 
                     outcomes_pin = bookie_pin['markets'][0]['outcomes']
@@ -128,21 +128,26 @@ def buscar_oportunidades():
                     
                     for b in ev['bookmakers']:
                         if b['key'] in CASAS_ALVO:
-                            link_bookmaker = b.get('link', '')
-                            
-                            # 🕒 Captura o Horário Exato da Casa de Aposta Atrasada
                             try:
-                                dt_casa_update = datetime.strptime(b.get('last_update', ''), "%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=3)
-                                hora_casa = dt_casa_update.strftime("%H:%M:%S")
+                                dt_casa_update_utc = datetime.strptime(b.get('last_update', ''), "%Y-%m-%dT%H:%M:%SZ")
+                                hora_casa = (dt_casa_update_utc - timedelta(hours=3)).strftime("%H:%M:%S")
                             except:
+                                dt_casa_update_utc = None
                                 hora_casa = "N/A"
+                            
+                            # 🛑 CÁLCULO DA GHOST ODD (SEM BLOQUEAR)
+                            if dt_pin_update_utc and dt_casa_update_utc:
+                                diff_segundos = abs((dt_pin_update_utc - dt_casa_update_utc).total_seconds())
+                            else:
+                                diff_segundos = 999 # Código de segurança para identificar falha da API na hora do painel
+
+                            link_bookmaker = b.get('link', '')
                             
                             for o in b['markets'][0]['outcomes']:
                                 selecao = o['name']
                                 odd_soft = o['price']
                                 prob_real_pin = probs.get(selecao)
                                 
-                                # Puxa a odd exata que a Pinnacle estava a oferecer para esta seleção específica
                                 odd_pin_bruta = next((op['price'] for op in outcomes_pin if op['name'] == selecao), 0.0)
                                 
                                 link_mercado = b['markets'][0].get('link', link_bookmaker)
@@ -171,9 +176,8 @@ def buscar_oportunidades():
                                             continue 
 
                                         placar_texto = "Pré-live"
-                                        hora_odd_live = agora_brt.strftime("%H:%M:%S")
                                         
-                                        if dt < agora_brt: # O jogo está ao vivo
+                                        if dt < agora_brt:
                                             if sport_key not in PLACAR_CACHE:
                                                 url_scores = f'https://api.the-odds-api.com/v4/sports/{sport_key}/scores/'
                                                 res_scores = requests.get(url_scores, params={'apiKey': API_KEY, 'daysFrom': 1})
@@ -208,6 +212,7 @@ def buscar_oportunidades():
                                             "Hora Casa": hora_casa,
                                             "Odd Pinnacle": f"{odd_pin_bruta:.2f}",
                                             "Hora Pinnacle": hora_pin,
+                                            "Gap_Segundos": int(diff_segundos),
                                             "Odd Justa": f"{odd_justa:.2f}",
                                             "Odd Limite": f"{odd_limite:.2f}",
                                             "Edge": round(edge * 100, 2),
@@ -254,10 +259,19 @@ def enviar_telegram(dados_aprovados):
 
     df = pd.DataFrame(dados_aprovados).sort_values(by="ROI", ascending=False)
     
-    texto_resumo = f"🔥 *Alerta Quant:* Encontradas {len(df)} NOVAS oportunidades +EV!\n\nA enviar a lista abaixo:"
+    texto_resumo = f"🔥 *Alerta Quant:* Encontradas {len(df)} NOVAS oportunidades matemáticas!\n\nA enviar a lista abaixo:"
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
     for index, row in df.iterrows():
+        
+        # 🛑 LÓGICA DE ALERTA DE GHOST ODD
+        if row['Gap_Segundos'] <= 10:
+            alerta_fantasma = f"⚡ *Sincronismo Perfeito:* {row['Gap_Segundos']}s de desfasamento."
+        elif row['Gap_Segundos'] == 999:
+            alerta_fantasma = f"⚠️ *Aviso:* Tempo de atualização não fornecido pelas casas."
+        else:
+            alerta_fantasma = f"👻 *CUIDADO (ODD FANTASMA):* {row['Gap_Segundos']}s de atraso na casa de aposta!"
+
         if "betmgm" in str(row['Casa']).lower():
             msg_aposta = (
                 f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n"
@@ -269,6 +283,7 @@ def enviar_telegram(dados_aprovados):
                 f"🎯 *Seleção:* {row['Seleção']}\n"
                 f"🔮 *Oráculo (Pinnacle):* {row['Odd Pinnacle']} _(às {row['Hora Pinnacle']})_\n"
                 f"📊 *Odd Casa:* {row['Odd Casa']} _(às {row['Hora Casa']})_\n"
+                f"{alerta_fantasma}\n"
                 f"📉 *(Odd Limite Aceitável: {row['Odd Limite']})*\n\n"
                 f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
                 f"💰 *Stake Recomendada:* {row['Stake']}\n\n"
@@ -284,6 +299,7 @@ def enviar_telegram(dados_aprovados):
                 f"🎯 *Seleção:* {row['Seleção']}\n"
                 f"🔮 *Oráculo (Pinnacle):* {row['Odd Pinnacle']} _(às {row['Hora Pinnacle']})_\n"
                 f"📊 *Odd Atual:* {row['Odd Casa']} _(às {row['Hora Casa']})_\n"
+                f"{alerta_fantasma}\n"
                 f"📉 *(Odd Limite Aceitável: {row['Odd Limite']})*\n\n"
                 f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
                 f"💰 *Stake Recomendada:* {row['Stake']}\n\n"
@@ -315,7 +331,7 @@ def enviar_email(dados_aprovados):
         corpo_email = f"""
         <html><body>
           <h2>🤖 Alerta Quant: {len(df)} Novas Oportunidades Encontradas!</h2>
-          <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas:</p>
+          <p>Varredura de {data_atual}. Abaixo estão as apostas identificadas (Com tracking de Ghost Odds):</p>
           {tabela_html}
           <br><p><i>Finalizada em {data_atual} às {hora_atual}</i></p>
         </body></html>

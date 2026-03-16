@@ -363,14 +363,12 @@ with tab_apostas:
         
     df_minhas_pendentes = df[mask_minhas].copy()
     
-    # Ordenação Cronológica e Remoção da Casa de Aposta da Visão
     df_minhas_pendentes['Sort_Date'] = pd.to_datetime(df_minhas_pendentes['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
     df_minhas_pendentes = df_minhas_pendentes.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
     
     if df_minhas_pendentes.empty:
         st.success("Nenhuma aposta pendente ou recente. Vá à aba 'Alimentar Resultados' para marcar novas oportunidades operadas!")
     else:
-        # Removido 'Casa' da lista de edição para limpar a visão da carteira
         colunas_edicao = ['Data/Hora', 'Jogo', 'Seleção', 'Odd_Real', 'Stake_Real']
         editado_minhas = st.data_editor(
             df_minhas_pendentes[colunas_edicao],
@@ -389,19 +387,35 @@ with tab_apostas:
                     st.rerun()
 
 # ==========================================
-# ABA 4: ALIMENTAR RESULTADOS (DESDUPLICADA)
+# ABA 4: ALIMENTAR RESULTADOS (COM CAMPO DE BUSCA)
 # ==========================================
 with tab_resultados:
     st.markdown("### 📝 Gestão de Entradas e Placares")
     st.info("Aqui você diz ao sistema: **1.** Se você apostou na oportunidade, e **2.** Quem ganhou o jogo.")
     
-    mostrar_antigos = st.checkbox("Forçar exibição de jogos antigos", key="chk_antigos_res")
+    col_busca, col_check = st.columns([3, 1])
+    with col_busca:
+        # NOVO: CAMPO DE PESQUISA INTELIGENTE
+        termo_busca = st.text_input("🔍 Buscar por Equipa, Liga ou Seleção:", "", placeholder="Ex: Arsenal, Premier League...")
+    with col_check:
+        st.write("") # Espaçamento para alinhar com o campo de texto
+        st.write("")
+        mostrar_antigos = st.checkbox("Forçar jogos antigos", key="chk_antigos_res")
     
     mask_exibicao = (df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True)
     if mostrar_antigos: df_mostrar = df.copy()
     else: df_mostrar = df[mask_exibicao].copy()
 
-    # ⏱️ ORDENAÇÃO E DEDUPLICAÇÃO INTELIGENTE
+    # APLICAÇÃO DO FILTRO DE BUSCA (Se o utilizador tiver digitado algo)
+    if termo_busca:
+        termo_lower = termo_busca.lower()
+        mask_busca = (
+            df_mostrar['Jogo'].astype(str).str.lower().str.contains(termo_lower) |
+            df_mostrar['Liga'].astype(str).str.lower().str.contains(termo_lower) |
+            df_mostrar['Seleção'].astype(str).str.lower().str.contains(termo_lower)
+        )
+        df_mostrar = df_mostrar[mask_busca]
+
     # Agrupa pelo Jogo e Seleção (Escondendo as múltiplas casas de aposta)
     df_mostrar['Ordem_Status'] = df_mostrar['Status_Aposta'].apply(lambda x: 0 if x == 'Pendente' else 1)
     df_mostrar['Sort_Date'] = pd.to_datetime(df_mostrar['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
@@ -409,7 +423,10 @@ with tab_resultados:
     df_unicos = df_mostrar.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Seleção']).sort_values(by=['Ordem_Status', 'Sort_Date'], ascending=[True, False])
 
     if df_unicos.empty:
-        st.success("Nenhuma oportunidade pendente ou recente.")
+        if termo_busca:
+            st.warning(f"Nenhum jogo encontrado para '{termo_busca}'.")
+        else:
+            st.success("Nenhuma oportunidade pendente ou recente.")
     else:
         with st.form("form_resultados_unificado"):
             novos_resultados = []
@@ -430,7 +447,6 @@ with tab_resultados:
                 
                 col_txt, col_chk, col_sel = st.columns([4, 1, 2])
                 with col_txt:
-                    # 'Casa' foi removida da exibição aqui! Foco só no Jogo e Seleção.
                     st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🎯 Seleção: **{row['Seleção']}** | ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
                 with col_chk:
                     escolha_aposta = st.checkbox("Apostei?", value=apostado_atual, key=f"chk_{index}")
@@ -453,18 +469,14 @@ with tab_resultados:
                         novo_venc = item['Vencedor_Partida']
                         nova_aposta = item['Aposta_Realizada']
                         
-                        # Atualiza Vencedor para TODAS as casas de aposta que detetaram este jogo
                         mask_jogo = (df['Jogo'] == item['Jogo']) & (df['Data/Hora'] == item['Data/Hora'])
                         
                         if novo_venc != "Pendente" and df.loc[mask_jogo, 'Vencedor_Partida'].iloc[0] == "Pendente":
                             df.loc[mask_jogo, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                         
                         df.loc[mask_jogo, 'Vencedor_Partida'] = novo_venc
-                        
-                        # Atualiza 'Apostei?' APENAS na linha mestre escolhida (para não duplicar a aposta pessoal na Aba 3)
                         df.at[idx_unico, 'Aposta_Realizada'] = nova_aposta
                         
-                        # Recalcula o Status (Green/Red) para todos os registros desse jogo
                         for idx_calc in df[mask_jogo].index:
                             sel = str(df.at[idx_calc, 'Seleção']).strip()
                             venc_str = str(novo_venc).strip()

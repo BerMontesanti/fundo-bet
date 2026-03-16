@@ -20,7 +20,13 @@ EMAILS_DESTINO = [
     "bernardo.montesanti@gmail.com"
 ]
 
-BANCA_RS = 218.0
+import json
+
+try:
+    with open('config_banca.json', 'r') as f:
+        BANCA_RS = float(json.load(f).get('banca', 250.0))
+except:
+    BANCA_RS = 218.0
 TAXA_USD = 5.20
 BANCA_USDC = BANCA_RS / TAXA_USD
 

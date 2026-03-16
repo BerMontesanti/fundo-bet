@@ -7,8 +7,9 @@ from datetime import datetime, timedelta
 # ⚙️ CONFIGURAÇÕES DA CONTA
 # ==========================================
 API_KEY = os.environ.get('ODDS_API_KEY')
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
-# A mesma lista do seu robô principal
 LIGAS = [
     ("Futebol - Premier League (ING)", "soccer_epl"),
     ("Futebol - Championship (ING)", "soccer_england_championship"),
@@ -40,17 +41,51 @@ LIGAS = [
     ("Futebol Americano - NFL", "americanfootball_nfl"),
 ]
 
+def enviar_telegram(df_agenda, hoje_str):
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("⚠️ Credenciais do Telegram não encontradas. Saltando envio.")
+        return
+
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+
+    if df_agenda.empty:
+        texto = f"📅 *Agenda QuantBet ({hoje_str}):*\n\n💤 Não há jogos programados para hoje nas nossas ligas."
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto, "parse_mode": "Markdown"})
+        return
+
+    # Constrói a mensagem agrupada por Ligas
+    texto = f"📅 *Agenda QuantBet ({hoje_str}):*\n\n"
+    ligas_hoje = sorted(df_agenda['Liga'].unique())
+
+    for liga in ligas_hoje:
+        texto += f"🏆 *{liga}*\n"
+        df_liga = df_agenda[df_agenda['Liga'] == liga]
+        for _, row in df_liga.iterrows():
+            texto += f"⏰ {row['Horário']} - {row['Jogo']}\n"
+        texto += "\n"
+
+    # O Telegram tem um limite de 4096 caracteres por mensagem. 
+    # Se a lista de jogos for gigante (ex: fim de semana), dividimos em partes.
+    if len(texto) > 4000:
+        partes = [texto[i:i+4000] for i in range(0, len(texto), 4000)]
+        for parte in partes:
+            requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": parte, "parse_mode": "Markdown"})
+    else:
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto, "parse_mode": "Markdown"})
+    
+    print("📲 Agenda enviada com sucesso para o Telegram!")
+
 def gerar_agenda_do_dia():
     agora_brt = datetime.utcnow() - timedelta(hours=3)
     hoje_brt = agora_brt.date()
-    print(f"📅 A gerar agenda para o dia {hoje_brt}...")
+    hoje_str = hoje_brt.strftime("%d/%m/%Y")
+    print(f"📅 A gerar agenda para o dia {hoje_brt} (The Odds API)...")
     
     jogos_do_dia = []
 
     for nome_liga, sport_key in LIGAS:
         url = f'https://api.the-odds-api.com/v4/sports/{sport_key}/odds/'
         try:
-            # Usamos apenas a região 'eu' para gastar apenas 1 crédito por esporte (é o suficiente para ver quem vai jogar)
             res = requests.get(url, params={'apiKey': API_KEY, 'regions': 'eu', 'markets': 'h2h'})
             
             if res.status_code == 200:
@@ -71,16 +106,17 @@ def gerar_agenda_do_dia():
         except Exception as e:
             print(f"❌ Erro ao extrair agenda de {nome_liga}: {e}")
 
-    # Salva os dados processados num novo CSV de agenda
     if jogos_do_dia:
         df = pd.DataFrame(jogos_do_dia)
         df = df.sort_values(by="Hora_Sort").drop(columns=["Hora_Sort"])
         df.to_csv("agenda_hoje.csv", index=False)
-        print(f"✅ Agenda salva com sucesso! Encontrados {len(df)} jogos hoje.")
+        print(f"✅ Agenda salva no CSV! Encontrados {len(df)} jogos hoje.")
+        enviar_telegram(df, hoje_str)
     else:
         df_vazio = pd.DataFrame(columns=["Horário", "Esporte", "Liga", "Jogo"])
         df_vazio.to_csv("agenda_hoje.csv", index=False)
         print("⚠️ Nenhum jogo agendado para hoje nas ligas selecionadas.")
+        enviar_telegram(df_vazio, hoje_str)
 
 if __name__ == "__main__":
     gerar_agenda_do_dia()

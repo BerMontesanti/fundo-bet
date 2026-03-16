@@ -30,36 +30,71 @@ if not st.session_state.autenticado:
 st.title("📈 Dashboard Analítico - Quant Bet EV")
 
 # ==========================================
-# GESTÃO DO POTE (BANCA)
+# GESTÃO DO POTE & LIGAS (JSON)
 # ==========================================
 ARQUIVO_BANCA = 'config_banca.json'
+ARQUIVO_LIGAS = 'ligas_config.json'
+
+DEFAULT_LIGAS = {
+    "soccer_epl": "Futebol - Premier League (ING)",
+    "soccer_england_championship": "Futebol - Championship (ING)",
+    "soccer_spain_la_liga": "Futebol - La Liga (ESP)",
+    "soccer_italy_serie_a": "Futebol - Serie A (ITA)",
+    "soccer_germany_bundesliga": "Futebol - Bundesliga (ALE)",
+    "soccer_france_ligue_one": "Futebol - Ligue 1 (FRA)",
+    "soccer_portugal_primeira_liga": "Futebol - Primeira Liga (POR)",
+    "soccer_netherlands_eredivisie": "Futebol - Eredivisie (HOL)",
+    "soccer_uefa_champs_league": "Futebol - Champions League",
+    "soccer_uefa_europa_league": "Futebol - Europa League",
+    "soccer_brazil_campeonato": "Futebol - Brasil Série A",
+    "soccer_brazil_serie_b": "Futebol - Brasil Série B",
+    "soccer_conmebol_libertadores": "Futebol - Libertadores",
+    "soccer_conmebol_sudamericana": "Futebol - Sul-Americana",
+    "soccer_argentina_primera_division": "Futebol - Argentina Primera",
+    "soccer_colombia_primera_a": "Futebol - Colômbia Primera A",
+    "soccer_chile_campeonato": "Futebol - Chile Primera",
+    "soccer_mexico_ligamx": "Futebol - México Liga MX",
+    "soccer_usa_mls": "Futebol - MLS (EUA)",
+    "basketball_nba": "Basquete - NBA",
+    "basketball_wnba": "Basquete - WNBA",
+    "basketball_ncaa": "Basquete - NCAA",
+    "basketball_euroleague": "Basquete - Euroleague",
+    "tennis_atp_match": "Tênis - ATP Singles",
+    "tennis_wta_match": "Tênis - WTA Singles",
+    "americanfootball_nfl": "Futebol Americano - NFL"
+}
 
 def carregar_banca():
     if os.path.exists(ARQUIVO_BANCA):
         try:
             with open(ARQUIVO_BANCA, 'r') as f:
                 return float(json.load(f).get('banca', 250.0))
-        except:
-            return 250.0
+        except: return 250.0
     return 250.0
 
-def salvar_banca_github(valor):
-    data = {"banca": float(valor)}
-    json_str = json.dumps(data, indent=4)
-    with open(ARQUIVO_BANCA, 'w') as f:
+def carregar_config_ligas():
+    if os.path.exists(ARQUIVO_LIGAS):
+        try:
+            with open(ARQUIVO_LIGAS, 'r') as f:
+                return json.load(f)
+        except: pass
+    return {"disponiveis": DEFAULT_LIGAS, "selecionadas": list(DEFAULT_LIGAS.keys())}
+
+def salvar_json_github(nome_arquivo, dados_dict, mensagem):
+    json_str = json.dumps(dados_dict, indent=4)
+    with open(nome_arquivo, 'w') as f:
         f.write(json_str)
-        
     try:
         g = Github(st.secrets["GITHUB_TOKEN"])
         repo = g.get_repo(st.secrets["REPO_NAME"])
         try:
-            contents = repo.get_contents(ARQUIVO_BANCA)
-            repo.update_file(contents.path, "🤖 Atualizando valor do pote", json_str, contents.sha)
+            contents = repo.get_contents(nome_arquivo)
+            repo.update_file(contents.path, mensagem, json_str, contents.sha)
         except:
-            repo.create_file(ARQUIVO_BANCA, "🤖 Criando arquivo de banca", json_str)
+            repo.create_file(nome_arquivo, mensagem, json_str)
         return True
     except Exception as e:
-        st.error(f"❌ Erro ao guardar o Pote no GitHub: {e}")
+        st.error(f"❌ Erro ao salvar {nome_arquivo} no GitHub: {e}")
         return False
 
 # ==========================================
@@ -130,20 +165,9 @@ if not os.path.exists(ARQUIVO):
     df = pd.DataFrame()
 else:
     df = pd.read_csv(ARQUIVO)
-
-    colunas_padrao = {
-        'Vencedor_Partida': 'Pendente',
-        'Status_Aposta': 'Pendente',
-        'Aposta_Realizada': False,
-        'Odd_Real': 0.0,
-        'Stake_Real': 0.0,
-        'Data_Resolucao': "",
-        'Achado_em': "",
-        'Gap_Segundos': pd.NA 
-    }
+    colunas_padrao = {'Vencedor_Partida': 'Pendente', 'Status_Aposta': 'Pendente', 'Aposta_Realizada': False, 'Odd_Real': 0.0, 'Stake_Real': 0.0, 'Data_Resolucao': "", 'Achado_em': "", 'Gap_Segundos': pd.NA}
     for col, val in colunas_padrao.items():
-        if col not in df.columns:
-            df[col] = val
+        if col not in df.columns: df[col] = val
 
     df['Aposta_Realizada'] = df['Aposta_Realizada'].astype(str).str.strip().str.lower().map({'true': True, '1': True, '1.0': True}).fillna(False).astype(bool)
 
@@ -243,8 +267,8 @@ if not df.empty:
 # ==========================================
 # CRIAÇÃO DAS ABAS
 # ==========================================
-tab_dash, tab_agenda, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
-    "📊 Dashboard", "📅 Agenda do Dia", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Alimentar Resultados", "🗄️ Histórico", "🔬 Estudos Estatísticos"
+tab_dash, tab_ligas, tab_agenda, tab_calc, tab_apostas, tab_resultados, tab_hist, tab_estudos = st.tabs([
+    "📊 Dashboard", "🌍 Gestão de Ligas", "📅 Agenda do Dia", "🧮 Calculadora EV", "🎯 Minhas Apostas", "📝 Resultados", "🗄️ Histórico", "🔬 Estudos"
 ])
 
 # ==========================================
@@ -259,7 +283,7 @@ with tab_dash:
             if novo_valor_pote != banca_atual:
                 if st.button("💾 Guardar Novo Pote", type="primary"):
                     with st.spinner("Atualizando configurações..."):
-                        if salvar_banca_github(novo_valor_pote):
+                        if salvar_json_github(ARQUIVO_BANCA, {"banca": novo_valor_pote}, "🤖 Atualizando valor do pote"):
                             st.rerun()
         st.divider()
 
@@ -294,7 +318,6 @@ with tab_dash:
         if tipo_selecionado != "Todos os Momentos": df_dash = df_dash[df_dash['Momento_Alerta'] == tipo_selecionado]
 
         df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
-
         st.divider()
 
         col1, col2, col3, col4 = st.columns(4)
@@ -309,70 +332,29 @@ with tab_dash:
         
         ev_total_global = df_resolvidas['EV_Esperado_R$'].sum()
         col5.metric("EV Esperado", f"R$ {ev_total_global:.2f}")
-        
         payout_total_global = df_resolvidas['Payout'].sum()
         col6.metric("Payout", f"R$ {payout_total_global:.2f}", delta=f"R$ {payout_total_global:.2f}")
-        
         payout_ev_ratio = (payout_total_global / ev_total_global * 100) if ev_total_global != 0 else 0.0
         col7.metric("EV Realization Rate", f"{payout_ev_ratio:.1f}%")
-        
         yield_global = (payout_total_global / stake_total_global * 100) if stake_total_global > 0 else 0.0
         col8.metric("Yield Global", f"{yield_global:.2f}%")
 
-        if not df_resolvidas.empty:
-            df_resolvidas['Data_Curta'] = df_resolvidas['Data/Hora'].str[:5] 
-            grafico_dados = df_resolvidas.groupby('Data_Curta').agg(Payout_Diario=('Payout', 'sum'), Stake_Diaria=('Stake_Final', 'sum')).reset_index()
-            grafico_dados['Payout Acumulado'] = grafico_dados['Payout_Diario'].cumsum()
-            grafico_dados['Stake Acumulada'] = grafico_dados['Stake_Diaria'].cumsum()
-            grafico_dados['Yield Acumulado (%)'] = (grafico_dados['Payout Acumulado'] / grafico_dados['Stake Acumulada']) * 100
-            
-            col_g1, col_g2 = st.columns(2)
-            with col_g1:
-                st.markdown(f"### 📈 Evolução Financeira (R$)")
-                fig_fin = px.line(grafico_dados, x='Data_Curta', y=['Stake Acumulada', 'Payout Acumulado'], markers=True, labels={'value': 'Valor (R$)', 'variable': 'Métrica', 'Data_Curta': 'Data'})
-                fig_fin.for_each_trace(lambda t: t.update(name={'Stake Acumulada': 'Stake Total', 'Payout Acumulado': 'Payout'}.get(t.name, t.name)))
-                st.plotly_chart(fig_fin, use_container_width=True)
-            with col_g2:
-                st.markdown(f"### 🚀 Evolução do Yield (%)")
-                fig_yield = px.line(grafico_dados, x='Data_Curta', y='Yield Acumulado (%)', markers=True, labels={'Yield Acumulado (%)': 'Yield (%)', 'Data_Curta': 'Data'})
-                fig_yield.update_traces(line_color="#00CC96" if yield_global >= 0 else "#EF553B")
-                st.plotly_chart(fig_yield, use_container_width=True)
-
         st.divider()
-
         st.markdown("### 📊 Performance Detalhada (Agrupamento)")
         agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga", "Momento_Alerta"], horizontal=True)
         col_grupo = "Casa" if agrupamento == "Casa de Aposta" else agrupamento
 
-        analise_tabela = df_resolvidas.groupby(col_grupo).agg(
-            Oportunidades=(col_grupo, 'count'),
-            Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()),
-            Edge_Medio=('Edge_Num', 'mean'),
-            EV_Medio=('ROI_Num', 'mean'),
-            Stake_Total=('Stake_Final', 'sum'),
-            EV_Esperado=('EV_Esperado_R$', 'sum'),
-            Payout=('Payout', 'sum')
-        ).reset_index()
+        analise_tabela = df_resolvidas.groupby(col_grupo).agg(Oportunidades=(col_grupo, 'count'), Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()), Edge_Medio=('Edge_Num', 'mean'), EV_Medio=('ROI_Num', 'mean'), Stake_Total=('Stake_Final', 'sum'), EV_Esperado=('EV_Esperado_R$', 'sum'), Payout=('Payout', 'sum')).reset_index()
         
         if col_grupo == "Casa" and casa_selecionada == "Todas as Casas":
             df_minhas = df_resolvidas[df_resolvidas['Aposta_Realizada'] == True]
             if not df_minhas.empty:
-                linha_minhas = {
-                    'Casa': '⭐ MINHAS APOSTAS (Sua Carteira)',
-                    'Oportunidades': len(df_minhas),
-                    'Greens': (df_minhas['Status_Aposta'] == 'Green ✅').sum(),
-                    'Edge_Medio': df_minhas['Edge_Num'].mean(),
-                    'EV_Medio': df_minhas['ROI_Num'].mean(),
-                    'Stake_Total': df_minhas['Stake_Final'].sum(),
-                    'EV_Esperado': df_minhas['EV_Esperado_R$'].sum(),
-                    'Payout': df_minhas['Payout'].sum()
-                }
+                linha_minhas = {'Casa': '⭐ MINHAS APOSTAS (Sua Carteira)', 'Oportunidades': len(df_minhas), 'Greens': (df_minhas['Status_Aposta'] == 'Green ✅').sum(), 'Edge_Medio': df_minhas['Edge_Num'].mean(), 'EV_Medio': df_minhas['ROI_Num'].mean(), 'Stake_Total': df_minhas['Stake_Final'].sum(), 'EV_Esperado': df_minhas['EV_Esperado_R$'].sum(), 'Payout': df_minhas['Payout'].sum()}
                 analise_tabela = pd.concat([analise_tabela, pd.DataFrame([linha_minhas])], ignore_index=True)
 
         analise_tabela['Yield'] = analise_tabela.apply(lambda x: (x['Payout'] / x['Stake_Total'] * 100) if x['Stake_Total'] > 0 else 0.0, axis=1)
         analise_tabela['Taxa_Acerto'] = analise_tabela.apply(lambda x: (x['Greens'] / x['Oportunidades'] * 100) if x['Oportunidades'] > 0 else 0.0, axis=1)
         analise_tabela['EV Realization Rate'] = analise_tabela.apply(lambda x: (x['Payout'] / x['EV_Esperado'] * 100) if x['EV_Esperado'] != 0 else 0.0, axis=1)
-        
         analise_tabela = analise_tabela.sort_values(by=['Yield', 'Oportunidades'], ascending=[False, False])
 
         tabela_exibicao = analise_tabela.copy()
@@ -389,21 +371,92 @@ with tab_dash:
         st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
 # ==========================================
-# ABA 2: AGENDA DO DIA
+# ABA 2: GESTÃO DE LIGAS (NOVA)
+# ==========================================
+with tab_ligas:
+    st.markdown("### 🌍 Catálogo Dinâmico de Ligas")
+    st.info("Aqui você escolhe as ligas em que o robô deve operar. Se a The Odds API abrir torneios novos amanhã, o robô vai detectá-los, adicioná-los a esta lista automaticamente e avisá-lo no Telegram!")
+
+    config_ligas = carregar_config_ligas()
+    opcoes_disponiveis = config_ligas.get("disponiveis", {})
+    ligas_selecionadas_atuais = config_ligas.get("selecionadas", [])
+    
+    # Filtro de segurança (caso alguma liga salva já não exista no dicionário)
+    ligas_validas_selecionadas = [k for k in ligas_selecionadas_atuais if k in opcoes_disponiveis]
+
+    def formatar_nome_liga(chave):
+        return f"{opcoes_disponiveis[chave]} ({chave})"
+
+    with st.form("form_gestao_ligas"):
+        st.write("✅ **Selecione os mercados que deseja incluir na varredura:**")
+        st.caption(f"Total no Catálogo: {len(opcoes_disponiveis)} ligas.")
+        
+        novas_selecionadas = st.multiselect(
+            "Ligas Ativas para o Robô:",
+            options=list(opcoes_disponiveis.keys()),
+            default=ligas_validas_selecionadas,
+            format_func=formatar_nome_liga
+        )
+        
+        btn_salvar_ligas = st.form_submit_button("💾 Salvar Portfólio de Ligas", type="primary")
+
+    if btn_salvar_ligas:
+        config_ligas["selecionadas"] = novas_selecionadas
+        with st.spinner("A guardar o seu portfólio na nuvem..."):
+            if salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Atualizando ligas alvo"):
+                st.success("✅ Ligas atualizadas! A próxima varredura do robô já usará esta configuração.")
+                st.rerun()
+
+    st.divider()
+    st.markdown("#### 🔄 Forçar Triagem Manual")
+    st.write("Não quer esperar pelo robô? Clique no botão abaixo para buscar imediatamente todas as ligas que abriram mercado no mundo neste exato segundo.")
+    
+    api_key_input = st.secrets.get("ODDS_API_KEY", "")
+    if not api_key_input:
+        api_key_input = st.text_input("Cole a sua chave The Odds API para fazer a triagem agora:", type="password")
+        
+    if st.button("📡 Puxar Ligas Abertas Agora", use_container_width=True):
+        if not api_key_input:
+            st.error("Por favor, insira a chave da API acima ou configure-a nos Secrets do Streamlit.")
+        else:
+            with st.spinner("A bater na porta da The Odds API (Custo: 0 créditos)..."):
+                try:
+                    res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_input})
+                    if res.status_code == 200:
+                        novos_encontrados = 0
+                        for sport in res.json():
+                            k = sport['key']
+                            t = sport['title']
+                            if sport.get('active', True) and k not in opcoes_disponiveis:
+                                opcoes_disponiveis[k] = t
+                                novos_encontrados += 1
+                        
+                        if novos_encontrados > 0:
+                            config_ligas["disponiveis"] = opcoes_disponiveis
+                            salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Triagem manual: novas ligas")
+                            st.success(f"🎉 Magia! Encontrámos {novos_encontrados} ligas novas. A página vai recarregar para atualizar a lista.")
+                            st.rerun()
+                        else:
+                            st.info("O catálogo já está 100% atualizado. Nenhuma liga nova abriu mercado neste momento.")
+                    else:
+                        st.error(f"Erro na API: {res.status_code}")
+                except Exception as e:
+                    st.error(f"Erro de conexão: {e}")
+
+# ==========================================
+# ABA 3: AGENDA DO DIA
 # ==========================================
 with tab_agenda:
     st.markdown("### 📅 Agenda de Jogos do Dia")
-    st.info("Esta lista exibe os jogos de hoje (Fuso: Brasília) para todas as ligas monitorizadas. O relatório é gerado automaticamente pelo robô 'Jornaleiro' na nuvem às 08h00 da manhã.")
+    st.info("Esta lista exibe os jogos de hoje (Fuso: Brasília) para todas as ligas do seu Portfólio. O relatório é gerado automaticamente pelo robô 'Jornaleiro' na nuvem.")
 
     ARQUIVO_AGENDA = 'agenda_hoje.csv'
     if os.path.exists(ARQUIVO_AGENDA):
         df_agenda = pd.read_csv(ARQUIVO_AGENDA)
-        
         if df_agenda.empty:
             st.success("⚽ Não há nenhum jogo agendado para hoje nas suas ligas ativas!")
         else:
             modo_visao = st.radio("Selecione o formato de visualização:", ["⏰ Ordem Cronológica Geral", "🏆 Agrupado por Ligas"], horizontal=True)
-            
             if modo_visao == "⏰ Ordem Cronológica Geral":
                 st.dataframe(df_agenda, hide_index=True, use_container_width=True)
             else:
@@ -416,12 +469,10 @@ with tab_agenda:
         st.warning("⚠️ O relatório de hoje ainda não foi gerado. Pode dispará-lo manualmente usando o botão 'Gerar Agenda Agora' no Centro de Comando lateral.")
 
 # ==========================================
-# ABA 3: CALCULADORA EV
+# ABA 4: CALCULADORA EV
 # ==========================================
 with tab_calc:
     st.markdown("### 🧮 Calculadora Rápida de EV")
-    st.write("Introduza as odds para descobrir se há valor matemático na aposta e qual a stake ideal.")
-
     with st.form("form_calculadora_ev"):
         col_calc_1, col_calc_2 = st.columns(2)
         with col_calc_1:
@@ -432,157 +483,116 @@ with tab_calc:
             st.markdown("#### 2. Odds da Pinnacle (Sharp)")
             odd_pin_sel = st.number_input("Odd Pinnacle para a sua seleção:", min_value=1.01, value=1.95, step=0.05, format="%.2f")
             odd_pin_opp = st.number_input("Odd Pinnacle para o oponente (Lay/Dupla Chance):", min_value=1.01, value=1.85, step=0.05, format="%.2f")
-            st.caption("*(Dica: Num mercado 1X2, some a probabilidade do Empate e do Visitante e converta para Odd, ou use um mercado Asiático 2-way)*")
-
         btn_calcular = st.form_submit_button("🎯 Calcular EV", type="primary", use_container_width=True)
 
     if btn_calcular:
         if odd_pin_sel > 1.0 and odd_pin_opp > 1.0 and odd_casa_input > 1.0:
-            imp_sel = 1 / odd_pin_sel
-            imp_opp = 1 / odd_pin_opp
-            margem_total = imp_sel + imp_opp
-            
-            prob_real = imp_sel / margem_total
-            odd_justa = 1 / prob_real
-            
+            imp_sel, imp_opp = 1 / odd_pin_sel, 1 / odd_pin_opp
+            prob_real = imp_sel / (imp_sel + imp_opp)
             roi_calc = (prob_real * odd_casa_input) - 1
             edge_calc = prob_real - (1 / odd_casa_input)
-            
             b_kelly = odd_casa_input - 1
             f_kelly = (prob_real * b_kelly - (1 - prob_real)) / b_kelly
-            
             stake_calc = banca_input * (f_kelly * 0.25) if f_kelly > 0 else 0.0
 
             st.markdown("### 🎯 Resultados da Análise")
             res_c1, res_c2, res_c3, res_c4 = st.columns(4)
             res_c1.metric("Probabilidade Real", f"{(prob_real * 100):.1f}%")
-            res_c2.metric("Odd Justa (Fair Odd)", f"{odd_justa:.2f}")
-            
+            res_c2.metric("Odd Justa", f"{(1 / prob_real):.2f}")
             if edge_calc > 0:
-                res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "Aposta de Valor +EV")
-                res_c4.metric("Stake Recomendada", f"R$ {stake_calc:.2f}", f"ROI Esperado: {(roi_calc * 100):.1f}%")
-                st.success("✅ **SINAL VERDE!** A casa está a oferecer um prémio superior ao risco real.")
+                res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "Aposta +EV")
+                res_c4.metric("Stake Recomendada", f"R$ {stake_calc:.2f}", f"ROI: {(roi_calc * 100):.1f}%")
             else:
-                res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "-EV (Não Apostar)")
-                res_c4.metric("Stake Recomendada", "R$ 0.00", "Aposta com Prejuízo")
-                st.error("❌ **SINAL VERMELHO!** A odd da casa não compensa o risco.")
+                res_c3.metric("Edge (Vantagem)", f"{(edge_calc * 100):.2f}%", "-EV")
+                res_c4.metric("Stake Recomendada", "R$ 0.00", "Prejuízo")
 
 # ==========================================
-# ABA 4: MINHAS APOSTAS
+# ABA 5: MINHAS APOSTAS
 # ==========================================
 with tab_apostas:
     if not df.empty:
         st.markdown("### 🎯 Detalhamento das Suas Apostas")
-        st.info("Insira a Odd e a Stake exatas que operou na sua carteira.")
-        
-        mostrar_antigas_apostas = st.checkbox("Forçar exibição de apostas antigas já finalizadas", key="chk_antigas_ap")
-        
-        if mostrar_antigas_apostas: mask_minhas = (df['Aposta_Realizada'] == True)
+        mostrar_antigas = st.checkbox("Forçar exibição de apostas finalizadas", key="chk_antigas_ap")
+        if mostrar_antigas: mask_minhas = (df['Aposta_Realizada'] == True)
         else: mask_minhas = (df['Aposta_Realizada'] == True) & ((df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True))
-            
-        df_minhas_pendentes = df[mask_minhas].copy()
-        df_minhas_pendentes['Sort_Date'] = pd.to_datetime(df_minhas_pendentes['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
-        df_minhas_pendentes = df_minhas_pendentes.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
+        df_minhas = df[mask_minhas].copy()
+        df_minhas['Sort_Date'] = pd.to_datetime(df_minhas['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
+        df_minhas = df_minhas.sort_values(by='Sort_Date', ascending=False).drop(columns=['Sort_Date'])
         
-        if df_minhas_pendentes.empty:
-            st.success("Nenhuma aposta pendente ou recente. Vá à aba 'Alimentar Resultados' para marcar novas oportunidades operadas!")
+        if df_minhas.empty: st.success("Nenhuma aposta pendente.")
         else:
             colunas_edicao = ['Data/Hora', 'Jogo', 'Seleção', 'Odd_Real', 'Stake_Real']
-            df_minhas_pendentes['Odd_Real'] = pd.to_numeric(df_minhas_pendentes['Odd_Real'], errors='coerce').fillna(0.0)
-            df_minhas_pendentes['Stake_Real'] = pd.to_numeric(df_minhas_pendentes['Stake_Real'], errors='coerce').fillna(0.0)
-
-            editado_minhas = st.data_editor(
-                df_minhas_pendentes[colunas_edicao],
-                column_config={
-                    "Odd_Real": st.column_config.NumberColumn("Odd Real Pega", format="%.2f", min_value=0.0),
-                    "Stake_Real": st.column_config.NumberColumn("Stake Colocada (R$)", format="%.2f", min_value=0.0),
-                },
-                disabled=["Data/Hora", "Jogo", "Seleção"],
-                hide_index=True, use_container_width=True, key="editor_apostas_reais"
-            )
-            if st.button("💾 Salvar Valores Executados", type="primary", key="btn_salvar_valores"):
-                with st.spinner('A salvar na nuvem...'):
-                    df.update(editado_minhas[['Odd_Real', 'Stake_Real']])
-                    df = df.drop(columns=['Recente'], errors='ignore')
-                    if salvar_no_github(df, "🤖 Atualizando stake e odd real"): st.rerun()
+            df_minhas['Odd_Real'] = pd.to_numeric(df_minhas['Odd_Real'], errors='coerce').fillna(0.0)
+            df_minhas['Stake_Real'] = pd.to_numeric(df_minhas['Stake_Real'], errors='coerce').fillna(0.0)
+            editado = st.data_editor(df_minhas[colunas_edicao], column_config={"Odd_Real": st.column_config.NumberColumn("Odd Real", format="%.2f"), "Stake_Real": st.column_config.NumberColumn("Stake (R$)", format="%.2f")}, disabled=["Data/Hora", "Jogo", "Seleção"], hide_index=True, use_container_width=True)
+            if st.button("💾 Salvar Valores", type="primary"):
+                with st.spinner('A salvar...'):
+                    df.update(editado[['Odd_Real', 'Stake_Real']])
+                    if salvar_no_github(df.drop(columns=['Recente'], errors='ignore'), "🤖 Atualizando carteira"): st.rerun()
 
 # ==========================================
-# ABA 5: ALIMENTAR RESULTADOS
+# ABA 6: ALIMENTAR RESULTADOS
 # ==========================================
 with tab_resultados:
     if not df.empty:
         st.markdown("### 📝 Gestão de Entradas e Placares")
         col_busca, col_check = st.columns([3, 1])
-        with col_busca: termo_busca = st.text_input("🔍 Buscar por Equipa, Liga ou Seleção:", "", placeholder="Ex: Arsenal, Premier League...")
+        with col_busca: termo = st.text_input("🔍 Buscar:", "", placeholder="Ex: Arsenal...")
         with col_check:
             st.write("") 
             st.write("")
-            mostrar_antigos = st.checkbox("Forçar jogos antigos", key="chk_antigos_res")
+            mostrar_antigos = st.checkbox("Forçar jogos antigos", key="chk_res")
         
-        mask_exibicao = (df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True)
-        if mostrar_antigos: df_mostrar = df.copy()
-        else: df_mostrar = df[mask_exibicao].copy()
+        mask = (df['Status_Aposta'] == 'Pendente') | (df['Recente'] == True)
+        df_mostrar = df.copy() if mostrar_antigos else df[mask].copy()
 
-        if termo_busca:
-            termo_lower = termo_busca.lower()
-            mask_busca = (df_mostrar['Jogo'].astype(str).str.lower().str.contains(termo_lower) | df_mostrar['Liga'].astype(str).str.lower().str.contains(termo_lower) | df_mostrar['Seleção'].astype(str).str.lower().str.contains(termo_lower))
-            df_mostrar = df_mostrar[mask_busca]
+        if termo:
+            mask_b = (df_mostrar['Jogo'].astype(str).str.lower().str.contains(termo.lower()) | df_mostrar['Liga'].astype(str).str.lower().str.contains(termo.lower()) | df_mostrar['Seleção'].astype(str).str.lower().str.contains(termo.lower()))
+            df_mostrar = df_mostrar[mask_b]
 
-        df_mostrar['Ordem_Status'] = df_mostrar['Status_Aposta'].apply(lambda x: 0 if x == 'Pendente' else 1)
+        df_mostrar['Ordem'] = df_mostrar['Status_Aposta'].apply(lambda x: 0 if x == 'Pendente' else 1)
         df_mostrar['Sort_Date'] = pd.to_datetime(df_mostrar['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
-        df_unicos = df_mostrar.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Seleção']).sort_values(by=['Ordem_Status', 'Sort_Date'], ascending=[True, False])
+        df_u = df_mostrar.drop_duplicates(subset=['Data/Hora', 'Jogo', 'Seleção']).sort_values(by=['Ordem', 'Sort_Date'], ascending=[True, False])
 
-        if df_unicos.empty:
-            if termo_busca: st.warning(f"Nenhum jogo encontrado para '{termo_busca}'.")
-            else: st.success("Nenhuma oportunidade pendente ou recente.")
+        if df_u.empty: st.success("Nenhuma oportunidade para exibir.")
         else:
-            with st.form("form_resultados_unificado"):
-                novos_resultados = []
-                for index, row in df_unicos.iterrows():
-                    opcoes = ["Pendente", "Draw"]
+            with st.form("form_res"):
+                novos = []
+                for idx, row in df_u.iterrows():
+                    opcs = ["Pendente", "Draw"]
                     if ' x ' in str(row['Jogo']):
                         try:
                             c, f = str(row['Jogo']).split(' x ')
-                            opcoes = ["Pendente", c, f, "Draw"]
+                            opcs = ["Pendente", c, f, "Draw"]
                         except: pass
-                        
-                    valor_atual = str(row['Vencedor_Partida']).strip()
-                    if valor_atual not in opcoes: opcoes.append(valor_atual)
-                    idx_padrao = opcoes.index(valor_atual) if valor_atual in opcoes else 0
-                    apostado_atual = bool(row.get('Aposta_Realizada', False))
+                    val = str(row['Vencedor_Partida']).strip()
+                    if val not in opcs: opcs.append(val)
+                    idx_p = opcs.index(val) if val in opcs else 0
                     
-                    col_txt, col_chk, col_sel = st.columns([4, 1, 2])
-                    with col_txt: st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🎯 Seleção: **{row['Seleção']}** | ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
-                    with col_chk: escolha_aposta = st.checkbox("Apostei?", value=apostado_atual, key=f"chk_{index}")
-                    with col_sel: escolha_venc = st.selectbox("Vencedor", options=opcoes, index=idx_padrao, key=f"sel_{index}", label_visibility="collapsed")
-                    
-                    novos_resultados.append({'index': index, 'Jogo': row['Jogo'], 'Data/Hora': row['Data/Hora'], 'Aposta_Realizada': escolha_aposta, 'Vencedor_Partida': escolha_venc})
+                    c1, c2, c3 = st.columns([4, 1, 2])
+                    with c1: st.markdown(f"⚽ **{row['Jogo']}**<br><span style='font-size:0.85em; color:gray;'>🎯 Seleção: **{row['Seleção']}** | ⏰ {row['Data/Hora']}</span>", unsafe_allow_html=True)
+                    with c2: aposta = st.checkbox("Apostei?", value=bool(row.get('Aposta_Realizada', False)), key=f"c_{idx}")
+                    with c3: venc = st.selectbox("Venc.", options=opcs, index=idx_p, key=f"s_{idx}", label_visibility="collapsed")
+                    novos.append({'index': idx, 'Jogo': row['Jogo'], 'Data/Hora': row['Data/Hora'], 'Aposta_Realizada': aposta, 'Vencedor_Partida': venc})
                     st.markdown("---")
                     
                 if st.form_submit_button("💾 Salvar Alterações", type="primary"):
-                    with st.spinner('A atualizar base de dados...'):
-                        for item in novos_resultados:
-                            idx_unico = item['index']
-                            novo_venc = item['Vencedor_Partida']
-                            nova_aposta = item['Aposta_Realizada']
-                            mask_jogo = (df['Jogo'] == item['Jogo']) & (df['Data/Hora'] == item['Data/Hora'])
-                            
-                            if novo_venc != "Pendente" and df.loc[mask_jogo, 'Vencedor_Partida'].iloc[0] == "Pendente": df.loc[mask_jogo, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                            df.loc[mask_jogo, 'Vencedor_Partida'] = novo_venc
-                            df.at[idx_unico, 'Aposta_Realizada'] = nova_aposta
-                            
-                            for idx_calc in df[mask_jogo].index:
-                                sel = str(df.at[idx_calc, 'Seleção']).strip()
-                                venc_str = str(novo_venc).strip()
-                                if venc_str == "Pendente" or venc_str == "" or venc_str == "nan": df.at[idx_calc, 'Status_Aposta'] = "Pendente"
-                                elif sel == venc_str: df.at[idx_calc, 'Status_Aposta'] = "Green ✅"
-                                else: df.at[idx_calc, 'Status_Aposta'] = "Red ❌"
-                                
-                        df = df.drop(columns=['Recente', 'Ordem_Status', 'Sort_Date'], errors='ignore')
-                        if salvar_no_github(df, "🤖 Resultados e entradas atualizados"): st.rerun()
+                    with st.spinner('A atualizar base...'):
+                        for item in novos:
+                            mask_j = (df['Jogo'] == item['Jogo']) & (df['Data/Hora'] == item['Data/Hora'])
+                            if item['Vencedor_Partida'] != "Pendente" and df.loc[mask_j, 'Vencedor_Partida'].iloc[0] == "Pendente": df.loc[mask_j, 'Data_Resolucao'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                            df.loc[mask_j, 'Vencedor_Partida'] = item['Vencedor_Partida']
+                            df.at[item['index'], 'Aposta_Realizada'] = item['Aposta_Realizada']
+                            for id_c in df[mask_j].index:
+                                sel = str(df.at[id_c, 'Seleção']).strip()
+                                v_str = str(item['Vencedor_Partida']).strip()
+                                if v_str in ["Pendente", "", "nan"]: df.at[id_c, 'Status_Aposta'] = "Pendente"
+                                elif sel == v_str: df.at[id_c, 'Status_Aposta'] = "Green ✅"
+                                else: df.at[id_c, 'Status_Aposta'] = "Red ❌"
+                        if salvar_no_github(df.drop(columns=['Recente', 'Ordem', 'Sort_Date'], errors='ignore'), "🤖 Atualizando placares"): st.rerun()
 
 # ==========================================
-# ABA 6: HISTÓRICO COMPLETO
+# ABA 7: HISTÓRICO COMPLETO
 # ==========================================
 with tab_hist:
     if not df.empty:
@@ -590,118 +600,36 @@ with tab_hist:
         df_hist = df_calc.copy()
         df_hist['Sort_Date'] = pd.to_datetime(df_hist['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
         df_hist = df_hist.sort_values(by='Sort_Date', ascending=False)
-        
-        col_h1, col_h2, col_h3, col_h4 = st.columns(4)
-        with col_h1:
-            casas_hist = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_hist['Casa'].dropna().unique().tolist())
-            filtro_casa_hist = st.selectbox("Casa de Aposta:", casas_hist, key="filtro_hist_casa")
-        with col_h2:
-            esportes_hist = ["Todos os Esportes"] + sorted(df_hist['Esporte'].dropna().unique().tolist())
-            filtro_esp_hist = st.selectbox("Esporte:", esportes_hist, key="filtro_hist_esporte")
-        with col_h3:
-            if filtro_esp_hist != "Todos os Esportes": ligas_hist = ["Todas as Ligas"] + sorted(df_hist[df_hist['Esporte'] == filtro_esp_hist]['Liga'].dropna().unique().tolist())
-            else: ligas_hist = ["Todas as Ligas"] + sorted(df_hist['Liga'].dropna().unique().tolist())
-            filtro_liga_hist = st.selectbox("Liga:", ligas_hist, key="filtro_hist_liga")
-        with col_h4:
-            tipos_hist = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
-            filtro_tipo_hist = st.selectbox("Momento do Alerta:", tipos_hist, key="filtro_hist_tipo")
-        
-        if filtro_casa_hist == "⭐ MINHAS APOSTAS": df_hist = df_hist[df_hist['Aposta_Realizada'] == True]
-        elif filtro_casa_hist != "Todas as Casas": df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
-        
-        if filtro_esp_hist != "Todos os Esportes": df_hist = df_hist[df_hist['Esporte'] == filtro_esp_hist]
-        if filtro_liga_hist != "Todas as Ligas": df_hist = df_hist[df_hist['Liga'] == filtro_liga_hist]
-        if filtro_tipo_hist != "Todos os Momentos": df_hist = df_hist[df_hist['Momento_Alerta'] == filtro_tipo_hist]
-        
-        df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
-        df_hist.rename(columns={'Achado_em': 'Horário Alerta', 'Momento_Alerta': 'Tipo'}, inplace=True)
-        
         cols_display = ['Data/Hora', 'Tipo', 'Esporte', 'Jogo', 'Casa', 'Seleção', 'Odd Casa', 'Edge', 'Stake', 'Payout', 'Status_Aposta', 'Gap_Segundos']
         cols_display = [c for c in cols_display if c in df_hist.columns]
         st.dataframe(df_hist[cols_display], use_container_width=True)
 
 # ==========================================
-# ABA 7: ESTUDOS ESTATÍSTICOS
+# ABA 8: ESTUDOS ESTATÍSTICOS
 # ==========================================
 with tab_estudos:
     if not df.empty:
         st.subheader("🔬 Estudos Estatísticos: Eficiência do Modelo")
-        
-        col_e1, col_e2, col_e3, col_e4 = st.columns(4)
-        with col_e1:
-            casas_estudos = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_calc['Casa'].dropna().unique().tolist())
-            filtro_casa_estudos = st.selectbox("Casa de Aposta:", casas_estudos, key="filtro_estudos_casa")
-        with col_e2:
-            esportes_estudos = ["Todos os Esportes"] + sorted(df_calc['Esporte'].dropna().unique().tolist())
-            filtro_esp_estudos = st.selectbox("Esporte:", esportes_estudos, key="filtro_estudos_esporte")
-        with col_e3:
-            if filtro_esp_estudos != "Todos os Esportes": ligas_estudos = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == filtro_esp_estudos]['Liga'].dropna().unique().tolist())
-            else: ligas_estudos = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
-            filtro_liga_estudos = st.selectbox("Liga:", ligas_estudos, key="filtro_estudos_liga")
-        with col_e4:
-            tipos_estudos = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
-            filtro_tipo_estudos = st.selectbox("Momento do Alerta:", tipos_estudos, key="filtro_estudos_tipo")
-        
         df_estudos = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
-        
-        if filtro_casa_estudos == "⭐ MINHAS APOSTAS": df_estudos = df_estudos[df_estudos['Aposta_Realizada'] == True]
-        elif filtro_casa_estudos != "Todas as Casas": df_estudos = df_estudos[df_estudos['Casa'] == filtro_casa_estudos]
-        if filtro_esp_estudos != "Todos os Esportes": df_estudos = df_estudos[df_estudos['Esporte'] == filtro_esp_estudos]
-        if filtro_liga_estudos != "Todas as Ligas": df_estudos = df_estudos[df_estudos['Liga'] == filtro_liga_estudos]
-        if filtro_tipo_estudos != "Todos os Momentos": df_estudos = df_estudos[df_estudos['Momento_Alerta'] == filtro_tipo_estudos]
-            
         if df_estudos.empty:
-            st.info("Ainda não há dados suficientes de apostas finalizadas para gerar análises com estes filtros.")
+            st.info("Ainda não há dados suficientes finalizados para gerar análises.")
         else:
-            st.markdown("#### 1. Edge vs Rentabilidade Relativa (ROI)")
-            fig_scatter = px.scatter(df_estudos, x='ROI_Realizado', y='Edge_Num', color='Status_Aposta', color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'}, hover_data={'Jogo': True, 'Esporte': True, 'Casa': True, 'Odd_Final': ':.2f', 'Edge': True, 'Edge_Num': False, 'ROI_Realizado': False, 'Payout': ':.2f'}, labels={'ROI_Realizado': 'ROI da Aposta (%)', 'Edge_Num': 'Edge'})
+            fig_scatter = px.scatter(df_estudos, x='ROI_Realizado', y='Edge_Num', color='Status_Aposta', color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'}, hover_data={'Jogo': True, 'Casa': True, 'Edge': True})
             fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
-            fig_scatter.layout.yaxis.tickformat = ',.1%'
-            fig_scatter.layout.xaxis.tickformat = ',.0%'
+            fig_scatter.layout.yaxis.tickformat = ',.1%'; fig_scatter.layout.xaxis.tickformat = ',.0%'
             st.plotly_chart(fig_scatter, use_container_width=True)
-
+            
             st.divider()
-            st.markdown("#### 👻 2. Laboratório de Sincronismo: Performance Teórica Absoluta")
-            
-            col_lab1, col_lab2 = st.columns([1, 2])
-            with col_lab1:
-                casas_lab_disp = ["Todas as Casas"] + sorted(df_calc['Casa'].dropna().unique().tolist())
-                casa_lab = st.selectbox("Filtro de Casa (Laboratório):", casas_lab_disp, key="lab_casa")
-            with col_lab2:
-                limite_ghost = st.slider("Definir limite aceitável para considerar a Odd como 'Real' (Segundos):", min_value=1, max_value=120, value=10, step=1)
-            
-            df_lab = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
-            if casa_lab != "Todas as Casas": df_lab = df_lab[df_lab['Casa'] == casa_lab]
-            
-            df_lab = df_lab.dropna(subset=['Gap_Segundos'])
+            st.markdown("#### 👻 2. Laboratório de Sincronismo")
+            df_lab = df_calc.dropna(subset=['Gap_Segundos'])
             df_lab = df_lab[df_lab['Gap_Segundos'] != 999] 
             
-            if df_lab.empty:
-                st.info("Aguardando acumulação de dados novos para o laboratório de sincronismo...")
-            else:
-                def classificar_ghost(gap):
-                    if gap <= limite_ghost: return "⚡ Odd Real"
-                    else: return "👻 Ghost Odd"
-                    
-                df_lab['Categoria_Odd'] = df_lab['Gap_Segundos'].apply(classificar_ghost)
-                analise_ghost = df_lab.groupby('Categoria_Odd').agg(Volume_Resolvido=('Categoria_Odd', 'count'), Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()), Edge_Medio=('Edge_Num', 'mean'), Stake_Total=('Stake_Final', 'sum'), Payout=('Payout', 'sum')).reset_index()
+            if not df_lab.empty:
+                limite_ghost = st.slider("Definir limite aceitável para Odd 'Real' (Segundos):", min_value=1, max_value=120, value=10, step=1)
+                df_lab['Categoria_Odd'] = df_lab['Gap_Segundos'].apply(lambda x: "⚡ Odd Real" if x <= limite_ghost else "👻 Ghost Odd")
+                analise_ghost = df_lab.groupby('Categoria_Odd').agg(Volume=('Categoria_Odd', 'count'), Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()), Stake=('Stake_Final', 'sum'), Payout=('Payout', 'sum')).reset_index()
+                analise_ghost['Yield'] = (analise_ghost['Payout'] / analise_ghost['Stake'] * 100).fillna(0)
                 
-                analise_ghost['Taxa_Acerto'] = (analise_ghost['Greens'] / analise_ghost['Volume_Resolvido'] * 100).fillna(0)
-                analise_ghost['Yield'] = (analise_ghost['Payout'] / analise_ghost['Stake_Total'] * 100).fillna(0)
-                
-                exibicao_ghost = analise_ghost.copy()
-                exibicao_ghost['Taxa_Acerto'] = exibicao_ghost['Taxa_Acerto'].apply(lambda x: f"{x:.1f}%")
-                exibicao_ghost['Edge_Medio'] = (exibicao_ghost['Edge_Medio'] * 100).apply(lambda x: f"{x:.2f}%")
-                exibicao_ghost['Stake_Total'] = exibicao_ghost['Stake_Total'].apply(lambda x: f"R$ {x:.2f}")
-                exibicao_ghost['Payout'] = exibicao_ghost['Payout'].apply(lambda x: f"R$ {x:.2f}")
-                exibicao_ghost['Yield'] = exibicao_ghost['Yield'].apply(lambda x: f"{x:.2f}%")
-                
-                st.dataframe(exibicao_ghost, hide_index=True, use_container_width=True)
-                
-                col_chart1, col_chart2 = st.columns(2)
-                with col_chart1:
-                    fig_bar_yield = px.bar(analise_ghost, x='Categoria_Odd', y='Yield', color='Categoria_Odd', text_auto='.2f', title=f"Yield Teórico Médio (<{limite_ghost}s)", color_discrete_map={"⚡ Odd Real": "#00CC96", "👻 Ghost Odd": "#EF553B"})
-                    st.plotly_chart(fig_bar_yield, use_container_width=True)
-                with col_chart2:
-                    fig_bar_vol = px.bar(analise_ghost, x='Categoria_Odd', y='Volume_Resolvido', color='Categoria_Odd', text_auto=True, title="Volume Total Identificado pelo Algoritmo", color_discrete_map={"⚡ Odd Real": "#1f77b4", "👻 Ghost Odd": "#7f7f7f"})
-                    st.plotly_chart(fig_bar_vol, use_container_width=True)
+                c1, c2 = st.columns(2)
+                with c1: st.plotly_chart(px.bar(analise_ghost, x='Categoria_Odd', y='Yield', color='Categoria_Odd', text_auto='.2f', color_discrete_map={"⚡ Odd Real": "#00CC96", "👻 Ghost Odd": "#EF553B"}), use_container_width=True)
+                with c2: st.plotly_chart(px.bar(analise_ghost, x='Categoria_Odd', y='Volume', color='Categoria_Odd', text_auto=True), use_container_width=True)

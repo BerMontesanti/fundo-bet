@@ -49,31 +49,37 @@ def enviar_telegram(df_agenda, hoje_str):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
 
     if df_agenda.empty:
-        texto = f"📅 *Agenda QuantBet ({hoje_str}):*\n\n💤 Não há jogos programados para hoje nas nossas ligas."
-        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto, "parse_mode": "Markdown"})
+        texto = f"📅 <b>Agenda QuantBet ({hoje_str}):</b>\n\n💤 Não há jogos programados para hoje nas nossas ligas."
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto, "parse_mode": "HTML"})
         return
 
-    # Constrói a mensagem agrupada por Ligas
-    texto = f"📅 *Agenda QuantBet ({hoje_str}):*\n\n"
+    # Constrói a mensagem agrupada por Ligas usando HTML (mais seguro contra caracteres especiais)
+    cabecalho = f"📅 <b>Agenda QuantBet ({hoje_str}):</b>\n\n"
+    texto_atual = cabecalho
+    
     ligas_hoje = sorted(df_agenda['Liga'].unique())
 
     for liga in ligas_hoje:
-        texto += f"🏆 *{liga}*\n"
+        bloco_liga = f"🏆 <b>{liga}</b>\n"
         df_liga = df_agenda[df_agenda['Liga'] == liga]
         for _, row in df_liga.iterrows():
-            texto += f"⏰ {row['Horário']} - {row['Jogo']}\n"
-        texto += "\n"
-
-    # O Telegram tem um limite de 4096 caracteres por mensagem. 
-    # Se a lista de jogos for gigante (ex: fim de semana), dividimos em partes.
-    if len(texto) > 4000:
-        partes = [texto[i:i+4000] for i in range(0, len(texto), 4000)]
-        for parte in partes:
-            requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": parte, "parse_mode": "Markdown"})
-    else:
-        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto, "parse_mode": "Markdown"})
+            bloco_liga += f"⏰ {row['Horário']} - {row['Jogo']}\n"
+        bloco_liga += "\n"
+        
+        # Se a adição desta liga ultrapassar os 3800 caracteres, enviamos o que temos e recomeçamos!
+        if len(texto_atual) + len(bloco_liga) > 3800:
+            resp = requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_atual, "parse_mode": "HTML"})
+            if resp.status_code != 200: print(f"❌ Erro do Telegram: {resp.text}")
+            texto_atual = bloco_liga # A nova mensagem começa com a liga atual
+        else:
+            texto_atual += bloco_liga
+            
+    # Envia o texto que sobrou no final
+    if texto_atual.strip():
+        resp = requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_atual, "parse_mode": "HTML"})
+        if resp.status_code != 200: print(f"❌ Erro do Telegram: {resp.text}")
     
-    print("📲 Agenda enviada com sucesso para o Telegram!")
+    print("📲 Processo de envio para o Telegram concluído!")
 
 def gerar_agenda_do_dia():
     agora_brt = datetime.utcnow() - timedelta(hours=3)

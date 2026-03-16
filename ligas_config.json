@@ -84,5 +84,9 @@
         "tennis_atp_miami_open": "ATP Miami Open",
         "tennis_wta_miami_open": "WTA Miami Open"
     },
-    "selecionadas": []
+    "selecionadas": [
+        "basketball_nba",
+        "soccer_argentina_primera_division",
+        "soccer_chile_campeonato"
+    ]
 }

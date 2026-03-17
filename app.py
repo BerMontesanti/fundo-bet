@@ -339,6 +339,37 @@ with tab_dash:
         yield_global = (payout_total_global / stake_total_global * 100) if stake_total_global > 0 else 0.0
         col8.metric("Yield Global", f"{yield_global:.2f}%")
 
+        # ====================================================
+        # INSERÇÃO DOS GRÁFICOS DE KPI PRINCIPAIS
+        # ====================================================
+        if not df_resolvidas.empty:
+            st.divider()
+            # Agrupamento de dados por data
+            df_grafico = df_resolvidas.copy()
+            df_grafico['Data_Curta'] = df_grafico['Data/Hora'].str[:5] # Pega só o DD/MM
+            grafico_dados = df_grafico.groupby('Data_Curta').agg(
+                Payout_Diario=('Payout', 'sum'), 
+                Stake_Diaria=('Stake_Final', 'sum')
+            ).reset_index()
+            
+            # Cálculos Acumulados
+            grafico_dados['Payout Acumulado'] = grafico_dados['Payout_Diario'].cumsum()
+            grafico_dados['Stake Acumulada'] = grafico_dados['Stake_Diaria'].cumsum()
+            grafico_dados['Yield Acumulado (%)'] = (grafico_dados['Payout Acumulado'] / grafico_dados['Stake Acumulada']) * 100
+
+            col_g1, col_g2 = st.columns(2)
+            with col_g1:
+                st.markdown("### 📈 Evolução Financeira (R$)")
+                fig_fin = px.line(grafico_dados, x='Data_Curta', y=['Stake Acumulada', 'Payout Acumulado'], markers=True, labels={'value': 'Valor (R$)', 'variable': 'Métrica', 'Data_Curta': 'Data'})
+                fig_fin.for_each_trace(lambda t: t.update(name={'Stake Acumulada': 'Stake Total', 'Payout Acumulado': 'Payout'}.get(t.name, t.name)))
+                st.plotly_chart(fig_fin, use_container_width=True)
+            
+            with col_g2:
+                st.markdown("### 🚀 Evolução do Yield (%)")
+                fig_yield = px.line(grafico_dados, x='Data_Curta', y='Yield Acumulado (%)', markers=True, labels={'Yield Acumulado (%)': 'Yield (%)', 'Data_Curta': 'Data'})
+                fig_yield.update_traces(line_color="#00CC96" if yield_global >= 0 else "#EF553B")
+                st.plotly_chart(fig_yield, use_container_width=True)
+
         st.divider()
         st.markdown("### 📊 Performance Detalhada (Agrupamento)")
         agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga", "Momento_Alerta"], horizontal=True)
@@ -371,7 +402,7 @@ with tab_dash:
         st.dataframe(tabela_exibicao[cols_ordem], hide_index=True, use_container_width=True)
 
 # ==========================================
-# ABA 2: GESTÃO DE LIGAS (NOVA)
+# ABA 2: GESTÃO DE LIGAS
 # ==========================================
 with tab_ligas:
     st.markdown("### 🌍 Catálogo Dinâmico de Ligas")
@@ -381,7 +412,6 @@ with tab_ligas:
     opcoes_disponiveis = config_ligas.get("disponiveis", {})
     ligas_selecionadas_atuais = config_ligas.get("selecionadas", [])
     
-    # Filtro de segurança (caso alguma liga salva já não exista no dicionário)
     ligas_validas_selecionadas = [k for k in ligas_selecionadas_atuais if k in opcoes_disponiveis]
 
     def formatar_nome_liga(chave):
@@ -411,10 +441,6 @@ with tab_ligas:
     st.markdown("#### 🔄 Forçar Triagem Manual")
     st.write("Não quer esperar pelo robô? Clique no botão abaixo para buscar imediatamente todas as ligas que abriram mercado no mundo neste exato segundo.")
     
-    api_key_input = st.secrets.get("ODDS_API_KEY", "")
-    if not api_key_input:
-        api_key_input = st.text_input("Cole a sua chave The Odds API para fazer a triagem agora:", type="password")
-        
     if st.button("📡 Puxar Ligas Abertas Agora", use_container_width=True):
         api_key_str = st.secrets.get("ODDS_API_KEY", "")
         if not api_key_str:
@@ -427,7 +453,6 @@ with tab_ligas:
                         novas_disponiveis = {}
                         novas_encontradas = 0
                         
-                        # 1. Reconstrói o catálogo SÓ com o que está ativo agora
                         for sport in res.json():
                             if sport.get('active', True):
                                 k = sport['key']
@@ -436,7 +461,6 @@ with tab_ligas:
                                 if k not in opcoes_disponiveis:
                                     novas_encontradas += 1
                         
-                        # 2. Limpa as selecionadas (remove as que fecharam)
                         selecionadas_limpas = [k for k in ligas_selecionadas_atuais if k in novas_disponiveis]
                         
                         config_ligas["disponiveis"] = novas_disponiveis
@@ -607,6 +631,17 @@ with tab_hist:
         df_hist = df_calc.copy()
         df_hist['Sort_Date'] = pd.to_datetime(df_hist['Data/Hora'], format='%d/%m %H:%M', errors='coerce').fillna(pd.Timestamp('1900-01-01'))
         df_hist = df_hist.sort_values(by='Sort_Date', ascending=False)
+        
+        col_filtro_hist, _ = st.columns([1, 3])
+        with col_filtro_hist:
+            casas_disponiveis_hist = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_hist['Casa'].dropna().unique().tolist())
+            filtro_casa_hist = st.selectbox("Filtrar por Casa de Aposta:", casas_disponiveis_hist, key="filtro_historico_aba")
+        
+        if filtro_casa_hist == "⭐ MINHAS APOSTAS":
+            df_hist = df_hist[df_hist['Aposta_Realizada'] == True]
+        elif filtro_casa_hist != "Todas as Casas":
+            df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
+
         cols_display = ['Data/Hora', 'Tipo', 'Esporte', 'Jogo', 'Casa', 'Seleção', 'Odd Casa', 'Edge', 'Stake', 'Payout', 'Status_Aposta', 'Gap_Segundos']
         cols_display = [c for c in cols_display if c in df_hist.columns]
         st.dataframe(df_hist[cols_display], use_container_width=True)

@@ -670,10 +670,27 @@ with tab_hist:
 with tab_estudos:
     if not df.empty:
         st.subheader("🔬 Estudos Estatísticos: Eficiência do Modelo")
-        df_estudos = df_calc[df_calc['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
+        
+        # --- FILTRO DE CASA DE APOSTA ---
+        col_filtro_estudos, _ = st.columns([1, 3])
+        with col_filtro_estudos:
+            casas_disponiveis_estudos = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_calc['Casa'].dropna().unique().tolist())
+            filtro_casa_estudos = st.selectbox("Filtrar por Casa de Aposta:", casas_disponiveis_estudos, key="filtro_estudos_aba")
+        
+        # Aplicar o filtro à base de dados desta aba
+        df_estudos_base = df_calc.copy()
+        if filtro_casa_estudos == "⭐ MINHAS APOSTAS":
+            df_estudos_base = df_estudos_base[df_estudos_base['Aposta_Realizada'] == True]
+        elif filtro_casa_estudos != "Todas as Casas":
+            df_estudos_base = df_estudos_base[df_estudos_base['Casa'] == filtro_casa_estudos]
+        
+        # Filtrar apenas apostas já resolvidas para o Gráfico de Dispersão
+        df_estudos = df_estudos_base[df_estudos_base['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
+        
         if df_estudos.empty:
-            st.info("Ainda não há dados suficientes finalizados para gerar análises.")
+            st.info("Ainda não há dados suficientes finalizados para gerar análises com este filtro.")
         else:
+            st.markdown("#### 1. Edge vs Rentabilidade Relativa (ROI)")
             fig_scatter = px.scatter(df_estudos, x='ROI_Realizado', y='Edge_Num', color='Status_Aposta', color_discrete_map={'Green ✅': '#00CC96', 'Red ❌': '#EF553B'}, hover_data={'Jogo': True, 'Casa': True, 'Edge': True})
             fig_scatter.add_vline(x=0, line_width=1, line_dash="dash", line_color="gray")
             fig_scatter.layout.yaxis.tickformat = ',.1%'; fig_scatter.layout.xaxis.tickformat = ',.0%'
@@ -681,7 +698,8 @@ with tab_estudos:
             
             st.divider()
             st.markdown("#### 👻 2. Laboratório de Sincronismo")
-            df_lab = df_calc.dropna(subset=['Gap_Segundos'])
+            # Usa a base filtrada pela casa, remove valores vazios e erros de API (999)
+            df_lab = df_estudos_base.dropna(subset=['Gap_Segundos'])
             df_lab = df_lab[df_lab['Gap_Segundos'] != 999] 
             
             if not df_lab.empty:
@@ -693,3 +711,5 @@ with tab_estudos:
                 c1, c2 = st.columns(2)
                 with c1: st.plotly_chart(px.bar(analise_ghost, x='Categoria_Odd', y='Yield', color='Categoria_Odd', text_auto='.2f', color_discrete_map={"⚡ Odd Real": "#00CC96", "👻 Ghost Odd": "#EF553B"}), use_container_width=True)
                 with c2: st.plotly_chart(px.bar(analise_ghost, x='Categoria_Odd', y='Volume', color='Categoria_Odd', text_auto=True), use_container_width=True)
+            else:
+                st.info("Não há dados de Gap de Segundos suficientes para esta casa.")

@@ -1420,11 +1420,11 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,BetMGM,McCartney Kessler,2.85,1.80,1.89,20.41,58.17,R$ 17.14,17/03/2026 17:35:06,,,,,,,8.0,17:34:54,1.74,17:35:02,Pré-live
 17/03 16:00,WTA Miami Open,Viktorija Golubic x Nikola Bartunkova,888sport,Viktorija Golubic,2.75,2.52,2.7,3.24,8.91,R$ 2.78,17/03/2026 17:35:06,,,,,,,32.0,17:34:30,2.44,17:35:02,Pré-live
 17/03 16:01,Serie B - Italy,Reggiana x Monza,Betfair,Draw,1.36,1.29,1.33,3.93,5.35,R$ 8.09,17/03/2026 17:46:54,,,,,,,13.0,17:46:32,1.22,17:46:45,Ao Vivo (0x0)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betsson,Real Madrid,2.10,1.47,1.53,20.22,42.47,R$ 21.04,17/03/2026 17:46:54,,,,,,,7.0,17:46:23,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betsson,Real Madrid,2.1,1.47,1.53,20.22,42.47,R$ 21.04,17/03/2026 17:46:54,,,,,,,7.0,17:46:23,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Nordic Bet,Real Madrid,2.15,1.47,1.53,21.33,45.86,R$ 21.73,17/03/2026 17:46:54,,,,,,,10.0,17:46:40,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,888sport,Real Madrid,2.25,1.47,1.53,23.4,52.64,R$ 22.95,17/03/2026 17:46:54,,,,,,,24.0,17:46:06,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,FanDuel,Real Madrid,2.25,1.47,1.53,23.4,52.64,R$ 22.95,17/03/2026 17:46:54,,,,,,,1.0,17:46:29,1.38,17:46:30,Ao Vivo (1x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Sky Bet,Real Madrid,2.20,1.47,1.53,22.39,49.25,R$ 22.37,17/03/2026 17:46:54,,,,,,,15.0,17:46:45,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Sky Bet,Real Madrid,2.2,1.47,1.53,22.39,49.25,R$ 22.37,17/03/2026 17:46:54,,,,,,,15.0,17:46:45,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betfair,Real Madrid,2.32,1.47,1.53,24.74,57.39,R$ 23.70,17/03/2026 17:46:54,,,,,,,1.0,17:46:31,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetMGM,Real Madrid,2.15,1.47,1.53,21.33,45.86,R$ 21.73,17/03/2026 17:46:54,,,,,,,75.0,17:45:15,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Bovada,Real Madrid,2.37,1.47,1.53,25.65,60.78,R$ 24.18,17/03/2026 17:46:54,,,,,,,9.0,17:46:39,1.38,17:46:30,Ao Vivo (1x1)
@@ -1432,8 +1432,86 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Matchbook,Real Madrid,2.42,1.47,1.53,26.52,64.18,R$ 24.63,17/03/2026 17:46:54,,,,,,,8.0,17:46:38,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Coolbet,Real Madrid,2.35,1.47,1.53,25.29,59.43,R$ 23.99,17/03/2026 17:46:54,,,,,,,1.0,17:46:31,1.38,17:46:30,Ao Vivo (1x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetRivers,Real Madrid,2.16,1.47,1.53,21.54,46.54,R$ 21.86,17/03/2026 17:46:54,,,,,,,14.0,17:46:44,1.38,17:46:30,Ao Vivo (1x1)
-17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Betfair,Mary Stoiana,12.00,4.95,5.65,11.87,142.38,R$ 7.05,17/03/2026 17:46:54,,,,,,,6.0,17:46:44,4.82,17:46:50,Pré-live
-17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Bovada,Mary Stoiana,11.00,4.95,5.65,11.11,122.19,R$ 6.66,17/03/2026 17:46:54,,,,,,,131.0,17:44:39,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Betfair,Mary Stoiana,12.0,4.95,5.65,11.87,142.38,R$ 7.05,17/03/2026 17:46:54,,,,,,,6.0,17:46:44,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Bovada,Mary Stoiana,11.0,4.95,5.65,11.11,122.19,R$ 6.66,17/03/2026 17:46:54,,,,,,,131.0,17:44:39,4.82,17:46:50,Pré-live
 17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Betsson,Mary Stoiana,8.75,4.95,5.65,8.77,76.74,R$ 5.40,17/03/2026 17:46:54,,,,,,,22.0,17:46:28,4.82,17:46:50,Pré-live
 17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Nordic Bet,Mary Stoiana,8.75,4.95,5.65,8.77,76.74,R$ 5.40,17/03/2026 17:46:54,,,,,,,41.0,17:46:09,4.82,17:46:50,Pré-live
-17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,888sport,Mary Stoiana,10.00,4.95,5.65,10.2,101.99,R$ 6.18,17/03/2026 17:46:54,,,,,,,0.0,17:46:50,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,888sport,Mary Stoiana,10.0,4.95,5.65,10.2,101.99,R$ 6.18,17/03/2026 17:46:54,,,,,,,0.0,17:46:50,4.82,17:46:50,Pré-live
+17/03 16:45,League 1,Blackpool x Port Vale,BetMGM,Blackpool,6.75,2.69,2.88,22.4,151.17,R$ 14.33,17/03/2026 18:03:52,,,,,,,44.0,18:02:56,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,BetMGM,Draw,3.10,2.20,2.32,13.26,41.11,R$ 10.67,17/03/2026 18:03:52,,,,,,,44.0,18:02:56,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Coolbet,Blackpool,8.50,2.69,2.88,25.45,216.29,R$ 15.72,17/03/2026 18:03:52,,,,,,,52.0,18:02:48,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Coolbet,Draw,3.40,2.20,2.32,16.11,54.77,R$ 12.44,17/03/2026 18:03:52,,,,,,,52.0,18:02:48,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,888sport,Blackpool,7.50,2.69,2.88,23.88,179.08,R$ 15.02,17/03/2026 18:03:52,,,,,,,17.0,18:03:23,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,888sport,Draw,3.20,2.20,2.32,14.27,45.66,R$ 11.31,17/03/2026 18:03:52,,,,,,,17.0,18:03:23,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,DraftKings,Blackpool,8.50,2.69,2.88,25.45,216.29,R$ 15.72,17/03/2026 18:03:52,,,,,,,28.0,18:03:12,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,DraftKings,Draw,3.40,2.20,2.32,16.11,54.77,R$ 12.44,17/03/2026 18:03:52,,,,,,,28.0,18:03:12,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Matchbook,Blackpool,9.00,2.69,2.88,26.1,234.9,R$ 16.00,17/03/2026 18:03:52,,,,,,,4.0,18:03:36,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Matchbook,Draw,3.25,2.20,2.32,14.75,47.94,R$ 11.61,17/03/2026 18:03:52,,,,,,,4.0,18:03:36,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Betfair,Blackpool,4.80,2.69,2.88,16.38,78.61,R$ 11.27,17/03/2026 18:03:52,,,,,,,10.0,18:03:30,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Betfair,Draw,2.66,2.20,2.32,7.93,21.08,R$ 6.92,17/03/2026 18:03:52,,,,,,,10.0,18:03:30,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Nordic Bet,Blackpool,7.70,2.69,2.88,24.22,186.52,R$ 15.17,17/03/2026 18:03:52,,,,,,,26.0,18:03:14,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Nordic Bet,Draw,3.05,2.20,2.32,12.73,38.84,R$ 10.32,17/03/2026 18:03:52,,,,,,,26.0,18:03:14,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Betsson,Blackpool,7.20,2.69,2.88,23.32,167.92,R$ 14.76,17/03/2026 18:03:52,,,,,,,7.0,18:03:47,2.52,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Blackpool x Port Vale,Betsson,Draw,3.15,2.20,2.32,13.77,43.39,R$ 11.00,17/03/2026 18:03:52,,,,,,,7.0,18:03:47,2.06,18:03:40,Ao Vivo (1x2)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,888sport,Draw,10.00,3.43,3.75,19.13,191.32,R$ 11.59,17/03/2026 18:03:52,,,,,,,17.0,18:03:23,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,Sky Bet,Draw,12.00,3.43,3.75,20.8,249.58,R$ 12.37,17/03/2026 18:03:52,,,,,,,18.0,18:03:22,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,Matchbook,Draw,10.50,3.43,3.75,19.61,205.88,R$ 11.81,17/03/2026 18:03:52,,,,,,,4.0,18:03:36,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,DraftKings,Draw,10.00,3.43,3.75,19.13,191.32,R$ 11.59,17/03/2026 18:03:52,,,,,,,28.0,18:03:12,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,Bovada,Draw,11.00,3.43,3.75,20.04,220.45,R$ 12.01,17/03/2026 18:03:52,,,,,,,7.0,18:03:47,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,BetMGM,Draw,11.50,3.43,3.75,20.44,235.02,R$ 12.20,17/03/2026 18:03:52,,,,,,,44.0,18:02:56,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,Nordic Bet,Draw,9.00,3.43,3.75,18.02,162.19,R$ 11.05,17/03/2026 18:03:52,,,,,,,26.0,18:03:14,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,Betsson,Draw,9.00,3.43,3.75,18.02,162.19,R$ 11.05,17/03/2026 18:03:52,,,,,,,7.0,18:03:47,3.23,18:03:40,Ao Vivo (1x1)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Coolbet,Draw,4.33,2.39,2.54,18.79,81.35,R$ 13.31,17/03/2026 18:03:52,,,,,,,226.0,18:02:48,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Sky Bet,Draw,4.75,2.39,2.54,20.83,98.94,R$ 14.38,17/03/2026 18:03:52,,,,,,,260.0,18:03:22,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Betfair,Draw,4.50,2.39,2.54,19.66,88.47,R$ 13.78,17/03/2026 18:03:52,,,,,,,268.0,18:03:30,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Bovada,Draw,4.50,2.39,2.54,19.66,88.47,R$ 13.78,17/03/2026 18:03:52,,,,,,,285.0,18:03:47,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,888sport,Draw,4.00,2.39,2.54,16.88,67.53,R$ 12.27,17/03/2026 18:03:52,,,,,,,261.0,18:03:23,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Matchbook,Draw,4.50,2.39,2.54,19.66,88.47,R$ 13.78,17/03/2026 18:03:52,,,,,,,274.0,18:03:36,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,DraftKings,Draw,4.40,2.39,2.54,19.16,84.28,R$ 13.51,17/03/2026 18:03:52,,,,,,,250.0,18:03:12,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,BetMGM,Draw,4.20,2.39,2.54,18.07,75.91,R$ 12.93,17/03/2026 18:03:52,,,,,,,234.0,18:02:56,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Nordic Bet,Draw,4.10,2.39,2.54,17.49,71.72,R$ 12.61,17/03/2026 18:03:52,,,,,,,252.0,18:03:14,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:45,League 1,Plymouth Argyle x Stevenage,Betsson,Draw,4.10,2.39,2.54,17.49,71.72,R$ 12.61,17/03/2026 18:03:52,,,,,,,285.0,18:03:47,2.24,17:59:02,Ao Vivo (1x0)
+17/03 16:30,League 2,Newport County x Bromley FC,Matchbook,Newport County,5.30,4.63,5.23,2.74,14.53,R$ 1.84,17/03/2026 18:03:52,,,,,,,1.0,18:03:36,4.33,18:03:37,Ao Vivo (0x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,888sport,Crewe Alexandra,8.50,3.07,3.33,20.81,176.88,R$ 12.85,17/03/2026 18:03:52,,,,,,,233.0,18:03:14,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,888sport,Draw,3.40,2.43,2.59,11.74,39.9,R$ 9.06,17/03/2026 18:03:52,,,,,,,233.0,18:03:14,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Coolbet,Crewe Alexandra,10.00,3.07,3.33,22.57,225.75,R$ 13.67,17/03/2026 18:03:52,,,,,,,265.0,18:03:46,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Coolbet,Draw,3.40,2.43,2.59,11.74,39.9,R$ 9.06,17/03/2026 18:03:52,,,,,,,265.0,18:03:46,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Sky Bet,Crewe Alexandra,10.00,3.07,3.33,22.57,225.75,R$ 13.67,17/03/2026 18:03:52,,,,,,,257.0,18:03:38,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Sky Bet,Draw,4.00,2.43,2.59,16.15,64.59,R$ 11.73,17/03/2026 18:03:52,,,,,,,257.0,18:03:38,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Betfair,Crewe Alexandra,10.50,3.07,3.33,23.05,242.03,R$ 13.89,17/03/2026 18:03:52,,,,,,,266.0,18:03:47,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Betfair,Draw,3.75,2.43,2.59,14.48,54.3,R$ 10.76,17/03/2026 18:03:52,,,,,,,266.0,18:03:47,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Matchbook,Crewe Alexandra,10.00,3.07,3.33,22.57,225.75,R$ 13.67,17/03/2026 18:03:52,,,,,,,255.0,18:03:36,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Matchbook,Draw,3.75,2.43,2.59,14.48,54.3,R$ 10.76,17/03/2026 18:03:52,,,,,,,255.0,18:03:36,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,DraftKings,Crewe Alexandra,10.00,3.07,3.33,22.57,225.75,R$ 13.67,17/03/2026 18:03:52,,,,,,,264.0,18:03:45,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,DraftKings,Draw,3.60,2.43,2.59,13.37,48.13,R$ 10.09,17/03/2026 18:03:52,,,,,,,264.0,18:03:45,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Bovada,Crewe Alexandra,9.00,3.07,3.33,21.46,193.17,R$ 13.16,17/03/2026 18:03:52,,,,,,,151.0,18:01:52,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Bovada,Draw,3.60,2.43,2.59,13.37,48.13,R$ 10.09,17/03/2026 18:03:52,,,,,,,151.0,18:01:52,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,BetMGM,Crewe Alexandra,8.75,3.07,3.33,21.15,185.03,R$ 13.01,17/03/2026 18:03:52,,,,,,,234.0,18:03:15,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,BetMGM,Draw,3.40,2.43,2.59,11.74,39.9,R$ 9.06,17/03/2026 18:03:52,,,,,,,234.0,18:03:15,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Nordic Bet,Crewe Alexandra,8.60,3.07,3.33,20.95,180.14,R$ 12.92,17/03/2026 18:03:52,,,,,,,243.0,18:03:24,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Nordic Bet,Draw,3.30,2.43,2.59,10.84,35.78,R$ 8.48,17/03/2026 18:03:52,,,,,,,243.0,18:03:24,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Betsson,Crewe Alexandra,8.60,3.07,3.33,20.95,180.14,R$ 12.92,17/03/2026 18:03:52,,,,,,,224.0,18:03:05,2.88,17:59:21,Ao Vivo (1x0)
+17/03 16:45,League 2,Cheltenham Town x Crewe Alexandra,Betsson,Draw,3.30,2.43,2.59,10.84,35.78,R$ 8.48,17/03/2026 18:03:52,,,,,,,224.0,18:03:05,2.28,17:59:21,Ao Vivo (1x0)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,Betsson,Reggiana,36.00,16.01,26.70,3.47,124.86,R$ 1.94,17/03/2026 18:03:52,,,,,,,306.0,17:54:48,15.13,17:59:54,Ao Vivo (0x0)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,Nordic Bet,Reggiana,36.00,16.01,26.70,3.47,124.86,R$ 1.94,17/03/2026 18:03:52,,,,,,,303.0,17:54:51,15.13,17:59:54,Ao Vivo (0x0)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,Coolbet,Reggiana,40.00,16.01,26.70,3.75,149.84,R$ 2.09,17/03/2026 18:03:52,,,,,,,288.0,17:55:06,15.13,17:59:54,Ao Vivo (0x0)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,FanDuel,Reggiana,56.00,16.01,26.70,4.46,249.78,R$ 2.48,17/03/2026 18:03:52,,,,,,,282.0,17:55:12,15.13,17:59:54,Ao Vivo (0x0)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,Betfair,Reggiana,40.00,16.01,26.70,3.75,149.84,R$ 2.09,17/03/2026 18:03:52,,,,,,,143.0,17:57:31,15.13,17:59:54,Ao Vivo (0x0)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,DraftKings,Reggiana,36.00,16.01,26.70,3.47,124.86,R$ 1.94,17/03/2026 18:03:52,,,,,,,295.0,17:54:59,15.13,17:59:54,Ao Vivo (0x0)
+17/03 13:50,WTA Miami Open,Darja Vidmanova x Elsa Jacquemot,Betsson,Darja Vidmanova,8.00,4.79,5.44,8.38,67.06,R$ 5.22,17/03/2026 18:03:52,,,,,,,603.0,17:53:39,4.66,18:03:42,Pré-live
+17/03 13:50,WTA Miami Open,Darja Vidmanova x Elsa Jacquemot,Coolbet,Darja Vidmanova,7.50,4.79,5.44,7.55,56.62,R$ 4.75,17/03/2026 18:03:52,,,,,,,547.0,17:54:35,4.66,18:03:42,Pré-live
+17/03 13:50,WTA Miami Open,Darja Vidmanova x Elsa Jacquemot,BetRivers,Darja Vidmanova,7.50,4.79,5.44,7.55,56.62,R$ 4.75,17/03/2026 18:03:52,,,,,,,483.0,17:55:39,4.66,18:03:42,Pré-live
+17/03 13:50,WTA Miami Open,Darja Vidmanova x Elsa Jacquemot,Betfair,Darja Vidmanova,7.20,4.79,5.44,6.99,50.36,R$ 4.43,17/03/2026 18:03:52,,,,,,,361.0,17:57:41,4.66,18:03:42,Pré-live
+17/03 13:50,WTA Miami Open,Darja Vidmanova x Elsa Jacquemot,BetMGM,Darja Vidmanova,8.25,4.79,5.44,8.76,72.28,R$ 5.43,17/03/2026 18:03:52,,,,,,,548.0,17:54:34,4.66,18:03:42,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,DraftKings,Magdalena Frech,1.27,1.23,1.26,2.85,3.63,R$ 7.32,17/03/2026 18:03:52,,,,,,,64.0,18:02:38,1.20,18:03:42,Pré-live
+17/03 16:00,WTA Miami Open,Viktorija Golubic x Nikola Bartunkova,Betfair,Nikola Bartunkova,2.68,2.16,2.29,8.94,23.96,R$ 7.77,17/03/2026 18:03:52,,,,,,,7.0,18:03:35,2.08,18:03:42,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,BetRivers,Petra Marcinko,2.48,2.22,2.35,4.72,11.69,R$ 4.31,17/03/2026 18:03:52,,,,,,,448.0,18:03:28,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,DraftKings,Petra Marcinko,2.73,2.22,2.35,8.41,22.95,R$ 7.23,17/03/2026 18:03:52,,,,,,,398.0,18:02:38,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,Coolbet,Petra Marcinko,2.70,2.22,2.35,8.0,21.6,R$ 6.93,17/03/2026 18:03:52,,,,,,,440.0,18:03:20,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,888sport,Petra Marcinko,2.50,2.22,2.35,5.04,12.6,R$ 4.58,17/03/2026 18:03:52,,,,,,,454.0,18:03:34,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,Nordic Bet,Petra Marcinko,2.50,2.22,2.35,5.04,12.6,R$ 4.58,17/03/2026 18:03:52,,,,,,,448.0,18:03:28,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,Betsson,Petra Marcinko,2.50,2.22,2.35,5.04,12.6,R$ 4.58,17/03/2026 18:03:52,,,,,,,424.0,18:03:04,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,FanDuel,Petra Marcinko,2.75,2.22,2.35,8.67,23.85,R$ 7.43,17/03/2026 18:03:52,,,,,,,432.0,18:03:12,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,Bovada,Petra Marcinko,2.65,2.22,2.35,7.3,19.35,R$ 6.39,17/03/2026 18:03:52,,,,,,,464.0,18:03:44,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,Matchbook,Petra Marcinko,2.72,2.22,2.35,8.27,22.5,R$ 7.13,17/03/2026 18:03:52,,,,,,,447.0,18:03:27,2.16,17:56:00,Pré-live
+17/03 17:51,WTA Miami Open,Laura Siegemund x Petra Marcinko,BetMGM,Petra Marcinko,2.75,2.22,2.35,8.67,23.85,R$ 7.43,17/03/2026 18:03:52,,,,,,,470.0,18:03:50,2.16,17:56:00,Pré-live

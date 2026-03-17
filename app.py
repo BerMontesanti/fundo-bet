@@ -323,7 +323,7 @@ with tab_dash:
 
         st.markdown("### 🎛️ Filtros de Análise")
         
-        # --- NOVO FILTRO DE DATAS ---
+        # --- FILTRO DE DATAS ---
         min_date = df_calc['Data_Filtro'].min()
         max_date = df_calc['Data_Filtro'].max()
         
@@ -334,7 +334,8 @@ with tab_dash:
             data_fim = st.date_input("📅 Data Final:", value=max_date, min_value=min_date, max_value=max_date)
         with col_visao:
             st.write("") # Espaçamento para alinhar com os calendários
-            filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
+            # A chave (key) resolve qualquer conflito de duplicidade!
+            filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True, key="filtro_visao_dash")
             
         col_f1, col_f2, col_f3, col_f4 = st.columns(4)
         with col_f1:

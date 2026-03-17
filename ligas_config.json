@@ -84,8 +84,17 @@
     },
     "selecionadas": [
         "basketball_euroleague",
-        "basketball_nba",
-        "basketball_ncaab",
-        "basketball_wncaab"
+        "soccer_england_league1",
+        "soccer_england_league2",
+        "soccer_epl",
+        "soccer_fa_cup",
+        "soccer_england_efl_cup",
+        "soccer_germany_liga3",
+        "soccer_greece_super_league",
+        "soccer_italy_serie_b",
+        "soccer_spain_segunda_division",
+        "soccer_uefa_europa_conference_league",
+        "soccer_uefa_europa_league",
+        "soccer_usa_mls"
     ]
 }

@@ -165,6 +165,12 @@ if not os.path.exists(ARQUIVO):
     df = pd.DataFrame()
 else:
     df = pd.read_csv(ARQUIVO)
+    
+    # 🏥 VACINA DE DADOS (Auto-Limpeza do Bug Antigo)
+    if not df.empty and 'Jogo' in df.columns:
+        # Filtra linhas tortas: Mantém APENAS as linhas onde a coluna 'Jogo' tem o formato 'Time A x Time B'
+        df = df[df['Jogo'].astype(str).str.contains(' x ', na=False, regex=False)]
+        
     colunas_padrao = {'Vencedor_Partida': 'Pendente', 'Status_Aposta': 'Pendente', 'Aposta_Realizada': False, 'Odd_Real': 0.0, 'Stake_Real': 0.0, 'Data_Resolucao': "", 'Achado_em': "", 'Gap_Segundos': pd.NA}
     for col, val in colunas_padrao.items():
         if col not in df.columns: df[col] = val
@@ -207,6 +213,18 @@ def salvar_no_github(dataframe, mensagem):
     except Exception as e:
         st.sidebar.error(f"❌ Erro ao sincronizar: {e}")
         return False
+
+# ==========================================
+# 🧹 BOTÃO DE MANUTENÇÃO (SIDEBAR)
+# ==========================================
+st.sidebar.divider()
+st.sidebar.markdown("### 🏥 Manutenção")
+if st.sidebar.button("🧹 Limpar Histórico Corrompido", use_container_width=True):
+    if not df.empty:
+        with st.spinner("A limpar dados fantasmas..."):
+            df_limpo = df.drop(columns=['Recente'], errors='ignore')
+            if salvar_no_github(df_limpo, "🤖 Limpeza de colunas desconfiguradas do CSV"):
+                st.rerun()
 
 # ==========================================
 # PREPARAÇÃO MATEMÁTICA GLOBAL

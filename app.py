@@ -710,6 +710,10 @@ with tab_hist:
         elif filtro_casa_hist != "Todas as Casas":
             df_hist = df_hist[df_hist['Casa'] == filtro_casa_hist]
 
+        # 🎨 CORREÇÃO VISUAL: Arredondamento e formatação de moeda para o Histórico
+        df_hist['Stake'] = df_hist['Stake_Final'].apply(lambda x: f"R$ {x:.2f}")
+        df_hist['Payout'] = df_hist['Payout'].apply(lambda x: f"R$ {x:.2f}")
+
         cols_display = ['Data/Hora', 'Tipo', 'Esporte', 'Jogo', 'Casa', 'Seleção', 'Odd Casa', 'Edge', 'Stake', 'Payout', 'Status_Aposta', 'Gap_Segundos']
         cols_display = [c for c in cols_display if c in df_hist.columns]
         st.dataframe(df_hist[cols_display], use_container_width=True)

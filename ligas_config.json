@@ -87,22 +87,6 @@
         "basketball_euroleague",
         "basketball_nba",
         "basketball_ncaab",
-        "basketball_wncaab",
-        "boxing_boxing",
-        "mma_mixed_martial_arts",
-        "rugbyleague_nrl",
-        "soccer_argentina_primera_division",
-        "soccer_england_league1",
-        "soccer_england_league2",
-        "soccer_england_efl_cup",
-        "soccer_italy_serie_b",
-        "soccer_mexico_ligamx",
-        "soccer_netherlands_eredivisie",
-        "soccer_uefa_champs_league",
-        "soccer_uefa_europa_conference_league",
-        "soccer_uefa_europa_league",
-        "soccer_usa_mls",
-        "tennis_atp_miami_open",
-        "tennis_wta_miami_open"
+        "basketball_wncaab"
     ]
 }

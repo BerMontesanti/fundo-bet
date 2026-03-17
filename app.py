@@ -334,7 +334,6 @@ with tab_dash:
             data_fim = st.date_input("📅 Data Final:", value=max_date, min_value=min_date, max_value=max_date)
         with col_visao:
             st.write("") # Espaçamento para alinhar com os calendários
-            # A chave (key) resolve qualquer conflito de duplicidade!
             filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True, key="filtro_visao_dash")
             
         col_f1, col_f2, col_f3, col_f4 = st.columns(4)
@@ -358,37 +357,6 @@ with tab_dash:
         df_dash = df_dash[(df_dash['Data_Filtro'] >= data_inicio) & (df_dash['Data_Filtro'] <= data_fim)]
         
         # Aplica os outros filtros
-        if filtro_visao == "Apenas Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
-        elif filtro_visao == "Não Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
-            
-        if casa_selecionada == "⭐ MINHAS APOSTAS": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
-        elif casa_selecionada != "Todas as Casas": df_dash = df_dash[df_dash['Casa'] == casa_selecionada]
-        
-        if esporte_selecionado != "Todos os Esportes": df_dash = df_dash[df_dash['Esporte'] == esporte_selecionado]
-        if liga_selecionada != "Todas as Ligas": df_dash = df_dash[df_dash['Liga'] == liga_selecionada]
-        if tipo_selecionado != "Todos os Momentos": df_dash = df_dash[df_dash['Momento_Alerta'] == tipo_selecionado]
-
-        df_resolvidas = df_dash[df_dash['Status_Aposta'].isin(['Green ✅', 'Red ❌'])].copy()
-        st.divider()
-        filtro_visao = st.radio("Filtro de Oportunidades:", ["Geral", "Apenas Apostadas", "Não Apostadas"], horizontal=True)
-        
-        col_f1, col_f2, col_f3, col_f4 = st.columns(4)
-        with col_f1:
-            casas_disponiveis = ["Todas as Casas", "⭐ MINHAS APOSTAS"] + sorted(df_calc['Casa'].dropna().unique().tolist())
-            casa_selecionada = st.selectbox("Casa de Aposta:", casas_disponiveis, key="filtro_dash_casa")
-        with col_f2:
-            esportes_disp = ["Todos os Esportes"] + sorted(df_calc['Esporte'].dropna().unique().tolist())
-            esporte_selecionado = st.selectbox("Esporte:", esportes_disp, key="filtro_dash_esporte")
-        with col_f3:
-            if esporte_selecionado != "Todos os Esportes": ligas_disp = ["Todas as Ligas"] + sorted(df_calc[df_calc['Esporte'] == esporte_selecionado]['Liga'].dropna().unique().tolist())
-            else: ligas_disp = ["Todas as Ligas"] + sorted(df_calc['Liga'].dropna().unique().tolist())
-            liga_selecionada = st.selectbox("Liga:", ligas_disp, key="filtro_dash_liga")
-        with col_f4:
-            tipos_disp = ["Todos os Momentos", "Pré-live", "Ao Vivo"]
-            tipo_selecionado = st.selectbox("Momento do Alerta:", tipos_disp, key="filtro_dash_tipo")
-
-        df_dash = df_calc.copy()
-        
         if filtro_visao == "Apenas Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == True]
         elif filtro_visao == "Não Apostadas": df_dash = df_dash[df_dash['Aposta_Realizada'] == False]
             
@@ -454,7 +422,7 @@ with tab_dash:
 
         st.divider()
         st.markdown("### 📊 Performance Detalhada (Agrupamento)")
-        agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga", "Momento_Alerta"], horizontal=True)
+        agrupamento = st.radio("Ver performance separada por:", ["Casa de Aposta", "Esporte", "Liga", "Momento_Alerta"], horizontal=True, key="agrupamento_dash")
         col_grupo = "Casa" if agrupamento == "Casa de Aposta" else agrupamento
 
         analise_tabela = df_resolvidas.groupby(col_grupo).agg(Oportunidades=(col_grupo, 'count'), Greens=('Status_Aposta', lambda x: (x == 'Green ✅').sum()), Edge_Medio=('Edge_Num', 'mean'), EV_Medio=('ROI_Num', 'mean'), Stake_Total=('Stake_Final', 'sum'), EV_Esperado=('EV_Esperado_R$', 'sum'), Payout=('Payout', 'sum')).reset_index()

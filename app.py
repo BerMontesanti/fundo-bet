@@ -76,9 +76,13 @@ def carregar_config_ligas():
     if os.path.exists(ARQUIVO_LIGAS):
         try:
             with open(ARQUIVO_LIGAS, 'r') as f:
-                return json.load(f)
+                data = json.load(f)
+                # Garante compatibilidade com o arquivo antigo
+                if "ativas_agora" not in data:
+                    data["ativas_agora"] = list(data.get("disponiveis", {}).keys())
+                return data
         except: pass
-    return {"disponiveis": DEFAULT_LIGAS, "selecionadas": list(DEFAULT_LIGAS.keys())}
+    return {"disponiveis": DEFAULT_LIGAS, "selecionadas": list(DEFAULT_LIGAS.keys()), "ativas_agora": list(DEFAULT_LIGAS.keys())}
 
 def salvar_json_github(nome_arquivo, dados_dict, mensagem):
     json_str = json.dumps(dados_dict, indent=4)

@@ -1,20 +1,89 @@
 Horário,Esporte,Liga,Jogo
-15:30,Futebol,Futebol - Argentina Primera,Barracas Central x Atlético Tucuman
-15:30,Futebol,Futebol - Argentina Primera,Aldosivi Mar del Plata x Atlético Huracán
-16:45,Futebol,Futebol - Serie A (ITA),Cremonese x Fiorentina
-17:00,Futebol,Futebol - Premier League (ING),Brentford x Wolverhampton Wanderers
-17:00,Futebol,Futebol - La Liga (ESP),Rayo Vallecano x Levante
-18:00,Futebol,Futebol - Chile Primera,Union La Calera x O'Higgins
-18:30,Futebol,Futebol - Argentina Primera,San Lorenzo x Defensa y Justicia
-20:00,Futebol,Futebol - Argentina Primera,Racing Club x Estudiantes de Río Cuarto
-20:00,Futebol,Futebol - Brasil Série A,Chapecoense x Grêmio
-20:10,Basquete,Basquete - NBA,Atlanta Hawks x Orlando Magic
-20:10,Basquete,Basquete - NBA,Washington Wizards x Golden State Warriors
-20:30,Futebol,Futebol - Chile Primera,Colo Colo x Huachipato
-20:40,Basquete,Basquete - NBA,Boston Celtics x Phoenix Suns
-20:40,Basquete,Basquete - NBA,Brooklyn Nets x Portland Trail Blazers
-21:10,Basquete,Basquete - NBA,Chicago Bulls x Memphis Grizzlies
-21:10,Basquete,Basquete - NBA,New Orleans Pelicans x Dallas Mavericks
-22:15,Futebol,Futebol - Argentina Primera,Instituto de Córdoba x Independiente
-22:40,Basquete,Basquete - NBA,Houston Rockets x Los Angeles Lakers
-23:10,Basquete,Basquete - NBA,Los Angeles Clippers x San Antonio Spurs
+12:00,Outro,Basketball Euroleague,Hapoel Tel Aviv x Paris Basketball
+12:00,Outro,ATP Miami Open,Arthur Fery x Bu Yunchaokete
+12:00,Outro,ATP Miami Open,Ignacio Buse x Chak Lam Coleman Wong
+12:00,Outro,ATP Miami Open,Yannick Hanfmann x Luca Van Assche
+12:00,Outro,WTA Miami Open,Renata Zarazua x Aliaksandra Sasnovich
+12:00,Outro,WTA Miami Open,Anastasia Zakharova x Rebecca Sramkova
+12:00,Outro,WTA Miami Open,Katie Volynets x Bianca Andreescu
+12:00,Outro,WTA Miami Open,Kimberly Birrell x Yue Yuan
+12:00,Outro,WTA Miami Open,Varvara Lepchenko x Linda Fruhvirtova
+12:00,Outro,WTA Miami Open,Kamilla Rakhimova x Talia Gibson
+13:30,Outro,WTA Miami Open,Magda Linette x Varvara Gracheva
+13:30,Outro,WTA Miami Open,Darja Vidmanova x Elsa Jacquemot
+13:30,Outro,WTA Miami Open,Simona Waltert x Ajla Tomljanovic
+14:00,Outro,WTA Miami Open,Ella Seidel x Rebeka Masarova
+14:00,Outro,WTA Miami Open,Lulu Sun x Donna Vekic
+14:00,Outro,WTA Miami Open,Elvina Kalieva x Diane Parry
+14:00,Outro,ATP Miami Open,Alexander Blockx x Christopher O'Connell
+14:00,Outro,ATP Miami Open,Nikoloz Basilashvili x Sho Shimabukuro
+14:45,Outro,UEFA Champions League,Sporting Lisbon x Bodø/Glimt
+15:00,Outro,WTA Miami Open,Katie Boulter x Jessica Bouzas Maneiro
+15:00,Outro,WTA Miami Open,Dalma Galfi x Maria Sakkari
+15:00,Outro,WTA Miami Open,McCartney Kessler x Magdalena Frech
+15:00,Serie B,Serie B - Italy,Palermo x Juve Stabia
+15:00,Outro,ATP Miami Open,Liam Draxl x Jay Clarke
+15:00,Outro,WTA Miami Open,Laura Siegemund x Petra Marcinko
+16:00,Serie B,Serie B - Italy,Mantova x Cesena FC
+16:00,Serie B,Serie B - Italy,Reggiana x Monza
+16:00,Serie B,Serie B - Italy,US Catanzaro 1929 x Modena
+16:00,Serie B,Serie B - Italy,Spezia x Empoli
+16:00,Serie B,Serie B - Italy,Venezia x Padova
+16:00,Outro,Basketball Euroleague,KK Partizan NIS x Dubai Basketball
+16:00,Outro,ATP Miami Open,Rafael Jodar x Benjamin Bonzi
+16:00,Outro,ATP Miami Open,Thiago Agustin Tirante x Martin Landaluce
+16:00,Outro,WTA Miami Open,Viktorija Golubic x Nikola Bartunkova
+16:00,Outro,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva
+16:00,Outro,WTA Miami Open,Darja Semenistaja x Sinja Kraus
+16:15,Outro,Basketball Euroleague,Olympiacos x Fenerbahce SK
+16:30,Outro,WTA Miami Open,Shuai Zhang x Sorana Cirstea
+16:30,Outro,League 2,Newport County x Bromley FC
+16:30,Outro,WTA Miami Open,Sofia Kenin x Anna Blinkova
+16:45,Outro,League 2,Tranmere Rovers x Harrogate Town
+16:45,Outro,League 2,Grimsby Town x Fleetwood Town
+16:45,Outro,League 2,Gillingham x Swindon Town
+16:45,Outro,League 1,Bolton Wanderers x Doncaster Rovers
+16:45,Outro,League 1,Blackpool x Port Vale
+16:45,Outro,League 2,Chesterfield FC x Oldham Athletic
+16:45,Outro,League 1,Bradford City x Mansfield Town
+16:45,Outro,League 1,Burton Albion x Reading
+16:45,Outro,League 1,Cardiff City x Wycombe Wanderers
+16:45,Outro,League 1,Luton x Exeter City
+16:45,Outro,League 1,Huddersfield Town x Lincoln City
+16:45,Outro,League 1,Stockport County FC x Northampton Town
+16:45,Outro,League 1,Peterborough United x Rotherham United
+16:45,Outro,League 1,Wimbledon x Leyton Orient
+16:45,Outro,League 2,Bristol Rovers x Shrewsbury Town
+16:45,Outro,League 2,Cheltenham Town x Crewe Alexandra
+16:45,Outro,League 1,Plymouth Argyle x Stevenage
+16:45,Outro,League 2,Walsall x Cambridge United
+16:45,Outro,League 2,Accrington Stanley x Notts County
+16:45,Outro,League 2,Crawley Town x Barnet
+16:45,Outro,League 2,Salford City x Barrow
+17:00,Outro,UEFA Champions League,Chelsea x Paris Saint Germain
+17:00,Outro,UEFA Champions League,Manchester City x Real Madrid
+17:00,Outro,UEFA Champions League,Arsenal x Bayer Leverkusen
+17:00,Outro,League 1,Barnsley x Wigan Athletic
+18:00,Outro,ATP Miami Open,Adam Walton x Rinky Hijikata
+18:00,Outro,ATP Miami Open,Mattia Bellucci x Murphy Cassone
+19:00,Outro,NCAAB,George Mason Patriots x Liberty Flames
+19:00,Primera División,Primera División - Argentina,Lanus x Newells Old Boys
+19:40,Outro,NCAAB,Howard Bison x UMBC Retrievers
+20:00,Outro,NCAAB,Yale Bulldogs x UNC Wilmington Seahawks
+20:00,Outro,NCAAB,Wichita St Shockers x Wyoming Cowboys
+20:00,Outro,WTA Miami Open,Zeynep Sonmez x Beatriz Haddad Maia
+20:10,Outro,NBA,Orlando Magic x Oklahoma City Thunder
+20:10,Outro,NBA,Washington Wizards x Detroit Pistons
+20:10,Outro,NBA,Charlotte Hornets x Miami Heat
+20:40,Outro,NBA,New York Knicks x Indiana Pacers
+21:00,Outro,NCAAB,Oklahoma St Cowboys x Davidson Wildcats
+21:10,Outro,NBA,Minnesota Timberwolves x Phoenix Suns
+21:10,Outro,NBA,Milwaukee Bucks x Cleveland Cavaliers
+21:15,Primera División,Primera División - Argentina,Central Córdoba x Deportivo Riestra
+21:15,Primera División,Primera División - Argentina,Gimnasia Mendoza x Estudiantes
+21:30,Outro,WTA Miami Open,Katerina Siniakova x Maria Camila Osorio Serrano
+22:00,Outro,NCAAB,Tulsa Golden Hurricane x Stephen F. Austin Lumberjacks
+22:10,Outro,NBA,Denver Nuggets x Philadelphia 76ers
+22:15,Outro,NCAAB,Texas Longhorns x NC State Wolfpack
+23:00,Outro,NCAAB,Auburn Tigers x South Alabama Jaguars
+23:00,Outro,NCAAB,Seattle Redhawks x St. Thomas (MN) Tommies

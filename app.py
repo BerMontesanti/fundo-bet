@@ -260,10 +260,22 @@ if not df.empty:
 
     # 📅 NOVA COLUNA PARA O FILTRO DE DATAS
     def extrair_data_filtro(row):
+        # 1. Tenta a data exata em que o robô achou (tem ano, é perfeita)
         try:
             if pd.notna(row.get('Achado_em')) and str(row['Achado_em']).strip() != "":
                 return datetime.strptime(str(row['Achado_em']), "%d/%m/%Y %H:%M:%S").date()
         except: pass
+        
+        # 2. 🛡️ CORREÇÃO: Resgata a data real das apostas antigas pela hora do jogo
+        try:
+            str_jogo = str(row.get('Data/Hora', '')) # Ex: "15/03 19:30"
+            if len(str_jogo) >= 5 and '/' in str_jogo:
+                dia = int(str_jogo[0:2])
+                mes = int(str_jogo[3:5])
+                return datetime(datetime.now().year, mes, dia).date()
+        except: pass
+        
+        # Último recurso
         return datetime.now().date()
         
     df_calc['Data_Filtro'] = df_calc.apply(extrair_data_filtro, axis=1)

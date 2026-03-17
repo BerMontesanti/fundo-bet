@@ -427,69 +427,87 @@ with tab_dash:
 # ABA 2: GESTÃO DE LIGAS
 # ==========================================
 with tab_ligas:
-    st.markdown("### 🌍 Catálogo Dinâmico de Ligas")
-    st.info("Aqui você escolhe as ligas em que o robô deve operar. Se a The Odds API abrir torneios novos amanhã, o robô vai detectá-los, adicioná-los a esta lista automaticamente e avisá-lo no Telegram!")
+    st.markdown("### 🌍 Catálogo de Ligas (Histórico Completo)")
+    st.info("Este é o seu histórico vitalício. Marque as ligas que deseja monitorar. O robô só gastará créditos nas ligas marcadas e que estiverem com o status 🟢 Ativa no momento da varredura.")
 
     config_ligas = carregar_config_ligas()
     opcoes_disponiveis = config_ligas.get("disponiveis", {})
-    ligas_selecionadas_atuais = config_ligas.get("selecionadas", [])
-    
-    ligas_validas_selecionadas = [k for k in ligas_selecionadas_atuais if k in opcoes_disponiveis]
+    ligas_selecionadas = config_ligas.get("selecionadas", [])
+    ativas_agora = config_ligas.get("ativas_agora", [])
 
-    def formatar_nome_liga(chave):
-        return f"{opcoes_disponiveis[chave]} ({chave})"
+    # Constrói a tabela visual
+    linhas_tabela = []
+    for chave, nome in opcoes_disponiveis.items():
+        linhas_tabela.append({
+            "Chave": chave,
+            "Monitorar": True if chave in ligas_selecionadas else False,
+            "Status": "🟢 Ativa Agora" if chave in ativas_agora else "🔴 Inativa (Fora de Época)",
+            "Liga": nome
+        })
+    
+    # Ordena para mostrar as ativas primeiro
+    df_ligas_ui = pd.DataFrame(linhas_tabela).sort_values(by=["Status", "Liga"], ascending=[False, True])
 
     with st.form("form_gestao_ligas"):
-        st.write("✅ **Selecione os mercados que deseja incluir na varredura:**")
-        st.caption(f"Total no Catálogo: {len(opcoes_disponiveis)} ligas.")
+        st.write(f"📊 **Total no Catálogo: {len(opcoes_disponiveis)} ligas.**")
         
-        novas_selecionadas = st.multiselect(
-            "Ligas Ativas para o Robô:",
-            options=list(opcoes_disponiveis.keys()),
-            default=ligas_validas_selecionadas,
-            format_func=formatar_nome_liga
+        # Tabela editável com Checkboxes
+        editado = st.data_editor(
+            df_ligas_ui,
+            column_config={
+                "Monitorar": st.column_config.CheckboxColumn("Incluir na Varredura?", default=False),
+                "Status": st.column_config.TextColumn("Status na The Odds API", disabled=True),
+                "Liga": st.column_config.TextColumn("Nome do Campeonato", disabled=True),
+                "Chave": None # Esconde a chave técnica da API
+            },
+            disabled=["Status", "Liga", "Chave"],
+            hide_index=True,
+            use_container_width=True
         )
         
-        btn_salvar_ligas = st.form_submit_button("💾 Salvar Portfólio de Ligas", type="primary")
+        btn_salvar_ligas = st.form_submit_button("💾 Salvar Preferências de Varredura", type="primary")
 
     if btn_salvar_ligas:
-        config_ligas["selecionadas"] = novas_selecionadas
+        # Pega as chaves onde a checkbox 'Monitorar' ficou marcada
+        selecionadas_atualizadas = editado[editado["Monitorar"] == True]["Chave"].tolist()
+        config_ligas["selecionadas"] = selecionadas_atualizadas
+        
         with st.spinner("A guardar o seu portfólio na nuvem..."):
             if salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Atualizando ligas alvo"):
-                st.success("✅ Ligas atualizadas! A próxima varredura do robô já usará esta configuração.")
+                st.success("✅ Preferências salvas! A próxima varredura respeitará estas escolhas.")
                 st.rerun()
 
     st.divider()
-    st.markdown("#### 🔄 Forçar Triagem Manual")
-    st.write("Não quer esperar pelo robô? Clique no botão abaixo para buscar imediatamente todas as ligas que abriram mercado no mundo neste exato segundo.")
+    st.markdown("#### 🔄 Atualizar Status do Mercado Manualmente")
+    st.write("Clique abaixo para o robô checar na API quem entrou ou saiu de época neste exato segundo.")
     
-    if st.button("📡 Puxar Ligas Abertas Agora", use_container_width=True):
+    if st.button("📡 Puxar Status ao Vivo (Custo: 0 créditos)", use_container_width=True):
         api_key_str = st.secrets.get("ODDS_API_KEY", "")
         if not api_key_str:
             st.error("Por favor, configure a sua ODDS_API_KEY nos Secrets do Streamlit.")
         else:
-            with st.spinner("A limpar ligas antigas e a puxar o catálogo atual (Custo: 0 créditos)..."):
+            with st.spinner("A consultar o mercado global..."):
                 try:
                     res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_str})
                     if res.status_code == 200:
-                        novas_disponiveis = {}
-                        novas_encontradas = 0
+                        novas_ativas = []
+                        novas_descobertas = 0
                         
                         for sport in res.json():
                             if sport.get('active', True):
                                 k = sport['key']
                                 t = sport['title']
-                                novas_disponiveis[k] = t
+                                novas_ativas.append(k)
+                                # Se for uma liga que nunca vimos na vida, adiciona ao histórico mestre
                                 if k not in opcoes_disponiveis:
-                                    novas_encontradas += 1
+                                    opcoes_disponiveis[k] = t
+                                    novas_descobertas += 1
                         
-                        selecionadas_limpas = [k for k in ligas_selecionadas_atuais if k in novas_disponiveis]
+                        config_ligas["disponiveis"] = opcoes_disponiveis
+                        config_ligas["ativas_agora"] = novas_ativas
                         
-                        config_ligas["disponiveis"] = novas_disponiveis
-                        config_ligas["selecionadas"] = selecionadas_limpas
-                        
-                        salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Limpeza e Triagem do Catálogo")
-                        st.success(f"🧹 Catálogo limpo e atualizado! {len(novas_disponiveis)} ligas ativas no momento. ({novas_encontradas} ligas novas descobertas).")
+                        salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Triagem manual: Atualização de Status")
+                        st.success(f"🧹 Status atualizados! Há {len(novas_ativas)} ligas ativas neste momento. ({novas_descobertas} novas descobertas).")
                         st.rerun()
                     else:
                         st.error(f"Erro na API: {res.status_code}")

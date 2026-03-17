@@ -1360,62 +1360,80 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 17/03 16:01,Serie B - Italy,Spezia x Empoli,FanDuel,Empoli,4.8,4.26,4.77,2.62,12.6,R$ 1.81,17/03/2026 17:22:54,,,,,,,8.0,17:22:37,4.03,17:22:45,Ao Vivo (0x0)
 17/03 16:01,Serie B - Italy,Spezia x Empoli,Betfair,Empoli,4.9,4.26,4.77,3.05,14.94,R$ 2.09,17/03/2026 17:22:54,,,,,,,5.0,17:22:40,4.03,17:22:45,Ao Vivo (0x0)
 17/03 16:01,Serie B - Italy,Spezia x Empoli,Matchbook,Empoli,4.8,4.26,4.77,2.62,12.6,R$ 1.81,17/03/2026 17:22:54,,,,,,,14.0,17:22:31,4.03,17:22:45,Ao Vivo (0x0)
-17/03 16:45,League 1,Luton x Exeter City,Bovada,Exeter City,34.00,14.79,23.46,3.82,129.9,R$ 2.15,17/03/2026 17:35:06,,,,,,,1.0,17:34:51,13.94,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Luton x Exeter City,Bovada,Draw,13.00,5.10,5.85,11.9,154.76,R$ 7.03,17/03/2026 17:35:06,,,,,,,1.0,17:34:51,4.81,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Luton x Exeter City,BetMGM,Exeter City,41.00,14.79,23.46,4.32,177.24,R$ 2.41,17/03/2026 17:35:06,,,,,,,1.0,17:34:49,13.94,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Luton x Exeter City,BetMGM,Draw,13.50,5.10,5.85,12.19,164.56,R$ 7.17,17/03/2026 17:35:06,,,,,,,1.0,17:34:49,4.81,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,BetMGM,Leyton Orient,10.50,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,1.0,17:34:49,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Coolbet,Leyton Orient,11.00,3.89,4.31,16.6,182.56,R$ 9.95,17/03/2026 17:35:06,,,,,,,8.0,17:34:58,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Betfair,Leyton Orient,12.50,3.89,4.31,17.69,221.09,R$ 10.48,17/03/2026 17:35:06,,,,,,,8.0,17:34:42,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Sky Bet,Leyton Orient,8.50,3.89,4.31,13.92,118.34,R$ 8.60,17/03/2026 17:35:06,,,,,,,23.0,17:34:27,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,888sport,Leyton Orient,9.50,3.89,4.31,15.16,144.03,R$ 9.23,17/03/2026 17:35:06,,,,,,,25.0,17:34:25,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Matchbook,Leyton Orient,13.00,3.89,4.31,17.99,233.93,R$ 10.62,17/03/2026 17:35:06,,,,,,,9.0,17:34:41,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,DraftKings,Leyton Orient,10.50,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,26.0,17:34:24,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Bovada,Leyton Orient,11.00,3.89,4.31,16.6,182.56,R$ 9.95,17/03/2026 17:35:06,,,,,,,1.0,17:34:51,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Nordic Bet,Leyton Orient,10.50,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,17.0,17:34:33,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Wimbledon x Leyton Orient,Betsson,Leyton Orient,10.50,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,17.0,17:34:33,3.65,17:34:50,Ao Vivo (2x1)
-17/03 16:45,League 1,Stockport County FC x Northampton Town,Sky Bet,Stockport County FC,1.67,1.54,1.60,4.93,8.23,R$ 6.69,17/03/2026 17:35:06,,,,,,,23.0,17:34:27,1.44,17:34:50,Ao Vivo (1x1)
-17/03 17:00,League 1,Barnsley x Wigan Athletic,Coolbet,Draw,3.60,3.21,3.49,3.39,12.2,R$ 2.56,17/03/2026 17:35:06,,,,,,,388.0,17:34:58,3.01,17:28:30,Ao Vivo (0x1)
-17/03 17:00,League 1,Barnsley x Wigan Athletic,Sky Bet,Draw,3.80,3.21,3.49,4.85,18.43,R$ 3.59,17/03/2026 17:35:06,,,,,,,357.0,17:34:27,3.01,17:28:30,Ao Vivo (0x1)
-17/03 17:00,League 1,Barnsley x Wigan Athletic,Betfair,Draw,3.80,3.21,3.49,4.85,18.43,R$ 3.59,17/03/2026 17:35:06,,,,,,,372.0,17:34:42,3.01,17:28:30,Ao Vivo (0x1)
+17/03 16:45,League 1,Luton x Exeter City,Bovada,Exeter City,34.0,14.79,23.46,3.82,129.9,R$ 2.15,17/03/2026 17:35:06,,,,,,,1.0,17:34:51,13.94,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Luton x Exeter City,Bovada,Draw,13.0,5.10,5.85,11.9,154.76,R$ 7.03,17/03/2026 17:35:06,,,,,,,1.0,17:34:51,4.81,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Luton x Exeter City,BetMGM,Exeter City,41.0,14.79,23.46,4.32,177.24,R$ 2.41,17/03/2026 17:35:06,,,,,,,1.0,17:34:49,13.94,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Luton x Exeter City,BetMGM,Draw,13.5,5.10,5.85,12.19,164.56,R$ 7.17,17/03/2026 17:35:06,,,,,,,1.0,17:34:49,4.81,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,BetMGM,Leyton Orient,10.5,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,1.0,17:34:49,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Coolbet,Leyton Orient,11.0,3.89,4.31,16.6,182.56,R$ 9.95,17/03/2026 17:35:06,,,,,,,8.0,17:34:58,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Betfair,Leyton Orient,12.5,3.89,4.31,17.69,221.09,R$ 10.48,17/03/2026 17:35:06,,,,,,,8.0,17:34:42,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Sky Bet,Leyton Orient,8.5,3.89,4.31,13.92,118.34,R$ 8.60,17/03/2026 17:35:06,,,,,,,23.0,17:34:27,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,888sport,Leyton Orient,9.5,3.89,4.31,15.16,144.03,R$ 9.23,17/03/2026 17:35:06,,,,,,,25.0,17:34:25,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Matchbook,Leyton Orient,13.0,3.89,4.31,17.99,233.93,R$ 10.62,17/03/2026 17:35:06,,,,,,,9.0,17:34:41,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,DraftKings,Leyton Orient,10.5,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,26.0,17:34:24,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Bovada,Leyton Orient,11.0,3.89,4.31,16.6,182.56,R$ 9.95,17/03/2026 17:35:06,,,,,,,1.0,17:34:51,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Nordic Bet,Leyton Orient,10.5,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,17.0,17:34:33,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Wimbledon x Leyton Orient,Betsson,Leyton Orient,10.5,3.89,4.31,16.16,169.71,R$ 9.74,17/03/2026 17:35:06,,,,,,,17.0,17:34:33,3.65,17:34:50,Ao Vivo (2x1)
+17/03 16:45,League 1,Stockport County FC x Northampton Town,Sky Bet,Stockport County FC,1.67,1.54,1.6,4.93,8.23,R$ 6.69,17/03/2026 17:35:06,,,,,,,23.0,17:34:27,1.44,17:34:50,Ao Vivo (1x1)
+17/03 17:00,League 1,Barnsley x Wigan Athletic,Coolbet,Draw,3.6,3.21,3.49,3.39,12.2,R$ 2.56,17/03/2026 17:35:06,,,,,,,388.0,17:34:58,3.01,17:28:30,Ao Vivo (0x1)
+17/03 17:00,League 1,Barnsley x Wigan Athletic,Sky Bet,Draw,3.8,3.21,3.49,4.85,18.43,R$ 3.59,17/03/2026 17:35:06,,,,,,,357.0,17:34:27,3.01,17:28:30,Ao Vivo (0x1)
+17/03 17:00,League 1,Barnsley x Wigan Athletic,Betfair,Draw,3.8,3.21,3.49,4.85,18.43,R$ 3.59,17/03/2026 17:35:06,,,,,,,372.0,17:34:42,3.01,17:28:30,Ao Vivo (0x1)
 17/03 17:00,League 1,Barnsley x Wigan Athletic,Matchbook,Draw,3.75,3.21,3.49,4.5,16.87,R$ 3.34,17/03/2026 17:35:06,,,,,,,371.0,17:34:41,3.01,17:28:30,Ao Vivo (0x1)
-17/03 17:00,League 1,Barnsley x Wigan Athletic,Bovada,Draw,3.50,3.21,3.49,2.59,9.08,R$ 1.98,17/03/2026 17:35:06,,,,,,,381.0,17:34:51,3.01,17:28:30,Ao Vivo (0x1)
-17/03 17:00,League 1,Barnsley x Wigan Athletic,Betsson,Draw,3.50,3.21,3.49,2.59,9.08,R$ 1.98,17/03/2026 17:35:06,,,,,,,363.0,17:34:33,3.01,17:28:30,Ao Vivo (0x1)
-17/03 17:00,League 1,Barnsley x Wigan Athletic,Nordic Bet,Draw,3.50,3.21,3.49,2.59,9.08,R$ 1.98,17/03/2026 17:35:06,,,,,,,363.0,17:34:33,3.01,17:28:30,Ao Vivo (0x1)
+17/03 17:00,League 1,Barnsley x Wigan Athletic,Bovada,Draw,3.5,3.21,3.49,2.59,9.08,R$ 1.98,17/03/2026 17:35:06,,,,,,,381.0,17:34:51,3.01,17:28:30,Ao Vivo (0x1)
+17/03 17:00,League 1,Barnsley x Wigan Athletic,Betsson,Draw,3.5,3.21,3.49,2.59,9.08,R$ 1.98,17/03/2026 17:35:06,,,,,,,363.0,17:34:33,3.01,17:28:30,Ao Vivo (0x1)
+17/03 17:00,League 1,Barnsley x Wigan Athletic,Nordic Bet,Draw,3.5,3.21,3.49,2.59,9.08,R$ 1.98,17/03/2026 17:35:06,,,,,,,363.0,17:34:33,3.01,17:28:30,Ao Vivo (0x1)
 17/03 17:00,League 1,Barnsley x Wigan Athletic,DraftKings,Draw,3.75,3.21,3.49,4.5,16.87,R$ 3.34,17/03/2026 17:35:06,,,,,,,354.0,17:34:24,3.01,17:28:30,Ao Vivo (0x1)
-17/03 16:01,Serie B - Italy,Reggiana x Monza,Matchbook,Monza,3.30,2.97,3.21,3.38,11.17,R$ 2.65,17/03/2026 17:35:06,,,,,,,18.0,17:34:44,2.80,17:35:02,Ao Vivo (0x0)
-17/03 17:00,UEFA Champions League,Arsenal x Bayer Leverkusen,Coolbet,Arsenal,1.50,1.45,1.50,2.51,3.77,R$ 4.11,17/03/2026 17:35:06,,,,,,,1.0,17:34:42,1.37,17:34:41,Ao Vivo (0x0)
-17/03 17:00,UEFA Champions League,Chelsea x Paris Saint Germain,Matchbook,Chelsea,21.00,13.58,20.56,2.6,54.66,R$ 1.49,17/03/2026 17:35:06,,,,,,,19.0,17:35:00,12.89,17:34:41,Ao Vivo (0x2)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betsson,Manchester City,6.80,1.53,1.59,50.51,343.45,R$ 32.27,17/03/2026 17:35:06,,,,,,,638.0,17:33:31,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Nordic Bet,Manchester City,6.80,1.53,1.59,50.51,343.45,R$ 32.27,17/03/2026 17:35:06,,,,,,,718.0,17:34:51,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,888sport,Manchester City,6.50,1.53,1.59,49.83,323.88,R$ 32.09,17/03/2026 17:35:06,,,,,,,693.0,17:34:26,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,FanDuel,Manchester City,7.50,1.53,1.59,51.88,389.1,R$ 32.62,17/03/2026 17:35:06,,,,,,,725.0,17:34:58,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Sky Bet,Manchester City,7.50,1.53,1.59,51.88,389.1,R$ 32.62,17/03/2026 17:35:06,,,,,,,718.0,17:34:51,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betfair,Manchester City,8.00,1.53,1.59,52.71,421.7,R$ 32.83,17/03/2026 17:35:06,,,,,,,728.0,17:35:01,1.45,17:22:53,Ao Vivo (0x1)
+17/03 16:01,Serie B - Italy,Reggiana x Monza,Matchbook,Monza,3.3,2.97,3.21,3.38,11.17,R$ 2.65,17/03/2026 17:35:06,,,,,,,18.0,17:34:44,2.8,17:35:02,Ao Vivo (0x0)
+17/03 17:00,UEFA Champions League,Arsenal x Bayer Leverkusen,Coolbet,Arsenal,1.5,1.45,1.5,2.51,3.77,R$ 4.11,17/03/2026 17:35:06,,,,,,,1.0,17:34:42,1.37,17:34:41,Ao Vivo (0x0)
+17/03 17:00,UEFA Champions League,Chelsea x Paris Saint Germain,Matchbook,Chelsea,21.0,13.58,20.56,2.6,54.66,R$ 1.49,17/03/2026 17:35:06,,,,,,,19.0,17:35:00,12.89,17:34:41,Ao Vivo (0x2)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betsson,Manchester City,6.8,1.53,1.59,50.51,343.45,R$ 32.27,17/03/2026 17:35:06,,,,,,,638.0,17:33:31,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Nordic Bet,Manchester City,6.8,1.53,1.59,50.51,343.45,R$ 32.27,17/03/2026 17:35:06,,,,,,,718.0,17:34:51,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,888sport,Manchester City,6.5,1.53,1.59,49.83,323.88,R$ 32.09,17/03/2026 17:35:06,,,,,,,693.0,17:34:26,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,FanDuel,Manchester City,7.5,1.53,1.59,51.88,389.1,R$ 32.62,17/03/2026 17:35:06,,,,,,,725.0,17:34:58,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Sky Bet,Manchester City,7.5,1.53,1.59,51.88,389.1,R$ 32.62,17/03/2026 17:35:06,,,,,,,718.0,17:34:51,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betfair,Manchester City,8.0,1.53,1.59,52.71,421.7,R$ 32.83,17/03/2026 17:35:06,,,,,,,728.0,17:35:01,1.45,17:22:53,Ao Vivo (0x1)
 17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetMGM,Manchester City,6.75,1.53,1.59,50.4,340.19,R$ 32.24,17/03/2026 17:35:06,,,,,,,726.0,17:34:59,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Bovada,Manchester City,7.00,1.53,1.59,50.93,356.49,R$ 32.38,17/03/2026 17:35:06,,,,,,,700.0,17:34:33,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,DraftKings,Manchester City,7.00,1.53,1.59,50.93,356.49,R$ 32.38,17/03/2026 17:35:06,,,,,,,710.0,17:34:43,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Matchbook,Manchester City,8.40,1.53,1.59,53.31,447.79,R$ 32.98,17/03/2026 17:35:06,,,,,,,727.0,17:35:00,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Coolbet,Manchester City,7.50,1.53,1.59,51.88,389.1,R$ 32.62,17/03/2026 17:35:06,,,,,,,709.0,17:34:42,1.45,17:22:53,Ao Vivo (0x1)
-17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetRivers,Manchester City,6.50,1.53,1.59,49.83,323.88,R$ 32.09,17/03/2026 17:35:06,,,,,,,692.0,17:34:25,1.45,17:22:53,Ao Vivo (0x1)
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Nordic Bet,Varvara Gracheva,15.00,9.55,12.55,3.8,56.99,R$ 2.22,17/03/2026 17:35:06,,,,,,,417.0,17:27:18,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Betsson,Varvara Gracheva,15.00,9.55,12.55,3.8,56.99,R$ 2.22,17/03/2026 17:35:06,,,,,,,417.0,17:27:18,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,888sport,Varvara Gracheva,34.00,9.55,12.55,7.53,255.85,R$ 4.23,17/03/2026 17:35:06,,,,,,,169.0,17:31:26,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Betfair,Varvara Gracheva,980.00,9.55,12.55,10.36,10156.9,R$ 5.65,17/03/2026 17:35:06,,,,,,,23.0,17:33:52,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,DraftKings,Varvara Gracheva,22.00,9.55,12.55,5.92,130.26,R$ 3.38,17/03/2026 17:35:06,,,,,,,456.0,17:26:39,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,FanDuel,Varvara Gracheva,91.00,9.55,12.55,9.37,852.43,R$ 5.16,17/03/2026 17:35:06,,,,,,,267.0,17:29:48,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Bovada,Varvara Gracheva,29.00,9.55,12.55,7.02,203.52,R$ 3.96,17/03/2026 17:35:06,,,,,,,242.0,17:30:13,9.41,17:34:15,Pré-live
-17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,BetMGM,Varvara Gracheva,34.00,9.55,12.55,7.53,255.85,R$ 4.23,17/03/2026 17:35:06,,,,,,,131.0,17:32:04,9.41,17:34:15,Pré-live
-17/03 16:00,WTA Miami Open,Darja Semenistaja x Sinja Kraus,Bovada,Darja Semenistaja,5.00,4.20,4.69,3.84,19.18,R$ 2.61,17/03/2026 17:35:06,,,,,,,5.0,17:34:57,4.09,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Nordic Bet,McCartney Kessler,2.50,1.80,1.89,15.5,38.75,R$ 14.08,17/03/2026 17:35:06,,,,,,,37.0,17:34:25,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Betsson,McCartney Kessler,2.70,1.80,1.89,18.46,49.85,R$ 15.98,17/03/2026 17:35:06,,,,,,,29.0,17:34:33,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,BetRivers,McCartney Kessler,2.60,1.80,1.89,17.04,44.3,R$ 15.09,17/03/2026 17:35:06,,,,,,,30.0,17:34:32,1.74,17:35:02,Pré-live
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Bovada,Manchester City,7.0,1.53,1.59,50.93,356.49,R$ 32.38,17/03/2026 17:35:06,,,,,,,700.0,17:34:33,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,DraftKings,Manchester City,7.0,1.53,1.59,50.93,356.49,R$ 32.38,17/03/2026 17:35:06,,,,,,,710.0,17:34:43,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Matchbook,Manchester City,8.4,1.53,1.59,53.31,447.79,R$ 32.98,17/03/2026 17:35:06,,,,,,,727.0,17:35:00,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Coolbet,Manchester City,7.5,1.53,1.59,51.88,389.1,R$ 32.62,17/03/2026 17:35:06,,,,,,,709.0,17:34:42,1.45,17:22:53,Ao Vivo (0x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetRivers,Manchester City,6.5,1.53,1.59,49.83,323.88,R$ 32.09,17/03/2026 17:35:06,,,,,,,692.0,17:34:25,1.45,17:22:53,Ao Vivo (0x1)
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Nordic Bet,Varvara Gracheva,15.0,9.55,12.55,3.8,56.99,R$ 2.22,17/03/2026 17:35:06,,,,,,,417.0,17:27:18,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Betsson,Varvara Gracheva,15.0,9.55,12.55,3.8,56.99,R$ 2.22,17/03/2026 17:35:06,,,,,,,417.0,17:27:18,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,888sport,Varvara Gracheva,34.0,9.55,12.55,7.53,255.85,R$ 4.23,17/03/2026 17:35:06,,,,,,,169.0,17:31:26,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Betfair,Varvara Gracheva,980.0,9.55,12.55,10.36,10156.9,R$ 5.65,17/03/2026 17:35:06,,,,,,,23.0,17:33:52,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,DraftKings,Varvara Gracheva,22.0,9.55,12.55,5.92,130.26,R$ 3.38,17/03/2026 17:35:06,,,,,,,456.0,17:26:39,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,FanDuel,Varvara Gracheva,91.0,9.55,12.55,9.37,852.43,R$ 5.16,17/03/2026 17:35:06,,,,,,,267.0,17:29:48,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,Bovada,Varvara Gracheva,29.0,9.55,12.55,7.02,203.52,R$ 3.96,17/03/2026 17:35:06,,,,,,,242.0,17:30:13,9.41,17:34:15,Pré-live
+17/03 14:56,WTA Miami Open,Magda Linette x Varvara Gracheva,BetMGM,Varvara Gracheva,34.0,9.55,12.55,7.53,255.85,R$ 4.23,17/03/2026 17:35:06,,,,,,,131.0,17:32:04,9.41,17:34:15,Pré-live
+17/03 16:00,WTA Miami Open,Darja Semenistaja x Sinja Kraus,Bovada,Darja Semenistaja,5.0,4.20,4.69,3.84,19.18,R$ 2.61,17/03/2026 17:35:06,,,,,,,5.0,17:34:57,4.09,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Nordic Bet,McCartney Kessler,2.5,1.80,1.89,15.5,38.75,R$ 14.08,17/03/2026 17:35:06,,,,,,,37.0,17:34:25,1.74,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Betsson,McCartney Kessler,2.7,1.80,1.89,18.46,49.85,R$ 15.98,17/03/2026 17:35:06,,,,,,,29.0,17:34:33,1.74,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,BetRivers,McCartney Kessler,2.6,1.80,1.89,17.04,44.3,R$ 15.09,17/03/2026 17:35:06,,,,,,,30.0,17:34:32,1.74,17:35:02,Pré-live
 17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,DraftKings,McCartney Kessler,3.05,1.80,1.89,22.71,69.27,R$ 18.42,17/03/2026 17:35:06,,,,,,,31.0,17:34:31,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Coolbet,McCartney Kessler,2.60,1.80,1.89,17.04,44.3,R$ 15.09,17/03/2026 17:35:06,,,,,,,48.0,17:34:14,1.74,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Coolbet,McCartney Kessler,2.6,1.80,1.89,17.04,44.3,R$ 15.09,17/03/2026 17:35:06,,,,,,,48.0,17:34:14,1.74,17:35:02,Pré-live
 17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,888sport,McCartney Kessler,2.62,1.80,1.89,17.33,45.41,R$ 15.28,17/03/2026 17:35:06,,,,,,,32.0,17:34:30,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Betfair,McCartney Kessler,3.00,1.80,1.89,22.17,66.5,R$ 18.12,17/03/2026 17:35:06,,,,,,,1.0,17:35:03,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,FanDuel,McCartney Kessler,2.90,1.80,1.89,21.02,60.95,R$ 17.48,17/03/2026 17:35:06,,,,,,,53.0,17:34:09,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Bovada,McCartney Kessler,3.20,1.80,1.89,24.25,77.6,R$ 19.22,17/03/2026 17:35:06,,,,,,,5.0,17:34:57,1.74,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Betfair,McCartney Kessler,3.0,1.80,1.89,22.17,66.5,R$ 18.12,17/03/2026 17:35:06,,,,,,,1.0,17:35:03,1.74,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,FanDuel,McCartney Kessler,2.9,1.80,1.89,21.02,60.95,R$ 17.48,17/03/2026 17:35:06,,,,,,,53.0,17:34:09,1.74,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Bovada,McCartney Kessler,3.2,1.80,1.89,24.25,77.6,R$ 19.22,17/03/2026 17:35:06,,,,,,,5.0,17:34:57,1.74,17:35:02,Pré-live
 17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,Matchbook,McCartney Kessler,3.35,1.80,1.89,25.65,85.92,R$ 19.93,17/03/2026 17:35:06,,,,,,,16.0,17:34:46,1.74,17:35:02,Pré-live
 17/03 16:00,WTA Miami Open,McCartney Kessler x Magdalena Frech,BetMGM,McCartney Kessler,2.85,1.80,1.89,20.41,58.17,R$ 17.14,17/03/2026 17:35:06,,,,,,,8.0,17:34:54,1.74,17:35:02,Pré-live
-17/03 16:00,WTA Miami Open,Viktorija Golubic x Nikola Bartunkova,888sport,Viktorija Golubic,2.75,2.52,2.70,3.24,8.91,R$ 2.78,17/03/2026 17:35:06,,,,,,,32.0,17:34:30,2.44,17:35:02,Pré-live
+17/03 16:00,WTA Miami Open,Viktorija Golubic x Nikola Bartunkova,888sport,Viktorija Golubic,2.75,2.52,2.7,3.24,8.91,R$ 2.78,17/03/2026 17:35:06,,,,,,,32.0,17:34:30,2.44,17:35:02,Pré-live
+17/03 16:01,Serie B - Italy,Reggiana x Monza,Betfair,Draw,1.36,1.29,1.33,3.93,5.35,R$ 8.09,17/03/2026 17:46:54,,,,,,,13.0,17:46:32,1.22,17:46:45,Ao Vivo (0x0)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betsson,Real Madrid,2.10,1.47,1.53,20.22,42.47,R$ 21.04,17/03/2026 17:46:54,,,,,,,7.0,17:46:23,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Nordic Bet,Real Madrid,2.15,1.47,1.53,21.33,45.86,R$ 21.73,17/03/2026 17:46:54,,,,,,,10.0,17:46:40,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,888sport,Real Madrid,2.25,1.47,1.53,23.4,52.64,R$ 22.95,17/03/2026 17:46:54,,,,,,,24.0,17:46:06,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,FanDuel,Real Madrid,2.25,1.47,1.53,23.4,52.64,R$ 22.95,17/03/2026 17:46:54,,,,,,,1.0,17:46:29,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Sky Bet,Real Madrid,2.20,1.47,1.53,22.39,49.25,R$ 22.37,17/03/2026 17:46:54,,,,,,,15.0,17:46:45,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Betfair,Real Madrid,2.32,1.47,1.53,24.74,57.39,R$ 23.70,17/03/2026 17:46:54,,,,,,,1.0,17:46:31,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetMGM,Real Madrid,2.15,1.47,1.53,21.33,45.86,R$ 21.73,17/03/2026 17:46:54,,,,,,,75.0,17:45:15,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Bovada,Real Madrid,2.37,1.47,1.53,25.65,60.78,R$ 24.18,17/03/2026 17:46:54,,,,,,,9.0,17:46:39,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,DraftKings,Real Madrid,2.25,1.47,1.53,23.4,52.64,R$ 22.95,17/03/2026 17:46:54,,,,,,,17.0,17:46:13,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Matchbook,Real Madrid,2.42,1.47,1.53,26.52,64.18,R$ 24.63,17/03/2026 17:46:54,,,,,,,8.0,17:46:38,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,Coolbet,Real Madrid,2.35,1.47,1.53,25.29,59.43,R$ 23.99,17/03/2026 17:46:54,,,,,,,1.0,17:46:31,1.38,17:46:30,Ao Vivo (1x1)
+17/03 17:00,UEFA Champions League,Manchester City x Real Madrid,BetRivers,Real Madrid,2.16,1.47,1.53,21.54,46.54,R$ 21.86,17/03/2026 17:46:54,,,,,,,14.0,17:46:44,1.38,17:46:30,Ao Vivo (1x1)
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Betfair,Mary Stoiana,12.00,4.95,5.65,11.87,142.38,R$ 7.05,17/03/2026 17:46:54,,,,,,,6.0,17:46:44,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Bovada,Mary Stoiana,11.00,4.95,5.65,11.11,122.19,R$ 6.66,17/03/2026 17:46:54,,,,,,,131.0,17:44:39,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Betsson,Mary Stoiana,8.75,4.95,5.65,8.77,76.74,R$ 5.40,17/03/2026 17:46:54,,,,,,,22.0,17:46:28,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,Nordic Bet,Mary Stoiana,8.75,4.95,5.65,8.77,76.74,R$ 5.40,17/03/2026 17:46:54,,,,,,,41.0,17:46:09,4.82,17:46:50,Pré-live
+17/03 16:00,WTA Miami Open,Mary Stoiana x Yuliia Starodubtseva,888sport,Mary Stoiana,10.00,4.95,5.65,10.2,101.99,R$ 6.18,17/03/2026 17:46:54,,,,,,,0.0,17:46:50,4.82,17:46:50,Pré-live

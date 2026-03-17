@@ -82,37 +82,40 @@ def buscar_oportunidades():
         print(f"⚠️ Erro ao bater na API: {e}")
         return []
 
-    # 2. AUTO-DISCOVERY & LIMPEZA (AUTO-CLEAN)
-    novas_disponiveis = {}
+    # 2. AUTO-DISCOVERY E ATUALIZAÇÃO DE STATUS (HISTÓRICO MESTRE)
+    novas_ativas = []
     novas_descobertas = []
+    houve_mudanca = False
     
-    # Reconstrói a lista absoluta de ligas abertas hoje
     for sport in ativos_api:
         if sport.get('active', True):
             k = sport['key']
             t = sport['title']
-            novas_disponiveis[k] = t
-            if k not in config_ligas['disponiveis']:
+            novas_ativas.append(k)
+            # Se a liga não existe no nosso catálogo histórico, adicionamos
+            if k not in config_ligas.get('disponiveis', {}):
+                config_ligas.setdefault('disponiveis', {})[k] = t
                 novas_descobertas.append(t)
+                houve_mudanca = True
                 
-    # Se houve QUALQUER mudança (ligas abriram ou fecharam), o robô atualiza o JSON
-    if config_ligas['disponiveis'] != novas_disponiveis:
-        config_ligas['disponiveis'] = novas_disponiveis
-        config_ligas['selecionadas'] = [x for x in config_ligas.get('selecionadas', []) if x in novas_disponiveis]
-        
+    # Atualiza a memória de "Quem está ativo hoje"
+    if config_ligas.get('ativas_agora') != novas_ativas:
+        config_ligas['ativas_agora'] = novas_ativas
+        houve_mudanca = True
+
+    if houve_mudanca:
         with open('ligas_config.json', 'w') as f:
             json.dump(config_ligas, f, indent=4)
-            
         os.system('git config --global user.name "github-actions[bot]"')
         os.system('git config --global user.email "github-actions[bot]@users.noreply.github.com"')
         os.system('git add ligas_config.json')
-        os.system('git commit -m "🤖 [Batedor] Catálogo atualizado (Limpeza de Inativas)" || true')
+        os.system('git commit -m "🤖 [Batedor] Atualização de Catálogo e Status" || true')
         os.system('git push')
         
-        # Só envia alerta no Telegram se o motivo da mudança for Ligas NOVAS
+        # Só manda o Telegram se a mudança envolver ligas INÉDITAS no histórico
         if novas_descobertas:
             nomes_novos = ", ".join(novas_descobertas[:5]) + ("..." if len(novas_descobertas) > 5 else "")
-            enviar_alerta_telegram_simples(f"🔔 *Radar Quant:* Novas ligas abriram mercado! ({nomes_novos})\n\nVá à aba 'Gestão de Ligas' no painel para ativá-las.")
+            enviar_alerta_telegram_simples(f"🔔 *Radar Quant:* Novas ligas abriram mercado! ({nomes_novos})\n\nVá ao painel marcá-las caso queira operá-las.")
 
     # 3. FILTRO DE VARREDURA: Só varre o que está ativo AGORA e foi SELECIONADO por si no painel
     ligas_para_varrer = []

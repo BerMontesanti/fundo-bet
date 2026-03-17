@@ -258,6 +258,18 @@ if not df.empty:
     df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
     df_calc['Esporte'] = df_calc['Liga'].apply(lambda x: str(x).split(' - ')[0].strip() if ' - ' in str(x) else 'Outro')
 
+    # 📅 NOVA COLUNA PARA O FILTRO DE DATAS
+    def extrair_data_filtro(row):
+        try:
+            if pd.notna(row.get('Achado_em')) and str(row['Achado_em']).strip() != "":
+                return datetime.strptime(str(row['Achado_em']), "%d/%m/%Y %H:%M:%S").date()
+        except: pass
+        return datetime.now().date()
+        
+    df_calc['Data_Filtro'] = df_calc.apply(extrair_data_filtro, axis=1)
+
+    df_calc['Stake_Num'] = pd.to_numeric(df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip(), errors='coerce').fillna(0.0)
+    
     df_calc['Stake_Num'] = pd.to_numeric(df_calc['Stake'].astype(str).str.replace('R$', '', regex=False).str.strip(), errors='coerce').fillna(0.0)
     df_calc['ROI_Num'] = pd.to_numeric(df_calc['ROI'].astype(str).str.replace('%', '', regex=False).str.strip(), errors='coerce').fillna(0.0) / 100
     df_calc['Edge_Num'] = pd.to_numeric(df_calc['Edge'].astype(str).str.replace('%', '', regex=False).str.strip(), errors='coerce').fillna(0.0) / 100

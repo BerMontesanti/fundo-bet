@@ -243,18 +243,23 @@ def enviar_telegram(dados_aprovados):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID: return
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
 
+    # 1. Se a varredura global não achou NADA em NENHUMA casa
     if not dados_aprovados:
-        return # Fica em silêncio se não houver NADA para ninguém
+        texto_vazio = "💤 *Alerta VIP BetMGM:* A varredura foi concluída, mas o mercado está seco. Zero oportunidades encontradas."
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_vazio, "parse_mode": "Markdown"})
+        return 
 
     # Converte para DataFrame e FILTRA apenas o que for BetMGM
     df_completo = pd.DataFrame(dados_aprovados)
     df_betmgm = df_completo[df_completo['Casa'].str.lower().str.contains('betmgm', na=False)].sort_values(by="ROI", ascending=False)
 
-    # Se não houver nada da BetMGM nesta rodada, ele não envia mensagem (mas já salvou o resto no CSV/Email)
+    # 2. Se achou apostas no mundo (ex: Betano, Bet365), mas NENHUMA na BetMGM
     if df_betmgm.empty:
+        texto_sem_mgm = "💤 *Alerta VIP BetMGM:* Varredura concluída. O robô encontrou oportunidades noutras casas (ver Email/Painel), mas *NADA* na BetMGM desta vez."
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_sem_mgm, "parse_mode": "Markdown"})
         return
 
-    # Mensagem de resumo exclusiva BetMGM
+    # 3. Se achou Oportunidades na BetMGM, manda a lista!
     texto_resumo = f"🦁 *Alerta VIP BetMGM:* Encontradas {len(df_betmgm)} NOVAS oportunidades matemáticas!"
     requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 

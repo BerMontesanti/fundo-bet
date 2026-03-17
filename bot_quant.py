@@ -234,29 +234,48 @@ def salvar_historico_csv(dados_aprovados):
     print(f"✅ {len(df_novo)} apostas salvas.")
 
 # ==========================================
-# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM
+# 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM (FILTRO BETMGM)
 # ==========================================
 def enviar_telegram(dados_aprovados):
     if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID: return
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
 
     if not dados_aprovados:
-        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": "💤 *Alerta Quant:* Nenhuma NOVA oportunidade de valor.", "parse_mode": "Markdown"})
+        return # Fica em silêncio se não houver NADA para ninguém
+
+    # Converte para DataFrame e FILTRA apenas o que for BetMGM
+    df_completo = pd.DataFrame(dados_aprovados)
+    df_betmgm = df_completo[df_completo['Casa'].str.lower().str.contains('betmgm', na=False)].sort_values(by="ROI", ascending=False)
+
+    # Se não houver nada da BetMGM nesta rodada, ele não envia mensagem (mas já salvou o resto no CSV/Email)
+    if df_betmgm.empty:
         return
 
-    df = pd.DataFrame(dados_aprovados).sort_values(by="ROI", ascending=False)
-    requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": f"🔥 *Alerta Quant:* {len(df)} NOVAS oportunidades!", "parse_mode": "Markdown"})
+    # Mensagem de resumo exclusiva BetMGM
+    texto_resumo = f"🦁 *Alerta VIP BetMGM:* Encontradas {len(df_betmgm)} NOVAS oportunidades matemáticas!"
+    requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": texto_resumo, "parse_mode": "Markdown"})
 
-    for index, row in df.iterrows():
+    for index, row in df_betmgm.iterrows():
         af = f"⚡ *Sincronismo Perfeito:* {row['Gap_Segundos']}s de desfasamento." if row['Gap_Segundos'] <= 10 else (f"⚠️ *Aviso:* Tempo não fornecido." if row['Gap_Segundos'] == 999 else f"👻 *CUIDADO (ODD FANTASMA):* {row['Gap_Segundos']}s de atraso!")
-        msg = (
-            f"⚽ *{row['Jogo']}*\n🏆 {row['Liga']} | ⏰ {row['Data/Hora']}\n⏱️ **Status:** {row['Status_Partida']}\n\n"
-            f"🏠 *Casa:* {row['Casa']}\n🎯 *Seleção:* {row['Seleção']}\n"
+        
+        msg_aposta = (
+            f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n"
+            f"🦁 🚨 *OPORTUNIDADE BETMGM* 🚨 🦁\n"
+            f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨\n\n"
+            f"⚽ *{row['Jogo']}*\n"
+            f"🏆 {row['Liga']} | ⏰ Jogo às {row['Data/Hora']}\n"
+            f"⏱️ **Status:** {row['Status_Partida']}\n\n"
+            f"🎯 *Seleção:* {row['Seleção']}\n"
             f"🔮 *Oráculo (Pinnacle):* {row['Odd Pinnacle']} _(às {row['Hora Pinnacle']})_\n"
-            f"📊 *Odd Atual:* {row['Odd Casa']} _(às {row['Hora Casa']})_\n{af}\n📉 *(Odd Limite: {row['Odd Limite']})*\n\n"
-            f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n💰 *Stake:* {row['Stake']}\n\n🔗 [IR PARA A CASA]({row['Link']})"
+            f"📊 *Odd Casa:* {row['Odd Casa']} _(às {row['Hora Casa']})_\n"
+            f"{af}\n"
+            f"📉 *(Odd Limite Aceitável: {row['Odd Limite']})*\n\n"
+            f"📈 *Edge:* {row['Edge']}% | *ROI:* {row['ROI']}%\n"
+            f"💰 *Stake Recomendada:* {row['Stake']}\n\n"
+            f"🔗 [👉 ABRIR DIRETO NA BETMGM 👈]({row['Link']})\n\n"
+            f"🟨🟨🟨🟨🟨🟨🟨🟨🟨🟨"
         )
-        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "Markdown", "disable_web_page_preview": True})
+        requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg_aposta, "parse_mode": "Markdown", "disable_web_page_preview": True})
 
 # ==========================================
 # 📧 FUNÇÃO DE ENVIO DE E-MAIL

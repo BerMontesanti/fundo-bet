@@ -3,7 +3,7 @@ name: Executar Bot Quant
 on:
   schedule:
     # Horário definido via Dashboard Streamlit
-    - cron: '3, 0-1,17-23 * * *'
+    - cron: '3,33 0-1,17-23 * * *'
   workflow_dispatch: # Permite rodar manualmente no botão
 
 # ==========================================

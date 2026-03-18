@@ -100,7 +100,6 @@
         "soccer_france_ligue_two",
         "baseball_mlb",
         "soccer_usa_mls",
-        "icehockey_mestis",
         "basketball_nba",
         "baseball_ncaa",
         "lacrosse_ncaa",
@@ -111,7 +110,8 @@
         "soccer_italy_serie_b",
         "soccer_turkey_super_league",
         "basketball_wncaab",
-        "tennis_wta_miami_open"
+        "tennis_wta_miami_open",
+        "icehockey_mestis"
     ],
     "ativas_agora": [
         "americanfootball_ncaaf",

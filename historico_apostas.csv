@@ -1625,9 +1625,24 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 18/03 15:00,HockeyAllsvenskan,BIK Karlskoga x Nybro Vikings IF,Marathon Bet,BIK Karlskoga,1.55,1.40,1.45,6.82,10.57,R$ 11.37,18/03/2026 13:14:21,,,,,,,31.0,13:13:44,1.29,13:14:15,Pré-live
 18/03 15:00,HockeyAllsvenskan,BIK Karlskoga x Nybro Vikings IF,Marathon Bet,Nybro Vikings IF,4.45,3.49,3.82,6.19,27.57,R$ 4.73,18/03/2026 13:14:21,,,,,,,31.0,13:13:44,3.21,13:14:15,Pré-live
 18/03 13:30,Mestis,KeuPa HT x Pyry,BetRivers,KeuPa HT,3.15,2.29,2.43,11.94,37.61,R$ 10.35,18/03/2026 14:39:21,,,,,,,25.0,14:38:40,2.14,14:39:05,Pré-live
-18/03 13:30,Mestis,KeuPa HT x Pyry,888sport,KeuPa HT,3.40,2.29,2.43,14.27,48.53,R$ 11.96,18/03/2026 14:39:21,,,,,,,126.0,14:36:59,2.14,14:39:05,Pré-live
-18/03 13:30,Mestis,KeuPa HT x Pyry,Betsson,KeuPa HT,3.00,2.29,2.43,10.35,31.05,R$ 9.19,18/03/2026 14:39:21,,,,,,,144.0,14:36:41,2.14,14:39:05,Pré-live
-18/03 13:30,Mestis,KeuPa HT x Pyry,Nordic Bet,KeuPa HT,3.00,2.29,2.43,10.35,31.05,R$ 9.19,18/03/2026 14:39:21,,,,,,,136.0,14:36:49,2.14,14:39:05,Pré-live
-18/03 14:00,Frauen-Bundesliga,Carl Zeiss Jena x VfL Wolfsburg,888sport,Carl Zeiss Jena,126.00,17.15,30.02,5.04,634.67,R$ 3.00,18/03/2026 14:39:21,,,,,,,42.0,14:36:11,15.96,14:35:29,Pré-live
-18/03 14:00,Frauen-Bundesliga,Carl Zeiss Jena x VfL Wolfsburg,888sport,Draw,46.00,6.83,8.24,12.46,573.07,R$ 7.54,18/03/2026 14:39:21,,,,,,,42.0,14:36:11,6.36,14:35:29,Pré-live
-18/03 14:00,Turkey Super League,Eyüpspor x Trabzonspor,Matchbook,Eyüpspor,5.90,5.10,5.85,2.65,15.63,R$ 1.89,18/03/2026 14:39:21,,,,,,,9.0,14:39:10,4.83,14:39:01,Ao Vivo (0x0)
+18/03 13:30,Mestis,KeuPa HT x Pyry,888sport,KeuPa HT,3.4,2.29,2.43,14.27,48.53,R$ 11.96,18/03/2026 14:39:21,,,,,,,126.0,14:36:59,2.14,14:39:05,Pré-live
+18/03 13:30,Mestis,KeuPa HT x Pyry,Betsson,KeuPa HT,3.0,2.29,2.43,10.35,31.05,R$ 9.19,18/03/2026 14:39:21,,,,,,,144.0,14:36:41,2.14,14:39:05,Pré-live
+18/03 13:30,Mestis,KeuPa HT x Pyry,Nordic Bet,KeuPa HT,3.0,2.29,2.43,10.35,31.05,R$ 9.19,18/03/2026 14:39:21,,,,,,,136.0,14:36:49,2.14,14:39:05,Pré-live
+18/03 14:00,Frauen-Bundesliga,Carl Zeiss Jena x VfL Wolfsburg,888sport,Carl Zeiss Jena,126.0,17.15,30.02,5.04,634.67,R$ 3.00,18/03/2026 14:39:21,,,,,,,42.0,14:36:11,15.96,14:35:29,Pré-live
+18/03 14:00,Frauen-Bundesliga,Carl Zeiss Jena x VfL Wolfsburg,888sport,Draw,46.0,6.83,8.24,12.46,573.07,R$ 7.54,18/03/2026 14:39:21,,,,,,,42.0,14:36:11,6.36,14:35:29,Pré-live
+18/03 14:00,Turkey Super League,Eyüpspor x Trabzonspor,Matchbook,Eyüpspor,5.9,5.10,5.85,2.65,15.63,R$ 1.89,18/03/2026 14:39:21,,,,,,,9.0,14:39:10,4.83,14:39:01,Ao Vivo (0x0)
+18/03 15:00,Serie B - Italy,Frosinone x Bari,Betfair,Draw,3.35,3.05,3.30,2.94,9.86,R$ 2.48,18/03/2026 16:05:59,,,,,,,7.0,16:05:47,2.88,16:05:40,Ao Vivo (1x1)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Nordic Bet,Antalyaspor,41.00,14.76,23.40,4.33,177.72,R$ 2.63,18/03/2026 16:05:59,,,,,,,463.0,15:54:29,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Nordic Bet,Basaksehir,15.00,5.25,6.05,12.37,185.52,R$ 7.84,18/03/2026 16:05:59,,,,,,,463.0,15:54:29,4.95,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Betsson,Antalyaspor,34.00,14.76,23.40,3.83,130.31,R$ 2.34,18/03/2026 16:05:59,,,,,,,447.0,15:54:45,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Betsson,Basaksehir,17.00,5.25,6.05,13.15,223.59,R$ 8.27,18/03/2026 16:05:59,,,,,,,447.0,15:54:45,4.95,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Coolbet,Antalyaspor,40.00,14.76,23.40,4.27,170.95,R$ 2.59,18/03/2026 16:05:59,,,,,,,438.0,15:54:54,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Coolbet,Basaksehir,22.00,5.25,6.05,14.49,318.77,R$ 8.98,18/03/2026 16:05:59,,,,,,,438.0,15:54:54,4.95,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,FanDuel,Antalyaspor,31.00,14.76,23.40,3.55,109.99,R$ 2.17,18/03/2026 16:05:59,,,,,,,421.0,15:55:11,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,FanDuel,Basaksehir,15.00,5.25,6.05,12.37,185.52,R$ 7.84,18/03/2026 16:05:59,,,,,,,421.0,15:55:11,4.95,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Sky Bet,Antalyaspor,34.00,14.76,23.40,3.83,130.31,R$ 2.34,18/03/2026 16:05:59,,,,,,,406.0,15:55:26,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Sky Bet,Basaksehir,21.00,5.25,6.05,14.27,299.73,R$ 8.87,18/03/2026 16:05:59,,,,,,,406.0,15:55:26,4.95,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,888sport,Antalyaspor,26.00,14.76,23.40,2.93,76.12,R$ 1.80,18/03/2026 16:05:59,,,,,,,519.0,15:53:33,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,888sport,Basaksehir,10.00,5.25,6.05,9.03,90.35,R$ 5.94,18/03/2026 16:05:59,,,,,,,519.0,15:53:33,4.95,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Bovada,Antalyaspor,24.00,14.76,23.40,2.61,62.57,R$ 1.61,18/03/2026 16:05:59,,,,,,,421.0,15:55:11,13.91,16:02:12,Ao Vivo (0x0)
+18/03 14:00,Turkey Super League,Basaksehir x Antalyaspor,Bovada,Basaksehir,17.00,5.25,6.05,13.15,223.59,R$ 8.27,18/03/2026 16:05:59,,,,,,,421.0,15:55:11,4.95,16:02:12,Ao Vivo (0x0)

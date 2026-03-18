@@ -84,24 +84,9 @@
         "basketball_nbl": "NBL"
     },
     "selecionadas": [
-        "soccer_germany_liga3",
-        "basketball_euroleague",
-        "soccer_england_efl_cup",
-        "soccer_epl",
-        "soccer_fa_cup",
-        "soccer_spain_segunda_division",
-        "soccer_england_league1",
-        "soccer_england_league2",
         "soccer_usa_mls",
         "mma_mixed_martial_arts",
-        "basketball_nba",
-        "basketball_nbl",
-        "soccer_italy_serie_b",
-        "soccer_greece_super_league",
-        "soccer_uefa_champs_league",
-        "soccer_uefa_europa_conference_league",
-        "soccer_uefa_europa_league",
-        "tennis_wta_miami_open"
+        "basketball_nba"
     ],
     "ativas_agora": [
         "americanfootball_ncaaf",

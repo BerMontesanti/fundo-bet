@@ -151,7 +151,7 @@ st.sidebar.divider()
 st.sidebar.markdown("### ⏱️ Agendamentos (Cron UTC)")
 st.sidebar.caption("Lembrete: Horário UTC é +3h que Brasília.")
 
-cron_varredura = st.sidebar.text_input("🔍 Varredura de Odds:", value="0 */2 * * *")
+cron_varredura = st.sidebar.text_input("🔍 Varredura de Odds:", value="3,33 0-1,17-23 * * *")
 cron_agenda = st.sidebar.text_input("📅 Relatório Diário (Agenda):", value="0 11 * * *")
 
 if st.sidebar.button("💾 Salvar Novos Horários", use_container_width=True):

@@ -1526,27 +1526,33 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 17/03 16:00,WTA Miami Open,Katie Boulter x Jessica Bouzas Maneiro,Bovada,Jessica Bouzas Maneiro,3.9,2.15,2.27,20.87,81.4,R$ 15.30,17/03/2026 19:01:17,,,,,,,112.0,18:59:13,2.07,19:01:05,Pré-live
 17/03 16:00,WTA Miami Open,Katie Boulter x Jessica Bouzas Maneiro,Matchbook,Jessica Bouzas Maneiro,3.4,2.15,2.27,17.1,58.14,R$ 13.20,17/03/2026 19:01:17,,,,,,,0.0,19:01:05,2.07,19:01:05,Pré-live
 17/03 16:00,WTA Miami Open,Katie Boulter x Jessica Bouzas Maneiro,BetMGM,Jessica Bouzas Maneiro,2.95,2.15,2.27,12.61,37.21,R$ 10.40,17/03/2026 19:01:17,,,,,,,49.0,19:00:16,2.07,19:01:05,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Nordic Bet,Shuai Zhang,14.00,7.29,8.91,6.58,92.06,R$ 3.86,17/03/2026 20:27:51,,,,,,,3.0,20:27:48,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Betsson,Shuai Zhang,13.00,7.29,8.91,6.03,78.34,R$ 3.56,17/03/2026 20:27:51,,,,,,,36.0,20:27:09,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,DraftKings,Shuai Zhang,22.00,7.29,8.91,9.17,201.81,R$ 5.24,17/03/2026 20:27:51,,,,,,,31.0,20:27:14,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Coolbet,Shuai Zhang,15.00,7.29,8.91,7.05,105.78,R$ 4.12,17/03/2026 20:27:51,,,,,,,37.0,20:27:08,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,888sport,Shuai Zhang,12.00,7.29,8.91,5.39,64.62,R$ 3.20,17/03/2026 20:27:51,,,,,,,38.0,20:27:07,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Betfair,Shuai Zhang,29.00,7.29,8.91,10.27,297.83,R$ 5.80,17/03/2026 20:27:51,,,,,,,12.0,20:27:33,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,FanDuel,Shuai Zhang,11.00,7.29,8.91,4.63,50.9,R$ 2.77,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Bovada,Shuai Zhang,18.00,7.29,8.91,8.16,146.93,R$ 4.71,17/03/2026 20:27:51,,,,,,,5.0,20:27:40,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Matchbook,Shuai Zhang,28.00,7.29,8.91,10.15,284.12,R$ 5.73,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,7.17,20:27:45,Pré-live
-17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,BetMGM,Shuai Zhang,11.50,7.29,8.91,5.02,57.76,R$ 3.00,17/03/2026 20:27:51,,,,,,,39.0,20:27:06,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Nordic Bet,Shuai Zhang,14.0,7.29,8.91,6.58,92.06,R$ 3.86,17/03/2026 20:27:51,,,,,,,3.0,20:27:48,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Betsson,Shuai Zhang,13.0,7.29,8.91,6.03,78.34,R$ 3.56,17/03/2026 20:27:51,,,,,,,36.0,20:27:09,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,DraftKings,Shuai Zhang,22.0,7.29,8.91,9.17,201.81,R$ 5.24,17/03/2026 20:27:51,,,,,,,31.0,20:27:14,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Coolbet,Shuai Zhang,15.0,7.29,8.91,7.05,105.78,R$ 4.12,17/03/2026 20:27:51,,,,,,,37.0,20:27:08,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,888sport,Shuai Zhang,12.0,7.29,8.91,5.39,64.62,R$ 3.20,17/03/2026 20:27:51,,,,,,,38.0,20:27:07,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Betfair,Shuai Zhang,29.0,7.29,8.91,10.27,297.83,R$ 5.80,17/03/2026 20:27:51,,,,,,,12.0,20:27:33,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,FanDuel,Shuai Zhang,11.0,7.29,8.91,4.63,50.9,R$ 2.77,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Bovada,Shuai Zhang,18.0,7.29,8.91,8.16,146.93,R$ 4.71,17/03/2026 20:27:51,,,,,,,5.0,20:27:40,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,Matchbook,Shuai Zhang,28.0,7.29,8.91,10.15,284.12,R$ 5.73,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,7.17,20:27:45,Pré-live
+17/03 19:45,WTA Miami Open,Shuai Zhang x Sorana Cirstea,BetMGM,Shuai Zhang,11.5,7.29,8.91,5.02,57.76,R$ 3.00,17/03/2026 20:27:51,,,,,,,39.0,20:27:06,7.17,20:27:45,Pré-live
 17/03 20:00,WTA Miami Open,Zeynep Sonmez x Beatriz Haddad Maia,BetOnline.ag,Beatriz Haddad Maia,2.93,2.15,2.27,12.38,36.28,R$ 10.24,17/03/2026 20:27:51,,,,,,,893.0,20:12:52,2.07,20:27:45,Pré-live
-17/03 20:00,WTA Miami Open,Zeynep Sonmez x Beatriz Haddad Maia,Betfair,Zeynep Sonmez,2.00,1.87,1.96,3.49,6.98,R$ 3.80,17/03/2026 20:27:51,,,,,,,12.0,20:27:33,1.80,20:27:45,Pré-live
-17/03 20:00,WTA Miami Open,Zeynep Sonmez x Beatriz Haddad Maia,BetMGM,Zeynep Sonmez,1.98,1.87,1.96,2.98,5.91,R$ 3.29,17/03/2026 20:27:51,,,,,,,39.0,20:27:06,1.80,20:27:45,Pré-live
-17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Nordic Bet,Sofia Kenin,2.20,1.67,1.74,14.4,31.67,R$ 14.38,17/03/2026 20:27:51,,,,,,,3.0,20:27:48,1.61,20:27:45,Pré-live
+17/03 20:00,WTA Miami Open,Zeynep Sonmez x Beatriz Haddad Maia,Betfair,Zeynep Sonmez,2.0,1.87,1.96,3.49,6.98,R$ 3.80,17/03/2026 20:27:51,,,,,,,12.0,20:27:33,1.8,20:27:45,Pré-live
+17/03 20:00,WTA Miami Open,Zeynep Sonmez x Beatriz Haddad Maia,BetMGM,Zeynep Sonmez,1.98,1.87,1.96,2.98,5.91,R$ 3.29,17/03/2026 20:27:51,,,,,,,39.0,20:27:06,1.8,20:27:45,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Nordic Bet,Sofia Kenin,2.2,1.67,1.74,14.4,31.67,R$ 14.38,17/03/2026 20:27:51,,,,,,,3.0,20:27:48,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Betsson,Sofia Kenin,2.15,1.67,1.74,13.34,28.68,R$ 13.59,17/03/2026 20:27:51,,,,,,,36.0,20:27:09,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,BetRivers,Sofia Kenin,2.08,1.67,1.74,11.77,24.49,R$ 12.36,17/03/2026 20:27:51,,,,,,,39.0,20:27:06,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,DraftKings,Sofia Kenin,2.09,1.67,1.74,12.0,25.09,R$ 12.54,17/03/2026 20:27:51,,,,,,,31.0,20:27:14,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Coolbet,Sofia Kenin,2.12,1.67,1.74,12.68,26.88,R$ 13.08,17/03/2026 20:27:51,,,,,,,37.0,20:27:08,1.61,20:27:45,Pré-live
-17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,888sport,Sofia Kenin,2.10,1.67,1.74,12.23,25.69,R$ 12.73,17/03/2026 20:27:51,,,,,,,38.0,20:27:07,1.61,20:27:45,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,888sport,Sofia Kenin,2.1,1.67,1.74,12.23,25.69,R$ 12.73,17/03/2026 20:27:51,,,,,,,38.0,20:27:07,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Betfair,Sofia Kenin,2.02,1.67,1.74,10.35,20.9,R$ 11.17,17/03/2026 20:27:51,,,,,,,12.0,20:27:33,1.61,20:27:45,Pré-live
-17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,FanDuel,Sofia Kenin,2.00,1.67,1.74,9.85,19.7,R$ 10.74,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,1.61,20:27:45,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,FanDuel,Sofia Kenin,2.0,1.67,1.74,9.85,19.7,R$ 10.74,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Bovada,Sofia Kenin,2.15,1.67,1.74,13.34,28.68,R$ 13.59,17/03/2026 20:27:51,,,,,,,5.0,20:27:40,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Matchbook,Sofia Kenin,2.04,1.67,1.74,10.83,22.09,R$ 11.58,17/03/2026 20:27:51,,,,,,,15.0,20:27:30,1.61,20:27:45,Pré-live
 17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,BetMGM,Sofia Kenin,2.05,1.67,1.74,11.07,22.69,R$ 11.78,17/03/2026 20:27:51,,,,,,,39.0,20:27:06,1.61,20:27:45,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Nordic Bet,Anna Blinkova,1.75,1.60,1.66,5.48,9.59,R$ 6.97,17/03/2026 21:55:06,,,,,,,29.0,21:54:22,1.54,21:54:51,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,BetRivers,Anna Blinkova,1.77,1.60,1.66,6.12,10.84,R$ 7.67,17/03/2026 21:55:06,,,,,,,24.0,21:54:27,1.54,21:54:51,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,DraftKings,Anna Blinkova,1.93,1.60,1.66,10.81,20.86,R$ 12.22,17/03/2026 21:55:06,,,,,,,15.0,21:54:36,1.54,21:54:51,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,FanDuel,Anna Blinkova,2.15,1.60,1.66,16.11,34.64,R$ 16.41,17/03/2026 21:55:06,,,,,,,15.0,21:54:36,1.54,21:54:51,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,Bovada,Anna Blinkova,2.10,1.60,1.66,15.0,31.5,R$ 15.61,17/03/2026 21:55:06,,,,,,,99.0,21:53:12,1.54,21:54:51,Pré-live
+17/03 20:19,WTA Miami Open,Sofia Kenin x Anna Blinkova,BetMGM,Anna Blinkova,1.77,1.60,1.66,6.12,10.84,R$ 7.67,17/03/2026 21:55:06,,,,,,,24.0,21:54:27,1.54,21:54:51,Pré-live

@@ -1591,3 +1591,36 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 17/03 21:12,NBA,Milwaukee Bucks x Cleveland Cavaliers,Betfair Sportsbook,Cleveland Cavaliers,1.53,1.18,1.21,19.63,30.03,R$ 30.88,17/03/2026 22:51:08,Cleveland Cavaliers,Green ✅,False,,,2026-03-18 02:31:11,31.0,22:50:25,1.12,22:50:56,Ao Vivo (85x82)
 17/03 21:12,NBA,Milwaukee Bucks x Cleveland Cavaliers,BetMGM,Cleveland Cavaliers,1.5,1.18,1.21,18.32,27.48,R$ 29.95,17/03/2026 22:51:08,Cleveland Cavaliers,Green ✅,False,,,2026-03-18 02:31:11,4.0,22:51:00,1.12,22:50:56,Ao Vivo (85x82)
 17/03 21:12,NBA,Milwaukee Bucks x Cleveland Cavaliers,Bovada,Cleveland Cavaliers,1.53,1.18,1.21,19.63,30.03,R$ 30.88,17/03/2026 22:51:08,Cleveland Cavaliers,Green ✅,False,,,2026-03-18 02:31:11,5.0,22:50:51,1.12,22:50:56,Ao Vivo (85x82)
+18/03 13:30,Mestis,Jokerit x Kiekko-Vantaa,BetRivers,Kiekko-Vantaa,5.25,4.55,5.13,2.94,15.46,R$ 2.15,18/03/2026 13:14:21,,,,,,,16.0,13:13:44,4.15,13:14:00,Pré-live
+18/03 20:09,NHL,New York Rangers x New Jersey Devils,Marathon Bet,New Jersey Devils,2.38,1.92,2.01,10.16,24.17,R$ 10.37,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.87,13:13:48,Pré-live
+18/03 20:09,NHL,New York Rangers x New Jersey Devils,Marathon Bet,New York Rangers,2.58,2.09,2.21,9.07,23.39,R$ 8.76,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.04,13:13:48,Pré-live
+18/03 20:09,NHL,New York Rangers x New Jersey Devils,Coolbet,New Jersey Devils,2.35,1.92,2.01,9.62,22.61,R$ 9.91,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.87,13:13:48,Pré-live
+18/03 20:09,NHL,New York Rangers x New Jersey Devils,Coolbet,New York Rangers,2.57,2.09,2.21,8.92,22.91,R$ 8.64,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.04,13:13:48,Pré-live
+18/03 20:10,NHL,Carolina Hurricanes x Pittsburgh Penguins,Marathon Bet,Carolina Hurricanes,2.10,1.73,1.81,10.13,21.28,R$ 11.44,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.69,13:13:48,Pré-live
+18/03 20:10,NHL,Carolina Hurricanes x Pittsburgh Penguins,Marathon Bet,Pittsburgh Penguins,2.96,2.37,2.52,8.47,25.06,R$ 7.57,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.31,13:13:48,Pré-live
+18/03 20:10,NHL,Carolina Hurricanes x Pittsburgh Penguins,Coolbet,Carolina Hurricanes,2.03,1.73,1.81,8.49,17.23,R$ 9.90,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.69,13:13:48,Pré-live
+18/03 20:10,NHL,Carolina Hurricanes x Pittsburgh Penguins,Coolbet,Pittsburgh Penguins,3.00,2.37,2.52,8.92,26.75,R$ 7.91,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.31,13:13:48,Pré-live
+18/03 20:40,NHL,Washington Capitals x Ottawa Senators,Marathon Bet,Ottawa Senators,2.26,1.85,1.93,9.95,22.49,R$ 10.56,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.80,13:13:48,Pré-live
+18/03 20:40,NHL,Washington Capitals x Ottawa Senators,Marathon Bet,Washington Capitals,2.73,2.18,2.31,9.17,25.04,R$ 8.56,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.13,13:13:48,Pré-live
+18/03 20:40,NHL,Washington Capitals x Ottawa Senators,Coolbet,Ottawa Senators,2.26,1.85,1.93,9.95,22.49,R$ 10.56,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.80,13:13:48,Pré-live
+18/03 20:40,NHL,Washington Capitals x Ottawa Senators,Coolbet,Washington Capitals,2.75,2.18,2.31,9.44,25.95,R$ 8.78,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.13,13:13:48,Pré-live
+18/03 22:40,NHL,Calgary Flames x St Louis Blues,Marathon Bet,Calgary Flames,2.70,2.15,2.28,9.39,25.36,R$ 8.83,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.10,13:13:48,Pré-live
+18/03 22:40,NHL,Calgary Flames x St Louis Blues,Marathon Bet,St Louis Blues,2.30,1.87,1.96,10.09,23.21,R$ 10.57,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.82,13:13:48,Pré-live
+18/03 22:40,NHL,Calgary Flames x St Louis Blues,Coolbet,Calgary Flames,2.63,2.15,2.28,8.41,22.11,R$ 8.03,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.10,13:13:48,Pré-live
+18/03 22:40,NHL,Calgary Flames x St Louis Blues,Coolbet,St Louis Blues,2.30,1.87,1.96,10.09,23.21,R$ 10.57,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.82,13:13:48,Pré-live
+18/03 22:40,NHL,Colorado Avalanche x Dallas Stars,Marathon Bet,Colorado Avalanche,2.09,1.74,1.82,9.55,19.95,R$ 10.83,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.70,13:13:48,Pré-live
+18/03 22:40,NHL,Colorado Avalanche x Dallas Stars,Marathon Bet,Dallas Stars,2.98,2.35,2.49,9.05,26.97,R$ 8.06,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.29,13:13:48,Pré-live
+18/03 22:40,NHL,Colorado Avalanche x Dallas Stars,Coolbet,Colorado Avalanche,2.08,1.74,1.82,9.32,19.38,R$ 10.62,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.70,13:13:48,Pré-live
+18/03 22:40,NHL,Colorado Avalanche x Dallas Stars,Coolbet,Dallas Stars,3.00,2.35,2.49,9.27,27.82,R$ 8.23,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.29,13:13:48,Pré-live
+18/03 23:10,NHL,Anaheim Ducks x Philadelphia Flyers,Marathon Bet,Anaheim Ducks,2.08,1.71,1.79,10.38,21.59,R$ 11.83,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.67,13:13:48,Pré-live
+18/03 23:10,NHL,Anaheim Ducks x Philadelphia Flyers,Marathon Bet,Philadelphia Flyers,3.00,2.41,2.56,8.21,24.63,R$ 7.29,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.35,13:13:48,Pré-live
+18/03 23:10,NHL,Anaheim Ducks x Philadelphia Flyers,Coolbet,Anaheim Ducks,2.08,1.71,1.79,10.38,21.59,R$ 11.83,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,1.67,13:13:48,Pré-live
+18/03 23:10,NHL,Anaheim Ducks x Philadelphia Flyers,Coolbet,Philadelphia Flyers,3.05,2.41,2.56,8.76,26.7,R$ 7.71,18/03/2026 13:14:21,,,,,,,23.0,13:13:25,2.35,13:13:48,Pré-live
+18/03 15:00,HockeyAllsvenskan,Modo Hockey x AIK,Coolbet,AIK,3.15,2.22,2.35,13.35,42.04,R$ 11.57,18/03/2026 13:14:21,,,,,,,55.0,13:13:20,2.07,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,Modo Hockey x AIK,Coolbet,Modo Hockey,2.05,1.82,1.91,6.13,12.56,R$ 7.08,18/03/2026 13:14:21,,,,,,,55.0,13:13:20,1.70,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,Modo Hockey x AIK,Marathon Bet,AIK,2.69,2.22,2.35,7.92,21.3,R$ 7.46,18/03/2026 13:14:21,,,,,,,31.0,13:13:44,2.07,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,Modo Hockey x AIK,Marathon Bet,Modo Hockey,2.12,1.82,1.91,7.74,16.4,R$ 8.67,18/03/2026 13:14:21,,,,,,,31.0,13:13:44,1.70,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,BIK Karlskoga x Nybro Vikings IF,Coolbet,BIK Karlskoga,1.67,1.40,1.45,11.45,19.13,R$ 16.89,18/03/2026 13:14:21,,,,,,,55.0,13:13:20,1.29,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,BIK Karlskoga x Nybro Vikings IF,Coolbet,Nybro Vikings IF,4.55,3.49,3.82,6.69,30.43,R$ 5.07,18/03/2026 13:14:21,,,,,,,55.0,13:13:20,3.21,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,BIK Karlskoga x Nybro Vikings IF,Marathon Bet,BIK Karlskoga,1.55,1.40,1.45,6.82,10.57,R$ 11.37,18/03/2026 13:14:21,,,,,,,31.0,13:13:44,1.29,13:14:15,Pré-live
+18/03 15:00,HockeyAllsvenskan,BIK Karlskoga x Nybro Vikings IF,Marathon Bet,Nybro Vikings IF,4.45,3.49,3.82,6.19,27.57,R$ 4.73,18/03/2026 13:14:21,,,,,,,31.0,13:13:44,3.21,13:14:15,Pré-live

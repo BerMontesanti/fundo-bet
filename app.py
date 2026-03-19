@@ -475,32 +475,59 @@ with tab_ligas:
     ligas_selecionadas = config_ligas.get("selecionadas", [])
     ativas_agora = config_ligas.get("ativas_agora", [])
 
-    # Constrói a tabela visual
+    # Função para extrair e traduzir o esporte da chave da API (ex: soccer_epl -> Futebol)
+    def traduzir_esporte(chave):
+        esp = chave.split('_')[0].lower()
+        mapa_esportes = {
+            'soccer': 'Futebol', 'basketball': 'Basquete', 'americanfootball': 'Futebol Americano',
+            'tennis': 'Tênis', 'icehockey': 'Hóquei', 'mma': 'MMA', 'boxing': 'Boxe',
+            'cricket': 'Críquete', 'rugbyleague': 'Rugby', 'aussierules': 'Aussie Rules',
+            'golf': 'Golfe', 'baseball': 'Beisebol', 'politics': 'Política'
+        }
+        return mapa_esportes.get(esp, esp.capitalize())
+
+    # Constrói a tabela visual completa
     linhas_tabela = []
     for chave, nome in opcoes_disponiveis.items():
         linhas_tabela.append({
             "Chave": chave,
+            "Esporte": traduzir_esporte(chave),
             "Monitorar": True if chave in ligas_selecionadas else False,
             "Status": "🟢 Ativa Agora" if chave in ativas_agora else "🔴 Inativa (Fora de Época)",
             "Liga": nome
         })
     
-    # Ordena para mostrar as ativas primeiro
-    df_ligas_ui = pd.DataFrame(linhas_tabela).sort_values(by=["Status", "Liga"], ascending=[False, True])
+    df_ligas_ui = pd.DataFrame(linhas_tabela).sort_values(by=["Status", "Esporte", "Liga"], ascending=[False, True, True])
+
+    # --- 🎛️ FILTROS DA TABELA ---
+    col_filtro1, col_filtro2 = st.columns(2)
+    with col_filtro1:
+        lista_esportes = ["Todos"] + sorted(df_ligas_ui['Esporte'].unique().tolist())
+        filtro_esp = st.selectbox("🏀 Filtrar por Esporte:", lista_esportes)
+    with col_filtro2:
+        filtro_stat = st.selectbox("📡 Filtrar por Status:", ["Todos", "🟢 Ativa Agora", "🔴 Inativa (Fora de Época)"])
+
+    # Aplica os filtros na base que será exibida
+    df_filtrado = df_ligas_ui.copy()
+    if filtro_esp != "Todos":
+        df_filtrado = df_filtrado[df_filtrado['Esporte'] == filtro_esp]
+    if filtro_stat != "Todos":
+        df_filtrado = df_filtrado[df_filtrado['Status'] == filtro_stat]
 
     with st.form("form_gestao_ligas"):
-        st.write(f"📊 **Total no Catálogo: {len(opcoes_disponiveis)} ligas.**")
+        st.write(f"📊 **Exibindo {len(df_filtrado)} de {len(df_ligas_ui)} ligas do catálogo.**")
         
-        # Tabela editável com Checkboxes
+        # Tabela editável apenas com os dados filtrados
         editado = st.data_editor(
-            df_ligas_ui,
+            df_filtrado,
             column_config={
                 "Monitorar": st.column_config.CheckboxColumn("Incluir na Varredura?", default=False),
-                "Status": st.column_config.TextColumn("Status na The Odds API", disabled=True),
+                "Status": st.column_config.TextColumn("Status na API", disabled=True),
+                "Esporte": st.column_config.TextColumn("Esporte", disabled=True),
                 "Liga": st.column_config.TextColumn("Nome do Campeonato", disabled=True),
-                "Chave": None # Esconde a chave técnica da API
+                "Chave": None # Esconde a chave técnica da API para ficar mais limpo
             },
-            disabled=["Status", "Liga", "Chave"],
+            disabled=["Status", "Liga", "Esporte", "Chave"],
             hide_index=True,
             use_container_width=True
         )
@@ -508,12 +535,21 @@ with tab_ligas:
         btn_salvar_ligas = st.form_submit_button("💾 Salvar Preferências de Varredura", type="primary")
 
     if btn_salvar_ligas:
-        # Pega as chaves onde a checkbox 'Monitorar' ficou marcada
-        selecionadas_atualizadas = editado[editado["Monitorar"] == True]["Chave"].tolist()
-        config_ligas["selecionadas"] = selecionadas_atualizadas
+        # 🛡️ Lógica de salvamento segura: para não apagar as ligas que o filtro escondeu!
+        chaves_visiveis = df_filtrado["Chave"].tolist()
+        chaves_marcadas_na_view = editado[editado["Monitorar"] == True]["Chave"].tolist()
+
+        # 1. Mantém todas as ligas que já estavam marcadas, EXCETO as que apareceram no filtro atual
+        selecionadas_finais = [k for k in ligas_selecionadas if k not in chaves_visiveis]
+        
+        # 2. Adiciona as ligas que o utilizador deixou marcadas neste filtro
+        selecionadas_finais.extend(chaves_marcadas_na_view)
+
+        # Atualiza a base global sem duplicatas
+        config_ligas["selecionadas"] = list(set(selecionadas_finais))
         
         with st.spinner("A guardar o seu portfólio na nuvem..."):
-            if salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Atualizando ligas alvo"):
+            if salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Atualizando ligas alvo via Painel"):
                 st.success("✅ Preferências salvas! A próxima varredura respeitará estas escolhas.")
                 st.rerun()
 
@@ -528,7 +564,6 @@ with tab_ligas:
         else:
             with st.spinner("A consultar o catálogo absoluto do mercado global (Custo: 0 créditos)..."):
                 try:
-                    # 💡 A MÁGICA ESTÁ AQUI: 'all': 'true' obriga a API a mostrar também os inativos!
                     res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_str, 'all': 'true'})
                     
                     if res.status_code == 200:
@@ -539,20 +574,16 @@ with tab_ligas:
                             k = sport['key']
                             t = sport['title']
                             
-                            # 1. Se a liga nunca foi vista na vida, adiciona ao Catálogo Mestre
                             if k not in opcoes_disponiveis:
                                 opcoes_disponiveis[k] = t
                                 novas_descobertas += 1
                                 
-                            # 2. Verifica se a API diz que está em temporada (active = True)
                             if sport.get('active', False):
                                 novas_ativas.append(k)
                         
-                        # Atualiza os dicionários com a verdade absoluta
                         config_ligas["disponiveis"] = opcoes_disponiveis
                         config_ligas["ativas_agora"] = novas_ativas
                         
-                        # Salva na nuvem
                         if salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Atualizando Catálogo Absoluto"):
                             st.success(f"🧹 Status atualizados com sucesso! O catálogo agora tem {len(opcoes_disponiveis)} ligas ({len(novas_ativas)} estão 🟢 Ativas hoje). Foram descobertas {novas_descobertas} novas ligas!")
                             st.rerun()

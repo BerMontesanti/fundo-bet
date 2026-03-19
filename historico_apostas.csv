@@ -1767,30 +1767,74 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,Sky Bet,Denver Nuggets,1.33,1.29,1.33,2.55,3.39,R$ 6.08,18/03/2026 23:05:20,,,,,,,38.0,23:04:35,1.22,23:05:13,Ao Vivo (74x68)
 18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,Coolbet,Denver Nuggets,1.37,1.29,1.33,4.74,6.5,R$ 10.40,18/03/2026 23:05:20,,,,,,,22.0,23:04:51,1.22,23:05:13,Ao Vivo (74x68)
 18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,Betsson,Denver Nuggets,1.38,1.29,1.33,5.27,7.28,R$ 11.33,18/03/2026 23:05:20,,,,,,,14.0,23:04:59,1.22,23:05:13,Ao Vivo (74x68)
-18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,DraftKings,Denver Nuggets,1.40,1.29,1.33,6.31,8.83,R$ 13.07,18/03/2026 23:05:20,,,,,,,46.0,23:04:27,1.22,23:05:13,Ao Vivo (74x68)
+18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,DraftKings,Denver Nuggets,1.4,1.29,1.33,6.31,8.83,R$ 13.07,18/03/2026 23:05:20,,,,,,,46.0,23:04:27,1.22,23:05:13,Ao Vivo (74x68)
 18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,BetRivers,Denver Nuggets,1.36,1.29,1.33,4.21,5.72,R$ 9.41,18/03/2026 23:05:20,,,,,,,36.0,23:04:37,1.22,23:05:13,Ao Vivo (74x68)
 18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,Matchbook,Denver Nuggets,1.42,1.29,1.33,7.31,10.39,R$ 14.63,18/03/2026 23:05:20,,,,,,,15.0,23:04:58,1.22,23:05:13,Ao Vivo (74x68)
-18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,Bovada,Denver Nuggets,1.40,1.29,1.33,6.31,8.83,R$ 13.07,18/03/2026 23:05:20,,,,,,,28.0,23:04:45,1.22,23:05:13,Ao Vivo (74x68)
+18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,Bovada,Denver Nuggets,1.4,1.29,1.33,6.31,8.83,R$ 13.07,18/03/2026 23:05:20,,,,,,,28.0,23:04:45,1.22,23:05:13,Ao Vivo (74x68)
 18/03 21:40,NBA,Memphis Grizzlies x Denver Nuggets,BetMGM,Denver Nuggets,1.43,1.29,1.33,7.81,11.16,R$ 15.36,18/03/2026 23:05:20,,,,,,,0.0,23:05:13,1.22,23:05:13,Ao Vivo (74x68)
-18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,FanDuel,Dallas Mavericks,16.00,9.00,11.61,4.86,77.78,R$ 3.07,18/03/2026 23:05:20,,,,,,,23.0,23:04:50,8.56,23:05:13,Ao Vivo (71x85)
-18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Sky Bet,Dallas Mavericks,13.00,9.00,11.61,3.42,44.44,R$ 2.19,18/03/2026 23:05:20,,,,,,,38.0,23:04:35,8.56,23:05:13,Ao Vivo (71x85)
-18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,DraftKings,Dallas Mavericks,17.00,9.00,11.61,5.23,88.89,R$ 3.29,18/03/2026 23:05:20,,,,,,,46.0,23:04:27,8.56,23:05:13,Ao Vivo (71x85)
-18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Matchbook,Dallas Mavericks,12.00,9.00,11.61,2.78,33.33,R$ 1.79,18/03/2026 23:05:20,,,,,,,15.0,23:04:58,8.56,23:05:13,Ao Vivo (71x85)
-18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Betfair,Dallas Mavericks,16.00,9.00,11.61,4.86,77.78,R$ 3.07,18/03/2026 23:05:20,,,,,,,0.0,23:05:13,8.56,23:05:13,Ao Vivo (71x85)
-18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Bovada,Dallas Mavericks,12.00,9.00,11.61,2.78,33.33,R$ 1.79,18/03/2026 23:05:20,,,,,,,28.0,23:04:45,8.56,23:05:13,Ao Vivo (71x85)
+18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,FanDuel,Dallas Mavericks,16.0,9.00,11.61,4.86,77.78,R$ 3.07,18/03/2026 23:05:20,,,,,,,23.0,23:04:50,8.56,23:05:13,Ao Vivo (71x85)
+18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Sky Bet,Dallas Mavericks,13.0,9.00,11.61,3.42,44.44,R$ 2.19,18/03/2026 23:05:20,,,,,,,38.0,23:04:35,8.56,23:05:13,Ao Vivo (71x85)
+18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,DraftKings,Dallas Mavericks,17.0,9.00,11.61,5.23,88.89,R$ 3.29,18/03/2026 23:05:20,,,,,,,46.0,23:04:27,8.56,23:05:13,Ao Vivo (71x85)
+18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Matchbook,Dallas Mavericks,12.0,9.00,11.61,2.78,33.33,R$ 1.79,18/03/2026 23:05:20,,,,,,,15.0,23:04:58,8.56,23:05:13,Ao Vivo (71x85)
+18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Betfair,Dallas Mavericks,16.0,9.00,11.61,4.86,77.78,R$ 3.07,18/03/2026 23:05:20,,,,,,,0.0,23:05:13,8.56,23:05:13,Ao Vivo (71x85)
+18/03 21:41,NBA,Dallas Mavericks x Atlanta Hawks,Bovada,Dallas Mavericks,12.0,9.00,11.61,2.78,33.33,R$ 1.79,18/03/2026 23:05:20,,,,,,,28.0,23:04:45,8.56,23:05:13,Ao Vivo (71x85)
 18/03 22:43,NBA,Houston Rockets x Los Angeles Lakers,Coolbet,Los Angeles Lakers,2.05,1.92,2.02,3.29,6.75,R$ 3.80,18/03/2026 23:05:20,,,,,,,22.0,23:04:51,1.85,23:05:13,Ao Vivo (21x24)
 18/03 22:43,NBA,Houston Rockets x Los Angeles Lakers,Matchbook,Los Angeles Lakers,2.06,1.92,2.02,3.53,7.27,R$ 4.06,18/03/2026 23:05:20,,,,,,,15.0,23:04:58,1.85,23:05:13,Ao Vivo (21x24)
-18/03 22:05,NCAAB,New Mexico Lobos x Sam Houston St Bearkats,Betfair,Sam Houston St Bearkats,21.00,13.56,20.52,2.61,54.85,R$ 1.62,18/03/2026 23:05:20,,,,,,,3.0,23:05:01,13.19,23:04:58,Ao Vivo (51x39)
-18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,FanDuel,Bradley Braves,13.00,6.99,8.47,6.61,85.96,R$ 4.24,18/03/2026 23:05:20,,,,,,,7.0,23:04:51,6.59,23:04:58,Ao Vivo (30x47)
-18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,DraftKings,Bradley Braves,14.00,6.99,8.47,7.16,100.26,R$ 4.56,18/03/2026 23:05:20,,,,,,,1.0,23:04:57,6.59,23:04:58,Ao Vivo (30x47)
-18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,BetMGM,Bradley Braves,11.50,6.99,8.47,5.61,64.5,R$ 3.63,18/03/2026 23:05:20,,,,,,,1.0,23:04:59,6.59,23:04:58,Ao Vivo (30x47)
-18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,Nordic Bet,Bradley Braves,10.50,6.99,8.47,4.78,50.2,R$ 3.13,18/03/2026 23:05:20,,,,,,,27.0,23:04:31,6.59,23:04:58,Ao Vivo (30x47)
-18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,Betfair,Bradley Braves,22.00,6.99,8.47,9.76,214.69,R$ 6.05,18/03/2026 23:05:20,,,,,,,3.0,23:05:01,6.59,23:04:58,Ao Vivo (30x47)
-18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,DraftKings,SMU Mustangs,2.30,1.91,2.01,8.85,20.36,R$ 9.27,18/03/2026 23:05:20,,,,,,,1.0,23:04:57,1.84,23:04:58,Ao Vivo (34x43)
+18/03 22:05,NCAAB,New Mexico Lobos x Sam Houston St Bearkats,Betfair,Sam Houston St Bearkats,21.0,13.56,20.52,2.61,54.85,R$ 1.62,18/03/2026 23:05:20,,,,,,,3.0,23:05:01,13.19,23:04:58,Ao Vivo (51x39)
+18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,FanDuel,Bradley Braves,13.0,6.99,8.47,6.61,85.96,R$ 4.24,18/03/2026 23:05:20,,,,,,,7.0,23:04:51,6.59,23:04:58,Ao Vivo (30x47)
+18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,DraftKings,Bradley Braves,14.0,6.99,8.47,7.16,100.26,R$ 4.56,18/03/2026 23:05:20,,,,,,,1.0,23:04:57,6.59,23:04:58,Ao Vivo (30x47)
+18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,BetMGM,Bradley Braves,11.5,6.99,8.47,5.61,64.5,R$ 3.63,18/03/2026 23:05:20,,,,,,,1.0,23:04:59,6.59,23:04:58,Ao Vivo (30x47)
+18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,Nordic Bet,Bradley Braves,10.5,6.99,8.47,4.78,50.2,R$ 3.13,18/03/2026 23:05:20,,,,,,,27.0,23:04:31,6.59,23:04:58,Ao Vivo (30x47)
+18/03 22:05,NCAAB,Bradley Braves x Dayton Flyers,Betfair,Bradley Braves,22.0,6.99,8.47,9.76,214.69,R$ 6.05,18/03/2026 23:05:20,,,,,,,3.0,23:05:01,6.59,23:04:58,Ao Vivo (30x47)
+18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,DraftKings,SMU Mustangs,2.3,1.91,2.01,8.85,20.36,R$ 9.27,18/03/2026 23:05:20,,,,,,,1.0,23:04:57,1.84,23:04:58,Ao Vivo (34x43)
 18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,FanDuel,SMU Mustangs,2.38,1.91,2.01,10.31,24.55,R$ 10.53,18/03/2026 23:05:20,,,,,,,7.0,23:04:51,1.84,23:04:58,Ao Vivo (34x43)
 18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,BetRivers,SMU Mustangs,2.38,1.91,2.01,10.31,24.55,R$ 10.53,18/03/2026 23:05:20,,,,,,,23.0,23:04:35,1.84,23:04:58,Ao Vivo (34x43)
 18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,BetMGM,SMU Mustangs,2.35,1.91,2.01,9.78,22.98,R$ 10.07,18/03/2026 23:05:20,,,,,,,1.0,23:04:59,1.84,23:04:58,Ao Vivo (34x43)
 18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,Coolbet,SMU Mustangs,2.38,1.91,2.01,10.31,24.55,R$ 10.53,18/03/2026 23:05:20,,,,,,,8.0,23:05:06,1.84,23:04:58,Ao Vivo (34x43)
-18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,Nordic Bet,SMU Mustangs,2.30,1.91,2.01,8.85,20.36,R$ 9.27,18/03/2026 23:05:20,,,,,,,27.0,23:04:31,1.84,23:04:58,Ao Vivo (34x43)
-18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,Betfair,SMU Mustangs,2.30,1.91,2.01,8.85,20.36,R$ 9.27,18/03/2026 23:05:20,,,,,,,3.0,23:05:01,1.84,23:04:58,Ao Vivo (34x43)
+18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,Nordic Bet,SMU Mustangs,2.3,1.91,2.01,8.85,20.36,R$ 9.27,18/03/2026 23:05:20,,,,,,,27.0,23:04:31,1.84,23:04:58,Ao Vivo (34x43)
+18/03 22:15,NCAAB,SMU Mustangs x Miami (OH) RedHawks,Betfair,SMU Mustangs,2.3,1.91,2.01,8.85,20.36,R$ 9.27,18/03/2026 23:05:20,,,,,,,3.0,23:05:01,1.84,23:04:58,Ao Vivo (34x43)
 18/03 23:00,NCAAB,Nevada Wolf Pack x Murray St Racers,DraftKings,Nevada Wolf Pack,1.34,1.27,1.32,3.87,5.19,R$ 9.02,18/03/2026 23:05:20,,,,,,,306.0,23:04:57,1.23,22:59:51,Ao Vivo (2x5)
+19/03 20:10,NHL,Boston Bruins x Winnipeg Jets,Marathon Bet,Boston Bruins,2.16,1.79,1.87,9.54,20.61,R$ 10.51,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.74,00:02:27,Pré-live
+19/03 20:10,NHL,Boston Bruins x Winnipeg Jets,Marathon Bet,Winnipeg Jets,2.90,2.26,2.40,9.68,28.07,R$ 8.74,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,2.20,00:02:27,Pré-live
+19/03 20:10,NHL,Boston Bruins x Winnipeg Jets,Coolbet,Boston Bruins,2.11,1.79,1.87,8.44,17.82,R$ 9.50,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.74,00:02:27,Pré-live
+19/03 20:10,NHL,Boston Bruins x Winnipeg Jets,Coolbet,Winnipeg Jets,2.95,2.26,2.40,10.26,30.28,R$ 9.19,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,2.20,00:02:27,Pré-live
+19/03 20:10,NHL,Detroit Red Wings x Montréal Canadiens,Marathon Bet,Detroit Red Wings,2.46,2.00,2.11,9.35,23.0,R$ 9.32,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.94,00:02:27,Pré-live
+19/03 20:10,NHL,Detroit Red Wings x Montréal Canadiens,Marathon Bet,Montréal Canadiens,2.49,2.00,2.11,9.84,24.5,R$ 9.73,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.94,00:02:27,Pré-live
+19/03 20:10,NHL,Detroit Red Wings x Montréal Canadiens,Coolbet,Detroit Red Wings,2.45,2.00,2.11,9.18,22.5,R$ 9.18,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.94,00:02:27,Pré-live
+19/03 20:10,NHL,Detroit Red Wings x Montréal Canadiens,Coolbet,Montréal Canadiens,2.50,2.00,2.11,10.0,25.0,R$ 9.86,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.94,00:02:27,Pré-live
+19/03 20:40,NHL,Minnesota Wild x Chicago Blackhawks,Marathon Bet,Chicago Blackhawks,4.15,3.18,3.45,7.38,30.61,R$ 5.75,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,3.07,00:02:27,Pré-live
+19/03 20:40,NHL,Minnesota Wild x Chicago Blackhawks,Marathon Bet,Minnesota Wild,1.70,1.46,1.51,9.7,16.5,R$ 13.94,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.41,00:02:27,Pré-live
+19/03 20:40,NHL,Minnesota Wild x Chicago Blackhawks,Coolbet,Chicago Blackhawks,4.30,3.18,3.45,8.22,35.33,R$ 6.34,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,3.07,00:02:27,Pré-live
+19/03 20:40,NHL,Minnesota Wild x Chicago Blackhawks,Coolbet,Minnesota Wild,1.67,1.46,1.51,8.65,14.44,R$ 12.75,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.41,00:02:27,Pré-live
+19/03 21:10,NHL,Nashville Predators x Seattle Kraken,Marathon Bet,Nashville Predators,2.21,1.81,1.90,9.85,21.78,R$ 10.65,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.76,00:02:27,Pré-live
+19/03 21:10,NHL,Nashville Predators x Seattle Kraken,Marathon Bet,Seattle Kraken,2.81,2.23,2.36,9.31,26.16,R$ 8.55,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,2.16,00:02:27,Pré-live
+19/03 21:10,NHL,Nashville Predators x Seattle Kraken,Coolbet,Nashville Predators,2.20,1.81,1.90,9.65,21.22,R$ 10.47,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.76,00:02:27,Pré-live
+19/03 21:10,NHL,Nashville Predators x Seattle Kraken,Coolbet,Seattle Kraken,2.80,2.23,2.36,9.18,25.71,R$ 8.45,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,2.16,00:02:27,Pré-live
+19/03 22:10,NHL,Edmonton Oilers x Florida Panthers,Marathon Bet,Edmonton Oilers,2.08,1.74,1.82,9.35,19.46,R$ 10.66,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.69,00:02:27,Pré-live
+19/03 22:10,NHL,Edmonton Oilers x Florida Panthers,Marathon Bet,Florida Panthers,2.98,2.35,2.50,9.01,26.86,R$ 8.03,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,2.28,00:02:27,Pré-live
+19/03 22:10,NHL,Edmonton Oilers x Florida Panthers,Coolbet,Edmonton Oilers,2.03,1.74,1.82,8.17,16.58,R$ 9.53,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.69,00:02:27,Pré-live
+19/03 22:10,NHL,Edmonton Oilers x Florida Panthers,Coolbet,Florida Panthers,3.05,2.35,2.50,9.78,29.84,R$ 8.61,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,2.28,00:02:27,Pré-live
+19/03 23:00,NHL,San Jose Sharks x Buffalo Sabres,Marathon Bet,Buffalo Sabres,2.11,1.76,1.84,9.32,19.66,R$ 10.48,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.71,00:02:27,Pré-live
+19/03 23:00,NHL,San Jose Sharks x Buffalo Sabres,Marathon Bet,San Jose Sharks,2.91,2.31,2.45,8.93,25.98,R$ 8.05,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,2.24,00:02:27,Pré-live
+19/03 23:00,NHL,San Jose Sharks x Buffalo Sabres,Coolbet,Buffalo Sabres,2.11,1.76,1.84,9.32,19.66,R$ 10.48,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.71,00:02:27,Pré-live
+19/03 23:00,NHL,San Jose Sharks x Buffalo Sabres,Coolbet,San Jose Sharks,2.95,2.31,2.45,9.39,27.71,R$ 8.41,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,2.24,00:02:27,Pré-live
+19/03 23:00,NHL,Vancouver Canucks x Tampa Bay Lightning,Marathon Bet,Tampa Bay Lightning,1.59,1.39,1.43,9.31,14.8,R$ 14.84,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.34,00:02:27,Pré-live
+19/03 23:00,NHL,Vancouver Canucks x Tampa Bay Lightning,Marathon Bet,Vancouver Canucks,4.75,3.60,3.95,6.75,32.05,R$ 5.06,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,3.48,00:02:27,Pré-live
+19/03 23:00,NHL,Vancouver Canucks x Tampa Bay Lightning,Coolbet,Tampa Bay Lightning,1.57,1.39,1.43,8.5,13.35,R$ 13.86,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.34,00:02:27,Pré-live
+19/03 23:00,NHL,Vancouver Canucks x Tampa Bay Lightning,Coolbet,Vancouver Canucks,4.80,3.60,3.95,6.97,33.44,R$ 5.21,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,3.48,00:02:27,Pré-live
+19/03 23:00,NHL,Vegas Golden Knights x Utah Mammoth,Marathon Bet,Utah Mammoth,2.82,2.23,2.36,9.44,26.61,R$ 8.65,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,2.16,00:02:27,Pré-live
+19/03 23:00,NHL,Vegas Golden Knights x Utah Mammoth,Marathon Bet,Vegas Golden Knights,2.20,1.81,1.90,9.65,21.22,R$ 10.47,19/03/2026 00:02:46,,,,,,,29.0,00:01:58,1.76,00:02:27,Pré-live
+19/03 23:00,NHL,Vegas Golden Knights x Utah Mammoth,Coolbet,Utah Mammoth,2.85,2.23,2.36,9.81,27.96,R$ 8.94,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,2.16,00:02:27,Pré-live
+19/03 23:00,NHL,Vegas Golden Knights x Utah Mammoth,Coolbet,Vegas Golden Knights,2.20,1.81,1.90,9.65,21.22,R$ 10.47,19/03/2026 00:02:46,,,,,,,15.0,00:02:12,1.76,00:02:27,Pré-live
+19/03 15:00,HockeyAllsvenskan,IK Oskarshamn x IF Björklöven,Marathon Bet,IF Björklöven,1.68,1.59,1.66,3.38,5.68,R$ 4.95,19/03/2026 00:02:46,,,,,,,8.0,00:02:22,1.48,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IK Oskarshamn x IF Björklöven,Marathon Bet,IK Oskarshamn,3.75,2.70,2.89,10.43,39.1,R$ 8.41,19/03/2026 00:02:46,,,,,,,8.0,00:02:22,2.51,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IK Oskarshamn x IF Björklöven,Coolbet,IF Björklöven,1.77,1.59,1.66,6.41,11.35,R$ 8.72,19/03/2026 00:02:46,,,,,,,7.0,00:02:07,1.48,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IK Oskarshamn x IF Björklöven,Coolbet,IK Oskarshamn,3.90,2.70,2.89,11.45,44.66,R$ 9.11,19/03/2026 00:02:46,,,,,,,7.0,00:02:07,2.51,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IF Troja-Ljungby x Västerås IK,Coolbet,IF Troja-Ljungby,2.85,2.36,2.51,7.32,20.86,R$ 6.67,19/03/2026 00:02:46,,,,,,,7.0,00:02:07,2.20,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IF Troja-Ljungby x Västerås IK,Coolbet,Västerås IK,2.20,1.74,1.82,12.14,26.7,R$ 13.17,19/03/2026 00:02:46,,,,,,,7.0,00:02:07,1.62,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IF Troja-Ljungby x Västerås IK,Marathon Bet,IF Troja-Ljungby,2.89,2.36,2.51,7.81,22.56,R$ 7.06,19/03/2026 00:02:46,,,,,,,8.0,00:02:22,2.20,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,IF Troja-Ljungby x Västerås IK,Marathon Bet,Västerås IK,2.01,1.74,1.82,7.84,15.76,R$ 9.23,19/03/2026 00:02:46,,,,,,,8.0,00:02:22,1.62,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,Södertälje SK x Kalmar HC,Marathon Bet,Kalmar HC,2.22,1.89,1.98,7.9,17.53,R$ 8.50,19/03/2026 00:02:46,,,,,,,8.0,00:02:22,1.76,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,Södertälje SK x Kalmar HC,Marathon Bet,Södertälje SK,2.53,2.12,2.24,7.53,19.06,R$ 7.37,19/03/2026 00:02:46,,,,,,,8.0,00:02:22,1.98,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,Södertälje SK x Kalmar HC,Coolbet,Kalmar HC,2.55,1.89,1.98,13.73,35.0,R$ 13.36,19/03/2026 00:02:46,,,,,,,7.0,00:02:07,1.76,00:02:14,Pré-live
+19/03 15:00,HockeyAllsvenskan,Södertälje SK x Kalmar HC,Coolbet,Södertälje SK,2.45,2.12,2.24,6.24,15.29,R$ 6.24,19/03/2026 00:02:46,,,,,,,7.0,00:02:07,1.98,00:02:14,Pré-live

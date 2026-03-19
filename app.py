@@ -519,38 +519,47 @@ with tab_ligas:
 
     st.divider()
     st.markdown("#### 🔄 Atualizar Status do Mercado Manualmente")
-    st.write("Clique abaixo para o robô checar na API quem entrou ou saiu de época neste exato segundo.")
+    st.write("Clique abaixo para baixar o catálogo absoluto da The Odds API (todas as ligas do mundo) e atualizar o status de quem está ativo agora.")
     
     if st.button("📡 Puxar Status ao Vivo (Custo: 0 créditos)", use_container_width=True):
         api_key_str = st.secrets.get("ODDS_API_KEY", "")
         if not api_key_str:
             st.error("Por favor, configure a sua ODDS_API_KEY nos Secrets do Streamlit.")
         else:
-            with st.spinner("A consultar o mercado global..."):
+            with st.spinner("A consultar o catálogo absoluto do mercado global (Custo: 0 créditos)..."):
                 try:
-                    res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_str})
+                    # 💡 A MÁGICA ESTÁ AQUI: 'all': 'true' obriga a API a mostrar também os inativos!
+                    res = requests.get('https://api.the-odds-api.com/v4/sports/', params={'apiKey': api_key_str, 'all': 'true'})
+                    
                     if res.status_code == 200:
                         novas_ativas = []
                         novas_descobertas = 0
                         
                         for sport in res.json():
-                            if sport.get('active', True):
-                                k = sport['key']
-                                t = sport['title']
+                            k = sport['key']
+                            t = sport['title']
+                            
+                            # 1. Se a liga nunca foi vista na vida, adiciona ao Catálogo Mestre
+                            if k not in opcoes_disponiveis:
+                                opcoes_disponiveis[k] = t
+                                novas_descobertas += 1
+                                
+                            # 2. Verifica se a API diz que está em temporada (active = True)
+                            if sport.get('active', False):
                                 novas_ativas.append(k)
-                                # Se for uma liga que nunca vimos na vida, adiciona ao histórico mestre
-                                if k not in opcoes_disponiveis:
-                                    opcoes_disponiveis[k] = t
-                                    novas_descobertas += 1
                         
+                        # Atualiza os dicionários com a verdade absoluta
                         config_ligas["disponiveis"] = opcoes_disponiveis
                         config_ligas["ativas_agora"] = novas_ativas
                         
-                        salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Triagem manual: Atualização de Status")
-                        st.success(f"🧹 Status atualizados! Há {len(novas_ativas)} ligas ativas neste momento. ({novas_descobertas} novas descobertas).")
-                        st.rerun()
+                        # Salva na nuvem
+                        if salvar_json_github(ARQUIVO_LIGAS, config_ligas, "🤖 Atualizando Catálogo Absoluto"):
+                            st.success(f"🧹 Status atualizados com sucesso! O catálogo agora tem {len(opcoes_disponiveis)} ligas ({len(novas_ativas)} estão 🟢 Ativas hoje). Foram descobertas {novas_descobertas} novas ligas!")
+                            st.rerun()
+                        else:
+                            st.error("Falha ao salvar no GitHub. Verifique os logs.")
                     else:
-                        st.error(f"Erro na API: {res.status_code}")
+                        st.error(f"Erro na API ({res.status_code}): {res.text}")
                 except Exception as e:
                     st.error(f"Erro de conexão: {e}")
 

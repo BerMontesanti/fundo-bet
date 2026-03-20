@@ -1,169 +1,236 @@
 Horário,Esporte,Liga,Jogo
-11:00,Outro,ATP Miami Open,Terence Atmane x Daniel Altmaier
-11:00,Outro,WTA Miami Open,Linda Noskova x Sorana Cirstea
-11:00,Outro,WTA Miami Open,Diana Shnaider x Tereza Valentova
+05:40,Outro,AFL,Adelaide Crows x Western Bulldogs
+06:01,Outro,NRL,Melbourne Storm x Brisbane Broncos
+08:00,Super League,Super League - China,Dalian Yingbo x Shanghai SIPG FC
+08:35,Super League,Super League - China,Qingdao Hainiu FC x Zhejiang
 11:00,Outro,WTA Miami Open,Zeynep Sonmez x Belinda Bencic
-11:00,Outro,WTA Miami Open,Anna Blinkova x Victoria Mboko
+11:00,Outro,WTA Miami Open,Diana Shnaider x Tereza Valentova
+11:00,Outro,WTA Miami Open,Linda Noskova x Sorana Cirstea
 11:00,Outro,WTA Miami Open,Anna Kalinskaya x Anastasia Zakharova
+11:00,Outro,ATP Miami Open,Terence Atmane x Daniel Altmaier
+11:00,Outro,WTA Miami Open,Anna Blinkova x Victoria Mboko
 11:00,Outro,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante
 12:00,Outro,WTA Miami Open,Amanda Anisimova x Ajla Tomljanovic
 12:00,Outro,ATP Miami Open,Aleksandar Kovacevic x Rei Sakamoto
 12:10,Outro,ATP Miami Open,Christopher O'Connell x Marton Fucsovics
-12:30,Outro,WTA Miami Open,Karolina Muchova x Maria Camila Osorio Serrano
 12:30,Outro,ATP Miami Open,Gabriel Diallo x Wu Yibing
+12:30,Outro,WTA Miami Open,Karolina Muchova x Maria Camila Osorio Serrano
 12:30,Outro,WTA Miami Open,Elvina Kalieva x Elise Mertens
 12:30,Outro,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa
 12:30,Outro,WTA Miami Open,Katie Boulter x Clara Tauson
-12:30,Outro,WNCAAB,Duke Blue Devils x Charleston Cougars
 12:30,Outro,WTA Miami Open,Maria Sakkari x Alycia Parks
+12:30,Outro,WNCAAB,Duke Blue Devils x Charleston Cougars
 13:00,Outro,ATP Miami Open,Casper Ruud x Ethan Quinn
+13:00,Outro,MMA,David Mora x Claudio Pacella
 13:00,Outro,WNCAAB,TCU Horned Frogs x UC San Diego Tritons
+13:00,Outro,MMA,Borja Garcia x Rafael Calderon
+13:00,Outro,MMA,Ignacio Campos x Mathys Duragrin
+13:00,Outro,MMA,Kevin Cordero x Luciano Pereira
+13:00,Outro,MMA,Manuel Del Valle x Italo Gomes
+13:00,Outro,MMA,Mattia Giordano x Ernesto Schisano
 13:15,Outro,NCAAB,Kentucky Wildcats x Santa Clara Broncos
-13:20,Outro,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera
 13:20,Outro,ATP Miami Open,Adam Walton x Sebastian Baez
-13:30,Outro,ATP Miami Open,Jack Draper x Reilly Opelka
+13:20,Outro,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera
+13:30,Outro,Mestis,Kiekko-Vantaa x Jokerit
+13:30,Outro,Mestis,Pyry x KeuPa HT
 13:30,Outro,ATP Miami Open,Tommy Paul x Adrian Mannarino
+13:30,Outro,ATP Miami Open,Jack Draper x Reilly Opelka
+13:30,Outro,Liiga,KalPa x HIFK
+13:30,Outro,Mestis,Ketterä x IPK
+13:30,Outro,Liiga,Ässät x Kiekko-Espoo
+13:30,Outro,Liiga,JYP x Pelicans
+13:30,Outro,Liiga,Lukko x HPK
 13:40,Outro,NCAAB,Texas Tech Red Raiders x Akron Zips
-14:00,Outro,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko
-14:00,Outro,ATP Miami Open,Arthur Fils x Darwin Blanch
-14:00,Outro,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff
-14:00,Outro,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova
-14:00,Outro,NCAA Baseball,Pittsburgh Panthers x Georgia Tech Yellow Jackets
 14:00,Outro,Boxing,Glenn Byrne x Owen O'Neill
-14:05,Outro,MLB Preseason,Philadelphia Phillies x Detroit Tigers
-14:05,Outro,MLB Preseason,Tampa Bay Rays x Boston Red Sox
+14:00,Outro,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko
+14:00,Outro,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova
+14:00,Outro,MMA,Costello Van Steenis x Fabian Edwards
+14:00,Outro,MMA,Gino van Steenis x Mark Ewen
+14:00,Outro,MMA,Linton Vassell x Jose Augusto
+14:00,Ekstraklasa,Ekstraklasa - Poland,Piast Gliwice x Radomiak Radom
+14:00,Outro,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff
+14:00,Outro,NCAA Baseball,Pittsburgh Panthers x Georgia Tech Yellow Jackets
+14:00,Outro,MMA,AJ McKee x Adam Borics
+14:00,Outro,ATP Miami Open,Arthur Fils x Darwin Blanch
 14:05,Outro,MLB Preseason,Minnesota Twins x Toronto Blue Jays
+14:05,Outro,MLB Preseason,Tampa Bay Rays x Boston Red Sox
+14:05,Outro,MLB Preseason,Philadelphia Phillies x Detroit Tigers
 14:10,Outro,MLB Preseason,New York Mets x St. Louis Cardinals
-14:30,Outro,WNCAAB,Oregon Ducks x Virginia Tech Hokies
 14:30,Outro,Frauen-Bundesliga,SGS Essen x Bayern Munich
+14:30,Serie A,Serie A - Italy,Cagliari x Napoli
+14:30,Bundesliga 2,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth
+14:30,Outro,WNCAAB,Oregon Ducks x Virginia Tech Hokies
 14:30,Outro,WTA Miami Open,Jelena Ostapenko x Dayana Yastremska
 14:30,Outro,WTA Miami Open,Taylor Townsend x Jasmine Paolini
+14:30,Bundesliga 2,Bundesliga 2 - Germany,Hannover 96 x Eintracht Braunschweig
 14:35,Outro,NCAAB,Arizona Wildcats x LIU Sharks
 14:40,Outro,Boxing,Codie Smith x Lee Gormley
 14:45,Outro,Basketball Euroleague,Fenerbahce SK x Pallacanestro Olimpia Milano
 14:50,Outro,NCAAB,Virginia Cavaliers x Wright St Raiders
+15:00,Outro,MMA,Steven Hill x Leon Naumann
 15:00,Outro,WNCAAB,Baylor Bears x Nebraska Cornhuskers
-15:00,Outro,HockeyAllsvenskan,AIK x Modo Hockey
-15:00,Outro,HockeyAllsvenskan,Nybro Vikings IF x BIK Karlskoga
-15:00,Outro,ATP Miami Open,Alexander Bublik x Matteo Berrettini
-15:00,Outro,Boxing,Nina Meinke x Dyana Vargas
 15:00,Outro,Basketball Euroleague,Žalgiris x Real Madrid
-15:00,Outro,NCAA Baseball,West Virginia Mountaineers x BYU Cougars
+15:00,3. Liga,3. Liga - Germany,Wehen Wiesbaden x Hansa Rostock
+15:00,Outro,MMA,Marin Vetrila x Ali Taleb
+15:00,Outro,MMA,Joe Middleton x George McManus
+15:00,Outro,MMA,Jordan Vucenic x Daniel Konrad
+15:00,Outro,MMA,Connor Patterson x Georgios Daskalakis
+15:00,Outro,MMA,Callum Haughian x Christian Soda
+15:00,Outro,MMA,Harry Shaw x Victor Yeo
+15:00,Outro,HockeyAllsvenskan,AIK x Modo Hockey
+15:00,Outro,MMA,Tariq Pell x Stefano Catacoli
+15:00,Outro,SHL,HV71 x Leksands IF
 15:00,Outro,NCAA Baseball,Boston College Eagles x California Golden Bears
+15:00,Outro,Denmark Superliga,Vejle Boldklub x OB Odense BK
+15:00,Outro,Boxing,Nina Meinke x Dyana Vargas
+15:00,Outro,MMA,Ollie Sarwa x Weslley Maia
+15:00,Outro,ATP Miami Open,Alexander Bublik x Matteo Berrettini
+15:00,Outro,NCAA Baseball,West Virginia Mountaineers x BYU Cougars
 15:00,Outro,ATP Miami Open,Botic van de Zandschulp x Taylor Fritz
+15:00,Outro,HockeyAllsvenskan,Nybro Vikings IF x BIK Karlskoga
 15:20,Outro,Boxing,Ben Marksby x Carlos Daniel Cordoba
-15:30,Outro,ATP Miami Open,Raphael Collignon x Flavio Cobolli
-15:30,Outro,WTA Miami Open,Ekaterina Alexandrova x Lilli Tagger
-15:30,Outro,ATP Miami Open,Roberto Bautista Agut x Karen Khachanov
-15:30,Outro,ATP Miami Open,Moise Kouame x Jiri Lehecka
-15:30,Outro,WTA Miami Open,Caty McNally x Xinyu Wang
 15:30,Outro,WNCAAB,Washington Huskies x South Dakota St Jackrabbits
-15:30,Outro,WTA Miami Open,Qinwen Zheng x Sloane Stephens
+15:30,Outro,WTA Miami Open,Caty McNally x Xinyu Wang
+15:30,Outro,WTA Miami Open,Ekaterina Alexandrova x Lilli Tagger
 15:30,Outro,WTA Miami Open,Elina Svitolina x Emerson Jones
+15:30,Outro,ATP Miami Open,Roberto Bautista Agut x Karen Khachanov
+15:30,Outro,WTA Miami Open,Qinwen Zheng x Sloane Stephens
+15:30,Outro,ATP Miami Open,Moise Kouame x Jiri Lehecka
+15:30,Outro,Austrian Football Bundesliga,Sturm Graz x RB Salzburg
+15:30,Outro,ATP Miami Open,Raphael Collignon x Flavio Cobolli
 15:50,Outro,NCAAB,Iowa State Cyclones x Tennessee St Tigers
-16:00,Outro,Boxing,Niall Brown x Darren Johnstone
-16:00,Outro,WNCAAB,Maryland Terrapins x Murray St Racers
-16:00,Outro,WTA Miami Open,Aryna Sabalenka x Ann Li
 16:00,Outro,NCAA Baseball,Pittsburgh Panthers x Georgia Tech Yellow Jackets
+16:00,Outro,WNCAAB,Maryland Terrapins x Murray St Racers
+16:00,Ligue 2,Ligue 2 - France,Amiens x Le Mans FC
+16:00,Ligue 2,Ligue 2 - France,Boulogne x Nancy
+16:00,Ligue 2,Ligue 2 - France,Clermont x Red Star
+16:00,Outro,Dutch Eredivisie,Heracles Almelo x Excelsior
+16:00,Ligue 2,Ligue 2 - France,Rodez AF x SC Bastia
+16:00,Ligue 2,Ligue 2 - France,Pau FC x Montpellier
+16:00,Outro,WTA Miami Open,Aryna Sabalenka x Ann Li
+16:00,Outro,Boxing,Niall Brown x Darren Johnstone
+16:00,Ligue 2,Ligue 2 - France,Stade Lavallois x Grenoble
 16:10,Outro,MLB Preseason,Los Angeles Angels x Chicago White Sox
 16:15,Outro,Basketball Euroleague,Panathinaikos x KK Crvena zvezda
 16:15,Outro,NCAAB,Alabama Crimson Tide x Hofstra Pride
-16:30,Outro,WTA Miami Open,Elena Gabriela Ruse x Madison Keys
+16:30,Bundesliga,Bundesliga - Germany,RB Leipzig x TSG Hoffenheim
 16:30,Outro,WNCAAB,Ole Miss Rebels x Gonzaga Bulldogs
 16:30,Outro,NCAA Baseball,Michigan St Spartans x Iowa Hawkeyes
+16:30,Outro,WTA Miami Open,Elena Gabriela Ruse x Madison Keys
+16:30,La Liga 2,La Liga 2 - Spain,SD Huesca x Almería
+16:30,Ekstraklasa,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin
 16:30,Outro,ATP Miami Open,Stefanos Tsitsipas x Alex de Minaur
+16:45,Serie A,Serie A - Italy,Genoa x Udinese
 16:45,Outro,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv
-17:00,Outro,ATP Miami Open,Camilo Ugo Carabelli x Sebastian Korda
-17:00,Outro,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk
-17:00,Outro,WTA Miami Open,Iva Jović x Paula Badosa
-17:00,Outro,WNCAAB,Texas Longhorns x Missouri St Bears
-17:00,Outro,ATP Miami Open,Mariano Navone x Valentin Vacherot
-17:00,Outro,ATP Miami Open,Zizou Bergs x Tomas Martin Etcheverry
-17:00,Outro,NCAA Baseball,Michigan Wolverines x Nebraska Cornhuskers
-17:00,Outro,WTA Miami Open,Peyton Stearns x Jaqueline Cristian
+16:45,Outro,League of Ireland,Waterford FC x St Patricks Athletic
+16:45,Ligue 1,Ligue 1 - France,RC Lens x Angers
+16:45,Outro,League of Ireland,Derry City x Drogheda United
+17:00,Outro,Championship,Preston North End x Stoke City
 17:00,Outro,NCAA Baseball,Purdue Boilermakers x Penn State Nittany Lions
+17:00,Outro,NCAA Baseball,Michigan Wolverines x Nebraska Cornhuskers
+17:00,Outro,League of Ireland,Shamrock Rovers x Galway United
+17:00,Outro,League of Ireland,Bohemians x Dundalk
+17:00,Outro,WTA Miami Open,Iva Jović x Paula Badosa
+17:00,Outro,WTA Miami Open,Peyton Stearns x Jaqueline Cristian
+17:00,Outro,MMA,Jacinta Austin x Benita van Rooij
+17:00,La Liga,La Liga - Spain,Villarreal x Real Sociedad
+17:00,Outro,ATP Miami Open,Camilo Ugo Carabelli x Sebastian Korda
+17:00,Outro,WNCAAB,Texas Longhorns x Missouri St Bears
+17:00,Outro,ATP Miami Open,Zizou Bergs x Tomas Martin Etcheverry
+17:00,Outro,EPL,Bournemouth x Manchester United
+17:00,Outro,MMA,Franco Tenaglia x Yassin Najid
+17:00,Outro,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk
+17:00,Outro,ATP Miami Open,Mariano Navone x Valentin Vacherot
 17:10,Outro,NCAAB,Villanova Wildcats x Utah State Aggies
+17:15,Primeira Liga,Primeira Liga - Portugal,CF Estrela x Casa Pia
 17:25,Outro,NCAAB,Tennessee Volunteers x Miami (OH) RedHawks
 17:30,Outro,NCAA Baseball,Notre Dame Fighting Irish x Clemson Tigers
-18:00,Outro,Boxing,Kieran Molloy x Xavier Kohlen
-18:00,Outro,WTA Miami Open,Talia Gibson x Naomi Osaka
 18:00,Outro,NCAA Baseball,Georgia St Panthers x Arkansas St Red Wolves
+18:00,Outro,WTA Miami Open,Talia Gibson x Naomi Osaka
+18:00,Outro,Boxing,Kieran Molloy x Xavier Kohlen
 18:30,Outro,WNCAAB,Michigan Wolverines x Holy Cross Crusaders
 18:30,Outro,WNCAAB,North Carolina Tar Heels x Western Illinois Leathernecks
-19:00,Outro,NCAA Baseball,Coastal Carolina Chanticleers x James Madison Dukes
-19:00,Outro,WTA Miami Open,Leylah Fernandez x Oksana Selekhmeteva
-19:00,Outro,NCAA Baseball,Virginia Cavaliers x Wake Forest Demon Deacons
-19:00,Outro,WNCAAB,LSU Tigers x Jacksonville Dolphins
-19:00,Outro,WNCAAB,Minnesota Golden Gophers x Green Bay Phoenix
-19:00,Outro,NCAA Baseball,Cincinnati Bearcats x Utah Utes
-19:00,Outro,NCAA Baseball,Old Dominion Monarchs x Appalachian St Mountaineers
-19:00,Outro,NCAA Baseball,Indiana Hoosiers x Minnesota Golden Gophers
-19:00,Outro,NCAA Baseball,Florida St Seminoles x NC State Wolfpack
 19:00,Outro,NCAA Baseball,East Carolina Pirates x UAB Blazers
-19:00,Outro,Boxing,Michael Conlan x Kevin Walsh
 19:00,Outro,NCAA Baseball,Virginia Tech Hokies x Duke Blue Devils
+19:00,Outro,WNCAAB,Minnesota Golden Gophers x Green Bay Phoenix
+19:00,Outro,WNCAAB,LSU Tigers x Jacksonville Dolphins
+19:00,Outro,NCAA Baseball,Virginia Cavaliers x Wake Forest Demon Deacons
+19:00,Outro,WTA Miami Open,Leylah Fernandez x Oksana Selekhmeteva
+19:00,Outro,NCAA Baseball,Indiana Hoosiers x Minnesota Golden Gophers
+19:00,Outro,NCAA Baseball,Coastal Carolina Chanticleers x James Madison Dukes
+19:00,Outro,NCAA Baseball,Florida St Seminoles x NC State Wolfpack
+19:00,Outro,NCAA Baseball,Old Dominion Monarchs x Appalachian St Mountaineers
+19:00,Outro,Boxing,Michael Conlan x Kevin Walsh
+19:00,Outro,NCAA Baseball,Cincinnati Bearcats x Utah Utes
 19:05,Outro,MLB Preseason,Atlanta Braves x Pittsburgh Pirates
 19:30,Outro,NCAA Baseball,Florida Atlantic Owls x UTSA Roadrunners
 19:30,Outro,NCAA Baseball,Tennessee Volunteers x Missouri Tigers
 19:35,Outro,MLB Preseason,New York Yankees x Baltimore Orioles
 19:50,Outro,NCAAB,Clemson Tigers x Iowa Hawkeyes
-20:00,Outro,NCAA Baseball,Auburn Tigers x Texas Longhorns
-20:00,Outro,WTA Miami Open,Francesca Jones x Jessica Pegula
-20:00,Outro,NCAA Baseball,Oklahoma St Cowboys x Baylor Bears
-20:00,Outro,NCAA Baseball,South Carolina Gamecocks x Arkansas Razorbacks
-20:00,Outro,NCAA Baseball,Miami Hurricanes x Creighton Bluejays
+20:00,Outro,NCAA Baseball,Alabama Crimson Tide x Florida Gators
 20:00,Outro,NCAA Baseball,Kansas St Wildcats x Arizona St Sun Devils
-20:00,Outro,NCAA Baseball,North Carolina Tar Heels x Louisville Cardinals
-20:00,Outro,NCAA Baseball,Texas A&M Aggies x Georgia Bulldogs
+20:00,Outro,NCAA Baseball,South Carolina Gamecocks x Arkansas Razorbacks
+20:00,Outro,ATP Miami Open,Aleksandar Vukic x Rafael Jodar
+20:00,Outro,WTA Miami Open,Francesca Jones x Jessica Pegula
+20:00,Outro,ATP Miami Open,Carlos Alcaraz x Joao Fonseca
+20:00,Outro,ATP Miami Open,Luciano Darderi x Martin Landaluce
+20:00,Outro,AHL,Laval Rocket x Springfield Thunderbirds
+20:00,Outro,NCAA Baseball,Oklahoma St Cowboys x Baylor Bears
 20:00,Outro,NCAA Baseball,Southern Miss Golden Eagles x Troy Trojans
 20:00,Outro,NCAA Baseball,McNeese Cowboys x SE Louisiana Lions
-20:00,Outro,AHL,Belleville Senators x W-B/Scranton Penguins
-20:00,Outro,NCAA Baseball,TCU Horned Frogs x UCF Knights
-20:00,Outro,NCAA Baseball,Alabama Crimson Tide x Florida Gators
-20:00,Outro,AHL,Utica Comets x Providence Bruins
-20:00,Outro,AHL,Laval Rocket x Springfield Thunderbirds
+20:00,Outro,NCAA Baseball,North Carolina Tar Heels x Louisville Cardinals
+20:00,Outro,NCAA Baseball,Texas State Bobcats x Louisiana Ragin' Cajuns
+20:00,Outro,NCAA Lacrosse,Dartmouth Big Green x Harvard Crimson
+20:00,Outro,NCAA Baseball,Auburn Tigers x Texas Longhorns
 20:00,Outro,NCAA Baseball,Jacksonville St Gamecocks x Western Kentucky Hilltoppers
-20:00,Outro,ATP Miami Open,Luciano Darderi x Martin Landaluce
-20:00,Outro,ATP Miami Open,Carlos Alcaraz x Joao Fonseca
 20:00,Outro,NCAA Baseball,Illinois Fighting Illini x Rutgers Scarlet Knights
 20:00,Outro,NCAA Baseball,Kansas Jayhawks x Houston Cougars
-20:00,Outro,ATP Miami Open,Aleksandar Vukic x Rafael Jodar
-20:00,Outro,NCAA Baseball,Texas State Bobcats x Louisiana Ragin' Cajuns
-20:05,Outro,NCAA Baseball,Wichita St Shockers x Charlotte 49ers
+20:00,Outro,AHL,Utica Comets x Providence Bruins
+20:00,Outro,NCAA Baseball,Texas A&M Aggies x Georgia Bulldogs
+20:00,Outro,AHL,Belleville Senators x W-B/Scranton Penguins
+20:00,Outro,NCAA Baseball,Miami Hurricanes x Creighton Bluejays
+20:00,Outro,NCAA Baseball,TCU Horned Frogs x UCF Knights
 20:05,Outro,AHL,Rochester Americans x Syracuse Crunch
-20:10,Outro,NHL,Toronto Maple Leafs x Carolina Hurricanes
+20:05,Outro,NCAA Baseball,Wichita St Shockers x Charlotte 49ers
 20:10,Outro,NHL,Washington Capitals x New Jersey Devils
 20:10,Outro,NCAAB,St. John's Red Storm x Northern Iowa Panthers
+20:10,Outro,NHL,Toronto Maple Leafs x Carolina Hurricanes
 20:25,Outro,NCAAB,UCLA Bruins x UCF Knights
+20:30,Outro,WNCAAB,Michigan St Spartans x Colorado St Rams
 20:30,Outro,NCAA Baseball,Ole Miss Rebels x Kentucky Wildcats
 20:30,Outro,NCAA Baseball,Houston Baptist Huskies x UT Rio Grande Valley Vaqueros
-20:30,Outro,WNCAAB,Michigan St Spartans x Colorado St Rams
+20:30,Outro,NCAA Lacrosse,Navy Midshipmen x Lafayette Leopards
 20:30,Outro,NCAA Baseball,LSU Tigers x Oklahoma Sooners
-20:35,Outro,NCAA Baseball,UC Santa Barbara Gauchos x Hawai'i Rainbow Warriors
 20:35,Outro,NCAAB,Purdue Boilermakers x Queens University Royals
-20:40,Outro,NBA,Brooklyn Nets x New York Knicks
+20:35,Outro,NCAA Baseball,UC Santa Barbara Gauchos x Hawai'i Rainbow Warriors
 20:40,Outro,NBA,Detroit Pistons x Golden State Warriors
-21:00,Outro,NCAA Baseball,Mississippi St Bulldogs x Vanderbilt Commodores
-21:00,Outro,AHL,Rockford IceHogs x Grand Rapids Griffins
+20:40,Outro,NBA,Brooklyn Nets x New York Knicks
 21:00,Outro,WNCAAB,NC State Wolfpack x Tennessee Volunteers
-21:10,Outro,NBA,Minnesota Timberwolves x Portland Trail Blazers
-21:10,Outro,NBA,Memphis Grizzlies x Boston Celtics
+21:00,Outro,AHL,Rockford IceHogs x Grand Rapids Griffins
+21:00,Primera División,Primera División - Argentina,Atlético Tucuman x Gimnasia La Plata
+21:00,Primera División,Primera División - Argentina,Banfield x CA Tigre BA
+21:00,Outro,NCAA Baseball,Mississippi St Bulldogs x Vanderbilt Commodores
 21:10,Outro,NBA,Houston Rockets x Atlanta Hawks
+21:10,Outro,NBA,Memphis Grizzlies x Boston Celtics
+21:10,Outro,NBA,Minnesota Timberwolves x Portland Trail Blazers
 21:30,Outro,WNCAAB,Texas Tech Red Raiders x Villanova Wildcats
 21:30,Outro,WTA Miami Open,Elena Rybakina x Yulia Putintseva
 21:40,Outro,NHL,Chicago Blackhawks x Colorado Avalanche
-22:00,Outro,NCAA Baseball,UC Irvine Anteaters x Oregon St Beavers
+22:00,Outro,Liga MX,Necaxa x Tijuana
 22:00,Outro,NCAA Baseball,Arizona Wildcats x Texas Tech Red Raiders
+22:00,Outro,NCAA Baseball,UC Irvine Anteaters x Oregon St Beavers
 22:05,Outro,MLB Preseason,Cleveland Guardians x Seattle Mariners
 22:10,Outro,NHL,Calgary Flames x Florida Panthers
-22:10,Outro,NBA,Denver Nuggets x Toronto Raptors
 22:10,Outro,MLB Preseason,Arizona Diamondbacks x Milwaukee Brewers
+22:10,Outro,NBA,Denver Nuggets x Toronto Raptors
 22:25,Outro,NCAAB,Florida Gators x Prairie View Panthers
 22:30,Outro,NCAA Baseball,CSU Fullerton Titans x CSU Northridge Matadors
 22:45,Outro,NCAAB,Kansas Jayhawks x Cal Baptist Lancers
 23:00,Outro,NCAAB,UConn Huskies x Furman Paladins
+23:00,Outro,A-League,Auckland FC x Macarthur FC
+23:00,Outro,NCAA Baseball,USC Trojans x Washington Huskies
 23:00,Outro,AHL,San Diego Gulls x Bakersfield Condors
 23:00,Outro,WNCAAB,Oklahoma Sooners x Idaho Vandals
-23:00,Outro,NCAA Baseball,USC Trojans x Washington Huskies
-23:10,Outro,NHL,Utah Mammoth x Anaheim Ducks
 23:10,Outro,NCAAB,Miami Hurricanes x Missouri Tigers
+23:10,Outro,NHL,Utah Mammoth x Anaheim Ducks
+23:15,Outro,AFL,Richmond Tigers x Gold Coast Suns

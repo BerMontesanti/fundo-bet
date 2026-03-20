@@ -2963,10 +2963,41 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 20/03 16:46,Serie A - Italy,Genoa x Udinese,Bovada,Udinese,3.65,1.35,1.39,46.84,170.96,R$ 35.16,20/03/2026 18:53:56,,,,,,,652.0,18:51:45,1.28,18:40:53,Ao Vivo (0x2)
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Betfair,Wu Yibing,2.62,1.71,1.78,20.37,53.38,R$ 17.96,20/03/2026 18:53:56,,,,,,,3.0,18:53:45,1.65,18:53:42,Pré-live
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,DraftKings,Wu Yibing,2.66,1.71,1.78,20.95,55.72,R$ 18.29,20/03/2026 18:53:56,,,,,,,36.0,18:53:06,1.65,18:53:42,Pré-live
-20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Nordic Bet,Wu Yibing,2.40,1.71,1.78,16.88,40.5,R$ 15.77,20/03/2026 18:53:56,,,,,,,16.0,18:53:26,1.65,18:53:42,Pré-live
+20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Nordic Bet,Wu Yibing,2.4,1.71,1.78,16.88,40.5,R$ 15.77,20/03/2026 18:53:56,,,,,,,16.0,18:53:26,1.65,18:53:42,Pré-live
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Betsson,Wu Yibing,2.35,1.71,1.78,15.99,37.58,R$ 15.17,20/03/2026 18:53:56,,,,,,,2.0,18:53:44,1.65,18:53:42,Pré-live
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Bovada,Wu Yibing,2.55,1.71,1.78,19.33,49.28,R$ 17.33,20/03/2026 18:53:56,,,,,,,37.0,18:53:05,1.65,18:53:42,Pré-live
-20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Matchbook,Wu Yibing,2.60,1.71,1.78,20.08,52.21,R$ 17.78,20/03/2026 18:53:56,,,,,,,0.0,18:53:42,1.65,18:53:42,Pré-live
+20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,Matchbook,Wu Yibing,2.6,1.71,1.78,20.08,52.21,R$ 17.78,20/03/2026 18:53:56,,,,,,,0.0,18:53:42,1.65,18:53:42,Pré-live
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,BetRivers,Wu Yibing,2.45,1.71,1.78,17.73,43.43,R$ 16.32,20/03/2026 18:53:56,,,,,,,37.0,18:53:05,1.65,18:53:42,Pré-live
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,FanDuel,Wu Yibing,2.75,1.71,1.78,22.18,60.99,R$ 18.99,20/03/2026 18:53:56,,,,,,,54.0,18:52:48,1.65,18:53:42,Pré-live
 20/03 17:00,ATP Miami Open,Gabriel Diallo x Wu Yibing,888sport,Wu Yibing,2.38,1.71,1.78,16.53,39.33,R$ 15.53,20/03/2026 18:53:56,,,,,,,34.0,18:53:08,1.65,18:53:42,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,Betfair,Matteo Arnaldi,1.68,1.53,1.59,5.73,9.63,R$ 7.72,20/03/2026 19:27:38,,,,,,,19.0,19:27:33,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,Nordic Bet,Matteo Arnaldi,1.85,1.53,1.59,11.2,20.73,R$ 13.29,20/03/2026 19:27:38,,,,,,,20.0,19:26:54,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,Betsson,Matteo Arnaldi,1.85,1.53,1.59,11.2,20.73,R$ 13.29,20/03/2026 19:27:38,,,,,,,20.0,19:26:54,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,DraftKings,Matteo Arnaldi,1.74,1.53,1.59,7.79,13.55,R$ 9.98,20/03/2026 19:27:38,,,,,,,16.0,19:27:30,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,Bovada,Matteo Arnaldi,1.83,1.53,1.59,10.61,19.42,R$ 12.75,20/03/2026 19:27:38,,,,,,,20.0,19:26:54,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,FanDuel,Matteo Arnaldi,1.77,1.53,1.59,8.76,15.51,R$ 10.98,20/03/2026 19:27:38,,,,,,,38.0,19:26:36,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,Matchbook,Matteo Arnaldi,1.75,1.53,1.59,8.12,14.2,R$ 10.32,20/03/2026 19:27:38,,,,,,,17.0,19:27:31,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,888sport,Matteo Arnaldi,1.73,1.53,1.59,7.45,12.9,R$ 9.63,20/03/2026 19:27:38,,,,,,,17.0,19:27:31,1.48,19:27:14,Pré-live
+20/03 15:00,ATP Miami Open,Matteo Arnaldi x Alexander Shevchenko,BetRivers,Matteo Arnaldi,1.85,1.53,1.59,11.2,20.73,R$ 13.29,20/03/2026 19:27:38,,,,,,,16.0,19:27:30,1.48,19:27:14,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,Betfair,Alexander Bublik,2.38,1.68,1.75,17.64,41.98,R$ 16.58,20/03/2026 19:27:38,,,,,,,91.0,19:27:33,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,Matchbook,Alexander Bublik,2.40,1.68,1.75,17.99,43.17,R$ 16.80,20/03/2026 19:27:38,,,,,,,89.0,19:27:31,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,BetRivers,Alexander Bublik,2.07,1.68,1.75,11.34,23.48,R$ 11.96,20/03/2026 19:27:38,,,,,,,88.0,19:27:30,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,DraftKings,Alexander Bublik,2.23,1.68,1.75,14.81,33.03,R$ 14.63,20/03/2026 19:27:38,,,,,,,88.0,19:27:30,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,Betsson,Alexander Bublik,2.25,1.68,1.75,15.21,34.22,R$ 14.92,20/03/2026 19:27:38,,,,,,,52.0,19:26:54,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,Nordic Bet,Alexander Bublik,2.25,1.68,1.75,15.21,34.22,R$ 14.92,20/03/2026 19:27:38,,,,,,,52.0,19:26:54,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,888sport,Alexander Bublik,2.38,1.68,1.75,17.64,41.98,R$ 16.58,20/03/2026 19:27:38,,,,,,,89.0,19:27:31,1.63,19:26:02,Pré-live
+20/03 19:20,ATP Miami Open,Alexander Bublik x Matteo Berrettini,FanDuel,Alexander Bublik,1.87,1.68,1.75,6.18,11.55,R$ 7.24,20/03/2026 19:27:38,,,,,,,34.0,19:26:36,1.63,19:26:02,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,Betsson,Elisabetta Cocciaretto,3.25,1.83,1.92,23.73,77.12,R$ 18.68,20/03/2026 19:27:38,,,,,,,4.0,19:27:33,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,Betfair,Elisabetta Cocciaretto,2.14,1.83,1.92,7.77,16.63,R$ 7.95,20/03/2026 19:27:38,,,,,,,5.0,19:27:32,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,Nordic Bet,Elisabetta Cocciaretto,3.25,1.83,1.92,23.73,77.12,R$ 18.68,20/03/2026 19:27:38,,,,,,,6.0,19:27:31,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,Coolbet,Elisabetta Cocciaretto,3.35,1.83,1.92,24.65,82.57,R$ 19.15,20/03/2026 19:27:38,,,,,,,42.0,19:26:55,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,FanDuel,Elisabetta Cocciaretto,2.60,1.83,1.92,16.04,41.7,R$ 14.20,20/03/2026 19:27:38,,,,,,,7.0,19:27:30,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,DraftKings,Elisabetta Cocciaretto,2.58,1.83,1.92,15.74,40.61,R$ 14.01,20/03/2026 19:27:38,,,,,,,96.0,19:26:01,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,Matchbook,Elisabetta Cocciaretto,3.45,1.83,1.92,25.51,88.02,R$ 19.58,20/03/2026 19:27:38,,,,,,,6.0,19:27:31,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,888sport,Elisabetta Cocciaretto,2.00,1.83,1.92,4.5,9.0,R$ 4.90,20/03/2026 19:27:38,,,,,,,114.0,19:25:43,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,Bovada,Elisabetta Cocciaretto,3.00,1.83,1.92,21.17,63.5,R$ 17.30,20/03/2026 19:27:38,,,,,,,7.0,19:27:30,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,BetMGM,Elisabetta Cocciaretto,3.00,1.83,1.92,21.17,63.5,R$ 17.30,20/03/2026 19:27:38,,,,,,,6.0,19:27:31,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Elisabetta Cocciaretto x Coco Gauff,BetRivers,Elisabetta Cocciaretto,2.95,1.83,1.92,20.6,60.77,R$ 16.98,20/03/2026 19:27:38,,,,,,,43.0,19:26:54,1.77,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Jelena Ostapenko x Dayana Yastremska,Betfair,Jelena Ostapenko,1.93,1.56,1.62,12.23,23.61,R$ 13.84,20/03/2026 19:27:38,,,,,,,5.0,19:27:32,1.51,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Jelena Ostapenko x Dayana Yastremska,Matchbook,Jelena Ostapenko,1.69,1.56,1.62,4.88,8.24,R$ 6.51,20/03/2026 19:27:38,,,,,,,6.0,19:27:31,1.51,19:27:37,Pré-live
+20/03 15:00,WTA Miami Open,Jelena Ostapenko x Dayana Yastremska,Bovada,Jelena Ostapenko,1.65,1.56,1.62,3.44,5.68,R$ 4.76,20/03/2026 19:27:38,,,,,,,7.0,19:27:30,1.51,19:27:37,Pré-live

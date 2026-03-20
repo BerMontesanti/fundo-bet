@@ -238,8 +238,7 @@ def buscar_oportunidades():
                                                     df_historico.at[idx, 'Odd Pinnacle'] = odd_pin_bruta
                                                     df_historico.at[idx, 'Gap_Segundos'] = int(diff_segundos)
                                                     df_historico.at[idx, 'Achado_em'] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-                                                    
-                                                    global houve_atualizacao_betmgm
+                                                                                                    
                                                     houve_atualizacao_betmgm = True
                                                     print(f"🔄 Line Movement (BetMGM): {jogo} atualizado para Odd {odd_soft}")
                                                 

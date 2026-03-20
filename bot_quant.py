@@ -71,6 +71,17 @@ def buscar_oportunidades():
     
     agora_brt = datetime.utcnow() - timedelta(hours=3)
     hoje_brt = agora_brt.date()
+
+    # ==========================================
+    # 0. PREPARAÇÃO PARA LINE MOVEMENT (BETMGM)
+    # ==========================================
+    global houve_atualizacao_betmgm
+    houve_atualizacao_betmgm = False
+    
+    if os.path.isfile('historico_apostas.csv'):
+        df_historico = pd.read_csv('historico_apostas.csv')
+    else:
+        df_historico = pd.DataFrame()
     
     # 1. Carrega o Catálogo e faz o ping na API (0 créditos)
     print("🌍 Iniciando Batedor de Ligas...")
@@ -354,6 +365,6 @@ def enviar_email(dados_aprovados):
 
 if __name__ == "__main__":
     oportunidades = buscar_oportunidades()
-    salvar_historico_csv(oportunidades)
+    salvar_historico_csv(df_historico, oportunidades, houve_atualizacao_betmgm)
     enviar_telegram(oportunidades)
     enviar_email(oportunidades)

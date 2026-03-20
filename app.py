@@ -256,34 +256,35 @@ if not df.empty:
         except: return "Pré-live"
 
     df_calc['Momento_Alerta'] = df_calc.apply(classificar_momento, axis=1)
-    # 🏀 TRADUTOR INTELIGENTE DE ESPORTES
-    def classificar_esporte_smart(liga_nome):
-        liga = str(liga_nome).strip()
-        liga_lower = liga.lower()
-        
-        # 1. Se já estiver no formato perfeito "Esporte - Liga"
-        if ' - ' in liga:
-            return liga.split(' - ')[0].strip()
+    # 🏀 CLASSIFICADOR DE ESPORTES (Usando a Fonte Oficial da API)
+    config_ligas_global = carregar_config_ligas()
+    # Cria um dicionário invertido: { "Serie B": "soccer_italy_serie_b" }
+    mapa_titulos_para_chaves = {nome: chave for chave, nome in config_ligas_global.get("disponiveis", {}).items()}
+
+    def classificar_esporte_oficial(liga_nome):
+        # 1. Mantém compatibilidade com os jogos muito antigos ("Esporte - Liga")
+        if ' - ' in str(liga_nome):
+            return str(liga_nome).split(' - ')[0].strip()
             
-        # 2. Mapeamento por palavras-chave (A API costuma enviar estes nomes)
-        mapa_esportes = {
-            'Basquete': ['nba', 'wnba', 'ncaa', 'basketball', 'euroleague', 'nbl', 'basquete', 'eurocup'],
-            'Tênis': ['atp', 'wta', 'itf', 'tennis', 'challenger', 'roland garros', 'wimbledon'],
-            'Futebol Americano': ['nfl', 'ncaaf', 'american football', 'cfl'],
-            'Hóquei': ['nhl', 'ice hockey', 'ahl', 'khl'],
-            'Beisebol': ['mlb', 'baseball', 'npb'],
-            'MMA': ['ufc', 'mma', 'bellator', 'pfl'],
-            'Futebol': ['soccer', 'premier league', 'serie a', 'serie b', 'la liga', 'bundesliga', 'ligue 1', 'champions', 'europa league', 'libertadores', 'sudamericana', 'mls', 'futebol', 'liga', 'championship', 'eredivisie', 'primeira']
-        }
+        # 2. Busca a chave original da The Odds API
+        chave_api = mapa_titulos_para_chaves.get(str(liga_nome).strip())
         
-        for esporte, palavras in mapa_esportes.items():
-            if any(palavra in liga_lower for palavra in palavras):
-                return esporte
-                
-        # Se realmente for um esporte super exótico (ex: Críquete, Dardos)
+        if chave_api:
+            # Pega a primeira palavra da chave (ex: de "soccer_italy_serie_b" tira "soccer")
+            prefixo = chave_api.split('_')[0].lower()
+            
+            dicionario_traducao = {
+                'soccer': 'Futebol', 'basketball': 'Basquete', 'americanfootball': 'Futebol Americano',
+                'tennis': 'Tênis', 'icehockey': 'Hóquei', 'mma': 'MMA', 'boxing': 'Boxe',
+                'cricket': 'Críquete', 'rugbyleague': 'Rugby', 'aussierules': 'Aussie Rules',
+                'golf': 'Golfe', 'baseball': 'Beisebol', 'politics': 'Política'
+            }
+            return dicionario_traducao.get(prefixo, prefixo.capitalize())
+            
+        # Se o jogo não existir no nosso JSON, atira para Outros
         return 'Outro'
 
-    df_calc['Esporte'] = df_calc['Liga'].apply(classificar_esporte_smart)
+    df_calc['Esporte'] = df_calc['Liga'].apply(classificar_esporte_oficial)
 
     # 📅 NOVA COLUNA PARA O FILTRO DE DATAS
     def extrair_data_filtro(row):

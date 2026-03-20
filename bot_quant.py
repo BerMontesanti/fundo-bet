@@ -251,20 +251,34 @@ def buscar_oportunidades():
 # ==========================================
 # 💾 SALVAR NO BANCO DE DADOS (CSV)
 # ==========================================
-def salvar_historico_csv(dados_aprovados):
-    if not dados_aprovados: return
-    df_novo = pd.DataFrame(dados_aprovados)
-    if 'Link' in df_novo.columns: df_novo = df_novo.drop(columns=['Link'])
-    df_novo['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
-    
-    if os.path.isfile('historico_apostas.csv'):
-        try:
-            df_final = pd.concat([pd.read_csv('historico_apostas.csv'), df_novo], ignore_index=True)
-        except: df_final = df_novo
-    else: df_final = df_novo
+def salvar_historico_csv(df_historico, dados_aprovados, houve_atualizacao):
+    # Se não há apostas novas E não houve line movement na BetMGM, não faz nada
+    if not dados_aprovados and not houve_atualizacao: 
+        return
+
+    # Se houver apostas 100% novas
+    if dados_aprovados:
+        df_novo = pd.DataFrame(dados_aprovados)
+        if 'Link' in df_novo.columns: 
+            df_novo = df_novo.drop(columns=['Link'])
+        # Adiciona a data/hora para o filtro do Dashboard
+        from datetime import datetime, timedelta
+        df_novo['Achado_em'] = (datetime.utcnow() - timedelta(hours=3)).strftime("%d/%m/%Y %H:%M:%S")
         
+        # Junta o histórico (que já tem os updates da BetMGM) com as apostas novas
+        if not df_historico.empty:
+            df_final = pd.concat([df_historico, df_novo], ignore_index=True)
+        else:
+            df_final = df_novo
+        print(f"✅ {len(df_novo)} novas apostas adicionadas ao banco.")
+        
+    # Se não há novas, mas houve update na BetMGM
+    else:
+        df_final = df_historico
+        print("✅ Banco atualizado apenas com os novos valores de Line Movement (BetMGM).")
+        
+    # Grava o resultado final no ficheiro
     df_final.to_csv('historico_apostas.csv', index=False)
-    print(f"✅ {len(df_novo)} apostas salvas.")
 
 # ==========================================
 # 📱 FUNÇÃO DE ENVIO PARA O TELEGRAM (FILTRO BETMGM)

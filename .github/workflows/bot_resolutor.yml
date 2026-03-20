@@ -1,0 +1,35 @@
+name: Executar Auditor de Resultados (O Juiz)
+
+on:
+  schedule:
+    # Roda todos os dias às 03:00 da manhã UTC (Meia-noite no BRT)
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Permite rodar manualmente no botão
+
+permissions:
+  contents: write 
+
+jobs:
+  rodar-auditor:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Baixar o código
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Instalar dependências
+        run: pip install requests pandas PyGithub
+
+      - name: ⚖️ Rodar o Juiz
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python bot_resolutor.py

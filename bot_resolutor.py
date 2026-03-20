@@ -95,18 +95,23 @@ def resolver_apostas():
         except Exception as e:
             print(f"❌ Erro ao buscar resultados de {sport_key}: {e}")
 
+    # Se resolveu alguma coisa, salva via terminal (Git Nativo)
     if jogos_resolvidos > 0:
         df.to_csv(ARQUIVO_CSV, index=False)
+        
         try:
-            g = Github(GITHUB_TOKEN)
-            repo = g.get_repo(REPO_NAME)
-            contents = repo.get_contents(ARQUIVO_CSV)
-            novo_csv = df.to_csv(index=False)
-            repo.update_file(contents.path, f"🤖 [Auditor] {jogos_resolvidos} resultados do modelo atualizados", novo_csv, contents.sha)
-            print("💾 Salvo no GitHub com sucesso!")
+            print("💾 Salvando o CSV atualizado via Git Nativo...")
+            os.system('git config --global user.name "github-actions[bot]"')
+            os.system('git config --global user.email "github-actions[bot]@users.noreply.github.com"')
+            os.system(f'git add {ARQUIVO_CSV}')
+            os.system(f'git commit -m "🤖 [Auditor] {jogos_resolvidos} resultados do modelo atualizados" || true')
+            os.system('git push')
+            
+            print("✅ Salvo no GitHub com sucesso!")
             enviar_telegram(f"⚖️ *Auditoria Global Concluída:*\nO Robô Juiz corrigiu o placar de {jogos_resolvidos} oportunidades geradas pelo seu algoritmo (apostadas ou não).")
+            
         except Exception as e:
-            print(f"❌ Erro ao salvar no GitHub: {e}")
+            print(f"❌ Erro ao salvar via Git nativo: {e}")
     else:
         print("💤 Os jogos pendentes ainda não terminaram ou não foram encontrados.")
 

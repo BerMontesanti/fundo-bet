@@ -205,7 +205,37 @@ def buscar_oportunidades():
                                         b_kelly = odd_soft - 1
                                         f_kelly = (prob_real_pin * b_kelly - (1 - prob_real_pin)) / b_kelly
                                         stake = BANCA_USDC * (f_kelly * 0.25) * TAXA_USD
+
+                                        # ==========================================
+                                        # 🛡️ TRIAGEM INTELIGENTE DE DUPLICATAS (BetMGM Update)
+                                        # ==========================================
+                                        is_duplicata = False
+                                        if not df_historico.empty and 'Jogo' in df_historico.columns:
+                                            mask = (df_historico['Jogo'] == jogo) & (df_historico['Casa'] == casa) & (df_historico['Seleção'] == selecao)
+                                            
+                                            if mask.any():
+                                                is_duplicata = True # Já existe no banco de dados!
+                                                
+                                                # Se for BetMGM, nós ATUALIZAMOS a linha existente no Dataframe em memória!
+                                                if 'betmgm' in casa.lower():
+                                                    idx = df_historico[mask].index[-1] # Pega a entrada original
+                                                    
+                                                    df_historico.at[idx, 'Odd Casa'] = odd_soft
+                                                    df_historico.at[idx, 'Edge'] = f"{edge*100:.2f}%" # Atenção: no seu código original chamava-se edge_calc ou edge? Use a variável correta do seu script.
+                                                    df_historico.at[idx, 'ROI'] = f"{roi*100:.2f}%"   # Mesma coisa para o roi.
+                                                    df_historico.at[idx, 'Stake'] = f"R$ {stake:.2f}"
+                                                    df_historico.at[idx, 'Odd Pinnacle'] = odd_pin_bruta
+                                                    df_historico.at[idx, 'Gap_Segundos'] = int(diff_segundos)
+                                                    df_historico.at[idx, 'Achado_em'] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                                                    
+                                                    global houve_atualizacao_betmgm
+                                                    houve_atualizacao_betmgm = True
+                                                    print(f"🔄 Line Movement (BetMGM): {jogo} atualizado para Odd {odd_soft}")
+                                                
+                                                # Independentemente da casa, se já existe, salta fora e NÃO adiciona de novo!
+                                                continue 
                                         
+                                        # Se chegou aqui, é porque é uma aposta 100% INÉDITA. Adiciona à lista:
                                         apostas_aprovadas.append({
                                             "Data/Hora": dt.strftime("%d/%m %H:%M"), "Liga": nome_liga, "Jogo": jogo_nome, "Casa": b['title'],
                                             "Seleção": selecao, "Odd Casa": f"{odd_soft:.2f}", "Hora Casa": hora_casa, "Odd Pinnacle": f"{odd_pin_bruta:.2f}",

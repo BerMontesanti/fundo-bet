@@ -2673,47 +2673,163 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 20/03 15:10,WTA Miami Open,Maria Sakkari x Alycia Parks,Coolbet,Maria Sakkari,1.61,1.51,1.57,4.01,6.46,R$ 5.77,20/03/2026 16:21:02,,,,,,,36.0,16:20:08,1.46,16:20:44,Pré-live
 20/03 16:16,Basketball Euroleague,Panathinaikos x KK Crvena zvezda,BetMGM,Panathinaikos,1.53,1.39,1.43,6.84,10.46,R$ 10.76,20/03/2026 16:36:33,,,,,,,35.0,16:36:27,1.29,16:35:52,Ao Vivo (20x27)
 20/03 16:16,Basketball Euroleague,Panathinaikos x KK Crvena zvezda,Betfair,Panathinaikos,1.52,1.39,1.43,6.41,9.74,R$ 10.21,20/03/2026 16:36:33,,,,,,,19.0,16:36:11,1.29,16:35:52,Ao Vivo (20x27)
-20/03 16:16,Basketball Euroleague,Panathinaikos x KK Crvena zvezda,BetRivers,Panathinaikos,1.60,1.39,1.43,9.7,15.52,R$ 14.09,20/03/2026 16:36:33,,,,,,,1.0,16:35:53,1.29,16:35:52,Ao Vivo (20x27)
-20/03 16:21,NCAAB,Alabama Crimson Tide x Hofstra Pride,BetMGM,Hofstra Pride,8.00,6.26,7.42,3.48,27.86,R$ 2.17,20/03/2026 16:36:33,,,,,,,54.0,16:35:17,5.94,16:36:11,Ao Vivo (13x9)
-20/03 19:00,Boxing,Michael Conlan x Kevin Walsh,Betfair,Kevin Walsh,5.90,4.83,5.50,3.74,22.07,R$ 2.45,20/03/2026 16:36:33,,,,,,,14.0,16:36:06,4.60,16:36:20,Pré-live
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Nordic Bet,Draw,3.90,3.13,3.39,6.33,24.68,R$ 4.64,20/03/2026 16:36:33,,,,,,,761.0,16:36:02,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Betsson,Draw,3.90,3.13,3.39,6.33,24.68,R$ 4.64,20/03/2026 16:36:33,,,,,,,777.0,16:36:18,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,FanDuel,Draw,4.20,3.13,3.39,8.16,34.27,R$ 5.84,20/03/2026 16:36:33,,,,,,,758.0,16:35:59,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Sky Bet,Draw,4.00,3.13,3.39,6.97,27.88,R$ 5.06,20/03/2026 16:36:33,,,,,,,739.0,16:35:40,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,888sport,Draw,3.80,3.13,3.39,5.65,21.48,R$ 4.18,20/03/2026 16:36:33,,,,,,,757.0,16:35:58,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,DraftKings,Draw,4.00,3.13,3.39,6.97,27.88,R$ 5.06,20/03/2026 16:36:33,,,,,,,686.0,16:34:47,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Bovada,Draw,3.90,3.13,3.39,6.33,24.68,R$ 4.64,20/03/2026 16:36:33,,,,,,,775.0,16:36:16,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,BetMGM,Draw,3.80,3.13,3.39,5.65,21.48,R$ 4.18,20/03/2026 16:36:33,,,,,,,758.0,16:35:59,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Coolbet,Draw,4.00,3.13,3.39,6.97,27.88,R$ 5.06,20/03/2026 16:36:33,,,,,,,722.0,16:35:23,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Betfair,Draw,4.20,3.13,3.39,8.16,34.27,R$ 5.84,20/03/2026 16:36:33,,,,,,,776.0,16:36:17,2.93,16:23:21,Ao Vivo (1x0)
-20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Matchbook,Draw,4.20,3.13,3.39,8.16,34.27,R$ 5.84,20/03/2026 16:36:33,,,,,,,774.0,16:36:15,2.93,16:23:21,Ao Vivo (1x0)
-20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Betsson,Draw,26.00,1.77,1.86,52.5,1364.88,R$ 29.75,20/03/2026 16:36:33,,,,,,,313.0,16:27:00,1.68,16:21:47,Ao Vivo (3x1)
-20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Nordic Bet,Draw,26.00,1.77,1.86,52.5,1364.88,R$ 29.75,20/03/2026 16:36:33,,,,,,,308.0,16:26:55,1.68,16:21:47,Ao Vivo (3x1)
-20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Coolbet,Draw,18.00,1.77,1.86,50.79,914.15,R$ 29.31,20/03/2026 16:36:33,,,,,,,237.0,16:25:44,1.68,16:21:47,Ao Vivo (3x1)
-20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Betfair,Draw,23.00,1.77,1.86,51.99,1195.86,R$ 29.62,20/03/2026 16:36:33,,,,,,,399.0,16:28:26,1.68,16:21:47,Ao Vivo (3x1)
-20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Bovada,Draw,19.00,1.77,1.86,51.08,970.49,R$ 29.38,20/03/2026 16:36:33,,,,,,,185.0,16:24:52,1.68,16:21:47,Ao Vivo (3x1)
-20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,DraftKings,Draw,13.00,1.77,1.86,48.65,632.44,R$ 28.72,20/03/2026 16:36:33,,,,,,,109.0,16:23:36,1.68,16:21:47,Ao Vivo (3x1)
+20/03 16:16,Basketball Euroleague,Panathinaikos x KK Crvena zvezda,BetRivers,Panathinaikos,1.6,1.39,1.43,9.7,15.52,R$ 14.09,20/03/2026 16:36:33,,,,,,,1.0,16:35:53,1.29,16:35:52,Ao Vivo (20x27)
+20/03 16:21,NCAAB,Alabama Crimson Tide x Hofstra Pride,BetMGM,Hofstra Pride,8.0,6.26,7.42,3.48,27.86,R$ 2.17,20/03/2026 16:36:33,,,,,,,54.0,16:35:17,5.94,16:36:11,Ao Vivo (13x9)
+20/03 19:00,Boxing,Michael Conlan x Kevin Walsh,Betfair,Kevin Walsh,5.9,4.83,5.5,3.74,22.07,R$ 2.45,20/03/2026 16:36:33,,,,,,,14.0,16:36:06,4.6,16:36:20,Pré-live
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Nordic Bet,Draw,3.9,3.13,3.39,6.33,24.68,R$ 4.64,20/03/2026 16:36:33,,,,,,,761.0,16:36:02,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Betsson,Draw,3.9,3.13,3.39,6.33,24.68,R$ 4.64,20/03/2026 16:36:33,,,,,,,777.0,16:36:18,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,FanDuel,Draw,4.2,3.13,3.39,8.16,34.27,R$ 5.84,20/03/2026 16:36:33,,,,,,,758.0,16:35:59,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Sky Bet,Draw,4.0,3.13,3.39,6.97,27.88,R$ 5.06,20/03/2026 16:36:33,,,,,,,739.0,16:35:40,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,888sport,Draw,3.8,3.13,3.39,5.65,21.48,R$ 4.18,20/03/2026 16:36:33,,,,,,,757.0,16:35:58,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,DraftKings,Draw,4.0,3.13,3.39,6.97,27.88,R$ 5.06,20/03/2026 16:36:33,,,,,,,686.0,16:34:47,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Bovada,Draw,3.9,3.13,3.39,6.33,24.68,R$ 4.64,20/03/2026 16:36:33,,,,,,,775.0,16:36:16,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,BetMGM,Draw,3.8,3.13,3.39,5.65,21.48,R$ 4.18,20/03/2026 16:36:33,,,,,,,758.0,16:35:59,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Coolbet,Draw,4.0,3.13,3.39,6.97,27.88,R$ 5.06,20/03/2026 16:36:33,,,,,,,722.0,16:35:23,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Betfair,Draw,4.2,3.13,3.39,8.16,34.27,R$ 5.84,20/03/2026 16:36:33,,,,,,,776.0,16:36:17,2.93,16:23:21,Ao Vivo (1x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Matchbook,Draw,4.2,3.13,3.39,8.16,34.27,R$ 5.84,20/03/2026 16:36:33,,,,,,,774.0,16:36:15,2.93,16:23:21,Ao Vivo (1x0)
+20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Betsson,Draw,26.0,1.77,1.86,52.5,1364.88,R$ 29.75,20/03/2026 16:36:33,,,,,,,313.0,16:27:00,1.68,16:21:47,Ao Vivo (3x1)
+20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Nordic Bet,Draw,26.0,1.77,1.86,52.5,1364.88,R$ 29.75,20/03/2026 16:36:33,,,,,,,308.0,16:26:55,1.68,16:21:47,Ao Vivo (3x1)
+20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Coolbet,Draw,18.0,1.77,1.86,50.79,914.15,R$ 29.31,20/03/2026 16:36:33,,,,,,,237.0,16:25:44,1.68,16:21:47,Ao Vivo (3x1)
+20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Betfair,Draw,23.0,1.77,1.86,51.99,1195.86,R$ 29.62,20/03/2026 16:36:33,,,,,,,399.0,16:28:26,1.68,16:21:47,Ao Vivo (3x1)
+20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,Bovada,Draw,19.0,1.77,1.86,51.08,970.49,R$ 29.38,20/03/2026 16:36:33,,,,,,,185.0,16:24:52,1.68,16:21:47,Ao Vivo (3x1)
+20/03 14:30,Bundesliga 2 - Germany,Karlsruher SC x Greuther Fürth,DraftKings,Draw,13.0,1.77,1.86,48.65,632.44,R$ 28.72,20/03/2026 16:36:33,,,,,,,109.0,16:23:36,1.68,16:21:47,Ao Vivo (3x1)
 20/03 15:00,3. Liga - Germany,Wehen Wiesbaden x Hansa Rostock,Betfair,Hansa Rostock,1.55,1.43,1.48,5.62,8.72,R$ 8.64,20/03/2026 16:36:33,,,,,,,1.0,16:36:20,1.33,16:36:19,Ao Vivo (0x1)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,FanDuel,Excelsior,6.00,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,831.0,16:36:31,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Sky Bet,Excelsior,6.00,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,828.0,16:36:28,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,888sport,Excelsior,5.00,2.77,2.98,16.05,80.24,R$ 10.93,20/03/2026 16:36:33,,,,,,,793.0,16:35:53,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,BetMGM,Excelsior,6.00,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,829.0,16:36:29,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Coolbet,Excelsior,6.50,2.77,2.98,20.66,134.31,R$ 13.31,20/03/2026 16:36:33,,,,,,,794.0,16:35:54,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Coolbet,Draw,3.80,3.45,3.78,2.66,10.09,R$ 1.96,20/03/2026 16:36:33,,,,,,,794.0,16:35:54,3.26,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betfair,Excelsior,7.00,2.77,2.98,21.76,152.34,R$ 13.84,20/03/2026 16:36:33,,,,,,,832.0,16:36:32,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,FanDuel,Excelsior,6.0,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,831.0,16:36:31,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Sky Bet,Excelsior,6.0,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,828.0,16:36:28,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,888sport,Excelsior,5.0,2.77,2.98,16.05,80.24,R$ 10.93,20/03/2026 16:36:33,,,,,,,793.0,16:35:53,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,BetMGM,Excelsior,6.0,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,829.0,16:36:29,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Coolbet,Excelsior,6.5,2.77,2.98,20.66,134.31,R$ 13.31,20/03/2026 16:36:33,,,,,,,794.0,16:35:54,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Coolbet,Draw,3.8,3.45,3.78,2.66,10.09,R$ 1.96,20/03/2026 16:36:33,,,,,,,794.0,16:35:54,3.26,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betfair,Excelsior,7.0,2.77,2.98,21.76,152.34,R$ 13.84,20/03/2026 16:36:33,,,,,,,832.0,16:36:32,2.62,16:22:40,Ao Vivo (1x0)
 20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betfair,Draw,3.95,3.45,3.78,3.65,14.44,R$ 2.67,20/03/2026 16:36:33,,,,,,,832.0,16:36:32,3.26,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Bovada,Excelsior,6.00,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,720.0,16:34:40,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,DraftKings,Excelsior,6.50,2.77,2.98,20.66,134.31,R$ 13.31,20/03/2026 16:36:33,,,,,,,793.0,16:35:53,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Nordic Bet,Excelsior,5.80,2.77,2.98,18.81,109.08,R$ 12.39,20/03/2026 16:36:33,,,,,,,797.0,16:35:57,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betsson,Excelsior,5.80,2.77,2.98,18.81,109.08,R$ 12.39,20/03/2026 16:36:33,,,,,,,831.0,16:36:31,2.62,16:22:40,Ao Vivo (1x0)
-20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Matchbook,Excelsior,7.20,2.77,2.98,22.16,159.55,R$ 14.02,20/03/2026 16:36:33,,,,,,,829.0,16:36:29,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Bovada,Excelsior,6.0,2.77,2.98,19.38,116.29,R$ 12.68,20/03/2026 16:36:33,,,,,,,720.0,16:34:40,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,DraftKings,Excelsior,6.5,2.77,2.98,20.66,134.31,R$ 13.31,20/03/2026 16:36:33,,,,,,,793.0,16:35:53,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Nordic Bet,Excelsior,5.8,2.77,2.98,18.81,109.08,R$ 12.39,20/03/2026 16:36:33,,,,,,,797.0,16:35:57,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betsson,Excelsior,5.8,2.77,2.98,18.81,109.08,R$ 12.39,20/03/2026 16:36:33,,,,,,,831.0,16:36:31,2.62,16:22:40,Ao Vivo (1x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Matchbook,Excelsior,7.2,2.77,2.98,22.16,159.55,R$ 14.02,20/03/2026 16:36:33,,,,,,,829.0,16:36:29,2.62,16:22:40,Ao Vivo (1x0)
 20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Matchbook,Draw,3.95,3.45,3.78,3.65,14.44,R$ 2.67,20/03/2026 16:36:33,,,,,,,829.0,16:36:29,3.26,16:22:40,Ao Vivo (1x0)
-20/03 11:30,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante,Betfair,Valentin Royer,22.00,13.78,21.01,2.71,59.7,R$ 1.55,20/03/2026 16:36:33,,,,,,,0.0,16:36:23,13.67,16:36:23,Pré-live
-20/03 11:30,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante,FanDuel,Valentin Royer,27.00,13.78,21.01,3.56,96.0,R$ 2.01,20/03/2026 16:36:33,,,,,,,37.0,16:35:46,13.67,16:36:23,Pré-live
-20/03 11:30,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante,DraftKings,Valentin Royer,22.00,13.78,21.01,2.71,59.7,R$ 1.55,20/03/2026 16:36:33,,,,,,,37.0,16:35:46,13.67,16:36:23,Pré-live
+20/03 11:30,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante,Betfair,Valentin Royer,22.0,13.78,21.01,2.71,59.7,R$ 1.55,20/03/2026 16:36:33,,,,,,,0.0,16:36:23,13.67,16:36:23,Pré-live
+20/03 11:30,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante,FanDuel,Valentin Royer,27.0,13.78,21.01,3.56,96.0,R$ 2.01,20/03/2026 16:36:33,,,,,,,37.0,16:35:46,13.67,16:36:23,Pré-live
+20/03 11:30,ATP Miami Open,Valentin Royer x Thiago Agustin Tirante,DraftKings,Valentin Royer,22.0,13.78,21.01,2.71,59.7,R$ 1.55,20/03/2026 16:36:33,,,,,,,37.0,16:35:46,13.67,16:36:23,Pré-live
 20/03 13:30,ATP Miami Open,Aleksandar Kovacevic x Rei Sakamoto,Bovada,Rei Sakamoto,2.55,2.29,2.43,4.41,11.24,R$ 3.95,20/03/2026 16:36:33,,,,,,,107.0,16:34:36,2.21,16:36:23,Pré-live
-20/03 13:30,ATP Miami Open,Aleksandar Kovacevic x Rei Sakamoto,FanDuel,Rei Sakamoto,3.10,2.29,2.43,11.36,35.23,R$ 9.14,20/03/2026 16:36:33,,,,,,,37.0,16:35:46,2.21,16:36:23,Pré-live
-20/03 15:23,WTA Miami Open,Katie Boulter x Clara Tauson,Betfair,Clara Tauson,3.00,2.65,2.84,4.38,13.14,R$ 3.58,20/03/2026 16:36:33,,,,,,,1.0,16:36:24,2.56,16:36:23,Pré-live
+20/03 13:30,ATP Miami Open,Aleksandar Kovacevic x Rei Sakamoto,FanDuel,Rei Sakamoto,3.1,2.29,2.43,11.36,35.23,R$ 9.14,20/03/2026 16:36:33,,,,,,,37.0,16:35:46,2.21,16:36:23,Pré-live
+20/03 15:23,WTA Miami Open,Katie Boulter x Clara Tauson,Betfair,Clara Tauson,3.0,2.65,2.84,4.38,13.14,R$ 3.58,20/03/2026 16:36:33,,,,,,,1.0,16:36:24,2.56,16:36:23,Pré-live
 20/03 15:23,WTA Miami Open,Katie Boulter x Clara Tauson,Nordic Bet,Clara Tauson,2.85,2.65,2.84,2.63,7.48,R$ 2.20,20/03/2026 16:36:33,,,,,,,14.0,16:36:09,2.56,16:36:23,Pré-live
 20/03 15:23,WTA Miami Open,Katie Boulter x Clara Tauson,Coolbet,Clara Tauson,2.85,2.65,2.84,2.63,7.48,R$ 2.20,20/03/2026 16:36:33,,,,,,,31.0,16:35:52,2.56,16:36:23,Pré-live
-20/03 15:23,WTA Miami Open,Katie Boulter x Clara Tauson,Matchbook,Clara Tauson,3.00,2.65,2.84,4.38,13.14,R$ 3.58,20/03/2026 16:36:33,,,,,,,18.0,16:36:05,2.56,16:36:23,Pré-live
+20/03 15:23,WTA Miami Open,Katie Boulter x Clara Tauson,Matchbook,Clara Tauson,3.0,2.65,2.84,4.38,13.14,R$ 3.58,20/03/2026 16:36:33,,,,,,,18.0,16:36:05,2.56,16:36:23,Pré-live
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,BetMGM,ASVEL Lyon Villeurbanne,1.48,1.29,1.33,10.23,15.14,R$ 17.19,20/03/2026 17:55:46,,,,,,,76.0,17:54:13,1.23,17:55:29,Ao Vivo (56x45)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,FanDuel,ASVEL Lyon Villeurbanne,1.38,1.29,1.33,5.33,7.36,R$ 10.56,20/03/2026 17:55:46,,,,,,,2.0,17:55:31,1.23,17:55:29,Ao Vivo (56x45)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,William Hill,ASVEL Lyon Villeurbanne,1.62,1.29,1.33,16.07,26.03,R$ 22.88,20/03/2026 17:55:46,,,,,,,58.0,17:54:31,1.23,17:55:29,Ao Vivo (56x45)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Matchbook,ASVEL Lyon Villeurbanne,1.46,1.29,1.33,9.3,13.58,R$ 16.10,20/03/2026 17:55:46,,,,,,,147.0,17:53:02,1.23,17:55:29,Ao Vivo (56x45)
+20/03 17:10,NCAAB,Villanova Wildcats x Utah State Aggies,DraftKings,Utah State Aggies,2.14,2.01,2.11,3.14,6.72,R$ 3.21,20/03/2026 17:55:46,,,,,,,0.0,17:55:29,1.89,17:55:29,Ao Vivo (28x31)
+20/03 17:10,NCAAB,Villanova Wildcats x Utah State Aggies,Coolbet,Villanova Wildcats,2.31,1.99,2.10,6.84,15.81,R$ 6.58,20/03/2026 17:55:46,,,,,,,275.0,17:50:54,1.88,17:55:29,Ao Vivo (28x31)
+20/03 17:32,NCAAB,Tennessee Volunteers x Miami (OH) RedHawks,FanDuel,Miami (OH) RedHawks,9.00,7.24,8.84,2.7,24.29,R$ 1.65,20/03/2026 17:55:46,,,,,,,0.0,17:55:29,6.99,17:55:29,Ao Vivo (23x17)
+20/03 19:00,Boxing,Michael Conlan x Kevin Walsh,Betfair,Michael Conlan,1.32,1.26,1.30,3.55,4.69,R$ 7.99,20/03/2026 17:55:46,,,,,,,0.0,17:55:23,1.20,17:55:23,Pré-live
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,Betsson,Nancy,26.00,7.72,9.56,9.11,236.83,R$ 5.16,20/03/2026 17:55:46,,,,,,,200.0,17:50:43,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,Nordic Bet,Nancy,26.00,7.72,9.56,9.11,236.83,R$ 5.16,20/03/2026 17:55:46,,,,,,,216.0,17:50:27,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,FanDuel,Nancy,28.00,7.72,9.56,9.38,262.74,R$ 5.30,20/03/2026 17:55:46,,,,,,,253.0,17:49:50,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,Sky Bet,Nancy,26.00,7.72,9.56,9.11,236.83,R$ 5.16,20/03/2026 17:55:46,,,,,,,253.0,17:49:50,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,DraftKings,Nancy,29.00,7.72,9.56,9.51,275.69,R$ 5.37,20/03/2026 17:55:46,,,,,,,254.0,17:49:49,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,888sport,Nancy,17.00,7.72,9.56,7.07,120.23,R$ 4.10,20/03/2026 17:55:46,,,,,,,348.0,17:48:15,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,Bovada,Nancy,16.00,7.72,9.56,6.7,107.28,R$ 3.90,20/03/2026 17:55:46,,,,,,,309.0,17:48:54,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,Coolbet,Nancy,28.00,7.72,9.56,9.38,262.74,R$ 5.30,20/03/2026 17:55:46,,,,,,,218.0,17:50:25,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Boulogne x Nancy,Matchbook,Nancy,16.50,7.72,9.56,6.89,113.76,R$ 4.00,20/03/2026 17:55:46,,,,,,,219.0,17:50:24,7.25,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Betsson,Montpellier,23.00,9.47,12.40,6.22,142.96,R$ 3.54,20/03/2026 17:55:46,,,,,,,73.0,17:55:16,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Betsson,Pau FC,13.00,3.99,4.44,17.34,225.46,R$ 10.24,20/03/2026 17:55:46,,,,,,,73.0,17:55:16,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Nordic Bet,Montpellier,23.00,9.47,12.40,6.22,142.96,R$ 3.54,20/03/2026 17:55:46,,,,,,,57.0,17:55:00,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Nordic Bet,Pau FC,12.00,3.99,4.44,16.7,200.42,R$ 9.93,20/03/2026 17:55:46,,,,,,,57.0,17:55:00,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,FanDuel,Montpellier,19.00,9.47,12.40,5.3,100.71,R$ 3.05,20/03/2026 17:55:46,,,,,,,56.0,17:54:59,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,FanDuel,Pau FC,14.00,3.99,4.44,17.89,250.49,R$ 10.50,20/03/2026 17:55:46,,,,,,,56.0,17:54:59,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Sky Bet,Pau FC,7.00,3.99,4.44,10.75,75.25,R$ 6.83,20/03/2026 17:55:46,,,,,,,201.0,17:50:42,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,DraftKings,Montpellier,23.00,9.47,12.40,6.22,142.96,R$ 3.54,20/03/2026 17:55:46,,,,,,,56.0,17:54:59,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,DraftKings,Pau FC,12.00,3.99,4.44,16.7,200.42,R$ 9.93,20/03/2026 17:55:46,,,,,,,56.0,17:54:59,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,888sport,Montpellier,23.00,9.47,12.40,6.22,142.96,R$ 3.54,20/03/2026 17:55:46,,,,,,,39.0,17:54:42,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,888sport,Pau FC,10.00,3.99,4.44,15.04,150.35,R$ 9.10,20/03/2026 17:55:46,,,,,,,39.0,17:54:42,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Bovada,Montpellier,19.00,9.47,12.40,5.3,100.71,R$ 3.05,20/03/2026 17:55:46,,,,,,,19.0,17:53:44,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Bovada,Pau FC,10.50,3.99,4.44,15.51,162.87,R$ 9.34,20/03/2026 17:55:46,,,,,,,19.0,17:53:44,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Coolbet,Montpellier,25.00,9.47,12.40,6.56,164.09,R$ 3.73,20/03/2026 17:55:46,,,,,,,74.0,17:55:17,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Coolbet,Pau FC,12.50,3.99,4.44,17.04,212.94,R$ 10.09,20/03/2026 17:55:46,,,,,,,74.0,17:55:17,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Betfair,Montpellier,19.00,9.47,12.40,5.3,100.71,R$ 3.05,20/03/2026 17:55:46,,,,,,,75.0,17:55:18,8.84,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Betfair,Pau FC,9.20,3.99,4.44,14.17,130.32,R$ 8.66,20/03/2026 17:55:46,,,,,,,75.0,17:55:18,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Pau FC x Montpellier,Matchbook,Pau FC,12.50,3.99,4.44,17.04,212.94,R$ 10.09,20/03/2026 17:55:46,,,,,,,74.0,17:55:17,3.73,17:54:03,Ao Vivo (0x0)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Nordic Bet,Rodez AF,21.00,5.76,6.73,12.59,264.48,R$ 7.21,20/03/2026 17:55:46,,,,,,,57.0,17:53:06,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Betsson,Rodez AF,17.00,5.76,6.73,11.47,195.05,R$ 6.64,20/03/2026 17:55:46,,,,,,,89.0,17:52:34,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,FanDuel,Rodez AF,81.00,5.76,6.73,16.12,1305.84,R$ 8.90,20/03/2026 17:55:46,,,,,,,36.0,17:53:27,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Sky Bet,Rodez AF,11.00,5.76,6.73,8.27,90.92,R$ 4.95,20/03/2026 17:55:46,,,,,,,201.0,17:50:42,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,888sport,Rodez AF,71.00,5.76,6.73,15.95,1132.28,R$ 8.82,20/03/2026 17:55:46,,,,,,,19.0,17:53:44,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,DraftKings,Rodez AF,18.00,5.76,6.73,11.8,212.41,R$ 6.81,20/03/2026 17:55:46,,,,,,,90.0,17:52:33,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Bovada,Rodez AF,14.00,5.76,6.73,10.21,142.99,R$ 5.99,20/03/2026 17:55:46,,,,,,,165.0,17:51:18,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Coolbet,Rodez AF,20.00,5.76,6.73,12.36,247.12,R$ 7.09,20/03/2026 17:55:46,,,,,,,72.0,17:52:51,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:00,Ligue 2 - France,Rodez AF x SC Bastia,Matchbook,Rodez AF,19.00,5.76,6.73,12.09,229.77,R$ 6.96,20/03/2026 17:55:46,,,,,,,35.0,17:53:28,5.40,17:54:03,Ao Vivo (1x1)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Nordic Bet,Drogheda United,50.00,21.68,47.34,2.61,130.62,R$ 1.45,20/03/2026 17:55:46,,,,,,,35.0,17:54:55,20.47,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Nordic Bet,Draw,19.00,5.76,6.73,12.09,229.77,R$ 6.96,20/03/2026 17:55:46,,,,,,,35.0,17:54:55,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Betsson,Drogheda United,50.00,21.68,47.34,2.61,130.62,R$ 1.45,20/03/2026 17:55:46,,,,,,,34.0,17:54:56,20.47,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Betsson,Draw,19.00,5.76,6.73,12.09,229.77,R$ 6.96,20/03/2026 17:55:46,,,,,,,34.0,17:54:56,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,BetMGM,Draw,14.50,5.76,6.73,10.46,151.67,R$ 6.12,20/03/2026 17:55:46,,,,,,,1.0,17:55:31,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Coolbet,Draw,12.50,5.76,6.73,9.36,116.95,R$ 5.54,20/03/2026 17:55:46,,,,,,,54.0,17:54:36,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,FanDuel,Drogheda United,101.00,21.68,47.34,3.62,365.86,R$ 1.99,20/03/2026 17:55:46,,,,,,,74.0,17:54:16,20.47,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,FanDuel,Draw,19.00,5.76,6.73,12.09,229.77,R$ 6.96,20/03/2026 17:55:46,,,,,,,74.0,17:54:16,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Sky Bet,Drogheda United,67.00,21.68,47.34,3.12,209.04,R$ 1.73,20/03/2026 17:55:46,,,,,,,2.0,17:55:32,20.47,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Sky Bet,Draw,21.00,5.76,6.73,12.59,264.48,R$ 7.21,20/03/2026 17:55:46,,,,,,,2.0,17:55:32,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,DraftKings,Draw,15.00,5.76,6.73,10.69,160.34,R$ 6.24,20/03/2026 17:55:46,,,,,,,34.0,17:54:56,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Bovada,Draw,14.00,5.76,6.73,10.21,142.99,R$ 5.99,20/03/2026 17:55:46,,,,,,,90.0,17:54:00,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Betfair,Drogheda United,70.00,21.68,47.34,3.18,222.87,R$ 1.76,20/03/2026 17:55:46,,,,,,,1.0,17:55:31,20.47,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Betfair,Draw,22.00,5.76,6.73,12.81,281.84,R$ 7.31,20/03/2026 17:55:46,,,,,,,1.0,17:55:31,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:45,League of Ireland,Derry City x Drogheda United,Matchbook,Draw,18.50,5.76,6.73,11.95,221.09,R$ 6.89,20/03/2026 17:55:46,,,,,,,1.0,17:55:31,5.44,17:55:30,Ao Vivo (2x0)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,FanDuel,Heracles Almelo,12.00,4.55,5.14,13.63,163.58,R$ 8.10,20/03/2026 17:55:46,,,,,,,38.0,17:53:41,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Sky Bet,Heracles Almelo,21.00,4.55,5.14,17.2,361.26,R$ 9.84,20/03/2026 17:55:46,,,,,,,92.0,17:54:35,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,888sport,Heracles Almelo,11.00,4.55,5.14,12.87,141.61,R$ 7.72,20/03/2026 17:55:46,,,,,,,52.0,17:52:11,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,BetMGM,Heracles Almelo,18.50,4.55,5.14,16.56,306.35,R$ 9.54,20/03/2026 17:55:46,,,,,,,71.0,17:54:14,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Coolbet,Heracles Almelo,28.00,4.55,5.14,18.39,515.01,R$ 10.40,20/03/2026 17:55:46,,,,,,,92.0,17:54:35,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betfair,Heracles Almelo,12.50,4.55,5.14,13.96,174.56,R$ 8.27,20/03/2026 17:55:46,,,,,,,148.0,17:55:31,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Bovada,Heracles Almelo,15.00,4.55,5.14,15.3,229.47,R$ 8.93,20/03/2026 17:55:46,,,,,,,37.0,17:52:26,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,DraftKings,Heracles Almelo,20.00,4.55,5.14,16.96,339.29,R$ 9.73,20/03/2026 17:55:46,,,,,,,90.0,17:54:33,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Nordic Bet,Heracles Almelo,21.00,4.55,5.14,17.2,361.26,R$ 9.84,20/03/2026 17:55:46,,,,,,,93.0,17:54:36,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Betsson,Heracles Almelo,17.00,4.55,5.14,16.08,273.4,R$ 9.31,20/03/2026 17:55:46,,,,,,,55.0,17:53:58,4.29,17:53:03,Ao Vivo (1x1)
+20/03 16:00,Dutch Eredivisie,Heracles Almelo x Excelsior,Matchbook,Heracles Almelo,12.50,4.55,5.14,13.96,174.56,R$ 8.27,20/03/2026 17:55:46,,,,,,,71.0,17:54:14,4.29,17:53:03,Ao Vivo (1x1)
+20/03 17:18,Primeira Liga - Portugal,CF Estrela x Casa Pia,Betsson,Casa Pia,24.00,8.51,10.81,7.58,182.02,R$ 4.31,20/03/2026 17:55:46,,,,,,,37.0,17:55:30,8.04,17:54:53,Ao Vivo (1x0)
+20/03 17:18,Primeira Liga - Portugal,CF Estrela x Casa Pia,Betsson,Draw,8.60,4.10,4.56,12.78,109.95,R$ 7.88,20/03/2026 17:55:46,,,,,,,37.0,17:55:30,3.87,17:54:53,Ao Vivo (1x0)
+20/03 17:18,Primeira Liga - Portugal,CF Estrela x Casa Pia,Nordic Bet,Casa Pia,24.00,8.51,10.81,7.58,182.02,R$ 4.31,20/03/2026 17:55:46,,,,,,,39.0,17:55:32,8.04,17:54:53,Ao Vivo (1x0)
+20/03 17:18,Primeira Liga - Portugal,CF Estrela x Casa Pia,Nordic Bet,Draw,8.60,4.10,4.56,12.78,109.95,R$ 7.88,20/03/2026 17:55:46,,,,,,,39.0,17:55:32,3.87,17:54:53,Ao Vivo (1x0)
+20/03 17:18,Primeira Liga - Portugal,CF Estrela x Casa Pia,888sport,Casa Pia,26.00,8.51,10.81,7.9,205.52,R$ 4.48,20/03/2026 17:55:46,,,,,,,36.0,17:55:29,8.04,17:54:53,Ao Vivo (1x0)
+20/03 17:18,Primeira Liga - Portugal,CF Estrela x Casa Pia,888sport,Draw,9.00,4.10,4.56,13.3,119.72,R$ 8.16,20/03/2026 17:55:46,,,,,,,36.0,17:55:29,3.87,17:54:53,Ao Vivo (1x0)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Nordic Bet,Almería,1.58,1.44,1.49,6.14,9.7,R$ 9.11,20/03/2026 17:55:46,,,,,,,1.0,17:55:18,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Betsson,Almería,1.58,1.44,1.49,6.14,9.7,R$ 9.11,20/03/2026 17:55:46,,,,,,,17.0,17:55:00,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,BetMGM,Almería,1.57,1.44,1.49,5.74,9.0,R$ 8.61,20/03/2026 17:55:46,,,,,,,15.0,17:55:02,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,FanDuel,Almería,1.61,1.44,1.49,7.32,11.78,R$ 10.53,20/03/2026 17:55:46,,,,,,,17.0,17:55:34,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Sky Bet,Almería,1.57,1.44,1.49,5.74,9.0,R$ 8.61,20/03/2026 17:55:46,,,,,,,16.0,17:55:01,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Betfair,Almería,1.69,1.44,1.49,10.26,17.34,R$ 13.69,20/03/2026 17:55:46,,,,,,,1.0,17:55:18,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,DraftKings,Almería,1.62,1.44,1.49,7.7,12.48,R$ 10.97,20/03/2026 17:55:46,,,,,,,2.0,17:55:19,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Coolbet,Almería,1.60,1.44,1.49,6.93,11.09,R$ 10.07,20/03/2026 17:55:46,,,,,,,14.0,17:55:03,1.36,17:55:17,Ao Vivo (1x2)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Matchbook,Almería,1.73,1.44,1.49,11.63,20.11,R$ 15.02,20/03/2026 17:55:46,,,,,,,2.0,17:55:19,1.36,17:55:17,Ao Vivo (1x2)
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,Betfair,Tommy Paul,1.18,1.05,1.08,10.46,12.35,R$ 37.38,20/03/2026 17:55:46,,,,,,,2.0,17:55:26,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,DraftKings,Tommy Paul,1.23,1.05,1.08,13.91,17.11,R$ 40.54,20/03/2026 17:55:46,,,,,,,22.0,17:55:06,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,Nordic Bet,Tommy Paul,1.20,1.05,1.08,11.88,14.25,R$ 38.84,20/03/2026 17:55:46,,,,,,,22.0,17:55:06,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,Betsson,Tommy Paul,1.20,1.05,1.08,11.88,14.25,R$ 38.84,20/03/2026 17:55:46,,,,,,,4.0,17:55:24,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,FanDuel,Tommy Paul,1.18,1.05,1.08,10.46,12.35,R$ 37.38,20/03/2026 17:55:46,,,,,,,13.0,17:55:41,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,Bovada,Tommy Paul,1.22,1.05,1.08,13.24,16.16,R$ 40.02,20/03/2026 17:55:46,,,,,,,44.0,17:54:44,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,BetRivers,Tommy Paul,1.17,1.05,1.08,9.74,11.4,R$ 36.53,20/03/2026 17:55:46,,,,,,,22.0,17:55:06,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,888sport,Tommy Paul,1.17,1.05,1.08,9.74,11.4,R$ 36.53,20/03/2026 17:55:46,,,,,,,13.0,17:55:41,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Tommy Paul x Adrian Mannarino,Matchbook,Tommy Paul,1.17,1.05,1.08,9.74,11.4,R$ 36.53,20/03/2026 17:55:46,,,,,,,4.0,17:55:24,1.04,17:55:28,Pré-live
+20/03 12:00,ATP Miami Open,Jack Draper x Reilly Opelka,Bovada,Reilly Opelka,4.00,3.49,3.83,3.63,14.53,R$ 2.64,20/03/2026 17:55:46,,,,,,,186.0,17:52:22,3.39,17:55:28,Pré-live
+20/03 14:00,ATP Miami Open,Casper Ruud x Ethan Quinn,Nordic Bet,Ethan Quinn,2.25,1.96,2.07,6.46,14.55,R$ 6.34,20/03/2026 17:55:46,,,,,,,878.0,17:40:50,1.89,17:55:28,Pré-live
+20/03 14:00,ATP Miami Open,Casper Ruud x Ethan Quinn,Betsson,Ethan Quinn,2.25,1.96,2.07,6.46,14.55,R$ 6.34,20/03/2026 17:55:46,,,,,,,880.0,17:40:48,1.89,17:55:28,Pré-live
+20/03 14:00,ATP Miami Open,Casper Ruud x Ethan Quinn,Bovada,Ethan Quinn,2.80,1.96,2.07,15.19,42.55,R$ 12.88,20/03/2026 17:55:46,,,,,,,44.0,17:54:44,1.89,17:55:28,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Betsson,Cristina Bucsa,3.05,2.09,2.20,15.14,46.18,R$ 12.28,20/03/2026 17:55:46,,,,,,,18.0,17:55:42,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Coolbet,Cristina Bucsa,3.15,2.09,2.20,16.18,50.97,R$ 12.92,20/03/2026 17:55:46,,,,,,,346.0,17:49:38,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Betfair,Cristina Bucsa,3.70,2.09,2.20,20.9,77.33,R$ 15.61,20/03/2026 17:55:46,,,,,,,1.0,17:55:25,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Nordic Bet,Cristina Bucsa,3.05,2.09,2.20,15.14,46.18,R$ 12.28,20/03/2026 17:55:46,,,,,,,15.0,17:55:09,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,FanDuel,Cristina Bucsa,3.00,2.09,2.20,14.59,43.78,R$ 11.93,20/03/2026 17:55:46,,,,,,,219.0,17:51:45,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,DraftKings,Cristina Bucsa,3.16,2.09,2.20,16.28,51.45,R$ 12.98,20/03/2026 17:55:46,,,,,,,364.0,17:49:20,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Bovada,Cristina Bucsa,3.20,2.09,2.20,16.68,53.37,R$ 13.22,20/03/2026 17:55:46,,,,,,,292.0,17:50:32,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Matchbook,Cristina Bucsa,3.70,2.09,2.20,20.9,77.33,R$ 15.61,20/03/2026 17:55:46,,,,,,,76.0,17:54:08,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,888sport,Cristina Bucsa,3.00,2.09,2.20,14.59,43.78,R$ 11.93,20/03/2026 17:55:46,,,,,,,255.0,17:51:09,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,BetMGM,Cristina Bucsa,3.50,2.09,2.20,19.36,67.75,R$ 14.77,20/03/2026 17:55:46,,,,,,,1.0,17:55:23,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,BetRivers,Cristina Bucsa,3.85,2.09,2.20,21.95,84.52,R$ 16.16,20/03/2026 17:55:46,,,,,,,22.0,17:55:46,2.01,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Elvina Kalieva x Elise Mertens,Betfair,Elvina Kalieva,12.00,8.70,11.12,3.16,37.89,R$ 1.88,20/03/2026 17:55:46,,,,,,,1.0,17:55:25,8.55,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Elvina Kalieva x Elise Mertens,DraftKings,Elvina Kalieva,12.20,8.70,11.12,3.29,40.19,R$ 1.96,20/03/2026 17:55:46,,,,,,,17.0,17:55:41,8.55,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Elvina Kalieva x Elise Mertens,Betsson,Elvina Kalieva,11.50,8.70,11.12,2.8,32.14,R$ 1.67,20/03/2026 17:55:46,,,,,,,18.0,17:55:42,8.55,17:55:24,Pré-live
+20/03 13:00,WTA Miami Open,Elvina Kalieva x Elise Mertens,Matchbook,Elvina Kalieva,12.00,8.70,11.12,3.16,37.89,R$ 1.88,20/03/2026 17:55:46,,,,,,,76.0,17:54:08,8.55,17:55:24,Pré-live
+20/03 15:00,WTA Miami Open,Taylor Townsend x Jasmine Paolini,Betfair,Jasmine Paolini,1.67,1.58,1.65,3.34,5.58,R$ 4.54,20/03/2026 17:55:46,,,,,,,1.0,17:55:25,1.53,17:55:24,Pré-live
+20/03 17:00,WTA Miami Open,Karolina Muchova x Maria Camila Osorio Serrano,888sport,Karolina Muchova,1.40,1.32,1.36,4.42,6.19,R$ 8.43,20/03/2026 17:55:46,,,,,,,17.0,17:55:41,1.28,17:55:24,Pré-live
+20/03 17:00,WTA Miami Open,Karolina Muchova x Maria Camila Osorio Serrano,BetRivers,Karolina Muchova,1.38,1.32,1.36,3.39,4.67,R$ 6.70,20/03/2026 17:55:46,,,,,,,22.0,17:55:46,1.28,17:55:24,Pré-live

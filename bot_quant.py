@@ -76,6 +76,8 @@ def buscar_oportunidades():
     # 0. PREPARAÇÃO PARA LINE MOVEMENT (BETMGM)
     # ==========================================
     global houve_atualizacao_betmgm
+    global df_historico  # <--- CORREÇÃO 2: Adicione esta linha!
+    
     houve_atualizacao_betmgm = False
     
     if os.path.isfile('historico_apostas.csv'):
@@ -222,25 +224,28 @@ def buscar_oportunidades():
                                         # ==========================================
                                         is_duplicata = False
                                         if not df_historico.empty and 'Jogo' in df_historico.columns:
-                                            mask = (df_historico['Jogo'] == jogo) & (df_historico['Casa'] == casa) & (df_historico['Seleção'] == selecao)
+                                            # CORREÇÃO 1: Usando jogo_nome e b['title'] em vez de jogo e casa
+                                            mask = (df_historico['Jogo'] == jogo_nome) & (df_historico['Casa'] == b['title']) & (df_historico['Seleção'] == selecao)
                                             
                                             if mask.any():
-                                                is_duplicata = True # Já existe no banco de dados!
+                                                is_duplicata = True 
                                                 
-                                                # Se for BetMGM, nós ATUALIZAMOS a linha existente no Dataframe em memória!
-                                                if 'betmgm' in casa.lower():
-                                                    idx = df_historico[mask].index[-1] # Pega a entrada original
+                                                if 'betmgm' in b['title'].lower():
+                                                    idx = df_historico[mask].index[-1] 
                                                     
                                                     df_historico.at[idx, 'Odd Casa'] = odd_soft
-                                                    df_historico.at[idx, 'Edge'] = f"{edge*100:.2f}%" # Atenção: no seu código original chamava-se edge_calc ou edge? Use a variável correta do seu script.
-                                                    df_historico.at[idx, 'ROI'] = f"{roi*100:.2f}%"   # Mesma coisa para o roi.
+                                                    df_historico.at[idx, 'Edge'] = f"{edge*100:.2f}%"
+                                                    df_historico.at[idx, 'ROI'] = f"{roi*100:.2f}%"
                                                     df_historico.at[idx, 'Stake'] = f"R$ {stake:.2f}"
                                                     df_historico.at[idx, 'Odd Pinnacle'] = odd_pin_bruta
                                                     df_historico.at[idx, 'Gap_Segundos'] = int(diff_segundos)
                                                     df_historico.at[idx, 'Achado_em'] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-                                                                                                    
+                                                    
                                                     houve_atualizacao_betmgm = True
-                                                    print(f"🔄 Line Movement (BetMGM): {jogo} atualizado para Odd {odd_soft}")
+                                                    # CORREÇÃO 1.1: Usando jogo_nome aqui também
+                                                    print(f"🔄 Line Movement (BetMGM): {jogo_nome} atualizado para Odd {odd_soft}")
+                                                
+                                                continue
                                                 
                                                 # Independentemente da casa, se já existe, salta fora e NÃO adiciona de novo!
                                                 continue 

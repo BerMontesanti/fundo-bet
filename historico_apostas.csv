@@ -2837,18 +2837,60 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 20/03 15:00,WTA Miami Open,Taylor Townsend x Jasmine Paolini,Betfair,Taylor Townsend,3.85,2.72,2.92,10.8,41.6,R$ 7.95,20/03/2026 17:58:57,,,,,,,1.0,17:58:28,2.63,17:58:27,Pré-live
 20/03 15:00,WTA Miami Open,Taylor Townsend x Jasmine Paolini,Bovada,Taylor Townsend,3.2,2.72,2.92,5.53,17.69,R$ 4.38,20/03/2026 17:58:57,,,,,,,40.0,17:57:47,2.63,17:58:27,Pré-live
 20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Coolbet,Maccabi Tel Aviv,3.13,2.69,2.89,5.21,16.3,R$ 4.17,20/03/2026 18:03:08,,,,,,,56.0,18:01:55,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,888sport,Maccabi Tel Aviv,3.40,2.69,2.89,7.75,26.33,R$ 5.98,20/03/2026 18:03:08,,,,,,,17.0,18:02:34,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,FanDuel,Maccabi Tel Aviv,3.40,2.69,2.89,7.75,26.33,R$ 5.98,20/03/2026 18:03:08,,,,,,,1.0,18:02:52,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Betsson,Maccabi Tel Aviv,3.20,2.69,2.89,5.91,18.9,R$ 4.68,20/03/2026 18:03:08,,,,,,,1.0,18:02:52,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Nordic Bet,Maccabi Tel Aviv,3.20,2.69,2.89,5.91,18.9,R$ 4.68,20/03/2026 18:03:08,,,,,,,1.0,18:02:52,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,DraftKings,Maccabi Tel Aviv,3.30,2.69,2.89,6.85,22.62,R$ 5.36,20/03/2026 18:03:08,,,,,,,2.0,18:02:49,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Bovada,Maccabi Tel Aviv,3.10,2.69,2.89,4.9,15.19,R$ 3.94,20/03/2026 18:03:08,,,,,,,169.0,18:00:02,2.52,18:02:51,Ao Vivo (60x53)
-20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Coolbet,Draw,5.00,4.42,4.96,2.64,13.22,R$ 1.80,20/03/2026 18:03:08,,,,,,,2.0,18:02:39,4.16,18:02:41,Ao Vivo (1x0)
-20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Sky Bet,Draw,5.00,4.42,4.96,2.64,13.22,R$ 1.80,20/03/2026 18:03:08,,,,,,,19.0,18:02:22,4.16,18:02:41,Ao Vivo (1x0)
-20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,FanDuel,Draw,5.40,4.42,4.96,4.13,22.28,R$ 2.76,20/03/2026 18:03:08,,,,,,,17.0,18:02:24,4.16,18:02:41,Ao Vivo (1x0)
-20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Betfair,Draw,5.10,4.42,4.96,3.04,15.49,R$ 2.06,20/03/2026 18:03:08,,,,,,,1.0,18:02:40,4.16,18:02:41,Ao Vivo (1x0)
-20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Matchbook,Draw,5.40,4.42,4.96,4.13,22.28,R$ 2.76,20/03/2026 18:03:08,,,,,,,1.0,18:02:40,4.16,18:02:41,Ao Vivo (1x0)
-20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Matchbook,SD Huesca,11.50,8.69,11.10,2.81,32.34,R$ 1.68,20/03/2026 18:03:08,,,,,,,0.0,18:02:39,8.15,18:02:39,Ao Vivo (1x2)
-20/03 12:00,ATP Miami Open,Jack Draper x Reilly Opelka,Betfair,Jack Draper,1.50,1.41,1.47,4.06,6.09,R$ 6.64,20/03/2026 18:03:08,,,,,,,0.0,18:02:45,1.37,18:02:45,Pré-live
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,888sport,Maccabi Tel Aviv,3.4,2.69,2.89,7.75,26.33,R$ 5.98,20/03/2026 18:03:08,,,,,,,17.0,18:02:34,2.52,18:02:51,Ao Vivo (60x53)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,FanDuel,Maccabi Tel Aviv,3.4,2.69,2.89,7.75,26.33,R$ 5.98,20/03/2026 18:03:08,,,,,,,1.0,18:02:52,2.52,18:02:51,Ao Vivo (60x53)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Betsson,Maccabi Tel Aviv,3.2,2.69,2.89,5.91,18.9,R$ 4.68,20/03/2026 18:03:08,,,,,,,1.0,18:02:52,2.52,18:02:51,Ao Vivo (60x53)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Nordic Bet,Maccabi Tel Aviv,3.2,2.69,2.89,5.91,18.9,R$ 4.68,20/03/2026 18:03:08,,,,,,,1.0,18:02:52,2.52,18:02:51,Ao Vivo (60x53)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,DraftKings,Maccabi Tel Aviv,3.3,2.69,2.89,6.85,22.62,R$ 5.36,20/03/2026 18:03:08,,,,,,,2.0,18:02:49,2.52,18:02:51,Ao Vivo (60x53)
+20/03 16:46,Basketball Euroleague,ASVEL Lyon Villeurbanne x Maccabi Tel Aviv,Bovada,Maccabi Tel Aviv,3.1,2.69,2.89,4.9,15.19,R$ 3.94,20/03/2026 18:03:08,,,,,,,169.0,18:00:02,2.52,18:02:51,Ao Vivo (60x53)
+20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Coolbet,Draw,5.0,4.42,4.96,2.64,13.22,R$ 1.80,20/03/2026 18:03:08,,,,,,,2.0,18:02:39,4.16,18:02:41,Ao Vivo (1x0)
+20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Sky Bet,Draw,5.0,4.42,4.96,2.64,13.22,R$ 1.80,20/03/2026 18:03:08,,,,,,,19.0,18:02:22,4.16,18:02:41,Ao Vivo (1x0)
+20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,FanDuel,Draw,5.4,4.42,4.96,4.13,22.28,R$ 2.76,20/03/2026 18:03:08,,,,,,,17.0,18:02:24,4.16,18:02:41,Ao Vivo (1x0)
+20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Betfair,Draw,5.1,4.42,4.96,3.04,15.49,R$ 2.06,20/03/2026 18:03:08,,,,,,,1.0,18:02:40,4.16,18:02:41,Ao Vivo (1x0)
+20/03 16:33,Ekstraklasa - Poland,Motor Lublin x Zagłębie Lubin,Matchbook,Draw,5.4,4.42,4.96,4.13,22.28,R$ 2.76,20/03/2026 18:03:08,,,,,,,1.0,18:02:40,4.16,18:02:41,Ao Vivo (1x0)
+20/03 16:29,La Liga 2 - Spain,SD Huesca x Almería,Matchbook,SD Huesca,11.5,8.69,11.1,2.81,32.34,R$ 1.68,20/03/2026 18:03:08,,,,,,,0.0,18:02:39,8.15,18:02:39,Ao Vivo (1x2)
+20/03 12:00,ATP Miami Open,Jack Draper x Reilly Opelka,Betfair,Jack Draper,1.5,1.41,1.47,4.06,6.09,R$ 6.64,20/03/2026 18:03:08,,,,,,,0.0,18:02:45,1.37,18:02:45,Pré-live
 20/03 12:00,ATP Miami Open,Jack Draper x Reilly Opelka,Matchbook,Jack Draper,1.49,1.41,1.47,3.61,5.38,R$ 5.99,20/03/2026 18:03:08,,,,,,,1.0,18:02:46,1.37,18:02:45,Pré-live
-20/03 17:00,WTA Miami Open,Karolina Muchova x Maria Camila Osorio Serrano,Matchbook,Maria Camila Osorio Serrano,5.20,4.54,5.12,2.82,14.64,R$ 1.90,20/03/2026 18:03:08,,,,,,,1.0,18:02:44,4.42,18:02:45,Pré-live
+20/03 17:00,WTA Miami Open,Karolina Muchova x Maria Camila Osorio Serrano,Matchbook,Maria Camila Osorio Serrano,5.2,4.54,5.12,2.82,14.64,R$ 1.90,20/03/2026 18:03:08,,,,,,,1.0,18:02:44,4.42,18:02:45,Pré-live
+20/03 17:00,Championship,Preston North End x Stoke City,BetMGM,Stoke City,67.00,3.78,4.17,24.98,1673.7,R$ 13.82,20/03/2026 18:30:37,,,,,,,39.0,18:29:34,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,BetMGM,Draw,17.00,2.31,2.45,37.43,636.24,R$ 21.67,20/03/2026 18:30:37,,,,,,,39.0,18:29:34,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Coolbet,Stoke City,50.00,3.78,4.17,24.47,1223.65,R$ 13.61,20/03/2026 18:30:37,,,,,,,23.0,18:29:50,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Coolbet,Draw,13.00,2.31,2.45,35.62,463.01,R$ 21.03,20/03/2026 18:30:37,,,,,,,23.0,18:29:50,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,FanDuel,Stoke City,81.00,3.78,4.17,25.24,2044.32,R$ 13.93,20/03/2026 18:30:37,,,,,,,20.0,18:29:53,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,FanDuel,Draw,16.00,2.31,2.45,37.06,592.94,R$ 21.54,20/03/2026 18:30:37,,,,,,,20.0,18:29:53,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Sky Bet,Stoke City,101.00,3.78,4.17,25.48,2573.78,R$ 14.03,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Sky Bet,Draw,23.00,2.31,2.45,38.96,896.09,R$ 22.20,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Betfair,Stoke City,85.00,3.78,4.17,25.3,2150.21,R$ 13.95,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Betfair,Draw,20.00,2.31,2.45,38.31,766.17,R$ 21.98,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,888sport,Stoke City,71.00,3.78,4.17,25.06,1779.59,R$ 13.86,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,888sport,Draw,15.00,2.31,2.45,36.64,549.63,R$ 21.40,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Matchbook,Stoke City,200.00,3.78,4.17,25.97,5194.61,R$ 14.23,20/03/2026 18:30:37,,,,,,,37.0,18:29:36,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Matchbook,Draw,23.00,2.31,2.45,38.96,896.09,R$ 22.20,20/03/2026 18:30:37,,,,,,,37.0,18:29:36,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,DraftKings,Stoke City,51.00,3.78,4.17,24.51,1250.13,R$ 13.63,20/03/2026 18:30:37,,,,,,,57.0,18:29:16,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,DraftKings,Draw,15.00,2.31,2.45,36.64,549.63,R$ 21.40,20/03/2026 18:30:37,,,,,,,57.0,18:29:16,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Bovada,Stoke City,25.00,3.78,4.17,22.47,561.83,R$ 12.76,20/03/2026 18:30:37,,,,,,,16.0,18:30:29,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Bovada,Draw,14.00,2.31,2.45,36.17,506.32,R$ 21.23,20/03/2026 18:30:37,,,,,,,16.0,18:30:29,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Nordic Bet,Stoke City,50.00,3.78,4.17,24.47,1223.65,R$ 13.61,20/03/2026 18:30:37,,,,,,,1.0,18:30:14,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Nordic Bet,Draw,13.00,2.31,2.45,35.62,463.01,R$ 21.03,20/03/2026 18:30:37,,,,,,,1.0,18:30:14,2.17,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Betsson,Stoke City,50.00,3.78,4.17,24.47,1223.65,R$ 13.61,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,3.55,18:30:13,Ao Vivo (3x1)
+20/03 17:00,Championship,Preston North End x Stoke City,Betsson,Draw,13.00,2.31,2.45,35.62,463.01,R$ 21.03,20/03/2026 18:30:37,,,,,,,1.0,18:30:12,2.17,18:30:13,Ao Vivo (3x1)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Nordic Bet,Derry City,4.60,3.41,3.73,7.57,34.82,R$ 5.27,20/03/2026 18:30:37,,,,,,,19.0,18:30:31,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Betsson,Derry City,4.40,3.41,3.73,6.58,28.96,R$ 4.64,20/03/2026 18:30:37,,,,,,,37.0,18:29:35,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Coolbet,Derry City,4.50,3.41,3.73,7.09,31.89,R$ 4.97,20/03/2026 18:30:37,,,,,,,18.0,18:29:54,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,FanDuel,Derry City,4.40,3.41,3.73,6.58,28.96,R$ 4.64,20/03/2026 18:30:37,,,,,,,16.0,18:30:28,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Sky Bet,Derry City,4.00,3.41,3.73,4.31,17.23,R$ 3.13,20/03/2026 18:30:37,,,,,,,1.0,18:30:11,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,DraftKings,Derry City,4.90,3.41,3.73,8.9,43.61,R$ 6.09,20/03/2026 18:30:37,,,,,,,16.0,18:30:28,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Bovada,Derry City,4.35,3.41,3.73,6.32,27.49,R$ 4.47,20/03/2026 18:30:37,,,,,,,18.0,18:30:30,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Betfair,Derry City,4.20,3.41,3.73,5.5,23.1,R$ 3.93,20/03/2026 18:30:37,,,,,,,0.0,18:30:12,3.20,18:30:12,Ao Vivo (2x2)
+20/03 16:48,League of Ireland,Derry City x Drogheda United,Matchbook,Derry City,4.80,3.41,3.73,8.48,40.68,R$ 5.83,20/03/2026 18:30:37,,,,,,,1.0,18:30:11,3.20,18:30:12,Ao Vivo (2x2)
+20/03 17:01,League of Ireland,Bohemians x Dundalk,Matchbook,Bohemians,3.10,2.79,3.00,3.56,11.05,R$ 2.87,20/03/2026 18:30:37,,,,,,,1.0,18:30:11,2.62,18:30:12,Ao Vivo (1x1)
+20/03 17:22,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Betfair,Yuliia Starodubtseva,1.26,1.12,1.16,9.52,12.0,R$ 25.15,20/03/2026 18:30:37,,,,,,,78.0,18:28:53,1.11,18:30:11,Pré-live
+20/03 17:22,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,FanDuel,Yuliia Starodubtseva,1.18,1.12,1.16,4.14,4.89,R$ 14.80,20/03/2026 18:30:37,,,,,,,117.0,18:28:14,1.11,18:30:11,Pré-live
+20/03 17:22,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Bovada,Yuliia Starodubtseva,1.31,1.12,1.16,12.55,16.44,R$ 28.91,20/03/2026 18:30:37,,,,,,,189.0,18:27:02,1.11,18:30:11,Pré-live
+20/03 17:22,WTA Miami Open,Yuliia Starodubtseva x Cristina Bucsa,Matchbook,Yuliia Starodubtseva,1.17,1.12,1.16,3.42,4.0,R$ 12.82,20/03/2026 18:30:37,,,,,,,152.0,18:27:39,1.11,18:30:11,Pré-live
+20/03 18:32,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova,Betfair,Liudmila Samsonova,2.30,2.16,2.28,2.81,6.47,R$ 2.71,20/03/2026 18:30:37,,,,,,,142.0,18:30:09,2.10,18:27:47,Pré-live
+20/03 18:32,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova,DraftKings,Liudmila Samsonova,2.51,2.16,2.28,6.45,16.19,R$ 5.84,20/03/2026 18:30:37,,,,,,,155.0,18:30:22,2.10,18:27:47,Pré-live
+20/03 18:32,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova,Matchbook,Liudmila Samsonova,2.56,2.16,2.28,7.23,18.51,R$ 6.47,20/03/2026 18:30:37,,,,,,,142.0,18:30:09,2.10,18:27:47,Pré-live
+20/03 18:32,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova,Nordic Bet,Liudmila Samsonova,2.30,2.16,2.28,2.81,6.47,R$ 2.71,20/03/2026 18:30:37,,,,,,,156.0,18:30:23,2.10,18:27:47,Pré-live
+20/03 18:32,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova,Betsson,Liudmila Samsonova,2.30,2.16,2.28,2.81,6.47,R$ 2.71,20/03/2026 18:30:37,,,,,,,158.0,18:30:25,2.10,18:27:47,Pré-live
+20/03 18:32,WTA Miami Open,Hailey Baptiste x Liudmila Samsonova,888sport,Liudmila Samsonova,2.50,2.16,2.28,6.29,15.73,R$ 5.71,20/03/2026 18:30:37,,,,,,,155.0,18:30:22,2.10,18:27:47,Pré-live

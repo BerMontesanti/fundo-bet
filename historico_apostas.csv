@@ -3672,40 +3672,41 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 21/03 21:11,NBA,Houston Rockets x Miami Heat,Marathon Bet,Miami Heat,2.32,2.18,2.31,2.7,6.26,R$ 2.07,21/03/2026 19:22:52,,,,,,,148.0,19:22:01,2.13,19:19:33,Pré-live
 21/03 18:26,NCAAB,Duke Blue Devils x TCU Horned Frogs,Nordic Bet,Duke Blue Devils,1.15,1.11,1.15,2.92,3.36,R$ 9.80,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,1.07,19:22:34,Ao Vivo (36x34)
 21/03 18:26,NCAAB,Duke Blue Devils x TCU Horned Frogs,BetMGM,Duke Blue Devils,1.16,1.11,1.15,3.67,4.26,R$ 11.64,21/03/2026 19:22:52,,,,,,,34.0,19:22:00,1.07,19:22:34,Ao Vivo (36x34)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Coolbet,Texas A&M Aggies,4.40,3.91,4.34,2.83,12.43,R$ 1.60,21/03/2026 19:22:52,,,,,,,1.0,19:22:35,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,FanDuel,Texas A&M Aggies,4.40,3.91,4.34,2.83,12.43,R$ 1.60,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,BetOnline.ag,Texas A&M Aggies,4.86,3.91,4.34,4.98,24.19,R$ 2.74,21/03/2026 19:22:52,,,,,,,647.0,19:11:47,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,BetRivers,Texas A&M Aggies,4.50,3.91,4.34,3.33,14.99,R$ 1.87,21/03/2026 19:22:52,,,,,,,18.0,19:22:16,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,William Hill,Texas A&M Aggies,4.75,3.91,4.34,4.5,21.38,R$ 2.49,21/03/2026 19:22:52,,,,,,,832.0,19:08:42,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Betsson,Texas A&M Aggies,4.70,3.91,4.34,4.28,20.1,R$ 2.38,21/03/2026 19:22:52,,,,,,,793.0,19:09:21,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Nordic Bet,Texas A&M Aggies,4.60,3.91,4.34,3.81,17.55,R$ 2.13,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Betfair,Texas A&M Aggies,4.70,3.91,4.34,4.28,20.1,R$ 2.38,21/03/2026 19:22:52,,,,,,,1.0,19:22:35,3.70,19:22:34,Ao Vivo (12x10)
-21/03 19:15,MMA,Michael Aswell x Luke Riley,Betsson,Michael Aswell,5.00,3.31,3.61,10.22,51.09,R$ 5.59,21/03/2026 19:22:52,,,,,,,542.0,19:22:38,3.21,19:13:36,Pré-live
-21/03 19:15,MMA,Michael Aswell x Luke Riley,Nordic Bet,Michael Aswell,5.00,3.31,3.61,10.22,51.09,R$ 5.59,21/03/2026 19:22:52,,,,,,,504.0,19:22:00,3.21,19:13:36,Pré-live
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Coolbet,Texas A&M Aggies,4.4,3.91,4.34,2.83,12.43,R$ 1.60,21/03/2026 19:22:52,,,,,,,1.0,19:22:35,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,FanDuel,Texas A&M Aggies,4.4,3.91,4.34,2.83,12.43,R$ 1.60,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,BetOnline.ag,Texas A&M Aggies,4.86,3.91,4.34,4.98,24.19,R$ 2.74,21/03/2026 19:22:52,,,,,,,647.0,19:11:47,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,BetRivers,Texas A&M Aggies,4.5,3.91,4.34,3.33,14.99,R$ 1.87,21/03/2026 19:22:52,,,,,,,18.0,19:22:16,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,William Hill,Texas A&M Aggies,4.75,3.91,4.34,4.5,21.38,R$ 2.49,21/03/2026 19:22:52,,,,,,,832.0,19:08:42,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Betsson,Texas A&M Aggies,4.7,3.91,4.34,4.28,20.1,R$ 2.38,21/03/2026 19:22:52,,,,,,,793.0,19:09:21,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Nordic Bet,Texas A&M Aggies,4.6,3.91,4.34,3.81,17.55,R$ 2.13,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Betfair,Texas A&M Aggies,4.7,3.91,4.34,4.28,20.1,R$ 2.38,21/03/2026 19:22:52,,,,,,,1.0,19:22:35,3.7,19:22:34,Ao Vivo (12x10)
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Betsson,Michael Aswell,5.0,3.31,3.61,10.22,51.09,R$ 5.59,21/03/2026 19:22:52,,,,,,,542.0,19:22:38,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Nordic Bet,Michael Aswell,5.0,3.31,3.61,10.22,51.09,R$ 5.59,21/03/2026 19:22:52,,,,,,,504.0,19:22:00,3.21,19:13:36,Pré-live
 21/03 19:15,MMA,Michael Aswell x Luke Riley,DraftKings,Michael Aswell,6.75,3.31,3.61,15.4,103.97,R$ 7.91,21/03/2026 19:22:52,,,,,,,504.0,19:22:00,3.21,19:13:36,Pré-live
-21/03 19:15,MMA,Michael Aswell x Luke Riley,FanDuel,Michael Aswell,6.80,3.31,3.61,15.51,105.48,R$ 7.96,21/03/2026 19:22:52,,,,,,,541.0,19:22:37,3.21,19:13:36,Pré-live
-21/03 19:15,MMA,Michael Aswell x Luke Riley,BetMGM,Michael Aswell,6.00,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,503.0,19:21:59,3.21,19:13:36,Pré-live
-21/03 19:15,MMA,Michael Aswell x Luke Riley,Bovada,Michael Aswell,6.00,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,537.0,19:22:33,3.21,19:13:36,Pré-live
-21/03 19:15,MMA,Michael Aswell x Luke Riley,Betfair,Michael Aswell,7.20,3.31,3.61,16.33,117.57,R$ 8.30,21/03/2026 19:22:52,,,,,,,541.0,19:22:37,3.21,19:13:36,Pré-live
-21/03 19:15,MMA,Michael Aswell x Luke Riley,Betfair Sportsbook,Michael Aswell,6.00,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,538.0,19:22:34,3.21,19:13:36,Pré-live
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,FanDuel,Newells Old Boys,4.30,3.52,3.86,5.17,22.24,R$ 2.95,21/03/2026 19:22:52,,,,,,,52.0,19:21:47,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Sky Bet,Newells Old Boys,4.00,3.52,3.86,3.43,13.71,R$ 2.00,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betfair,Gimnasia Mendoza,7.60,5.67,6.60,4.48,34.07,R$ 2.26,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,5.35,19:22:39,Ao Vivo (0x0)
+21/03 19:15,MMA,Michael Aswell x Luke Riley,FanDuel,Michael Aswell,6.8,3.31,3.61,15.51,105.48,R$ 7.96,21/03/2026 19:22:52,,,,,,,541.0,19:22:37,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,BetMGM,Michael Aswell,6.0,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,503.0,19:21:59,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Bovada,Michael Aswell,6.0,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,537.0,19:22:33,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Betfair,Michael Aswell,7.2,3.31,3.61,16.33,117.57,R$ 8.30,21/03/2026 19:22:52,,,,,,,541.0,19:22:37,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Betfair Sportsbook,Michael Aswell,6.0,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,538.0,19:22:34,3.21,19:13:36,Pré-live
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,FanDuel,Newells Old Boys,4.3,3.52,3.86,5.17,22.24,R$ 2.95,21/03/2026 19:22:52,,,,,,,52.0,19:21:47,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Sky Bet,Newells Old Boys,4.0,3.52,3.86,3.43,13.71,R$ 2.00,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betfair,Gimnasia Mendoza,7.6,5.67,6.6,4.48,34.07,R$ 2.26,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,5.35,19:22:39,Ao Vivo (0x0)
 21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betfair,Newells Old Boys,3.95,3.52,3.86,3.11,12.29,R$ 1.82,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Bovada,Gimnasia Mendoza,7.00,5.67,6.60,3.36,23.49,R$ 1.71,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,5.35,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Nordic Bet,Newells Old Boys,3.90,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betsson,Newells Old Boys,3.90,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,31.0,19:22:08,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,BetMGM,Newells Old Boys,3.90,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,DraftKings,Gimnasia Mendoza,7.50,5.67,6.60,4.31,32.31,R$ 2.17,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,5.35,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Matchbook,Gimnasia Mendoza,7.80,5.67,6.60,4.82,37.6,R$ 2.42,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,5.35,19:22:39,Ao Vivo (0x0)
-21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Matchbook,Newells Old Boys,4.30,3.52,3.86,5.17,22.24,R$ 2.95,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,3.32,19:22:39,Ao Vivo (0x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,FanDuel,Union Santa Fe,12.00,2.47,2.63,32.18,386.19,R$ 15.36,21/03/2026 19:22:52,,,,,,,52.0,19:21:47,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Sky Bet,Union Santa Fe,11.00,2.47,2.63,31.42,345.67,R$ 15.12,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Betfair,Union Santa Fe,15.00,2.47,2.63,33.85,507.74,R$ 15.87,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Betsson,Union Santa Fe,10.50,2.47,2.63,30.99,325.42,R$ 14.99,21/03/2026 19:22:52,,,,,,,31.0,19:22:08,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Nordic Bet,Union Santa Fe,10.50,2.47,2.63,30.99,325.42,R$ 14.99,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,BetMGM,Union Santa Fe,12.00,2.47,2.63,32.18,386.19,R$ 15.36,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,DraftKings,Union Santa Fe,11.00,2.47,2.63,31.42,345.67,R$ 15.12,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Matchbook,Union Santa Fe,13.50,2.47,2.63,33.11,446.96,R$ 15.64,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,2.33,19:22:39,Ao Vivo (1x0)
-21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,FanDuel,AVS Futebol SAD,16.00,11.23,15.61,2.66,42.52,R$ 1.24,21/03/2026 19:22:52,,,,,,,17.0,19:22:51,10.58,19:22:34,Ao Vivo (0x0)
-21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Sky Bet,AVS Futebol SAD,17.00,11.23,15.61,3.02,51.42,R$ 1.41,21/03/2026 19:22:52,,,,,,,18.0,19:22:52,10.58,19:22:34,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Bovada,Gimnasia Mendoza,7.0,5.67,6.6,3.36,23.49,R$ 1.71,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Nordic Bet,Newells Old Boys,3.9,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betsson,Newells Old Boys,3.9,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,31.0,19:22:08,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,BetMGM,Newells Old Boys,3.9,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,DraftKings,Gimnasia Mendoza,7.5,5.67,6.6,4.31,32.31,R$ 2.17,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Matchbook,Gimnasia Mendoza,7.8,5.67,6.6,4.82,37.6,R$ 2.42,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Matchbook,Newells Old Boys,4.3,3.52,3.86,5.17,22.24,R$ 2.95,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,FanDuel,Union Santa Fe,12.0,2.47,2.63,32.18,386.19,R$ 15.36,21/03/2026 19:22:52,,,,,,,52.0,19:21:47,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Sky Bet,Union Santa Fe,11.0,2.47,2.63,31.42,345.67,R$ 15.12,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Betfair,Union Santa Fe,15.0,2.47,2.63,33.85,507.74,R$ 15.87,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Betsson,Union Santa Fe,10.5,2.47,2.63,30.99,325.42,R$ 14.99,21/03/2026 19:22:52,,,,,,,31.0,19:22:08,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Nordic Bet,Union Santa Fe,10.5,2.47,2.63,30.99,325.42,R$ 14.99,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,BetMGM,Union Santa Fe,12.0,2.47,2.63,32.18,386.19,R$ 15.36,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,DraftKings,Union Santa Fe,11.0,2.47,2.63,31.42,345.67,R$ 15.12,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Matchbook,Union Santa Fe,13.5,2.47,2.63,33.11,446.96,R$ 15.64,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,FanDuel,AVS Futebol SAD,16.0,11.23,15.61,2.66,42.52,R$ 1.24,21/03/2026 19:22:52,,,,,,,17.0,19:22:51,10.58,19:22:34,Ao Vivo (0x0)
+21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Sky Bet,AVS Futebol SAD,17.0,11.23,15.61,3.02,51.42,R$ 1.41,21/03/2026 19:22:52,,,,,,,18.0,19:22:52,10.58,19:22:34,Ao Vivo (0x0)
+21/03 20:00,NCAAB,UNC Wilmington Seahawks x Dayton Flyers,Bovada,Dayton Flyers,1.71,1.63,1.70,2.85,4.87,R$ 3.00,21/03/2026 19:50:17,,,,,,,586.0,19:40:06,1.57,19:49:52,Pré-live

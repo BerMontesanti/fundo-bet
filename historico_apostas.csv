@@ -3143,34 +3143,61 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Matchbook,Kamilla Rakhimova,10.5,6.52,7.79,5.82,61.11,R$ 3.51,20/03/2026 22:08:46,,,,,,,50.0,22:07:46,6.4,22:08:36,Pré-live
 20/03 21:11,NBA,Memphis Grizzlies x Boston Celtics,BetMGM,Memphis Grizzlies,7.75,6.20,7.33,3.23,25.03,R$ 2.02,20/03/2026 22:28:36,,,,,,,35.0,22:27:55,6.03,22:28:30,Ao Vivo (56x57)
 20/03 21:11,NBA,Minnesota Timberwolves x Portland Trail Blazers,Matchbook,Portland Trail Blazers,1.49,1.40,1.45,4.49,6.7,R$ 7.45,20/03/2026 22:28:36,,,,,,,0.0,22:28:30,1.36,22:28:30,Ao Vivo (66x72)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,FanDuel,Toronto Raptors,2.62,2.33,2.47,4.84,12.67,R$ 4.26,20/03/2026 22:28:36,,,,,,,17.0,22:28:13,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,BetOnline.ag,Toronto Raptors,3.19,2.33,2.47,11.66,37.19,R$ 9.25,20/03/2026 22:28:36,,,,,,,862.0,22:14:08,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Sky Bet,Toronto Raptors,2.63,2.33,2.47,4.98,13.1,R$ 4.38,20/03/2026 22:28:36,,,,,,,33.0,22:27:57,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Coolbet,Toronto Raptors,2.50,2.33,2.47,3.01,7.51,R$ 2.73,20/03/2026 22:28:36,,,,,,,1.0,22:28:31,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Bovada,Toronto Raptors,2.65,2.33,2.47,5.27,13.96,R$ 4.61,20/03/2026 22:28:36,,,,,,,34.0,22:27:56,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betsson,Toronto Raptors,2.55,2.33,2.47,3.79,9.66,R$ 3.40,20/03/2026 22:28:36,,,,,,,14.0,22:28:16,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Nordic Bet,Toronto Raptors,2.55,2.33,2.47,3.79,9.66,R$ 3.40,20/03/2026 22:28:36,,,,,,,17.0,22:28:13,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,BetMGM,Toronto Raptors,2.60,2.33,2.47,4.54,11.81,R$ 4.02,20/03/2026 22:28:36,,,,,,,35.0,22:27:55,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betfair,Toronto Raptors,2.56,2.33,2.47,3.94,10.09,R$ 3.53,20/03/2026 22:28:36,,,,,,,33.0,22:27:57,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Matchbook,Toronto Raptors,2.84,2.33,2.47,7.79,22.13,R$ 6.56,20/03/2026 22:28:36,,,,,,,0.0,22:28:30,2.20,22:28:30,Ao Vivo (14x17)
-20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betfair Sportsbook,Toronto Raptors,2.63,2.33,2.47,4.98,13.1,R$ 4.38,20/03/2026 22:28:36,,,,,,,12.0,22:28:18,2.20,22:28:30,Ao Vivo (14x17)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,FanDuel,CA Tigre BA,9.50,6.91,8.35,3.95,37.52,R$ 2.41,20/03/2026 22:28:36,,,,,,,71.0,22:26:54,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Sky Bet,CA Tigre BA,9.00,6.91,8.35,3.36,30.28,R$ 2.06,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Betfair,CA Tigre BA,13.50,6.91,8.35,7.07,95.42,R$ 4.16,20/03/2026 22:28:36,,,,,,,14.0,22:28:19,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Bovada,CA Tigre BA,13.00,6.91,8.35,6.78,88.18,R$ 4.01,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,BetMGM,CA Tigre BA,9.50,6.91,8.35,3.95,37.52,R$ 2.41,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Nordic Bet,CA Tigre BA,9.60,6.91,8.35,4.06,38.97,R$ 2.47,20/03/2026 22:28:36,,,,,,,1.0,22:28:04,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Betsson,CA Tigre BA,9.60,6.91,8.35,4.06,38.97,R$ 2.47,20/03/2026 22:28:36,,,,,,,0.0,22:28:05,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,DraftKings,CA Tigre BA,10.50,6.91,8.35,4.95,51.99,R$ 2.98,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
-20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Matchbook,CA Tigre BA,12.00,6.91,8.35,6.14,73.71,R$ 3.65,20/03/2026 22:28:36,,,,,,,3.0,22:28:02,6.49,22:28:05,Ao Vivo (1x0)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,FanDuel,Toronto Raptors,2.62,2.33,2.47,4.84,12.67,R$ 4.26,20/03/2026 22:28:36,,,,,,,17.0,22:28:13,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,BetOnline.ag,Toronto Raptors,3.19,2.33,2.47,11.66,37.19,R$ 9.25,20/03/2026 22:28:36,,,,,,,862.0,22:14:08,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Sky Bet,Toronto Raptors,2.63,2.33,2.47,4.98,13.1,R$ 4.38,20/03/2026 22:28:36,,,,,,,33.0,22:27:57,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Coolbet,Toronto Raptors,2.5,2.33,2.47,3.01,7.51,R$ 2.73,20/03/2026 22:28:36,,,,,,,1.0,22:28:31,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Bovada,Toronto Raptors,2.65,2.33,2.47,5.27,13.96,R$ 4.61,20/03/2026 22:28:36,,,,,,,34.0,22:27:56,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betsson,Toronto Raptors,2.55,2.33,2.47,3.79,9.66,R$ 3.40,20/03/2026 22:28:36,,,,,,,14.0,22:28:16,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Nordic Bet,Toronto Raptors,2.55,2.33,2.47,3.79,9.66,R$ 3.40,20/03/2026 22:28:36,,,,,,,17.0,22:28:13,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,BetMGM,Toronto Raptors,2.6,2.33,2.47,4.54,11.81,R$ 4.02,20/03/2026 22:28:36,,,,,,,35.0,22:27:55,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betfair,Toronto Raptors,2.56,2.33,2.47,3.94,10.09,R$ 3.53,20/03/2026 22:28:36,,,,,,,33.0,22:27:57,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Matchbook,Toronto Raptors,2.84,2.33,2.47,7.79,22.13,R$ 6.56,20/03/2026 22:28:36,,,,,,,0.0,22:28:30,2.2,22:28:30,Ao Vivo (14x17)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betfair Sportsbook,Toronto Raptors,2.63,2.33,2.47,4.98,13.1,R$ 4.38,20/03/2026 22:28:36,,,,,,,12.0,22:28:18,2.2,22:28:30,Ao Vivo (14x17)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,FanDuel,CA Tigre BA,9.5,6.91,8.35,3.95,37.52,R$ 2.41,20/03/2026 22:28:36,,,,,,,71.0,22:26:54,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Sky Bet,CA Tigre BA,9.0,6.91,8.35,3.36,30.28,R$ 2.06,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Betfair,CA Tigre BA,13.5,6.91,8.35,7.07,95.42,R$ 4.16,20/03/2026 22:28:36,,,,,,,14.0,22:28:19,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Bovada,CA Tigre BA,13.0,6.91,8.35,6.78,88.18,R$ 4.01,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,BetMGM,CA Tigre BA,9.5,6.91,8.35,3.95,37.52,R$ 2.41,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Nordic Bet,CA Tigre BA,9.6,6.91,8.35,4.06,38.97,R$ 2.47,20/03/2026 22:28:36,,,,,,,1.0,22:28:04,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Betsson,CA Tigre BA,9.6,6.91,8.35,4.06,38.97,R$ 2.47,20/03/2026 22:28:36,,,,,,,0.0,22:28:05,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,DraftKings,CA Tigre BA,10.5,6.91,8.35,4.95,51.99,R$ 2.98,20/03/2026 22:28:36,,,,,,,21.0,22:27:44,6.49,22:28:05,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Matchbook,CA Tigre BA,12.0,6.91,8.35,6.14,73.71,R$ 3.65,20/03/2026 22:28:36,,,,,,,3.0,22:28:02,6.49,22:28:05,Ao Vivo (1x0)
 20/03 12:00,ATP Miami Open,Stefanos Tsitsipas x Alex de Minaur,Bovada,Stefanos Tsitsipas,1.69,1.50,1.55,7.65,12.92,R$ 10.21,20/03/2026 22:28:36,,,,,,,104.0,22:26:43,1.45,22:28:27,Pré-live
 20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,Betfair,Raphael Collignon,1.85,1.70,1.78,4.74,8.77,R$ 5.62,20/03/2026 22:28:36,,,,,,,1.0,22:28:28,1.64,22:28:27,Pré-live
 20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,DraftKings,Raphael Collignon,1.81,1.70,1.78,3.55,6.42,R$ 4.32,20/03/2026 22:28:36,,,,,,,18.0,22:28:09,1.64,22:28:27,Pré-live
-20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,Matchbook,Raphael Collignon,2.00,1.70,1.78,8.79,17.59,R$ 9.59,20/03/2026 22:28:36,,,,,,,0.0,22:28:27,1.64,22:28:27,Pré-live
+20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,Matchbook,Raphael Collignon,2.0,1.70,1.78,8.79,17.59,R$ 9.59,20/03/2026 22:28:36,,,,,,,0.0,22:28:27,1.64,22:28:27,Pré-live
 20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,FanDuel,Raphael Collignon,1.91,1.70,1.78,6.44,12.3,R$ 7.36,20/03/2026 22:28:36,,,,,,,0.0,22:28:27,1.64,22:28:27,Pré-live
-20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,DraftKings,Ann Li,10.90,7.95,9.92,3.41,37.17,R$ 2.05,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
-20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,Matchbook,Ann Li,12.00,7.95,9.92,4.25,51.01,R$ 2.53,20/03/2026 22:28:36,,,,,,,17.0,22:28:27,7.78,22:28:10,Pré-live
-20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,Betsson,Ann Li,10.00,7.95,9.92,2.58,25.84,R$ 1.56,20/03/2026 22:28:36,,,,,,,17.0,22:28:27,7.78,22:28:10,Pré-live
-20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,FanDuel,Ann Li,11.00,7.95,9.92,3.49,38.43,R$ 2.09,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
-20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,888sport,Ann Li,10.00,7.95,9.92,2.58,25.84,R$ 1.56,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
-20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,BetRivers,Ann Li,10.50,7.95,9.92,3.06,32.13,R$ 1.84,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
+20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,DraftKings,Ann Li,10.9,7.95,9.92,3.41,37.17,R$ 2.05,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
+20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,Matchbook,Ann Li,12.0,7.95,9.92,4.25,51.01,R$ 2.53,20/03/2026 22:28:36,,,,,,,17.0,22:28:27,7.78,22:28:10,Pré-live
+20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,Betsson,Ann Li,10.0,7.95,9.92,2.58,25.84,R$ 1.56,20/03/2026 22:28:36,,,,,,,17.0,22:28:27,7.78,22:28:10,Pré-live
+20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,FanDuel,Ann Li,11.0,7.95,9.92,3.49,38.43,R$ 2.09,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
+20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,888sport,Ann Li,10.0,7.95,9.92,2.58,25.84,R$ 1.56,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
+20/03 21:30,WTA Miami Open,Aryna Sabalenka x Ann Li,BetRivers,Ann Li,10.5,7.95,9.92,3.06,32.13,R$ 1.84,20/03/2026 22:28:36,,,,,,,0.0,22:28:10,7.78,22:28:10,Pré-live
+20/03 21:11,NBA,Memphis Grizzlies x Boston Celtics,DraftKings,Boston Celtics,1.42,1.37,1.41,2.81,4.0,R$ 5.19,20/03/2026 22:53:15,,,,,,,17.0,22:52:51,1.29,22:53:08,Ao Vivo (82x78)
+20/03 21:11,NBA,Memphis Grizzlies x Boston Celtics,BetRivers,Boston Celtics,1.42,1.37,1.41,2.81,4.0,R$ 5.19,20/03/2026 22:53:15,,,,,,,17.0,22:52:51,1.29,22:53:08,Ao Vivo (82x78)
+20/03 21:11,NBA,Memphis Grizzlies x Boston Celtics,Betfair,Boston Celtics,1.47,1.37,1.41,5.21,7.66,R$ 8.88,20/03/2026 22:53:15,,,,,,,1.0,22:53:09,1.29,22:53:08,Ao Vivo (82x78)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,FanDuel,Denver Nuggets,1.54,1.43,1.48,4.93,7.59,R$ 7.66,20/03/2026 22:53:15,,,,,,,17.0,22:52:51,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Sky Bet,Denver Nuggets,1.57,1.43,1.48,6.17,9.69,R$ 9.26,20/03/2026 22:53:15,,,,,,,16.0,22:52:52,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Coolbet,Denver Nuggets,1.55,1.43,1.48,5.35,8.29,R$ 8.22,20/03/2026 22:53:15,,,,,,,32.0,22:52:36,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Bovada,Denver Nuggets,1.65,1.43,1.48,9.26,15.28,R$ 12.81,20/03/2026 22:53:15,,,,,,,70.0,22:51:58,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betsson,Denver Nuggets,1.51,1.43,1.48,3.64,5.5,R$ 5.88,20/03/2026 22:53:15,,,,,,,3.0,22:53:11,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Nordic Bet,Denver Nuggets,1.51,1.43,1.48,3.64,5.5,R$ 5.88,20/03/2026 22:53:15,,,,,,,3.0,22:53:11,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,DraftKings,Denver Nuggets,1.51,1.43,1.48,3.64,5.5,R$ 5.88,20/03/2026 22:53:15,,,,,,,17.0,22:52:51,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,BetRivers,Denver Nuggets,1.55,1.43,1.48,5.35,8.29,R$ 8.22,20/03/2026 22:53:15,,,,,,,17.0,22:52:51,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betfair,Denver Nuggets,1.59,1.43,1.48,6.97,11.09,R$ 10.24,20/03/2026 22:53:15,,,,,,,1.0,22:53:09,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Matchbook,Denver Nuggets,1.54,1.43,1.48,4.93,7.59,R$ 7.66,20/03/2026 22:53:15,,,,,,,0.0,22:53:08,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:12,NBA,Denver Nuggets x Toronto Raptors,Betfair Sportsbook,Denver Nuggets,1.53,1.43,1.48,4.51,6.9,R$ 7.09,20/03/2026 22:53:15,,,,,,,0.0,22:53:08,1.35,22:53:08,Ao Vivo (38x42)
+20/03 22:01,Liga MX,Necaxa x Tijuana,Bovada,Necaxa,2.10,1.46,1.51,20.9,43.89,R$ 21.75,20/03/2026 22:53:15,,,,,,,48.0,22:52:10,1.37,22:52:58,Ao Vivo (1x0)
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,Betfair,Moise Kouame,13.50,5.54,6.43,10.65,143.78,R$ 6.27,20/03/2026 22:53:15,,,,,,,1.0,22:53:07,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,DraftKings,Moise Kouame,14.20,5.54,6.43,11.02,156.42,R$ 6.46,20/03/2026 22:53:15,,,,,,,1.0,22:53:05,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,Bovada,Moise Kouame,13.00,5.54,6.43,10.37,134.75,R$ 6.12,20/03/2026 22:53:15,,,,,,,71.0,22:51:55,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,Betsson,Moise Kouame,10.50,5.54,6.43,8.53,89.61,R$ 5.14,20/03/2026 22:53:15,,,,,,,1.0,22:53:07,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,Nordic Bet,Moise Kouame,10.50,5.54,6.43,8.53,89.61,R$ 5.14,20/03/2026 22:53:15,,,,,,,15.0,22:52:51,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,FanDuel,Moise Kouame,10.50,5.54,6.43,8.53,89.61,R$ 5.14,20/03/2026 22:53:15,,,,,,,35.0,22:52:31,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,888sport,Moise Kouame,13.00,5.54,6.43,10.37,134.75,R$ 6.12,20/03/2026 22:53:15,,,,,,,18.0,22:52:48,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,BetRivers,Moise Kouame,9.50,5.54,6.43,7.53,71.55,R$ 4.59,20/03/2026 22:53:15,,,,,,,18.0,22:52:48,5.40,22:53:06,Pré-live
+20/03 22:10,ATP Miami Open,Moise Kouame x Jiri Lehecka,Matchbook,Moise Kouame,11.50,5.54,6.43,9.36,107.66,R$ 5.59,20/03/2026 22:53:15,,,,,,,1.0,22:53:05,5.40,22:53:06,Pré-live
+20/03 19:00,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Bovada,Marta Kostyuk,1.25,1.04,1.07,16.58,20.73,R$ 45.18,20/03/2026 22:53:15,,,,,,,103.0,22:42:29,1.03,22:44:12,Pré-live
+20/03 22:40,WTA Miami Open,Peyton Stearns x Jaqueline Cristian,FanDuel,Peyton Stearns,1.87,1.70,1.77,5.48,10.25,R$ 6.42,20/03/2026 22:53:15,,,,,,,3.0,22:52:13,1.65,22:52:16,Pré-live
+20/03 22:40,WTA Miami Open,Peyton Stearns x Jaqueline Cristian,Matchbook,Jaqueline Cristian,2.66,2.44,2.59,3.45,9.18,R$ 3.01,20/03/2026 22:53:15,,,,,,,49.0,22:53:05,2.37,22:52:16,Pré-live

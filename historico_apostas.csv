@@ -3050,40 +3050,94 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 20/03 20:25,NCAAB,St. John's Red Storm x Northern Iowa Panthers,Nordic Bet,Northern Iowa Panthers,7.5,5.53,6.42,4.75,35.64,R$ 2.99,20/03/2026 20:27:34,,,,,,,156.0,20:27:00,5.39,20:24:24,Ao Vivo (3x0)
 20/03 20:30,ATP Miami Open,Arthur Fils x Darwin Blanch,Betfair,Darwin Blanch,8.8,6.77,8.15,3.4,29.95,R$ 2.09,20/03/2026 20:27:34,,,,,,,53.0,20:26:57,6.58,20:26:04,Pré-live
 20/03 20:30,ATP Miami Open,Arthur Fils x Darwin Blanch,Matchbook,Darwin Blanch,8.6,6.77,8.15,3.14,26.99,R$ 1.94,20/03/2026 20:27:34,,,,,,,69.0,20:27:13,6.58,20:26:04,Pré-live
-20/03 20:41,NBA,Brooklyn Nets x New York Knicks,Matchbook,Brooklyn Nets,12.00,8.74,11.19,3.1,37.25,R$ 1.85,20/03/2026 20:51:33,,,,,,,1.0,20:51:20,8.44,20:51:19,Ao Vivo (9x5)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,Matchbook,Brooklyn Nets,12.0,8.74,11.19,3.1,37.25,R$ 1.85,20/03/2026 20:51:33,,,,,,,1.0,20:51:20,8.44,20:51:19,Ao Vivo (9x5)
 20/03 20:41,NBA,Brooklyn Nets x New York Knicks,BetOnline.ag,Brooklyn Nets,12.56,8.74,11.19,3.48,43.66,R$ 2.06,20/03/2026 20:51:33,,,,,,,561.0,20:41:58,8.44,20:51:19,Ao Vivo (9x5)
-20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,DraftKings,UCF Knights,3.40,3.04,3.28,3.53,12.01,R$ 2.73,20/03/2026 20:51:33,,,,,,,33.0,20:50:47,2.87,20:51:20,Ao Vivo (18x12)
-20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,FanDuel,UCF Knights,3.80,3.04,3.28,6.63,25.19,R$ 4.90,20/03/2026 20:51:33,,,,,,,34.0,20:50:46,2.87,20:51:20,Ao Vivo (18x12)
-20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,BetRivers,UCF Knights,3.60,3.04,3.28,5.17,18.6,R$ 3.90,20/03/2026 20:51:33,,,,,,,33.0,20:50:47,2.87,20:51:20,Ao Vivo (18x12)
-20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,BetMGM,UCF Knights,3.60,3.04,3.28,5.17,18.6,R$ 3.90,20/03/2026 20:51:33,,,,,,,34.0,20:50:46,2.87,20:51:20,Ao Vivo (18x12)
-20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,Bovada,UCF Knights,3.50,3.04,3.28,4.37,15.3,R$ 3.34,20/03/2026 20:51:33,,,,,,,107.0,20:49:33,2.87,20:51:20,Ao Vivo (18x12)
-20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,Coolbet,UCF Knights,4.20,3.04,3.28,9.13,38.36,R$ 6.53,20/03/2026 20:51:33,,,,,,,2.0,20:51:22,2.87,20:51:20,Ao Vivo (18x12)
+20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,DraftKings,UCF Knights,3.4,3.04,3.28,3.53,12.01,R$ 2.73,20/03/2026 20:51:33,,,,,,,33.0,20:50:47,2.87,20:51:20,Ao Vivo (18x12)
+20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,FanDuel,UCF Knights,3.8,3.04,3.28,6.63,25.19,R$ 4.90,20/03/2026 20:51:33,,,,,,,34.0,20:50:46,2.87,20:51:20,Ao Vivo (18x12)
+20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,BetRivers,UCF Knights,3.6,3.04,3.28,5.17,18.6,R$ 3.90,20/03/2026 20:51:33,,,,,,,33.0,20:50:47,2.87,20:51:20,Ao Vivo (18x12)
+20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,BetMGM,UCF Knights,3.6,3.04,3.28,5.17,18.6,R$ 3.90,20/03/2026 20:51:33,,,,,,,34.0,20:50:46,2.87,20:51:20,Ao Vivo (18x12)
+20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,Bovada,UCF Knights,3.5,3.04,3.28,4.37,15.3,R$ 3.34,20/03/2026 20:51:33,,,,,,,107.0,20:49:33,2.87,20:51:20,Ao Vivo (18x12)
+20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,Coolbet,UCF Knights,4.2,3.04,3.28,9.13,38.36,R$ 6.53,20/03/2026 20:51:33,,,,,,,2.0,20:51:22,2.87,20:51:20,Ao Vivo (18x12)
 20/03 20:31,NCAAB,UCLA Bruins x UCF Knights,Betfair,UCF Knights,3.95,3.04,3.28,7.63,30.13,R$ 5.57,20/03/2026 20:51:33,,,,,,,0.0,20:51:20,2.87,20:51:20,Ao Vivo (18x12)
 20/03 19:20,ATP Miami Open,Botic van de Zandschulp x Taylor Fritz,Betfair,Taylor Fritz,1.23,1.11,1.14,9.02,11.09,R$ 26.29,20/03/2026 20:51:33,,,,,,,16.0,20:51:00,1.09,20:51:16,Pré-live
 20/03 19:20,ATP Miami Open,Botic van de Zandschulp x Taylor Fritz,BetRivers,Taylor Fritz,1.16,1.11,1.14,4.11,4.77,R$ 16.25,20/03/2026 20:51:33,,,,,,,1.0,20:51:17,1.09,20:51:16,Pré-live
-20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,Betsson,Marcelo Tomas Barrios Vera,2.30,1.71,1.79,14.96,34.41,R$ 14.42,20/03/2026 20:51:33,,,,,,,17.0,20:50:59,1.65,20:51:16,Pré-live
-20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,Nordic Bet,Marcelo Tomas Barrios Vera,2.30,1.71,1.79,14.96,34.41,R$ 14.42,20/03/2026 20:51:33,,,,,,,34.0,20:50:42,1.65,20:51:16,Pré-live
+20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,Betsson,Marcelo Tomas Barrios Vera,2.3,1.71,1.79,14.96,34.41,R$ 14.42,20/03/2026 20:51:33,,,,,,,17.0,20:50:59,1.65,20:51:16,Pré-live
+20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,Nordic Bet,Marcelo Tomas Barrios Vera,2.3,1.71,1.79,14.96,34.41,R$ 14.42,20/03/2026 20:51:33,,,,,,,34.0,20:50:42,1.65,20:51:16,Pré-live
 20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,FanDuel,Marcelo Tomas Barrios Vera,1.95,1.71,1.79,7.16,13.95,R$ 8.01,20/03/2026 20:51:33,,,,,,,0.0,20:51:16,1.65,20:51:16,Pré-live
-20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,888sport,Marcelo Tomas Barrios Vera,2.30,1.71,1.79,14.96,34.41,R$ 14.42,20/03/2026 20:51:33,,,,,,,34.0,20:50:42,1.65,20:51:16,Pré-live
+20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,888sport,Marcelo Tomas Barrios Vera,2.3,1.71,1.79,14.96,34.41,R$ 14.42,20/03/2026 20:51:33,,,,,,,34.0,20:50:42,1.65,20:51:16,Pré-live
 20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,DraftKings,Marcelo Tomas Barrios Vera,2.47,1.71,1.79,17.95,44.34,R$ 16.44,20/03/2026 20:51:33,,,,,,,18.0,20:50:58,1.65,20:51:16,Pré-live
 20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,BetRivers,Marcelo Tomas Barrios Vera,2.23,1.71,1.79,13.6,30.32,R$ 13.43,20/03/2026 20:51:33,,,,,,,1.0,20:51:17,1.65,20:51:16,Pré-live
 20/03 20:30,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,Matchbook,Marcelo Tomas Barrios Vera,2.22,1.71,1.79,13.39,29.73,R$ 13.28,20/03/2026 20:51:33,,,,,,,0.0,20:51:16,1.65,20:51:16,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Betfair,Emerson Jones,15.50,8.17,10.27,5.79,89.69,R$ 3.37,20/03/2026 20:51:33,,,,,,,318.0,20:51:00,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Matchbook,Emerson Jones,13.50,8.17,10.27,4.83,65.21,R$ 2.84,20/03/2026 20:51:33,,,,,,,334.0,20:51:16,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Bovada,Emerson Jones,13.00,8.17,10.27,4.55,59.1,R$ 2.68,20/03/2026 20:51:33,,,,,,,297.0,20:50:39,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Betsson,Emerson Jones,11.00,8.17,10.27,3.15,34.62,R$ 1.89,20/03/2026 20:51:33,,,,,,,334.0,20:51:16,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Nordic Bet,Emerson Jones,11.00,8.17,10.27,3.15,34.62,R$ 1.89,20/03/2026 20:51:33,,,,,,,336.0,20:51:18,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,FanDuel,Emerson Jones,12.00,8.17,10.27,3.9,46.86,R$ 2.32,20/03/2026 20:51:33,,,,,,,316.0,20:50:58,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,BetMGM,Emerson Jones,10.50,8.17,10.27,2.71,28.5,R$ 1.64,20/03/2026 20:51:33,,,,,,,316.0,20:50:58,7.96,20:45:42,Pré-live
-20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,888sport,Emerson Jones,11.00,8.17,10.27,3.15,34.62,R$ 1.89,20/03/2026 20:51:33,,,,,,,334.0,20:51:16,7.96,20:45:42,Pré-live
-20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Betsson,Xinyu Wang,2.70,1.98,2.08,13.48,36.39,R$ 11.67,20/03/2026 20:51:33,,,,,,,17.0,20:51:16,1.92,20:50:59,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Betfair,Emerson Jones,15.5,8.17,10.27,5.79,89.69,R$ 3.37,20/03/2026 20:51:33,,,,,,,318.0,20:51:00,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Matchbook,Emerson Jones,13.5,8.17,10.27,4.83,65.21,R$ 2.84,20/03/2026 20:51:33,,,,,,,334.0,20:51:16,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Bovada,Emerson Jones,13.0,8.17,10.27,4.55,59.1,R$ 2.68,20/03/2026 20:51:33,,,,,,,297.0,20:50:39,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Betsson,Emerson Jones,11.0,8.17,10.27,3.15,34.62,R$ 1.89,20/03/2026 20:51:33,,,,,,,334.0,20:51:16,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,Nordic Bet,Emerson Jones,11.0,8.17,10.27,3.15,34.62,R$ 1.89,20/03/2026 20:51:33,,,,,,,336.0,20:51:18,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,FanDuel,Emerson Jones,12.0,8.17,10.27,3.9,46.86,R$ 2.32,20/03/2026 20:51:33,,,,,,,316.0,20:50:58,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,BetMGM,Emerson Jones,10.5,8.17,10.27,2.71,28.5,R$ 1.64,20/03/2026 20:51:33,,,,,,,316.0,20:50:58,7.96,20:45:42,Pré-live
+20/03 20:51,WTA Miami Open,Elina Svitolina x Emerson Jones,888sport,Emerson Jones,11.0,8.17,10.27,3.15,34.62,R$ 1.89,20/03/2026 20:51:33,,,,,,,334.0,20:51:16,7.96,20:45:42,Pré-live
+20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Betsson,Xinyu Wang,2.7,1.98,2.08,13.48,36.39,R$ 11.67,20/03/2026 20:51:33,,,,,,,17.0,20:51:16,1.92,20:50:59,Pré-live
 20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Betfair,Xinyu Wang,2.84,1.98,2.08,15.3,43.46,R$ 12.87,20/03/2026 20:51:33,,,,,,,1.0,20:51:00,1.92,20:50:59,Pré-live
-20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Nordic Bet,Xinyu Wang,2.70,1.98,2.08,13.48,36.39,R$ 11.67,20/03/2026 20:51:33,,,,,,,19.0,20:51:18,1.92,20:50:59,Pré-live
+20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Nordic Bet,Xinyu Wang,2.7,1.98,2.08,13.48,36.39,R$ 11.67,20/03/2026 20:51:33,,,,,,,19.0,20:51:18,1.92,20:50:59,Pré-live
 20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,FanDuel,Xinyu Wang,2.85,1.98,2.08,15.43,43.97,R$ 12.95,20/03/2026 20:51:33,,,,,,,1.0,20:50:58,1.92,20:50:59,Pré-live
-20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,DraftKings,Xinyu Wang,3.00,1.98,2.08,17.18,51.55,R$ 14.05,20/03/2026 20:51:33,,,,,,,17.0,20:51:16,1.92,20:50:59,Pré-live
+20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,DraftKings,Xinyu Wang,3.0,1.98,2.08,17.18,51.55,R$ 14.05,20/03/2026 20:51:33,,,,,,,17.0,20:51:16,1.92,20:50:59,Pré-live
 20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Coolbet,Xinyu Wang,2.67,1.98,2.08,13.06,34.88,R$ 11.38,20/03/2026 20:51:33,,,,,,,36.0,20:50:23,1.92,20:50:59,Pré-live
-20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Bovada,Xinyu Wang,2.20,1.98,2.08,5.06,11.13,R$ 5.06,20/03/2026 20:51:33,,,,,,,160.0,20:48:19,1.92,20:50:59,Pré-live
+20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Bovada,Xinyu Wang,2.2,1.98,2.08,5.06,11.13,R$ 5.06,20/03/2026 20:51:33,,,,,,,160.0,20:48:19,1.92,20:50:59,Pré-live
 20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,Matchbook,Xinyu Wang,2.88,1.98,2.08,15.79,45.48,R$ 13.19,20/03/2026 20:51:33,,,,,,,17.0,20:51:16,1.92,20:50:59,Pré-live
 20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,BetMGM,Xinyu Wang,2.65,1.98,2.08,12.78,33.87,R$ 11.19,20/03/2026 20:51:33,,,,,,,1.0,20:50:58,1.92,20:50:59,Pré-live
 20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,888sport,Xinyu Wang,2.75,1.98,2.08,14.15,38.92,R$ 12.12,20/03/2026 20:51:33,,,,,,,17.0,20:51:16,1.92,20:50:59,Pré-live
-20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,BetRivers,Xinyu Wang,2.50,1.98,2.08,10.52,26.29,R$ 9.55,20/03/2026 20:51:33,,,,,,,0.0,20:50:59,1.92,20:50:59,Pré-live
+20/03 20:57,WTA Miami Open,Caty McNally x Xinyu Wang,BetRivers,Xinyu Wang,2.5,1.98,2.08,10.52,26.29,R$ 9.55,20/03/2026 20:51:33,,,,,,,0.0,20:50:59,1.92,20:50:59,Pré-live
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,FanDuel,New York Knicks,1.20,1.14,1.17,4.48,5.37,R$ 14.64,20/03/2026 22:08:46,,,,,,,17.0,22:08:05,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,Sky Bet,New York Knicks,1.22,1.14,1.17,5.84,7.13,R$ 17.66,20/03/2026 22:08:46,,,,,,,17.0,22:08:05,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,Coolbet,New York Knicks,1.18,1.14,1.17,3.06,3.62,R$ 10.95,20/03/2026 22:08:46,,,,,,,51.0,22:07:31,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,Betfair Sportsbook,New York Knicks,1.22,1.14,1.17,5.84,7.13,R$ 17.66,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,Matchbook,New York Knicks,1.24,1.14,1.17,7.17,8.88,R$ 20.18,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,DraftKings,New York Knicks,1.20,1.14,1.17,4.48,5.37,R$ 14.64,20/03/2026 22:08:46,,,,,,,18.0,22:08:04,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,BetMGM,New York Knicks,1.24,1.14,1.17,7.17,8.88,R$ 20.18,20/03/2026 22:08:46,,,,,,,18.0,22:08:04,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Brooklyn Nets x New York Knicks,BetRivers,New York Knicks,1.24,1.14,1.17,7.17,8.88,R$ 20.18,20/03/2026 22:08:46,,,,,,,17.0,22:08:05,1.08,22:08:22,Ao Vivo (55x53)
+20/03 20:41,NBA,Detroit Pistons x Golden State Warriors,Betfair,Golden State Warriors,11.50,6.81,8.20,6.0,68.99,R$ 3.58,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,6.56,22:08:22,Ao Vivo (69x56)
+20/03 20:41,NBA,Detroit Pistons x Golden State Warriors,FanDuel,Golden State Warriors,8.50,6.81,8.20,2.93,24.9,R$ 1.81,20/03/2026 22:08:46,,,,,,,17.0,22:08:05,6.56,22:08:22,Ao Vivo (69x56)
+20/03 20:41,NBA,Detroit Pistons x Golden State Warriors,Matchbook,Golden State Warriors,8.60,6.81,8.20,3.07,26.37,R$ 1.89,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,6.56,22:08:22,Ao Vivo (69x56)
+20/03 21:11,NBA,Houston Rockets x Atlanta Hawks,Sky Bet,Houston Rockets,1.33,1.27,1.32,3.27,4.35,R$ 7.18,20/03/2026 22:08:46,,,,,,,17.0,22:08:05,1.23,22:08:22,Ao Vivo (58x48)
+20/03 21:11,NBA,Houston Rockets x Atlanta Hawks,William Hill,Houston Rockets,1.67,1.27,1.32,18.58,31.03,R$ 25.24,20/03/2026 22:08:46,,,,,,,52.0,22:07:30,1.23,22:08:22,Ao Vivo (58x48)
+20/03 21:11,NBA,Houston Rockets x Atlanta Hawks,Matchbook,Houston Rockets,1.33,1.27,1.32,3.27,4.35,R$ 7.18,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,1.23,22:08:22,Ao Vivo (58x48)
+20/03 21:11,NBA,Houston Rockets x Atlanta Hawks,BetMGM,Houston Rockets,1.33,1.27,1.32,3.27,4.35,R$ 7.18,20/03/2026 22:08:46,,,,,,,18.0,22:08:04,1.23,22:08:22,Ao Vivo (58x48)
+20/03 21:11,NBA,Houston Rockets x Atlanta Hawks,Betfair Sportsbook,Houston Rockets,1.33,1.27,1.32,3.27,4.35,R$ 7.18,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,1.23,22:08:22,Ao Vivo (58x48)
+20/03 21:11,NBA,Houston Rockets x Atlanta Hawks,Betfair,Atlanta Hawks,6.00,4.64,5.25,4.87,29.25,R$ 3.19,20/03/2026 22:08:46,,,,,,,0.0,22:08:22,4.48,22:08:22,Ao Vivo (58x48)
+20/03 21:11,NBA,Minnesota Timberwolves x Portland Trail Blazers,Bovada,Minnesota Timberwolves,5.00,3.33,3.64,10.0,50.0,R$ 6.81,20/03/2026 22:08:46,,,,,,,69.0,22:03:44,3.15,22:02:35,Ao Vivo (59x68)
+20/03 21:11,NBA,Minnesota Timberwolves x Portland Trail Blazers,Betfair,Minnesota Timberwolves,5.20,3.33,3.64,10.77,56.0,R$ 7.27,20/03/2026 22:08:46,,,,,,,347.0,22:08:22,3.15,22:02:35,Ao Vivo (59x68)
+20/03 20:25,NCAAB,St. John's Red Storm x Northern Iowa Panthers,Betfair,St. John's Red Storm,1000.00,1.03,1.07,96.52,96518.68,R$ 52.66,20/03/2026 22:08:46,,,,,,,17.0,22:08:06,1.01,22:08:23,Ao Vivo (61x42)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,FanDuel,Banfield,1.91,1.51,1.57,13.73,26.23,R$ 15.71,20/03/2026 22:08:46,,,,,,,35.0,22:07:53,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Sky Bet,Banfield,1.91,1.51,1.57,13.73,26.23,R$ 15.71,20/03/2026 22:08:46,,,,,,,84.0,22:07:04,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Betfair,Banfield,2.02,1.51,1.57,16.59,33.5,R$ 17.90,20/03/2026 22:08:46,,,,,,,16.0,22:08:12,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Bovada,Banfield,1.90,1.51,1.57,13.46,25.57,R$ 15.49,20/03/2026 22:08:46,,,,,,,68.0,22:07:20,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,BetMGM,Banfield,1.67,1.51,1.57,6.21,10.37,R$ 8.44,20/03/2026 22:08:46,,,,,,,34.0,22:07:54,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Nordic Bet,Banfield,1.85,1.51,1.57,12.04,22.27,R$ 14.28,20/03/2026 22:08:46,,,,,,,16.0,22:08:12,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Betsson,Banfield,1.85,1.51,1.57,12.04,22.27,R$ 14.28,20/03/2026 22:08:46,,,,,,,16.0,22:08:12,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,DraftKings,Banfield,1.91,1.51,1.57,13.73,26.23,R$ 15.71,20/03/2026 22:08:46,,,,,,,35.0,22:07:53,1.43,22:08:28,Ao Vivo (1x0)
+20/03 21:00,Primera División - Argentina,Banfield x CA Tigre BA,Matchbook,Banfield,2.00,1.51,1.57,16.09,32.18,R$ 17.54,20/03/2026 22:08:46,,,,,,,0.0,22:08:28,1.43,22:08:28,Ao Vivo (1x0)
+20/03 20:15,ATP Miami Open,Arthur Cazaux x Marcelo Tomas Barrios Vera,Bovada,Arthur Cazaux,1.56,1.24,1.28,16.54,25.8,R$ 25.11,20/03/2026 22:08:46,,,,,,,192.0,22:04:32,1.21,22:07:44,Pré-live
+20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,DraftKings,Flavio Cobolli,2.38,1.96,2.06,9.02,21.48,R$ 8.48,20/03/2026 22:08:46,,,,,,,2.0,22:08:18,1.88,22:08:20,Pré-live
+20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,Matchbook,Flavio Cobolli,2.18,1.96,2.06,5.17,11.27,R$ 5.21,20/03/2026 22:08:46,,,,,,,1.0,22:08:19,1.88,22:08:20,Pré-live
+20/03 21:50,ATP Miami Open,Raphael Collignon x Flavio Cobolli,BetRivers,Flavio Cobolli,2.12,1.96,2.06,3.87,8.21,R$ 3.99,20/03/2026 22:08:46,,,,,,,18.0,22:08:02,1.88,22:08:20,Pré-live
+20/03 22:05,ATP Miami Open,Stefanos Tsitsipas x Alex de Minaur,Betsson,Alex de Minaur,1.65,1.56,1.62,3.7,6.1,R$ 5.11,20/03/2026 22:08:46,,,,,,,176.0,22:08:20,1.51,22:05:24,Pré-live
+20/03 22:05,ATP Miami Open,Stefanos Tsitsipas x Alex de Minaur,Nordic Bet,Alex de Minaur,1.65,1.56,1.62,3.7,6.1,R$ 5.11,20/03/2026 22:08:46,,,,,,,158.0,22:08:02,1.51,22:05:24,Pré-live
+20/03 22:05,ATP Miami Open,Stefanos Tsitsipas x Alex de Minaur,FanDuel,Alex de Minaur,1.62,1.56,1.62,2.57,4.17,R$ 3.67,20/03/2026 22:08:46,,,,,,,140.0,22:07:44,1.51,22:05:24,Pré-live
+20/03 22:05,ATP Miami Open,Stefanos Tsitsipas x Alex de Minaur,Matchbook,Alex de Minaur,1.66,1.56,1.62,4.06,6.74,R$ 5.57,20/03/2026 22:08:46,,,,,,,175.0,22:08:19,1.51,22:05:24,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,Betsson,Caty McNally,2.10,1.96,2.07,3.29,6.91,R$ 3.42,20/03/2026 22:08:46,,,,,,,1.0,22:08:37,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,Betfair,Caty McNally,2.18,1.96,2.07,5.04,10.98,R$ 5.07,20/03/2026 22:08:46,,,,,,,2.0,22:08:38,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,Nordic Bet,Caty McNally,2.10,1.96,2.07,3.29,6.91,R$ 3.42,20/03/2026 22:08:46,,,,,,,35.0,22:08:01,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,FanDuel,Caty McNally,2.15,1.96,2.07,4.4,9.45,R$ 4.48,20/03/2026 22:08:46,,,,,,,2.0,22:08:38,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,DraftKings,Caty McNally,2.07,1.96,2.07,2.6,5.38,R$ 2.74,20/03/2026 22:08:46,,,,,,,18.0,22:08:18,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,Coolbet,Caty McNally,2.08,1.96,2.07,2.83,5.89,R$ 2.97,20/03/2026 22:08:46,,,,,,,34.0,22:08:02,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,Matchbook,Caty McNally,2.16,1.96,2.07,4.61,9.96,R$ 4.68,20/03/2026 22:08:46,,,,,,,50.0,22:07:46,1.89,22:08:36,Pré-live
+20/03 20:46,WTA Miami Open,Caty McNally x Xinyu Wang,BetRivers,Caty McNally,2.10,1.96,2.07,3.29,6.91,R$ 3.42,20/03/2026 22:08:46,,,,,,,17.0,22:08:19,1.89,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Betfair,Kamilla Rakhimova,9.20,6.52,7.79,4.47,41.16,R$ 2.74,20/03/2026 22:08:46,,,,,,,2.0,22:08:38,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Betsson,Kamilla Rakhimova,10.00,6.52,7.79,5.34,53.44,R$ 3.24,20/03/2026 22:08:46,,,,,,,51.0,22:07:45,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,FanDuel,Kamilla Rakhimova,8.50,6.52,7.79,3.58,30.42,R$ 2.21,20/03/2026 22:08:46,,,,,,,2.0,22:08:38,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Nordic Bet,Kamilla Rakhimova,10.50,6.52,7.79,5.82,61.11,R$ 3.51,20/03/2026 22:08:46,,,,,,,35.0,22:08:01,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Coolbet,Kamilla Rakhimova,10.00,6.52,7.79,5.34,53.44,R$ 3.24,20/03/2026 22:08:46,,,,,,,34.0,22:08:02,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,BetMGM,Kamilla Rakhimova,8.25,6.52,7.79,3.22,26.59,R$ 2.00,20/03/2026 22:08:46,,,,,,,35.0,22:08:01,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,DraftKings,Kamilla Rakhimova,8.10,6.52,7.79,3.0,24.29,R$ 1.86,20/03/2026 22:08:46,,,,,,,18.0,22:08:18,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,BetRivers,Kamilla Rakhimova,8.00,6.52,7.79,2.84,22.75,R$ 1.77,20/03/2026 22:08:46,,,,,,,17.0,22:08:19,6.40,22:08:36,Pré-live
+20/03 21:18,WTA Miami Open,Kamilla Rakhimova x Marta Kostyuk,Matchbook,Kamilla Rakhimova,10.50,6.52,7.79,5.82,61.11,R$ 3.51,20/03/2026 22:08:46,,,,,,,50.0,22:07:46,6.40,22:08:36,Pré-live

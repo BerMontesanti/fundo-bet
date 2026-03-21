@@ -3473,59 +3473,73 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Betfair,Gil Vicente,3.6,3.28,3.58,2.67,9.62,R$ 1.62,21/03/2026 15:34:41,,,,,,,1.0,15:34:19,3.1,15:34:18,Ao Vivo (0x0)
 21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Matchbook,Gil Vicente,3.6,3.28,3.58,2.67,9.62,R$ 1.62,21/03/2026 15:34:41,,,,,,,2.0,15:34:20,3.1,15:34:18,Ao Vivo (0x0)
 21/03 14:00,Swiss Superleague,FC Zurich x FC Thun,Betfair,Draw,2.58,2.18,2.31,7.11,18.34,R$ 5.08,21/03/2026 15:34:41,,,,,,,0.0,15:34:19,2.06,15:34:19,Ao Vivo (2x1)
-21/03 15:48,NCAAB,Michigan St Spartans x Louisville Cardinals,DraftKings,Michigan St Spartans,1.36,1.24,1.28,7.08,9.63,R$ 11.71,21/03/2026 16:23:07,,,,,,,93.0,16:21:22,1.20,16:22:55,Ao Vivo (30x23)
-21/03 15:48,NCAAB,Michigan St Spartans x Louisville Cardinals,Coolbet,Michigan St Spartans,1.33,1.24,1.28,5.43,7.22,R$ 9.57,21/03/2026 16:23:07,,,,,,,129.0,16:20:46,1.20,16:22:55,Ao Vivo (30x23)
+21/03 15:48,NCAAB,Michigan St Spartans x Louisville Cardinals,DraftKings,Michigan St Spartans,1.36,1.24,1.28,7.08,9.63,R$ 11.71,21/03/2026 16:23:07,,,,,,,93.0,16:21:22,1.2,16:22:55,Ao Vivo (30x23)
+21/03 15:48,NCAAB,Michigan St Spartans x Louisville Cardinals,Coolbet,Michigan St Spartans,1.33,1.24,1.28,5.43,7.22,R$ 9.57,21/03/2026 16:23:07,,,,,,,129.0,16:20:46,1.2,16:22:55,Ao Vivo (30x23)
 21/03 16:20,MMA,Losene Keita x Nathaniel Wood,Nordic Bet,Losene Keita,1.58,1.40,1.45,8.2,12.95,R$ 9.77,21/03/2026 16:23:07,,,,,,,180.0,16:22:22,1.36,16:19:22,Pré-live
 21/03 16:20,MMA,Losene Keita x Nathaniel Wood,Betsson,Losene Keita,1.58,1.40,1.45,8.2,12.95,R$ 9.77,21/03/2026 16:23:07,,,,,,,181.0,16:22:23,1.36,16:19:22,Pré-live
-21/03 16:20,MMA,Losene Keita x Nathaniel Wood,DraftKings,Losene Keita,1.80,1.40,1.45,15.93,28.68,R$ 15.68,21/03/2026 16:23:07,,,,,,,215.0,16:22:57,1.36,16:19:22,Pré-live
+21/03 16:20,MMA,Losene Keita x Nathaniel Wood,DraftKings,Losene Keita,1.8,1.40,1.45,15.93,28.68,R$ 15.68,21/03/2026 16:23:07,,,,,,,215.0,16:22:57,1.36,16:19:22,Pré-live
 21/03 16:20,MMA,Losene Keita x Nathaniel Wood,FanDuel,Losene Keita,1.68,1.40,1.45,11.96,20.1,R$ 12.93,21/03/2026 16:23:07,,,,,,,214.0,16:22:56,1.36,16:19:22,Pré-live
 21/03 16:20,MMA,Losene Keita x Nathaniel Wood,BetMGM,Losene Keita,1.61,1.40,1.45,9.38,15.1,R$ 10.83,21/03/2026 16:23:07,,,,,,,179.0,16:22:21,1.36,16:19:22,Pré-live
 21/03 16:20,MMA,Losene Keita x Nathaniel Wood,Betfair Sportsbook,Losene Keita,1.73,1.40,1.45,13.69,23.68,R$ 14.19,21/03/2026 16:23:07,,,,,,,213.0,16:22:55,1.36,16:19:22,Pré-live
 21/03 16:20,MMA,Losene Keita x Nathaniel Wood,Betfair,Losene Keita,1.56,1.40,1.45,7.39,11.52,R$ 9.00,21/03/2026 16:23:07,,,,,,,217.0,16:22:59,1.36,16:19:22,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,888sport,Draw,7.50,3.30,3.59,17.01,127.54,R$ 8.58,21/03/2026 16:23:07,,,,,,,18.0,16:22:59,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,BetMGM,Draw,8.50,3.30,3.59,18.57,157.88,R$ 9.21,21/03/2026 16:23:07,,,,,,,36.0,16:22:05,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,Coolbet,Draw,9.00,3.30,3.59,19.23,173.05,R$ 9.46,21/03/2026 16:23:07,,,,,,,35.0,16:22:06,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,FanDuel,Draw,8.00,3.30,3.59,17.84,142.71,R$ 8.92,21/03/2026 16:23:07,,,,,,,1.0,16:22:40,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,Sky Bet,Draw,8.50,3.30,3.59,18.57,157.88,R$ 9.21,21/03/2026 16:23:07,,,,,,,19.0,16:22:22,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,Betfair,Draw,8.60,3.30,3.59,18.71,160.91,R$ 9.26,21/03/2026 16:23:07,,,,,,,0.0,16:22:41,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,DraftKings,Draw,8.00,3.30,3.59,17.84,142.71,R$ 8.92,21/03/2026 16:23:07,,,,,,,95.0,16:21:06,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,Matchbook,Draw,8.20,3.30,3.59,18.14,148.78,R$ 9.04,21/03/2026 16:23:07,,,,,,,2.0,16:22:39,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,Nordic Bet,Draw,8.20,3.30,3.59,18.14,148.78,R$ 9.04,21/03/2026 16:23:07,,,,,,,14.0,16:22:27,3.10,16:22:41,Pré-live
-21/03 15:00,Ligue 1 - France,Auxerre x Brest,Betsson,Draw,8.20,3.30,3.59,18.14,148.78,R$ 9.04,21/03/2026 16:23:07,,,,,,,12.0,16:22:29,3.10,16:22:41,Pré-live
-21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,Nordic Bet,Annecy FC,34.00,16.26,27.41,3.21,109.06,R$ 1.45,21/03/2026 16:23:07,,,,,,,17.0,16:23:01,15.23,16:22:44,Ao Vivo (1x0)
-21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,Nordic Bet,Draw,13.00,6.08,7.16,8.77,113.95,R$ 4.15,21/03/2026 16:23:07,,,,,,,17.0,16:23:01,5.69,16:22:44,Ao Vivo (1x0)
-21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,888sport,Annecy FC,41.00,16.26,27.41,3.71,152.1,R$ 1.66,21/03/2026 16:23:07,,,,,,,19.0,16:23:03,15.23,16:22:44,Ao Vivo (1x0)
-21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,888sport,Draw,13.00,6.08,7.16,8.77,113.95,R$ 4.15,21/03/2026 16:23:07,,,,,,,19.0,16:23:03,5.69,16:22:44,Ao Vivo (1x0)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Coolbet,Hamburger SV,150.00,8.93,11.50,10.53,1579.59,R$ 4.64,21/03/2026 16:23:07,,,,,,,57.0,16:21:58,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Coolbet,Draw,12.50,1.98,2.08,42.57,532.1,R$ 20.24,21/03/2026 16:23:07,,,,,,,57.0,16:21:58,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,FanDuel,Hamburger SV,101.00,8.93,11.50,10.21,1030.92,R$ 4.51,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,FanDuel,Draw,14.00,1.98,2.08,43.43,607.96,R$ 20.46,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Sky Bet,Hamburger SV,251.00,8.93,11.50,10.8,2710.51,R$ 4.74,21/03/2026 16:23:07,,,,,,,58.0,16:21:57,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Sky Bet,Draw,19.00,1.98,2.08,45.31,860.8,R$ 20.92,21/03/2026 16:23:07,,,,,,,58.0,16:21:57,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,888sport,Hamburger SV,126.00,8.93,11.50,10.4,1310.85,R$ 4.59,21/03/2026 16:23:07,,,,,,,18.0,16:22:37,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,888sport,Draw,15.00,1.98,2.08,43.9,658.52,R$ 20.58,21/03/2026 16:23:07,,,,,,,18.0,16:22:37,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betfair,Hamburger SV,1000.00,8.93,11.50,11.1,11097.25,R$ 4.86,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betfair,Draw,26.00,1.98,2.08,46.72,1214.77,R$ 21.26,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,BetMGM,Hamburger SV,13.50,8.93,11.50,3.79,51.16,R$ 1.79,21/03/2026 16:23:07,,,,,,,848.0,16:08:47,8.40,16:22:55,Ao Vivo (3x2)
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,888sport,Draw,7.5,3.30,3.59,17.01,127.54,R$ 8.58,21/03/2026 16:23:07,,,,,,,18.0,16:22:59,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,BetMGM,Draw,8.5,3.30,3.59,18.57,157.88,R$ 9.21,21/03/2026 16:23:07,,,,,,,36.0,16:22:05,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,Coolbet,Draw,9.0,3.30,3.59,19.23,173.05,R$ 9.46,21/03/2026 16:23:07,,,,,,,35.0,16:22:06,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,FanDuel,Draw,8.0,3.30,3.59,17.84,142.71,R$ 8.92,21/03/2026 16:23:07,,,,,,,1.0,16:22:40,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,Sky Bet,Draw,8.5,3.30,3.59,18.57,157.88,R$ 9.21,21/03/2026 16:23:07,,,,,,,19.0,16:22:22,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,Betfair,Draw,8.6,3.30,3.59,18.71,160.91,R$ 9.26,21/03/2026 16:23:07,,,,,,,0.0,16:22:41,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,DraftKings,Draw,8.0,3.30,3.59,17.84,142.71,R$ 8.92,21/03/2026 16:23:07,,,,,,,95.0,16:21:06,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,Matchbook,Draw,8.2,3.30,3.59,18.14,148.78,R$ 9.04,21/03/2026 16:23:07,,,,,,,2.0,16:22:39,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,Nordic Bet,Draw,8.2,3.30,3.59,18.14,148.78,R$ 9.04,21/03/2026 16:23:07,,,,,,,14.0,16:22:27,3.1,16:22:41,Pré-live
+21/03 15:00,Ligue 1 - France,Auxerre x Brest,Betsson,Draw,8.2,3.30,3.59,18.14,148.78,R$ 9.04,21/03/2026 16:23:07,,,,,,,12.0,16:22:29,3.1,16:22:41,Pré-live
+21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,Nordic Bet,Annecy FC,34.0,16.26,27.41,3.21,109.06,R$ 1.45,21/03/2026 16:23:07,,,,,,,17.0,16:23:01,15.23,16:22:44,Ao Vivo (1x0)
+21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,Nordic Bet,Draw,13.0,6.08,7.16,8.77,113.95,R$ 4.15,21/03/2026 16:23:07,,,,,,,17.0,16:23:01,5.69,16:22:44,Ao Vivo (1x0)
+21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,888sport,Annecy FC,41.0,16.26,27.41,3.71,152.1,R$ 1.66,21/03/2026 16:23:07,,,,,,,19.0,16:23:03,15.23,16:22:44,Ao Vivo (1x0)
+21/03 16:00,Ligue 2 - France,Saint Etienne x Annecy FC,888sport,Draw,13.0,6.08,7.16,8.77,113.95,R$ 4.15,21/03/2026 16:23:07,,,,,,,19.0,16:23:03,5.69,16:22:44,Ao Vivo (1x0)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Coolbet,Hamburger SV,150.0,8.93,11.5,10.53,1579.59,R$ 4.64,21/03/2026 16:23:07,,,,,,,57.0,16:21:58,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Coolbet,Draw,12.5,1.98,2.08,42.57,532.1,R$ 20.24,21/03/2026 16:23:07,,,,,,,57.0,16:21:58,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,FanDuel,Hamburger SV,101.0,8.93,11.5,10.21,1030.92,R$ 4.51,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,FanDuel,Draw,14.0,1.98,2.08,43.43,607.96,R$ 20.46,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Sky Bet,Hamburger SV,251.0,8.93,11.5,10.8,2710.51,R$ 4.74,21/03/2026 16:23:07,,,,,,,58.0,16:21:57,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Sky Bet,Draw,19.0,1.98,2.08,45.31,860.8,R$ 20.92,21/03/2026 16:23:07,,,,,,,58.0,16:21:57,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,888sport,Hamburger SV,126.0,8.93,11.5,10.4,1310.85,R$ 4.59,21/03/2026 16:23:07,,,,,,,18.0,16:22:37,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,888sport,Draw,15.0,1.98,2.08,43.9,658.52,R$ 20.58,21/03/2026 16:23:07,,,,,,,18.0,16:22:37,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betfair,Hamburger SV,1000.0,8.93,11.5,11.1,11097.25,R$ 4.86,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betfair,Draw,26.0,1.98,2.08,46.72,1214.77,R$ 21.26,21/03/2026 16:23:07,,,,,,,0.0,16:22:55,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,BetMGM,Hamburger SV,13.5,8.93,11.5,3.79,51.16,R$ 1.79,21/03/2026 16:23:07,,,,,,,848.0,16:08:47,8.4,16:22:55,Ao Vivo (3x2)
 21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,BetMGM,Draw,2.15,1.98,2.08,4.06,8.72,R$ 3.32,21/03/2026 16:23:07,,,,,,,848.0,16:08:47,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,DraftKings,Hamburger SV,81.00,8.93,11.50,9.96,806.98,R$ 4.41,21/03/2026 16:23:07,,,,,,,36.0,16:22:19,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,DraftKings,Draw,12.00,1.98,2.08,42.23,506.82,R$ 20.16,21/03/2026 16:23:07,,,,,,,36.0,16:22:19,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Nordic Bet,Hamburger SV,200.00,8.93,11.50,10.7,2139.45,R$ 4.70,21/03/2026 16:23:07,,,,,,,4.0,16:22:59,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Nordic Bet,Draw,13.00,1.98,2.08,42.88,557.39,R$ 20.32,21/03/2026 16:23:07,,,,,,,4.0,16:22:59,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betsson,Hamburger SV,220.00,8.93,11.50,10.74,2363.4,R$ 4.72,21/03/2026 16:23:07,,,,,,,32.0,16:22:23,8.40,16:22:55,Ao Vivo (3x2)
-21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betsson,Draw,12.00,1.98,2.08,42.23,506.82,R$ 20.16,21/03/2026 16:23:07,,,,,,,32.0,16:22:23,1.86,16:22:55,Ao Vivo (3x2)
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,FanDuel,Girona,101.00,7.46,9.18,12.41,1253.18,R$ 5.48,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,FanDuel,Draw,34.00,1.73,1.81,54.73,1860.98,R$ 24.67,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Sky Bet,Girona,251.00,7.46,9.18,13.0,3262.85,R$ 5.71,21/03/2026 16:23:07,,,,,,,194.0,16:22:23,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Sky Bet,Draw,91.00,1.73,1.81,56.58,5148.52,R$ 25.03,21/03/2026 16:23:07,,,,,,,194.0,16:22:23,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Bovada,Draw,3.40,1.73,1.81,28.26,96.1,R$ 17.52,21/03/2026 16:23:07,,,,,,,196.0,16:22:25,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betfair,Girona,1000.00,7.46,9.18,13.3,13297.82,R$ 5.82,21/03/2026 16:23:07,,,,,,,211.0,16:22:40,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betfair,Draw,15.00,1.73,1.81,51.01,765.14,R$ 23.91,21/03/2026 16:23:07,,,,,,,211.0,16:22:40,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,DraftKings,Girona,151.00,7.46,9.18,12.74,1923.07,R$ 5.61,21/03/2026 16:23:07,,,,,,,99.0,16:20:48,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,DraftKings,Draw,13.00,1.73,1.81,49.98,649.79,R$ 23.69,21/03/2026 16:23:07,,,,,,,99.0,16:20:48,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Coolbet,Girona,250.00,7.46,9.18,13.0,3249.46,R$ 5.71,21/03/2026 16:23:07,,,,,,,197.0,16:22:26,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Coolbet,Draw,28.00,1.73,1.81,54.1,1514.93,R$ 24.55,21/03/2026 16:23:07,,,,,,,197.0,16:22:26,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betsson,Girona,151.00,7.46,9.18,12.74,1923.07,R$ 5.61,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betsson,Draw,17.00,1.73,1.81,51.79,880.49,R$ 24.08,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,1.64,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Nordic Bet,Girona,151.00,7.46,9.18,12.74,1923.07,R$ 5.61,21/03/2026 16:23:07,,,,,,,183.0,16:22:12,7.06,16:19:09,Pré-live
-21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Nordic Bet,Draw,17.00,1.73,1.81,51.79,880.49,R$ 24.08,21/03/2026 16:23:07,,,,,,,183.0,16:22:12,1.64,16:19:09,Pré-live
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,DraftKings,Hamburger SV,81.0,8.93,11.5,9.96,806.98,R$ 4.41,21/03/2026 16:23:07,,,,,,,36.0,16:22:19,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,DraftKings,Draw,12.0,1.98,2.08,42.23,506.82,R$ 20.16,21/03/2026 16:23:07,,,,,,,36.0,16:22:19,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Nordic Bet,Hamburger SV,200.0,8.93,11.5,10.7,2139.45,R$ 4.70,21/03/2026 16:23:07,,,,,,,4.0,16:22:59,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Nordic Bet,Draw,13.0,1.98,2.08,42.88,557.39,R$ 20.32,21/03/2026 16:23:07,,,,,,,4.0,16:22:59,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betsson,Hamburger SV,220.0,8.93,11.5,10.74,2363.4,R$ 4.72,21/03/2026 16:23:07,,,,,,,32.0,16:22:23,8.4,16:22:55,Ao Vivo (3x2)
+21/03 14:30,Bundesliga - Germany,Borussia Dortmund x Hamburger SV,Betsson,Draw,12.0,1.98,2.08,42.23,506.82,R$ 20.16,21/03/2026 16:23:07,,,,,,,32.0,16:22:23,1.86,16:22:55,Ao Vivo (3x2)
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,FanDuel,Girona,101.0,7.46,9.18,12.41,1253.18,R$ 5.48,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,FanDuel,Draw,34.0,1.73,1.81,54.73,1860.98,R$ 24.67,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Sky Bet,Girona,251.0,7.46,9.18,13.0,3262.85,R$ 5.71,21/03/2026 16:23:07,,,,,,,194.0,16:22:23,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Sky Bet,Draw,91.0,1.73,1.81,56.58,5148.52,R$ 25.03,21/03/2026 16:23:07,,,,,,,194.0,16:22:23,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Bovada,Draw,3.4,1.73,1.81,28.26,96.1,R$ 17.52,21/03/2026 16:23:07,,,,,,,196.0,16:22:25,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betfair,Girona,1000.0,7.46,9.18,13.3,13297.82,R$ 5.82,21/03/2026 16:23:07,,,,,,,211.0,16:22:40,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betfair,Draw,15.0,1.73,1.81,51.01,765.14,R$ 23.91,21/03/2026 16:23:07,,,,,,,211.0,16:22:40,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,DraftKings,Girona,151.0,7.46,9.18,12.74,1923.07,R$ 5.61,21/03/2026 16:23:07,,,,,,,99.0,16:20:48,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,DraftKings,Draw,13.0,1.73,1.81,49.98,649.79,R$ 23.69,21/03/2026 16:23:07,,,,,,,99.0,16:20:48,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Coolbet,Girona,250.0,7.46,9.18,13.0,3249.46,R$ 5.71,21/03/2026 16:23:07,,,,,,,197.0,16:22:26,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Coolbet,Draw,28.0,1.73,1.81,54.1,1514.93,R$ 24.55,21/03/2026 16:23:07,,,,,,,197.0,16:22:26,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betsson,Girona,151.0,7.46,9.18,12.74,1923.07,R$ 5.61,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Betsson,Draw,17.0,1.73,1.81,51.79,880.49,R$ 24.08,21/03/2026 16:23:07,,,,,,,178.0,16:22:07,1.64,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Nordic Bet,Girona,151.0,7.46,9.18,12.74,1923.07,R$ 5.61,21/03/2026 16:23:07,,,,,,,183.0,16:22:12,7.06,16:19:09,Pré-live
+21/03 14:31,La Liga - Spain,CA Osasuna x Girona,Nordic Bet,Draw,17.0,1.73,1.81,51.79,880.49,R$ 24.08,21/03/2026 16:23:07,,,,,,,183.0,16:22:12,1.64,16:19:09,Pré-live
+21/03 16:40,MMA,Axel Sola x Mason Jones,FanDuel,Mason Jones,1.85,1.69,1.76,5.25,9.71,R$ 5.00,21/03/2026 16:45:29,,,,,,,342.0,16:45:11,1.64,16:39:29,Pré-live
+21/03 16:40,MMA,Axel Sola x Mason Jones,BetMGM,Mason Jones,2.50,1.69,1.76,19.31,48.26,R$ 14.08,21/03/2026 16:45:29,,,,,,,264.0,16:43:53,1.64,16:39:29,Pré-live
+21/03 16:40,MMA,Axel Sola x Mason Jones,Betfair Sportsbook,Mason Jones,1.83,1.69,1.76,4.66,8.53,R$ 4.50,21/03/2026 16:45:29,,,,,,,303.0,16:44:32,1.64,16:39:29,Pré-live
+21/03 16:40,MMA,Axel Sola x Mason Jones,Bovada,Mason Jones,1.77,1.69,1.76,2.81,4.97,R$ 2.82,21/03/2026 16:45:29,,,,,,,321.0,16:44:50,1.64,16:39:29,Pré-live
+21/03 15:30,Primera División - Argentina,Velez Sarsfield BA x Lanus,Matchbook,Lanus,4.40,3.92,4.34,2.8,12.33,R$ 1.59,21/03/2026 16:45:29,,,,,,,1.0,16:44:57,3.71,16:44:58,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Nordic Bet,Santa Clara,6.80,5.54,6.43,3.35,22.79,R$ 1.72,21/03/2026 16:45:29,,,,,,,1.0,16:45:11,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Coolbet,Santa Clara,7.50,5.54,6.43,4.72,35.43,R$ 2.38,21/03/2026 16:45:29,,,,,,,20.0,16:44:50,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,FanDuel,Santa Clara,7.50,5.54,6.43,4.72,35.43,R$ 2.38,21/03/2026 16:45:29,,,,,,,76.0,16:43:54,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Sky Bet,Santa Clara,7.50,5.54,6.43,4.72,35.43,R$ 2.38,21/03/2026 16:45:29,,,,,,,1.0,16:45:11,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,888sport,Santa Clara,8.50,5.54,6.43,6.29,53.49,R$ 3.12,21/03/2026 16:45:29,,,,,,,1.0,16:45:11,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Betfair,Santa Clara,7.80,5.54,6.43,5.24,40.85,R$ 2.63,21/03/2026 16:45:29,,,,,,,3.0,16:45:13,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,DraftKings,Santa Clara,9.50,5.54,6.43,7.53,71.55,R$ 3.68,21/03/2026 16:45:29,,,,,,,18.0,16:45:28,5.23,16:45:10,Ao Vivo (0x0)
+21/03 15:00,Primeira Liga - Portugal,Santa Clara x Gil Vicente,Matchbook,Santa Clara,8.80,5.54,6.43,6.69,58.9,R$ 3.30,21/03/2026 16:45:29,,,,,,,1.0,16:45:11,5.23,16:45:10,Ao Vivo (0x0)
+21/03 16:30,Swiss Superleague,FC Sion x FC St Gallen,Matchbook,Draw,3.70,3.39,3.70,2.51,9.29,R$ 1.50,21/03/2026 16:45:29,,,,,,,4.0,16:45:12,3.20,16:45:16,Ao Vivo (0x0)

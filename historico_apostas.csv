@@ -3640,31 +3640,72 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 21/03 16:30,Swiss Superleague,FC Sion x FC St Gallen,DraftKings,FC St Gallen,21.0,7.43,9.12,8.7,182.73,R$ 4.00,21/03/2026 18:23:55,,,,,,,19.0,18:20:50,6.96,18:21:09,Ao Vivo (1x1)
 21/03 16:30,Swiss Superleague,FC Sion x FC St Gallen,Matchbook,FC Sion,21.0,7.50,9.23,8.57,179.92,R$ 3.94,21/03/2026 18:23:55,,,,,,,38.0,18:20:31,7.03,18:21:09,Ao Vivo (1x1)
 21/03 16:30,Swiss Superleague,FC Sion x FC St Gallen,Matchbook,FC St Gallen,13.5,7.43,9.12,6.06,81.76,R$ 2.86,21/03/2026 18:23:55,,,,,,,38.0,18:20:31,6.96,18:21:09,Ao Vivo (1x1)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,FanDuel,Washington Wizards,18.00,11.85,16.84,2.88,51.91,R$ 1.34,21/03/2026 18:47:44,,,,,,,19.0,18:47:25,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Betsson,Washington Wizards,18.00,11.85,16.84,2.88,51.91,R$ 1.34,21/03/2026 18:47:44,,,,,,,18.0,18:46:48,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Nordic Bet,Washington Wizards,20.00,11.85,16.84,3.44,68.79,R$ 1.58,21/03/2026 18:47:44,,,,,,,18.0,18:47:24,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,DraftKings,Washington Wizards,26.00,11.85,16.84,4.59,119.43,R$ 2.09,21/03/2026 18:47:44,,,,,,,21.0,18:47:27,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,BetMGM,Washington Wizards,21.00,11.85,16.84,3.68,77.23,R$ 1.69,21/03/2026 18:47:44,,,,,,,17.0,18:47:23,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Matchbook,Washington Wizards,26.00,11.85,16.84,4.59,119.43,R$ 2.09,21/03/2026 18:47:44,,,,,,,0.0,18:47:06,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Betfair,Washington Wizards,21.00,11.85,16.84,3.68,77.23,R$ 1.69,21/03/2026 18:47:44,,,,,,,18.0,18:47:24,11.50,18:47:06,Ao Vivo (42x50)
-21/03 18:45,MMA,Sam Patterson x Michael Page,Nordic Bet,Sam Patterson,3.40,2.99,3.23,4.07,13.85,R$ 2.53,21/03/2026 18:47:44,,,,,,,199.0,18:46:49,2.90,18:43:30,Pré-live
-21/03 18:45,MMA,Sam Patterson x Michael Page,Betsson,Sam Patterson,3.40,2.99,3.23,4.07,13.85,R$ 2.53,21/03/2026 18:47:44,,,,,,,236.0,18:47:26,2.90,18:43:30,Pré-live
-21/03 18:45,MMA,Sam Patterson x Michael Page,DraftKings,Sam Patterson,3.30,2.99,3.23,3.18,10.5,R$ 2.00,21/03/2026 18:47:44,,,,,,,199.0,18:46:49,2.90,18:43:30,Pré-live
-21/03 18:45,MMA,Sam Patterson x Michael Page,FanDuel,Sam Patterson,3.40,2.99,3.23,4.07,13.85,R$ 2.53,21/03/2026 18:47:44,,,,,,,237.0,18:47:27,2.90,18:43:30,Pré-live
-21/03 18:45,MMA,Sam Patterson x Michael Page,BetMGM,Sam Patterson,3.60,2.99,3.23,5.71,20.55,R$ 3.46,21/03/2026 18:47:44,,,,,,,163.0,18:46:13,2.90,18:43:30,Pré-live
-21/03 18:45,MMA,Sam Patterson x Michael Page,Betfair,Sam Patterson,3.55,2.99,3.23,5.32,18.88,R$ 3.24,21/03/2026 18:47:44,,,,,,,217.0,18:47:07,2.90,18:43:30,Pré-live
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,FanDuel,Juventus,9.00,6.15,7.26,5.16,46.42,R$ 2.54,21/03/2026 18:47:44,,,,,,,325.0,18:41:46,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Sky Bet,Juventus,26.00,6.15,7.26,12.42,322.98,R$ 5.65,21/03/2026 18:47:44,,,,,,,362.0,18:41:09,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Bovada,Juventus,7.50,6.15,7.26,2.94,22.01,R$ 1.48,21/03/2026 18:47:44,,,,,,,488.0,18:39:03,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,DraftKings,Juventus,12.00,6.15,7.26,7.94,95.22,R$ 3.79,21/03/2026 18:47:44,,,,,,,380.0,18:40:51,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Betsson,Juventus,23.00,6.15,7.26,11.92,274.18,R$ 5.45,21/03/2026 18:47:44,,,,,,,358.0,18:41:13,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Nordic Bet,Juventus,17.00,6.15,7.26,10.39,176.57,R$ 4.83,21/03/2026 18:47:44,,,,,,,379.0,18:40:52,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Matchbook,Juventus,29.00,6.15,7.26,12.82,371.79,R$ 5.81,21/03/2026 18:47:44,,,,,,,362.0,18:41:09,5.79,18:47:11,Ao Vivo (1x1)
-21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Coolbet,Juventus,32.50,6.15,7.26,13.19,428.73,R$ 5.95,21/03/2026 18:47:44,,,,,,,343.0,18:41:28,5.79,18:47:11,Ao Vivo (1x1)
-21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Coolbet,Tondela,2.75,2.55,2.72,2.93,8.05,R$ 2.01,21/03/2026 18:47:44,,,,,,,34.0,18:47:42,2.40,18:47:08,Ao Vivo (0x0)
-21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Matchbook,Tondela,2.82,2.55,2.72,3.83,10.8,R$ 2.60,21/03/2026 18:47:44,,,,,,,34.0,18:47:42,2.40,18:47:08,Ao Vivo (0x0)
-21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Nordic Bet,Zaragoza,10.50,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,20.0,18:46:56,6.90,18:47:16,Ao Vivo (1x1)
-21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Betsson,Zaragoza,10.50,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,21.0,18:46:55,6.90,18:47:16,Ao Vivo (1x1)
-21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Betfair,Zaragoza,10.50,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,1.0,18:47:15,6.90,18:47:16,Ao Vivo (1x1)
-21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,DraftKings,Zaragoza,10.50,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,22.0,18:46:54,6.90,18:47:16,Ao Vivo (1x1)
-21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Matchbook,Zaragoza,10.50,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,39.0,18:46:37,6.90,18:47:16,Ao Vivo (1x1)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,FanDuel,Washington Wizards,18.0,11.85,16.84,2.88,51.91,R$ 1.34,21/03/2026 18:47:44,,,,,,,19.0,18:47:25,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Betsson,Washington Wizards,18.0,11.85,16.84,2.88,51.91,R$ 1.34,21/03/2026 18:47:44,,,,,,,18.0,18:46:48,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Nordic Bet,Washington Wizards,20.0,11.85,16.84,3.44,68.79,R$ 1.58,21/03/2026 18:47:44,,,,,,,18.0,18:47:24,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,DraftKings,Washington Wizards,26.0,11.85,16.84,4.59,119.43,R$ 2.09,21/03/2026 18:47:44,,,,,,,21.0,18:47:27,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,BetMGM,Washington Wizards,21.0,11.85,16.84,3.68,77.23,R$ 1.69,21/03/2026 18:47:44,,,,,,,17.0,18:47:23,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Matchbook,Washington Wizards,26.0,11.85,16.84,4.59,119.43,R$ 2.09,21/03/2026 18:47:44,,,,,,,0.0,18:47:06,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:10,NBA,Washington Wizards x Oklahoma City Thunder,Betfair,Washington Wizards,21.0,11.85,16.84,3.68,77.23,R$ 1.69,21/03/2026 18:47:44,,,,,,,18.0,18:47:24,11.5,18:47:06,Ao Vivo (42x50)
+21/03 18:45,MMA,Sam Patterson x Michael Page,Nordic Bet,Sam Patterson,3.4,2.99,3.23,4.07,13.85,R$ 2.53,21/03/2026 18:47:44,,,,,,,199.0,18:46:49,2.9,18:43:30,Pré-live
+21/03 18:45,MMA,Sam Patterson x Michael Page,Betsson,Sam Patterson,3.4,2.99,3.23,4.07,13.85,R$ 2.53,21/03/2026 18:47:44,,,,,,,236.0,18:47:26,2.9,18:43:30,Pré-live
+21/03 18:45,MMA,Sam Patterson x Michael Page,DraftKings,Sam Patterson,3.3,2.99,3.23,3.18,10.5,R$ 2.00,21/03/2026 18:47:44,,,,,,,199.0,18:46:49,2.9,18:43:30,Pré-live
+21/03 18:45,MMA,Sam Patterson x Michael Page,FanDuel,Sam Patterson,3.4,2.99,3.23,4.07,13.85,R$ 2.53,21/03/2026 18:47:44,,,,,,,237.0,18:47:27,2.9,18:43:30,Pré-live
+21/03 18:45,MMA,Sam Patterson x Michael Page,BetMGM,Sam Patterson,3.6,2.99,3.23,5.71,20.55,R$ 3.46,21/03/2026 18:47:44,,,,,,,163.0,18:46:13,2.9,18:43:30,Pré-live
+21/03 18:45,MMA,Sam Patterson x Michael Page,Betfair,Sam Patterson,3.55,2.99,3.23,5.32,18.88,R$ 3.24,21/03/2026 18:47:44,,,,,,,217.0,18:47:07,2.9,18:43:30,Pré-live
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,FanDuel,Juventus,9.0,6.15,7.26,5.16,46.42,R$ 2.54,21/03/2026 18:47:44,,,,,,,325.0,18:41:46,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Sky Bet,Juventus,26.0,6.15,7.26,12.42,322.98,R$ 5.65,21/03/2026 18:47:44,,,,,,,362.0,18:41:09,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Bovada,Juventus,7.5,6.15,7.26,2.94,22.01,R$ 1.48,21/03/2026 18:47:44,,,,,,,488.0,18:39:03,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,DraftKings,Juventus,12.0,6.15,7.26,7.94,95.22,R$ 3.79,21/03/2026 18:47:44,,,,,,,380.0,18:40:51,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Betsson,Juventus,23.0,6.15,7.26,11.92,274.18,R$ 5.45,21/03/2026 18:47:44,,,,,,,358.0,18:41:13,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Nordic Bet,Juventus,17.0,6.15,7.26,10.39,176.57,R$ 4.83,21/03/2026 18:47:44,,,,,,,379.0,18:40:52,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Matchbook,Juventus,29.0,6.15,7.26,12.82,371.79,R$ 5.81,21/03/2026 18:47:44,,,,,,,362.0,18:41:09,5.79,18:47:11,Ao Vivo (1x1)
+21/03 16:45,Serie A - Italy,Juventus x Sassuolo,Coolbet,Juventus,32.5,6.15,7.26,13.19,428.73,R$ 5.95,21/03/2026 18:47:44,,,,,,,343.0,18:41:28,5.79,18:47:11,Ao Vivo (1x1)
+21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Coolbet,Tondela,2.75,2.55,2.72,2.93,8.05,R$ 2.01,21/03/2026 18:47:44,,,,,,,34.0,18:47:42,2.4,18:47:08,Ao Vivo (0x0)
+21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Matchbook,Tondela,2.82,2.55,2.72,3.83,10.8,R$ 2.60,21/03/2026 18:47:44,,,,,,,34.0,18:47:42,2.4,18:47:08,Ao Vivo (0x0)
+21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Nordic Bet,Zaragoza,10.5,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,20.0,18:46:56,6.9,18:47:16,Ao Vivo (1x1)
+21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Betsson,Zaragoza,10.5,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,21.0,18:46:55,6.9,18:47:16,Ao Vivo (1x1)
+21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Betfair,Zaragoza,10.5,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,1.0,18:47:15,6.9,18:47:16,Ao Vivo (1x1)
+21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,DraftKings,Zaragoza,10.5,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,22.0,18:46:54,6.9,18:47:16,Ao Vivo (1x1)
+21/03 17:01,La Liga 2 - Spain,Deportivo La Coruña x Zaragoza,Matchbook,Zaragoza,10.5,7.30,8.93,4.18,43.85,R$ 2.02,21/03/2026 18:47:44,,,,,,,39.0,18:46:37,6.9,18:47:16,Ao Vivo (1x1)
+21/03 21:11,NBA,Houston Rockets x Miami Heat,Matchbook,Miami Heat,2.34,2.18,2.31,3.07,7.18,R$ 2.34,21/03/2026 19:22:52,,,,,,,182.0,19:22:35,2.13,19:19:33,Pré-live
+21/03 21:11,NBA,Houston Rockets x Miami Heat,Marathon Bet,Miami Heat,2.32,2.18,2.31,2.7,6.26,R$ 2.07,21/03/2026 19:22:52,,,,,,,148.0,19:22:01,2.13,19:19:33,Pré-live
+21/03 18:26,NCAAB,Duke Blue Devils x TCU Horned Frogs,Nordic Bet,Duke Blue Devils,1.15,1.11,1.15,2.92,3.36,R$ 9.80,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,1.07,19:22:34,Ao Vivo (36x34)
+21/03 18:26,NCAAB,Duke Blue Devils x TCU Horned Frogs,BetMGM,Duke Blue Devils,1.16,1.11,1.15,3.67,4.26,R$ 11.64,21/03/2026 19:22:52,,,,,,,34.0,19:22:00,1.07,19:22:34,Ao Vivo (36x34)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Coolbet,Texas A&M Aggies,4.40,3.91,4.34,2.83,12.43,R$ 1.60,21/03/2026 19:22:52,,,,,,,1.0,19:22:35,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,FanDuel,Texas A&M Aggies,4.40,3.91,4.34,2.83,12.43,R$ 1.60,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,BetOnline.ag,Texas A&M Aggies,4.86,3.91,4.34,4.98,24.19,R$ 2.74,21/03/2026 19:22:52,,,,,,,647.0,19:11:47,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,BetRivers,Texas A&M Aggies,4.50,3.91,4.34,3.33,14.99,R$ 1.87,21/03/2026 19:22:52,,,,,,,18.0,19:22:16,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,William Hill,Texas A&M Aggies,4.75,3.91,4.34,4.5,21.38,R$ 2.49,21/03/2026 19:22:52,,,,,,,832.0,19:08:42,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Betsson,Texas A&M Aggies,4.70,3.91,4.34,4.28,20.1,R$ 2.38,21/03/2026 19:22:52,,,,,,,793.0,19:09:21,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Nordic Bet,Texas A&M Aggies,4.60,3.91,4.34,3.81,17.55,R$ 2.13,21/03/2026 19:22:52,,,,,,,0.0,19:22:34,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:11,NCAAB,Houston Cougars x Texas A&M Aggies,Betfair,Texas A&M Aggies,4.70,3.91,4.34,4.28,20.1,R$ 2.38,21/03/2026 19:22:52,,,,,,,1.0,19:22:35,3.70,19:22:34,Ao Vivo (12x10)
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Betsson,Michael Aswell,5.00,3.31,3.61,10.22,51.09,R$ 5.59,21/03/2026 19:22:52,,,,,,,542.0,19:22:38,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Nordic Bet,Michael Aswell,5.00,3.31,3.61,10.22,51.09,R$ 5.59,21/03/2026 19:22:52,,,,,,,504.0,19:22:00,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,DraftKings,Michael Aswell,6.75,3.31,3.61,15.4,103.97,R$ 7.91,21/03/2026 19:22:52,,,,,,,504.0,19:22:00,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,FanDuel,Michael Aswell,6.80,3.31,3.61,15.51,105.48,R$ 7.96,21/03/2026 19:22:52,,,,,,,541.0,19:22:37,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,BetMGM,Michael Aswell,6.00,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,503.0,19:21:59,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Bovada,Michael Aswell,6.00,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,537.0,19:22:33,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Betfair,Michael Aswell,7.20,3.31,3.61,16.33,117.57,R$ 8.30,21/03/2026 19:22:52,,,,,,,541.0,19:22:37,3.21,19:13:36,Pré-live
+21/03 19:15,MMA,Michael Aswell x Luke Riley,Betfair Sportsbook,Michael Aswell,6.00,3.31,3.61,13.55,81.3,R$ 7.11,21/03/2026 19:22:52,,,,,,,538.0,19:22:34,3.21,19:13:36,Pré-live
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,FanDuel,Newells Old Boys,4.30,3.52,3.86,5.17,22.24,R$ 2.95,21/03/2026 19:22:52,,,,,,,52.0,19:21:47,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Sky Bet,Newells Old Boys,4.00,3.52,3.86,3.43,13.71,R$ 2.00,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betfair,Gimnasia Mendoza,7.60,5.67,6.60,4.48,34.07,R$ 2.26,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betfair,Newells Old Boys,3.95,3.52,3.86,3.11,12.29,R$ 1.82,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Bovada,Gimnasia Mendoza,7.00,5.67,6.60,3.36,23.49,R$ 1.71,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Nordic Bet,Newells Old Boys,3.90,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Betsson,Newells Old Boys,3.90,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,31.0,19:22:08,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,BetMGM,Newells Old Boys,3.90,3.52,3.86,2.79,10.87,R$ 1.64,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,DraftKings,Gimnasia Mendoza,7.50,5.67,6.60,4.31,32.31,R$ 2.17,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Matchbook,Gimnasia Mendoza,7.80,5.67,6.60,4.82,37.6,R$ 2.42,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,5.35,19:22:39,Ao Vivo (0x0)
+21/03 17:44,Primera División - Argentina,Newells Old Boys x Gimnasia Mendoza,Matchbook,Newells Old Boys,4.30,3.52,3.86,5.17,22.24,R$ 2.95,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,3.32,19:22:39,Ao Vivo (0x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,FanDuel,Union Santa Fe,12.00,2.47,2.63,32.18,386.19,R$ 15.36,21/03/2026 19:22:52,,,,,,,52.0,19:21:47,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Sky Bet,Union Santa Fe,11.00,2.47,2.63,31.42,345.67,R$ 15.12,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Betfair,Union Santa Fe,15.00,2.47,2.63,33.85,507.74,R$ 15.87,21/03/2026 19:22:52,,,,,,,16.0,19:22:23,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Betsson,Union Santa Fe,10.50,2.47,2.63,30.99,325.42,R$ 14.99,21/03/2026 19:22:52,,,,,,,31.0,19:22:08,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Nordic Bet,Union Santa Fe,10.50,2.47,2.63,30.99,325.42,R$ 14.99,21/03/2026 19:22:52,,,,,,,35.0,19:22:04,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,BetMGM,Union Santa Fe,12.00,2.47,2.63,32.18,386.19,R$ 15.36,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,DraftKings,Union Santa Fe,11.00,2.47,2.63,31.42,345.67,R$ 15.12,21/03/2026 19:22:52,,,,,,,17.0,19:22:22,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:45,Primera División - Argentina,Defensa y Justicia x Union Santa Fe,Matchbook,Union Santa Fe,13.50,2.47,2.63,33.11,446.96,R$ 15.64,21/03/2026 19:22:52,,,,,,,1.0,19:22:40,2.33,19:22:39,Ao Vivo (1x0)
+21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,FanDuel,AVS Futebol SAD,16.00,11.23,15.61,2.66,42.52,R$ 1.24,21/03/2026 19:22:52,,,,,,,17.0,19:22:51,10.58,19:22:34,Ao Vivo (0x0)
+21/03 17:32,Primeira Liga - Portugal,Tondela x AVS Futebol SAD,Sky Bet,AVS Futebol SAD,17.00,11.23,15.61,3.02,51.42,R$ 1.41,21/03/2026 19:22:52,,,,,,,18.0,19:22:52,10.58,19:22:34,Ao Vivo (0x0)

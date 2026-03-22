@@ -3802,8 +3802,12 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 21/03 20:01,Liga MX,Atlas x Querétaro,DraftKings,Querétaro,29.0,9.45,12.37,7.14,207.01,R$ 3.23,21/03/2026 22:10:07,,,,,,,187.0,21:59:32,8.91,22:02:39,Ao Vivo (0x0)
 21/03 20:01,Liga MX,Atlas x Querétaro,BetMGM,Querétaro,36.0,9.45,12.37,7.81,281.12,R$ 3.51,21/03/2026 22:10:07,,,,,,,169.0,21:59:50,8.91,22:02:39,Ao Vivo (0x0)
 21/03 20:01,Liga MX,Atlas x Querétaro,Bovada,Querétaro,17.0,9.45,12.37,4.7,79.97,R$ 2.19,21/03/2026 22:10:07,,,,,,,336.0,21:57:03,8.91,22:02:39,Ao Vivo (0x0)
-21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,DraftKings,VCU Rams,19.00,10.90,14.98,3.91,74.36,R$ 1.81,21/03/2026 22:41:38,,,,,,,521.0,22:41:21,10.59,22:32:40,Ao Vivo (44x32)
-21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,FanDuel,VCU Rams,23.00,10.90,14.98,4.83,111.06,R$ 2.21,21/03/2026 22:41:38,,,,,,,521.0,22:41:21,10.59,22:32:40,Ao Vivo (44x32)
-21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,BetMGM,VCU Rams,16.00,10.90,14.98,2.93,46.83,R$ 1.37,21/03/2026 22:41:38,,,,,,,488.0,22:40:48,10.59,22:32:40,Ao Vivo (44x32)
-21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,Betfair,VCU Rams,34.00,10.90,14.98,6.24,212.01,R$ 2.81,21/03/2026 22:41:38,,,,,,,505.0,22:41:05,10.59,22:32:40,Ao Vivo (44x32)
-21/03 22:30,Boxing,Lester Martinez x Immanuwel Aleem,Betfair,Immanuwel Aleem,16.00,11.41,15.96,2.51,40.23,R$ 1.17,21/03/2026 22:41:38,,,,,,,690.0,22:41:15,10.93,22:29:45,Pré-live
+21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,DraftKings,VCU Rams,19.0,10.90,14.98,3.91,74.36,R$ 1.81,21/03/2026 22:41:38,,,,,,,521.0,22:41:21,10.59,22:32:40,Ao Vivo (44x32)
+21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,FanDuel,VCU Rams,23.0,10.90,14.98,4.83,111.06,R$ 2.21,21/03/2026 22:41:38,,,,,,,521.0,22:41:21,10.59,22:32:40,Ao Vivo (44x32)
+21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,BetMGM,VCU Rams,16.0,10.90,14.98,2.93,46.83,R$ 1.37,21/03/2026 22:41:38,,,,,,,488.0,22:40:48,10.59,22:32:40,Ao Vivo (44x32)
+21/03 21:16,NCAAB,Illinois Fighting Illini x VCU Rams,Betfair,VCU Rams,34.0,10.90,14.98,6.24,212.01,R$ 2.81,21/03/2026 22:41:38,,,,,,,505.0,22:41:05,10.59,22:32:40,Ao Vivo (44x32)
+21/03 22:30,Boxing,Lester Martinez x Immanuwel Aleem,Betfair,Immanuwel Aleem,16.0,11.41,15.96,2.51,40.23,R$ 1.17,21/03/2026 22:41:38,,,,,,,690.0,22:41:15,10.93,22:29:45,Pré-live
+21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,FanDuel,Utah Jazz,3.35,3.01,3.25,3.4,11.41,R$ 2.12,21/03/2026 23:05:40,,,,,,,17.0,23:05:22,2.85,23:05:05,Ao Vivo (26x29)
+21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,BetMGM,Utah Jazz,3.40,3.01,3.25,3.84,13.07,R$ 2.38,21/03/2026 23:05:40,,,,,,,17.0,23:04:48,2.85,23:05:05,Ao Vivo (26x29)
+21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,Betfair,Philadelphia 76ers,1.59,1.50,1.56,3.85,6.12,R$ 4.54,21/03/2026 23:05:40,,,,,,,1.0,23:05:06,1.42,23:05:05,Ao Vivo (26x29)
+21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,Matchbook,Utah Jazz,3.60,3.01,3.25,5.48,19.72,R$ 3.32,21/03/2026 23:05:40,,,,,,,0.0,23:05:05,2.85,23:05:05,Ao Vivo (26x29)

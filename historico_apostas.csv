@@ -3811,3 +3811,72 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,BetMGM,Utah Jazz,3.4,3.01,3.25,3.84,13.07,R$ 2.38,21/03/2026 23:05:40,Philadelphia 76ers,,,,,2026-03-22 04:47:16,17.0,23:04:48,2.85,23:05:05,Ao Vivo (26x29)
 21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,Betfair,Philadelphia 76ers,1.59,1.50,1.56,3.85,6.12,R$ 4.54,21/03/2026 23:05:40,Philadelphia 76ers,,,,,2026-03-22 04:47:16,1.0,23:05:06,1.42,23:05:05,Ao Vivo (26x29)
 21/03 22:41,NBA,Utah Jazz x Philadelphia 76ers,Matchbook,Utah Jazz,3.6,3.01,3.25,5.48,19.72,R$ 3.32,21/03/2026 23:05:40,Philadelphia 76ers,,,,,2026-03-22 04:47:16,0.0,23:05:05,2.85,23:05:05,Ao Vivo (26x29)
+22/03 13:11,NCAAB,Purdue Boilermakers x Miami Hurricanes,BetMGM,Miami Hurricanes,4.60,4.10,4.57,2.65,12.17,R$ 1.48,22/03/2026 13:24:00,,,,,,,844.0,13:23:52,4.00,13:09:48,Ao Vivo (15x12)
+22/03 13:08,NHL,New York Rangers x Winnipeg Jets,Coolbet,New York Rangers,2.40,1.93,2.03,10.03,24.07,R$ 7.52,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.85,13:23:41,Ao Vivo (0x0)
+22/03 13:08,NHL,New York Rangers x Winnipeg Jets,Coolbet,Winnipeg Jets,2.50,2.07,2.18,8.3,20.76,R$ 6.05,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.98,13:23:41,Ao Vivo (0x0)
+22/03 13:30,NHL,Washington Capitals x Colorado Avalanche,Marathon Bet,Colorado Avalanche,1.98,1.64,1.71,10.57,20.92,R$ 9.34,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.60,13:23:41,Pré-live
+22/03 13:30,NHL,Washington Capitals x Colorado Avalanche,Marathon Bet,Washington Capitals,3.24,2.57,2.75,8.07,26.13,R$ 5.10,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.51,13:23:41,Pré-live
+22/03 13:30,NHL,Washington Capitals x Colorado Avalanche,Coolbet,Colorado Avalanche,1.94,1.64,1.71,9.52,18.48,R$ 8.60,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.60,13:23:41,Pré-live
+22/03 13:30,NHL,Washington Capitals x Colorado Avalanche,Coolbet,Washington Capitals,3.30,2.57,2.75,8.63,28.47,R$ 5.41,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.51,13:23:41,Pré-live
+22/03 16:00,NHL,Pittsburgh Penguins x Carolina Hurricanes,Marathon Bet,Carolina Hurricanes,2.15,1.79,1.88,9.3,19.99,R$ 7.60,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.75,13:23:41,Pré-live
+22/03 16:00,NHL,Pittsburgh Penguins x Carolina Hurricanes,Marathon Bet,Pittsburgh Penguins,2.85,2.26,2.40,9.1,25.95,R$ 6.14,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.21,13:23:41,Pré-live
+22/03 16:00,NHL,Pittsburgh Penguins x Carolina Hurricanes,Coolbet,Carolina Hurricanes,2.11,1.79,1.88,8.41,17.76,R$ 7.00,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.75,13:23:41,Pré-live
+22/03 16:00,NHL,Pittsburgh Penguins x Carolina Hurricanes,Coolbet,Pittsburgh Penguins,2.90,2.26,2.40,9.71,28.16,R$ 6.48,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.21,13:23:41,Pré-live
+22/03 16:00,NHL,Chicago Blackhawks x Nashville Predators,Marathon Bet,Chicago Blackhawks,2.53,2.05,2.16,9.32,23.59,R$ 6.75,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.00,13:23:41,Pré-live
+22/03 16:00,NHL,Chicago Blackhawks x Nashville Predators,Marathon Bet,Nashville Predators,2.42,1.95,2.06,9.83,23.79,R$ 7.33,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.91,13:23:41,Pré-live
+22/03 16:00,NHL,Chicago Blackhawks x Nashville Predators,Coolbet,Chicago Blackhawks,2.57,2.05,2.16,9.94,25.54,R$ 7.12,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.00,13:23:41,Pré-live
+22/03 16:00,NHL,Chicago Blackhawks x Nashville Predators,Coolbet,Nashville Predators,2.35,1.95,2.06,8.6,20.2,R$ 6.55,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.91,13:23:41,Pré-live
+22/03 20:00,NHL,New York Islanders x Columbus Blue Jackets,Marathon Bet,Columbus Blue Jackets,2.23,1.82,1.91,10.09,22.51,R$ 8.01,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.78,13:23:41,Pré-live
+22/03 20:00,NHL,New York Islanders x Columbus Blue Jackets,Marathon Bet,New York Islanders,2.76,2.22,2.35,8.83,24.37,R$ 6.06,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.17,13:23:41,Pré-live
+22/03 20:00,NHL,New York Islanders x Columbus Blue Jackets,Coolbet,Columbus Blue Jackets,2.26,1.82,1.91,10.69,24.16,R$ 8.39,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.78,13:23:41,Pré-live
+22/03 20:00,NHL,New York Islanders x Columbus Blue Jackets,Coolbet,New York Islanders,2.63,2.22,2.35,7.04,18.52,R$ 4.97,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.17,13:23:41,Pré-live
+22/03 20:00,NHL,Dallas Stars x Vegas Golden Knights,Marathon Bet,Dallas Stars,2.14,1.77,1.85,9.69,20.75,R$ 7.96,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.73,13:23:41,Pré-live
+22/03 20:00,NHL,Dallas Stars x Vegas Golden Knights,Marathon Bet,Vegas Golden Knights,2.91,2.29,2.43,9.21,26.81,R$ 6.14,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.24,13:23:41,Pré-live
+22/03 20:00,NHL,Dallas Stars x Vegas Golden Knights,Coolbet,Dallas Stars,2.11,1.77,1.85,9.03,19.05,R$ 7.51,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.73,13:23:41,Pré-live
+22/03 20:00,NHL,Dallas Stars x Vegas Golden Knights,Coolbet,Vegas Golden Knights,2.95,2.29,2.43,9.68,28.55,R$ 6.41,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.24,13:23:41,Pré-live
+22/03 21:00,NHL,Anaheim Ducks x Buffalo Sabres,Marathon Bet,Anaheim Ducks,2.46,2.02,2.13,8.84,21.74,R$ 6.51,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.97,13:23:41,Pré-live
+22/03 21:00,NHL,Anaheim Ducks x Buffalo Sabres,Marathon Bet,Buffalo Sabres,2.44,1.98,2.08,9.53,23.25,R$ 7.06,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.93,13:23:41,Pré-live
+22/03 21:00,NHL,Anaheim Ducks x Buffalo Sabres,Coolbet,Anaheim Ducks,2.50,2.02,2.13,9.49,23.72,R$ 6.92,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.97,13:23:41,Pré-live
+22/03 21:00,NHL,Anaheim Ducks x Buffalo Sabres,Coolbet,Buffalo Sabres,2.45,1.98,2.08,9.7,23.76,R$ 7.17,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.93,13:23:41,Pré-live
+22/03 21:00,NHL,Calgary Flames x Tampa Bay Lightning,Marathon Bet,Calgary Flames,3.22,2.57,2.75,7.87,25.35,R$ 5.00,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.51,13:23:41,Pré-live
+22/03 21:00,NHL,Calgary Flames x Tampa Bay Lightning,Marathon Bet,Tampa Bay Lightning,1.97,1.64,1.71,10.31,20.31,R$ 9.16,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.60,13:23:41,Pré-live
+22/03 21:00,NHL,Calgary Flames x Tampa Bay Lightning,Coolbet,Calgary Flames,3.35,2.57,2.75,9.08,30.41,R$ 5.66,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.51,13:23:41,Pré-live
+22/03 21:00,NHL,Calgary Flames x Tampa Bay Lightning,Coolbet,Tampa Bay Lightning,1.91,1.64,1.71,8.71,16.64,R$ 8.00,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.60,13:23:41,Pré-live
+22/03 22:00,NHL,Utah Mammoth x Los Angeles Kings,Marathon Bet,Los Angeles Kings,3.30,2.57,2.75,8.63,28.47,R$ 5.41,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,2.51,13:23:41,Pré-live
+22/03 22:00,NHL,Utah Mammoth x Los Angeles Kings,Marathon Bet,Utah Mammoth,1.98,1.64,1.71,10.57,20.92,R$ 9.34,22/03/2026 13:24:00,,,,,,,22.0,13:23:19,1.60,13:23:41,Pré-live
+22/03 22:00,NHL,Utah Mammoth x Los Angeles Kings,Coolbet,Los Angeles Kings,3.30,2.57,2.75,8.63,28.47,R$ 5.41,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,2.51,13:23:41,Pré-live
+22/03 22:00,NHL,Utah Mammoth x Los Angeles Kings,Coolbet,Utah Mammoth,1.97,1.64,1.71,10.31,20.31,R$ 9.16,22/03/2026 13:24:00,,,,,,,34.0,13:23:07,1.60,13:23:41,Pré-live
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Coolbet,Eintracht Frankfurt,140.00,6.45,7.69,14.79,2070.28,R$ 6.52,22/03/2026 13:24:00,,,,,,,13.0,13:23:53,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Coolbet,Draw,7.75,1.49,1.55,54.2,420.04,R$ 27.22,22/03/2026 13:24:00,,,,,,,13.0,13:23:53,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Sky Bet,Eintracht Frankfurt,101.00,6.45,7.69,14.51,1465.7,R$ 6.41,22/03/2026 13:24:00,,,,,,,11.0,13:23:29,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Sky Bet,Draw,10.00,1.49,1.55,57.1,571.01,R$ 27.76,22/03/2026 13:24:00,,,,,,,11.0,13:23:29,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,FanDuel,Eintracht Frankfurt,101.00,6.45,7.69,14.51,1465.7,R$ 6.41,22/03/2026 13:24:00,,,,,,,12.0,13:23:52,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,FanDuel,Draw,8.00,1.49,1.55,54.6,436.81,R$ 27.30,22/03/2026 13:24:00,,,,,,,12.0,13:23:52,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,888sport,Eintracht Frankfurt,91.00,6.45,7.69,14.4,1310.68,R$ 6.37,22/03/2026 13:24:00,,,,,,,12.0,13:23:52,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,888sport,Draw,9.50,1.49,1.55,56.58,537.46,R$ 27.66,22/03/2026 13:24:00,,,,,,,12.0,13:23:52,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Betfair,Eintracht Frankfurt,200.00,6.45,7.69,15.0,3000.39,R$ 6.60,22/03/2026 13:24:00,,,,,,,14.0,13:23:54,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Betfair,Draw,9.00,1.49,1.55,55.99,503.91,R$ 27.56,22/03/2026 13:24:00,,,,,,,14.0,13:23:54,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Bovada,Eintracht Frankfurt,81.00,6.45,7.69,14.27,1155.66,R$ 6.32,22/03/2026 13:24:00,,,,,,,42.0,13:22:58,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Bovada,Draw,7.00,1.49,1.55,52.82,369.71,R$ 26.96,22/03/2026 13:24:00,,,,,,,42.0,13:22:58,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Matchbook,Eintracht Frankfurt,220.00,6.45,7.69,15.05,3310.43,R$ 6.61,22/03/2026 13:24:00,,,,,,,0.0,13:23:40,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Matchbook,Draw,11.50,1.49,1.55,58.41,671.67,R$ 27.99,22/03/2026 13:24:00,,,,,,,0.0,13:23:40,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,DraftKings,Eintracht Frankfurt,76.00,6.45,7.69,14.19,1078.15,R$ 6.29,22/03/2026 13:24:00,,,,,,,24.0,13:23:16,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,DraftKings,Draw,7.00,1.49,1.55,52.82,369.71,R$ 26.96,22/03/2026 13:24:00,,,,,,,24.0,13:23:16,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Nordic Bet,Eintracht Frankfurt,65.00,6.45,7.69,13.96,907.63,R$ 6.20,22/03/2026 13:24:00,,,,,,,23.0,13:23:17,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Nordic Bet,Draw,7.20,1.49,1.55,53.21,383.13,R$ 27.04,22/03/2026 13:24:00,,,,,,,23.0,13:23:17,1.40,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Betsson,Eintracht Frankfurt,80.00,6.45,7.69,14.25,1140.16,R$ 6.31,22/03/2026 13:24:00,,,,,,,14.0,13:23:54,6.06,13:23:40,Ao Vivo (2x1)
+22/03 11:30,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt,Betsson,Draw,7.20,1.49,1.55,53.21,383.13,R$ 27.04,22/03/2026 13:24:00,,,,,,,14.0,13:23:54,1.40,13:23:40,Ao Vivo (2x1)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,FanDuel,AZ Alkmaar,4.90,2.62,2.80,17.8,87.24,R$ 9.79,22/03/2026 13:24:00,,,,,,,37.0,13:23:17,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Sky Bet,AZ Alkmaar,4.50,2.62,2.80,15.99,71.95,R$ 8.99,22/03/2026 13:24:00,,,,,,,21.0,13:23:33,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,888sport,AZ Alkmaar,4.40,2.62,2.80,15.48,68.13,R$ 8.77,22/03/2026 13:24:00,,,,,,,25.0,13:23:29,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Coolbet,AZ Alkmaar,5.00,2.62,2.80,18.21,91.06,R$ 9.96,22/03/2026 13:24:00,,,,,,,23.0,13:23:31,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,BetMGM,AZ Alkmaar,5.00,2.62,2.80,18.21,91.06,R$ 9.96,22/03/2026 13:24:00,,,,,,,13.0,13:23:41,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Betfair,AZ Alkmaar,4.10,2.62,2.80,13.82,56.67,R$ 8.00,22/03/2026 13:24:00,,,,,,,0.0,13:23:54,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,DraftKings,AZ Alkmaar,4.90,2.62,2.80,17.8,87.24,R$ 9.79,22/03/2026 13:24:00,,,,,,,25.0,13:23:29,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Bovada,AZ Alkmaar,4.75,2.62,2.80,17.16,81.5,R$ 9.51,22/03/2026 13:24:00,,,,,,,76.0,13:22:38,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Nordic Bet,AZ Alkmaar,4.60,2.62,2.80,16.47,75.77,R$ 9.21,22/03/2026 13:24:00,,,,,,,36.0,13:23:18,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Betsson,AZ Alkmaar,4.60,2.62,2.80,16.47,75.77,R$ 9.21,22/03/2026 13:24:00,,,,,,,33.0,13:23:21,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Matchbook,AZ Alkmaar,5.30,2.62,2.80,19.34,102.52,R$ 10.43,22/03/2026 13:24:00,,,,,,,1.0,13:23:53,2.47,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,Groningen x AZ Alkmaar,Matchbook,Draw,4.00,3.43,3.76,4.13,16.52,R$ 2.41,22/03/2026 13:24:00,,,,,,,1.0,13:23:53,3.24,13:23:54,Ao Vivo (1x0)
+22/03 12:45,Dutch Eredivisie,SC Telstar x PSV Eindhoven,BetMGM,PSV Eindhoven,2.25,1.50,1.56,22.14,49.81,R$ 17.43,22/03/2026 13:24:00,,,,,,,13.0,13:23:41,1.42,13:23:54,Ao Vivo (0x0)
+22/03 12:45,Dutch Eredivisie,SC Telstar x PSV Eindhoven,Betfair,PSV Eindhoven,2.42,1.50,1.56,25.26,61.13,R$ 18.83,22/03/2026 13:24:00,,,,,,,0.0,13:23:54,1.42,13:23:54,Ao Vivo (0x0)

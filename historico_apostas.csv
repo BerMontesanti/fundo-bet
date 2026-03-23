@@ -4186,3 +4186,18 @@ Data/Hora,Liga,Jogo,Casa,Seleção,Odd Casa,Odd Justa,Odd Limite,Edge,ROI,Stake,
 22/03 22:15,Primera División - Argentina,Argentinos Juniors x Platense,Matchbook,Argentinos Juniors,2.4,2.12,2.24,5.44,13.06,R$ 4.08,22/03/2026 23:06:37,Argentinos Juniors,,,,,2026-03-23 04:57:30,12.0,23:06:11,2.01,23:06:23,Ao Vivo (0x0)
 22/03 22:15,Primera División - Argentina,Independiente Rivadavia x Rosario Central,Betfair,Draw,11.0,8.33,10.51,2.92,32.12,R$ 1.41,22/03/2026 23:06:37,Independiente Rivadavia,,,,,2026-03-23 04:57:30,11.0,23:06:12,7.93,23:06:23,Ao Vivo (2x0)
 22/03 22:15,Primera División - Argentina,Independiente Rivadavia x Rosario Central,Matchbook,Draw,11.0,8.33,10.51,2.92,32.12,R$ 1.41,22/03/2026 23:06:37,Independiente Rivadavia,,,,,2026-03-23 04:57:30,12.0,23:06:11,7.93,23:06:23,Ao Vivo (2x0)
+23/03 13:30,Liiga,HIFK x KalPa,Coolbet,HIFK,2.00,1.55,1.61,14.55,29.1,R$ 12.73,23/03/2026 14:50:56,,,,,,,19.0,14:50:26,1.45,14:50:45,Pré-live
+23/03 13:30,Liiga,HIFK x KalPa,Coolbet,KalPa,4.33,2.82,3.03,12.36,53.51,R$ 7.03,23/03/2026 14:50:56,,,,,,,19.0,14:50:26,2.64,14:50:45,Pré-live
+23/03 13:30,Liiga,Ässät x Kiekko-Espoo,Coolbet,Kiekko-Espoo,3.00,1.94,2.04,18.27,54.81,R$ 11.99,23/03/2026 14:50:56,,,,,,,19.0,14:50:26,1.81,14:50:45,Pré-live
+23/03 13:30,Mestis,Ketterä x IPK,BetRivers,IPK,1.79,1.42,1.48,14.38,25.74,R$ 14.26,23/03/2026 14:50:56,,,,,,,30.0,14:50:15,1.33,14:50:45,Pré-live
+23/03 13:30,Mestis,Ketterä x IPK,888sport,IPK,1.85,1.42,1.48,16.19,29.96,R$ 15.42,23/03/2026 14:50:56,,,,,,,0.0,14:50:45,1.33,14:50:45,Pré-live
+23/03 13:30,Mestis,Ketterä x IPK,Nordic Bet,IPK,1.85,1.42,1.48,16.19,29.96,R$ 15.42,23/03/2026 14:50:56,,,,,,,17.0,14:50:28,1.33,14:50:45,Pré-live
+23/03 13:30,Mestis,Ketterä x IPK,Betsson,IPK,1.85,1.42,1.48,16.19,29.96,R$ 15.42,23/03/2026 14:50:56,,,,,,,3.0,14:50:48,1.33,14:50:45,Pré-live
+23/03 20:40,NHL,New York Rangers x Ottawa Senators,Marathon Bet,New York Rangers,3.50,2.73,2.93,8.1,28.33,R$ 4.96,23/03/2026 14:50:56,,,,,,,30.0,14:50:00,2.66,14:50:30,Pré-live
+23/03 20:40,NHL,New York Rangers x Ottawa Senators,Marathon Bet,Ottawa Senators,1.89,1.58,1.64,10.42,19.7,R$ 9.68,23/03/2026 14:50:56,,,,,,,30.0,14:50:00,1.54,14:50:30,Pré-live
+23/03 20:40,NHL,New York Rangers x Ottawa Senators,Coolbet,New York Rangers,3.58,2.73,2.93,8.73,31.27,R$ 5.30,23/03/2026 14:50:56,,,,,,,30.0,14:50:00,2.66,14:50:30,Pré-live
+23/03 20:40,NHL,New York Rangers x Ottawa Senators,Coolbet,Ottawa Senators,1.87,1.58,1.64,9.86,18.43,R$ 9.27,23/03/2026 14:50:56,,,,,,,30.0,14:50:00,1.54,14:50:30,Pré-live
+23/03 15:00,HockeyAllsvenskan,Kalmar HC x Södertälje SK,Coolbet,Kalmar HC,1.92,1.61,1.68,9.94,19.09,R$ 9.08,23/03/2026 14:50:56,,,,,,,11.0,14:50:53,1.50,14:50:42,Pré-live
+23/03 15:00,HockeyAllsvenskan,Kalmar HC x Södertälje SK,Coolbet,Södertälje SK,3.40,2.63,2.82,8.56,29.11,R$ 5.31,23/03/2026 14:50:56,,,,,,,11.0,14:50:53,2.45,14:50:42,Pré-live
+23/03 15:00,HockeyAllsvenskan,Kalmar HC x Södertälje SK,Marathon Bet,Kalmar HC,1.78,1.61,1.68,5.85,10.41,R$ 5.84,23/03/2026 14:50:56,,,,,,,89.0,14:49:13,1.50,14:50:42,Pré-live
+23/03 15:00,HockeyAllsvenskan,Kalmar HC x Södertälje SK,Marathon Bet,Södertälje SK,3.38,2.63,2.82,8.39,28.35,R$ 5.21,23/03/2026 14:50:56,,,,,,,89.0,14:49:13,2.45,14:50:42,Pré-live

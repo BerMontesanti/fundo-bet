@@ -1,165 +1,40 @@
 Horário,Esporte,Liga,Jogo
-08:15,Ekstraklasa,Ekstraklasa - Poland,Korona Kielce x Arka Gdynia
-08:15,Outro,Dutch Eredivisie,NEC Nijmegen x Heerenveen
-08:30,Serie A,Serie A - Italy,Como x Pisa
-09:30,3. Liga,3. Liga - Germany,TSG Hoffenheim II x VfL Osnabrück
-09:30,Bundesliga 2,Bundesliga 2 - Germany,VfL Bochum x Holstein Kiel
-09:30,Bundesliga 2,Bundesliga 2 - Germany,Fortuna Düsseldorf x Hertha Berlin
-09:30,Bundesliga 2,Bundesliga 2 - Germany,SC Preußen Münster x 1. FC Magdeburg
-10:00,La Liga,La Liga - Spain,Barcelona x Rayo Vallecano
-10:00,Outro,Denmark Superliga,Randers FC x Silkeborg IF
-10:00,Outro,Denmark Superliga,FC Nordsjaelland x SonderjyskE
-10:00,La Liga 2,La Liga 2 - Spain,Burgos CF x Córdoba
-10:00,Outro,Swiss Superleague,FC Winterthur x FC Basel
-10:00,Outro,Frauen-Bundesliga,RB Leipzig x SC Freiburg
-10:30,Outro,Austrian Football Bundesliga,Hartberg x Austria Wien
-10:30,Outro,Dutch Eredivisie,Feyenoord x Ajax
-10:30,Outro,Dutch Eredivisie,FC Utrecht x Go Ahead Eagles
-10:45,Ekstraklasa,Ekstraklasa - Poland,Lech Poznań x Nieciecza
-11:00,Serie A,Serie A - Italy,Bologna x Lazio
-11:00,Serie A,Serie A - Italy,Atalanta BC x Hellas Verona
-11:00,Outro,HockeyAllsvenskan,Nybro Vikings IF x BIK Karlskoga
-11:00,Outro,HockeyAllsvenskan,AIK x Modo Hockey
-11:00,Ligue 1,Ligue 1 - France,Lyon x AS Monaco
-11:30,Bundesliga,Bundesliga - Germany,FSV Mainz 05 x Eintracht Frankfurt
-12:00,Outro,Denmark Superliga,FC Copenhagen x FC Fredericia
-12:00,Outro,NCAA Baseball,Michigan Wolverines x Nebraska Cornhuskers
-12:00,Outro,Frauen-Bundesliga,1. FC Nürnberg x 1. FC Köln
-12:15,La Liga 2,La Liga 2 - Spain,Real Sociedad B x Granada CF
-12:15,La Liga,La Liga - Spain,Celta Vigo x Alavés
-12:15,La Liga 2,La Liga 2 - Spain,CD Mirandés x Real Valladolid CF
-12:30,3. Liga,3. Liga - Germany,MSV Duisburg x TSV 1860 München
-12:30,Primeira Liga,Primeira Liga - Portugal,Estoril x Rio Ave FC
-12:30,Outro,Swiss Superleague,BSC Young Boys x FC Lugano
-12:30,Outro,Swiss Superleague,FC Luzern x FC Lausanne-Sport
-12:45,Outro,Dutch Eredivisie,SC Telstar x PSV Eindhoven
-12:45,Outro,Dutch Eredivisie,Groningen x AZ Alkmaar
-13:00,Outro,Austrian Football Bundesliga,Rapid Wien x LASK
-13:00,Outro,NCAA Baseball,Boston College Eagles x California Golden Bears
-13:00,Outro,NHL,New York Rangers x Winnipeg Jets
-13:00,Outro,NCAA Baseball,Florida Atlantic Owls x UTSA Roadrunners
-13:05,Outro,MLB Preseason,Houston Astros x St. Louis Cardinals
-13:10,Outro,NCAAB,Purdue Boilermakers x Miami Hurricanes
-13:15,Ligue 1,Ligue 1 - France,Marseille x Lille
-13:15,Ligue 1,Ligue 1 - France,Paris FC x Le Havre
-13:15,Ligue 1,Ligue 1 - France,Rennes x Metz
-13:30,Outro,NHL,Washington Capitals x Colorado Avalanche
-13:30,Ekstraklasa,Ekstraklasa - Poland,Widzew Łódź x Górnik Zabrze
-13:30,Outro,NCAA Baseball,Indiana Hoosiers x Minnesota Golden Gophers
-13:30,Bundesliga,Bundesliga - Germany,FC St. Pauli x SC Freiburg
-13:30,Outro,NCAA Baseball,East Carolina Pirates x UAB Blazers
-14:00,Outro,NCAA Lacrosse,Duke Blue Devils x Denver Pioneers
-14:00,Outro,NCAA Baseball,Alabama Crimson Tide x Florida Gators
-14:00,Outro,NCAA Lacrosse,Georgetown Hoyas x Syracuse Orange
-14:00,Outro,Denmark Superliga,AGF Aarhus x Brondby IF
-14:00,Outro,NCAA Baseball,Georgia St Panthers x Arkansas St Red Wolves
-14:00,Super League,Super League - Greece,AEK Athens x AE Kifisia FC
-14:00,Outro,NCAA Baseball,Notre Dame Fighting Irish x Clemson Tigers
-14:00,Super League,Super League - Greece,Olympiakos Piraeus x AEL
-14:00,Super League,Super League - Greece,Aris Thessaloniki x OFI Crete
-14:00,Super League,Super League - Greece,Asteras Tripolis x Panathinaikos
-14:00,Super League,Super League - Greece,Levadiakos x Atromitos Athens
-14:00,Super League,Super League - Greece,Volos FC x PAOK Thessaloniki
-14:00,Super League,Super League - Greece,Panetolikos Agrinio x Panserraikos FC
-14:00,Outro,NCAA Baseball,Cincinnati Bearcats x Utah Utes
-14:00,Outro,NCAA Baseball,Virginia Cavaliers x Wake Forest Demon Deacons
-14:00,Serie A,Serie A - Italy,AS Roma x Lecce
-14:00,Outro,NCAA Baseball,Purdue Boilermakers x Penn State Nittany Lions
-14:00,Outro,NCAA Baseball,Tennessee Volunteers x Missouri Tigers
-14:00,Outro,NCAA Baseball,Virginia Tech Hokies x Duke Blue Devils
-14:00,Outro,AHL,Charlotte Checkers x Lehigh Valley Phantoms
-14:00,Outro,NCAA Baseball,North Carolina Tar Heels x Louisville Cardinals
-14:00,Outro,NCAA Baseball,Coastal Carolina Chanticleers x James Madison Dukes
-14:00,Outro,NCAA Baseball,Miami Hurricanes x Creighton Bluejays
-14:00,Outro,NCAA Baseball,Florida St Seminoles x NC State Wolfpack
-14:00,Outro,NCAA Baseball,Pittsburgh Panthers x Georgia Tech Yellow Jackets
-14:05,Outro,MLB Preseason,Minnesota Twins x Atlanta Braves
-14:05,Outro,MLB Preseason,New York Yankees x Philadelphia Phillies
-14:05,Outro,NCAA Baseball,Wichita St Shockers x Charlotte 49ers
-14:05,Outro,MLB Preseason,Pittsburgh Pirates x Boston Red Sox
-14:07,Outro,MLB Preseason,Toronto Blue Jays x Tampa Bay Rays
-14:10,Outro,MLB Preseason,Miami Marlins x New York Mets
-14:30,Outro,Frauen-Bundesliga,Bayer Leverkusen x Carl Zeiss Jena
-14:30,La Liga 2,La Liga 2 - Spain,Las Palmas x Sporting Gijón
-14:30,Outro,NCAA Baseball,South Carolina Gamecocks x Arkansas Razorbacks
-14:30,La Liga,La Liga - Spain,Athletic Bilbao x Real Betis
-14:35,Outro,MLB Preseason,Baltimore Orioles x Washington Nationals
-15:00,Outro,NCAA Baseball,Mississippi St Bulldogs x Vanderbilt Commodores
-15:00,Outro,NCAA Baseball,Southern Miss Golden Eagles x Troy Trojans
-15:00,Outro,NCAA Baseball,TCU Horned Frogs x UCF Knights
-15:00,Primeira Liga,Primeira Liga - Portugal,Alverca x Sporting Lisbon
-15:00,Outro,NCAA Baseball,Illinois Fighting Illini x Rutgers Scarlet Knights
-15:00,Outro,NCAA Baseball,Kansas Jayhawks x Houston Cougars
-15:00,Outro,NCAA Baseball,Oklahoma St Cowboys x Baylor Bears
-15:00,Outro,NCAA Baseball,Kansas St Wildcats x Arizona St Sun Devils
-15:00,Outro,NCAA Baseball,Old Dominion Monarchs x Appalachian St Mountaineers
-15:00,Outro,NCAA Baseball,Jacksonville St Gamecocks x Western Kentucky Hilltoppers
-15:00,Outro,NCAA Baseball,Texas State Bobcats x Louisiana Ragin' Cajuns
-15:30,Primera División,Primera División - Argentina,Sarmiento de Junin x Aldosivi Mar del Plata
-15:30,Bundesliga,Bundesliga - Germany,Augsburg x VfB Stuttgart
-15:30,3. Liga,3. Liga - Germany,FC Viktoria Köln 1904 x Rot-Weiss Essen
-15:45,Outro,NCAAB,Iowa State Cyclones x Kentucky Wildcats
-16:00,Outro,Denmark Superliga,Viborg FF x FC Midtjylland
-16:00,Outro,NHL,Pittsburgh Penguins x Carolina Hurricanes
-16:00,Outro,NHL,Chicago Blackhawks x Nashville Predators
-16:00,Outro,NCAA Baseball,Arizona Wildcats x Texas Tech Red Raiders
-16:00,Outro,NCAA Baseball,McNeese Cowboys x SE Louisiana Lions
-16:00,Outro,NCAA Baseball,Auburn Tigers x Texas Longhorns
-16:00,Outro,NCAA Baseball,Northwestern St Demons x New Orleans Privateers
-16:05,Outro,MLB Preseason,Cleveland Guardians x Cincinnati Reds
-16:05,Outro,AHL,Rochester Americans x Hartford Wolf Pack
-16:05,Outro,MLB Preseason,Chicago Cubs x Milwaukee Brewers
-16:15,Ekstraklasa,Ekstraklasa - Poland,Legia Warszawa x Raków Częstochowa
-16:45,Serie A,Serie A - Italy,Fiorentina x Inter Milan
-16:45,Ligue 1,Ligue 1 - France,Nantes x Strasbourg
-17:00,Outro,NCAA Baseball,Houston Baptist Huskies x UT Rio Grande Valley Vaqueros
-17:00,Outro,NCAA Baseball,UC Santa Barbara Gauchos x Hawai'i Rainbow Warriors
-17:00,Outro,NCAA Baseball,Texas A&M Aggies x Georgia Bulldogs
-17:00,Outro,NCAA Baseball,UCLA Bruins x Maryland Terrapins
-17:00,Outro,NCAA Baseball,UC Irvine Anteaters x Oregon St Beavers
-17:00,Outro,NCAA Baseball,CSU Fullerton Titans x CSU Northridge Matadors
-17:00,Outro,AHL,Syracuse Crunch x Cleveland Monsters
-17:00,La Liga,La Liga - Spain,Real Madrid x Atlético Madrid
-17:00,Outro,NCAA Baseball,USC Trojans x Washington Huskies
-17:00,Outro,AHL,Toronto Marlies x W-B/Scranton Penguins
-17:10,Outro,MLB Preseason,Colorado Rockies x Athletics
-17:30,Primeira Liga,Primeira Liga - Portugal,Braga x FC Porto
-17:30,Outro,NCAAB,Wake Forest Demon Deacons x Illinois St Redbirds
-17:45,Primera División,Primera División - Argentina,Estudiantes de Río Cuarto x River Plate
-18:00,Outro,AHL,Hershey Bears x Bridgeport Islanders
-18:00,Outro,AHL,Rockford IceHogs x Grand Rapids Griffins
-18:00,Outro,AHL,San Jose Barracuda x Abbotsford Canucks
-18:05,Outro,AHL,Colorado Eagles x Coachella Valley Firebirds
-18:10,Outro,NBA,Denver Nuggets x Portland Trail Blazers
-18:15,Outro,NCAAB,Kansas Jayhawks x St. John's Red Storm
-19:00,Outro,AHL,Chicago Wolves x Iowa Wild
-19:10,Outro,NCAAB,Virginia Cavaliers x Tennessee Volunteers
-19:10,Outro,NBA,Sacramento Kings x Brooklyn Nets
-19:30,Outro,NCAAB,Auburn Tigers x Seattle Redhawks
-20:00,Outro,NHL,New York Islanders x Columbus Blue Jackets
-20:00,Outro,NHL,Dallas Stars x Vegas Golden Knights
-20:00,Primera División,Primera División - Argentina,Boca Juniors x Instituto de Córdoba
-20:00,Outro,Liga MX,Santos Laguna x Puebla
-20:00,Outro,Liga MX,Pachuca x Toluca
-20:00,Outro,NCAAB,Tulsa Golden Hurricane x UNLV Rebels
-20:10,Outro,NCAAB,Florida Gators x Iowa Hawkeyes
-20:40,Outro,NBA,New York Knicks x Washington Wizards
-20:50,Outro,NCAAB,Arizona Wildcats x Utah State Aggies
-21:00,Outro,NHL,Anaheim Ducks x Buffalo Sabres
-21:00,Outro,AHL,Henderson Silver Knights x Texas Stars
-21:00,Outro,AHL,San Diego Gulls x Calgary Wranglers
-21:00,Outro,NCAAB,New Mexico Lobos x GW Revolutionaries
-21:00,Outro,NHL,Calgary Flames x Tampa Bay Lightning
-21:10,Outro,NBA,Boston Celtics x Minnesota Timberwolves
-21:30,Outro,NCAAB,Oklahoma St Cowboys x Wichita St Shockers
-21:45,Outro,NCAAB,UConn Huskies x UCLA Bruins
-22:00,Outro,NCAAB,California Golden Bears x Saint Joseph's Hawks
-22:00,Outro,NHL,Utah Mammoth x Los Angeles Kings
-22:00,Outro,Liga MX,FC Juárez x Tigres
-22:05,Outro,MLB Preseason,Chicago White Sox x Seattle Mariners
-22:07,Outro,MLB Preseason,Los Angeles Angels x Los Angeles Dodgers
-22:10,Outro,MLB Preseason,San Diego Padres x Arizona Diamondbacks
-22:10,Outro,NBA,Phoenix Suns x Toronto Raptors
-22:15,Primera División,Primera División - Argentina,Independiente Rivadavia x Rosario Central
-22:15,Primera División,Primera División - Argentina,Argentinos Juniors x Platense
-22:45,Outro,NCAAB,Alabama Crimson Tide x Texas Tech Red Raiders
+13:05,Outro,MLB Preseason,Philadelphia Phillies x Tampa Bay Rays
+13:30,Outro,Liiga,Ässät x Kiekko-Espoo
+13:30,Outro,Liiga,JYP x Pelicans
+13:30,Outro,Liiga,Lukko x HPK
+13:30,Outro,Liiga,HIFK x KalPa
+13:30,Outro,Mestis,Ketterä x IPK
+14:00,Outro,Frauen-Bundesliga,Union Berlin x Werder Bremen
+14:05,Outro,MLB Preseason,Pittsburgh Pirates x Atlanta Braves
+14:05,Outro,MLB Preseason,Washington Nationals x Baltimore Orioles
+14:05,Outro,MLB Preseason,Boston Red Sox x Minnesota Twins
+15:00,Outro,HockeyAllsvenskan,Kalmar HC x Södertälje SK
+15:05,Outro,MLB Preseason,Athletics x Chicago White Sox
+16:05,Outro,MLB Preseason,Chicago Cubs x New York Yankees
+16:10,Outro,MLB Preseason,San Diego Padres x Seattle Mariners
+16:30,La Liga 2,La Liga 2 - Spain,CD Castellón x Cultural Leonesa
+17:00,Outro,NCAA Baseball,Stanford Cardinal x Utah Valley Wolverines
+17:00,Outro,NCAA Baseball,Cal Poly Mustangs x UC Davis Aggies
+19:00,Primera División,Primera División - Argentina,Estudiantes x Central Córdoba
+20:00,Outro,NCAA Lacrosse,Dartmouth Big Green x Virginia Cavaliers
+20:10,Outro,NBA,Detroit Pistons x Los Angeles Lakers
+20:10,Outro,NBA,Philadelphia 76ers x Oklahoma City Thunder
+20:10,Outro,NBA,Orlando Magic x Indiana Pacers
+20:10,Outro,NBA,Miami Heat x San Antonio Spurs
+20:30,Outro,NHL,New York Rangers x Ottawa Senators
+20:40,Outro,MLB Preseason,Milwaukee Brewers x Cincinnati Reds
+20:40,Outro,NBA,Atlanta Hawks x Memphis Grizzlies
+21:00,Outro,AHL,Manitoba Moose x Tucson Roadrunners
+21:05,Outro,MLB Preseason,Texas Rangers x Kansas City Royals
+21:10,Outro,NBA,Chicago Bulls x Houston Rockets
+21:15,Primera División,Primera División - Argentina,Atlético Huracán x Barracas Central
+22:05,Outro,NCAA Baseball,Fresno St Bulldogs x Long Beach State Dirtbags
+22:05,Outro,NCAA Baseball,UNLV Rebels x Arizona St Sun Devils
+22:10,Outro,NBA,Utah Jazz x Toronto Raptors
+22:10,Outro,MLB Preseason,Colorado Rockies x Detroit Tigers
+22:10,Outro,MLB Preseason,Los Angeles Dodgers x Los Angeles Angels
+22:40,Outro,NBA,Dallas Mavericks x Golden State Warriors
+22:40,Outro,MLB Preseason,Arizona Diamondbacks x Cleveland Guardians
+23:10,Outro,NBA,Portland Trail Blazers x Brooklyn Nets
+23:40,Outro,NBA,Los Angeles Clippers x Milwaukee Bucks

@@ -1,40 +1,56 @@
 Horário,Esporte,Liga,Jogo
-13:05,Outro,MLB Preseason,Philadelphia Phillies x Tampa Bay Rays
-13:30,Outro,Liiga,Ässät x Kiekko-Espoo
-13:30,Outro,Liiga,JYP x Pelicans
-13:30,Outro,Liiga,Lukko x HPK
+13:30,Outro,Liiga,Kiekko-Espoo x Ässät
+13:30,Outro,Liiga,HPK x Lukko
 13:30,Outro,Liiga,HIFK x KalPa
-13:30,Outro,Mestis,Ketterä x IPK
-14:00,Outro,Frauen-Bundesliga,Union Berlin x Werder Bremen
-14:05,Outro,MLB Preseason,Pittsburgh Pirates x Atlanta Braves
-14:05,Outro,MLB Preseason,Washington Nationals x Baltimore Orioles
-14:05,Outro,MLB Preseason,Boston Red Sox x Minnesota Twins
-15:00,Outro,HockeyAllsvenskan,Kalmar HC x Södertälje SK
-15:05,Outro,MLB Preseason,Athletics x Chicago White Sox
-16:05,Outro,MLB Preseason,Chicago Cubs x New York Yankees
-16:10,Outro,MLB Preseason,San Diego Padres x Seattle Mariners
-16:30,La Liga 2,La Liga 2 - Spain,CD Castellón x Cultural Leonesa
-17:00,Outro,NCAA Baseball,Stanford Cardinal x Utah Valley Wolverines
-17:00,Outro,NCAA Baseball,Cal Poly Mustangs x UC Davis Aggies
-19:00,Primera División,Primera División - Argentina,Estudiantes x Central Córdoba
-20:00,Outro,NCAA Lacrosse,Dartmouth Big Green x Virginia Cavaliers
-20:10,Outro,NBA,Detroit Pistons x Los Angeles Lakers
-20:10,Outro,NBA,Philadelphia 76ers x Oklahoma City Thunder
-20:10,Outro,NBA,Orlando Magic x Indiana Pacers
-20:10,Outro,NBA,Miami Heat x San Antonio Spurs
-20:30,Outro,NHL,New York Rangers x Ottawa Senators
-20:40,Outro,MLB Preseason,Milwaukee Brewers x Cincinnati Reds
-20:40,Outro,NBA,Atlanta Hawks x Memphis Grizzlies
-21:00,Outro,AHL,Manitoba Moose x Tucson Roadrunners
-21:05,Outro,MLB Preseason,Texas Rangers x Kansas City Royals
-21:10,Outro,NBA,Chicago Bulls x Houston Rockets
-21:15,Primera División,Primera División - Argentina,Atlético Huracán x Barracas Central
-22:05,Outro,NCAA Baseball,Fresno St Bulldogs x Long Beach State Dirtbags
-22:05,Outro,NCAA Baseball,UNLV Rebels x Arizona St Sun Devils
-22:10,Outro,NBA,Utah Jazz x Toronto Raptors
-22:10,Outro,MLB Preseason,Colorado Rockies x Detroit Tigers
-22:10,Outro,MLB Preseason,Los Angeles Dodgers x Los Angeles Angels
-22:40,Outro,NBA,Dallas Mavericks x Golden State Warriors
-22:40,Outro,MLB Preseason,Arizona Diamondbacks x Cleveland Guardians
-23:10,Outro,NBA,Portland Trail Blazers x Brooklyn Nets
-23:40,Outro,NBA,Los Angeles Clippers x Milwaukee Bucks
+15:00,Outro,HockeyAllsvenskan,Modo Hockey x AIK
+15:30,Outro,NCAA Baseball,Northeastern Huskies x Boston College Eagles
+16:00,Outro,NCAA Baseball,Kent State Golden Flashes x Pittsburgh Panthers
+17:00,Outro,NCAA Baseball,Missouri St Bears x Oklahoma St Cowboys
+17:00,Outro,NCAA Baseball,USC Trojans x Oregon St Beavers
+17:00,Outro,NCAA Baseball,Duke Blue Devils x East Carolina Pirates
+18:00,Outro,NCAA Baseball,East Tennessee St Buccaneers x Virginia Tech Hokies
+18:30,Outro,NCAA Baseball,Maryland Terrapins x Virginia Cavaliers
+19:00,Outro,NCAA Baseball,Indiana Hoosiers x Indiana St Sycamores
+19:00,Outro,NCAA Baseball,Appalachian St Mountaineers x High Point Panthers
+19:00,Outro,NCAA Baseball,NC State Wolfpack x Campbell Fighting Camels
+19:00,Outro,NCAA Baseball,Florida St Seminoles x Florida Gators
+19:00,Outro,NCAA Baseball,Illinois St Redbirds x Iowa Hawkeyes
+19:30,Outro,NCAA Baseball,Stetson Hatters x UCF Knights
+19:30,Outro,NCAA Baseball,Florida Gulf Coast Eagles x South Florida Bulls
+19:30,Outro,NCAA Baseball,North Carolina Tar Heels x South Carolina Gamecocks
+20:00,Outro,NCAA Baseball,South Alabama Jaguars x Auburn Tigers
+20:00,Outro,NCAA Baseball,Clemson Tigers x Coastal Carolina Chanticleers
+20:00,Outro,NCAA Baseball,Illinois Fighting Illini x Missouri Tigers
+20:00,Outro,NCAA Baseball,Kansas St Wildcats x Nebraska Cornhuskers
+20:00,Outro,NCAA Baseball,Louisiana Ragin' Cajuns x SE Louisiana Lions
+20:00,Outro,NCAA Baseball,Texas State Bobcats x UT Rio Grande Valley Vaqueros
+20:00,Outro,NCAA Baseball,Western Kentucky Hilltoppers x Louisville Cardinals
+20:00,Outro,NCAA Baseball,Mississippi St Bulldogs x Southern Miss Golden Eagles
+20:00,Outro,NCAAB,Tulsa Golden Hurricane x Wichita St Shockers
+20:00,Outro,NHL,Montréal Canadiens x Carolina Hurricanes
+20:00,Outro,AHL,Grand Rapids Griffins x Milwaukee Admirals
+20:00,Outro,NCAA Lacrosse,Harvard Crimson x Boston Univ. Terriers
+20:00,Outro,NHL,Boston Bruins x Toronto Maple Leafs
+20:00,Outro,NHL,New York Islanders x Chicago Blackhawks
+20:00,Outro,NHL,Pittsburgh Penguins x Colorado Avalanche
+20:00,Outro,NHL,Detroit Red Wings x Ottawa Senators
+20:00,Outro,NHL,Florida Panthers x Seattle Kraken
+20:00,Outro,NHL,Philadelphia Flyers x Columbus Blue Jackets
+20:05,Outro,NCAA Baseball,Lamar Cardinals x Tarleton State Texans
+20:10,Outro,NBA,Charlotte Hornets x Sacramento Kings
+20:30,Outro,NCAA Baseball,Dallas Baptist Patriots x TCU Horned Frogs
+20:30,Outro,NCAA Baseball,Houston Cougars x Texas Longhorns
+20:30,Outro,NCAA Baseball,LSU Tigers x Louisiana Tech Bulldogs
+20:30,Outro,NHL,Tampa Bay Lightning x Minnesota Wild
+20:40,Outro,NBA,New York Knicks x New Orleans Pelicans
+21:00,Outro,NHL,Dallas Stars x New Jersey Devils
+21:00,Outro,NHL,Nashville Predators x San Jose Sharks
+21:00,Outro,NHL,St Louis Blues x Washington Capitals
+21:00,Outro,NCAA Baseball,Utah Utes x BYU Cougars
+21:00,Outro,NHL,Winnipeg Jets x Vegas Golden Knights
+21:10,Outro,NBA,Cleveland Cavaliers x Orlando Magic
+22:00,Outro,NCAA Baseball,San Diego Toreros x CSU Fullerton Titans
+22:00,Outro,NHL,Calgary Flames x Los Angeles Kings
+22:00,Outro,NCAAB,New Mexico Lobos x Saint Joseph's Hawks
+22:30,Outro,NHL,Utah Mammoth x Edmonton Oilers
+23:00,Outro,NHL,Vancouver Canucks x Anaheim Ducks

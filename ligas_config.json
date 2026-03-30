@@ -157,7 +157,8 @@
         "tennis_wta_qatar_open": "WTA Qatar Open",
         "tennis_wta_us_open": "WTA US Open",
         "tennis_wta_wimbledon": "WTA Wimbledon",
-        "tennis_wta_wuhan_open": "WTA Wuhan Open"
+        "tennis_wta_wuhan_open": "WTA Wuhan Open",
+        "tennis_wta_charleston_open": "WTA Charleston Open"
     },
     "selecionadas": [
         "soccer_greece_super_league",
@@ -201,11 +202,12 @@
         "americanfootball_ncaaf",
         "americanfootball_ncaaf_championship_winner",
         "americanfootball_nfl_super_bowl_winner",
-        "americanfootball_ufl",
         "aussierules_afl",
+        "baseball_kbo",
         "baseball_mlb",
         "baseball_mlb_world_series_winner",
         "baseball_ncaa",
+        "baseball_npb",
         "basketball_euroleague",
         "basketball_nba",
         "basketball_nba_championship_winner",
@@ -220,6 +222,7 @@
         "golf_pga_championship_winner",
         "golf_the_open_championship_winner",
         "golf_us_open_winner",
+        "handball_germany_bundesliga",
         "icehockey_ahl",
         "icehockey_liiga",
         "icehockey_mestis",
@@ -278,6 +281,7 @@
         "soccer_spain_segunda_division",
         "soccer_spl",
         "soccer_sweden_allsvenskan",
+        "soccer_sweden_superettan",
         "soccer_switzerland_superleague",
         "soccer_turkey_super_league",
         "soccer_uefa_champs_league",
@@ -285,6 +289,7 @@
         "soccer_uefa_europa_conference_league",
         "soccer_uefa_europa_league",
         "soccer_uefa_nations_league",
-        "soccer_usa_mls"
+        "soccer_usa_mls",
+        "tennis_wta_charleston_open"
     ]
 }
